@@ -3321,11 +3321,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\C#\\ClubConquistadoresAguilas\\Web\\Web.csproj",
+      "projectUniqueName": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Web\\Web.csproj",
       "projectName": "Web",
-      "projectPath": "E:\\C#\\ClubConquistadoresAguilas\\Web\\Web.csproj",
+      "projectPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Web\\Web.csproj",
       "packagesPath": "C:\\Users\\dyfmeks\\.nuget\\packages\\",
-      "outputPath": "E:\\C#\\ClubConquistadoresAguilas\\Web\\obj\\",
+      "outputPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Web\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -3348,11 +3348,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "E:\\C#\\ClubConquistadoresAguilas\\Application\\Application.csproj": {
-              "projectPath": "E:\\C#\\ClubConquistadoresAguilas\\Application\\Application.csproj"
+            "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Application\\Application.csproj": {
+              "projectPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Application\\Application.csproj"
             },
-            "E:\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj": {
-              "projectPath": "E:\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj"
+            "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj": {
+              "projectPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj"
             }
           }
         }

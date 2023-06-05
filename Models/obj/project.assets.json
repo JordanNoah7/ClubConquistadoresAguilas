@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj",
+      "projectUniqueName": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj",
       "projectName": "Models",
-      "projectPath": "E:\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj",
+      "projectPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj",
       "packagesPath": "C:\\Users\\dyfmeks\\.nuget\\packages\\",
-      "outputPath": "E:\\C#\\ClubConquistadoresAguilas\\Models\\obj\\",
+      "outputPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Models\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
