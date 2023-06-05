@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\DataAccess\\DataAccess.csproj",
+      "projectUniqueName": "E:\\C#\\ClubConquistadoresAguilas\\DataAccess\\DataAccess.csproj",
       "projectName": "DataAccess",
-      "projectPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\DataAccess\\DataAccess.csproj",
+      "projectPath": "E:\\C#\\ClubConquistadoresAguilas\\DataAccess\\DataAccess.csproj",
       "packagesPath": "C:\\Users\\dyfmeks\\.nuget\\packages\\",
-      "outputPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\DataAccess\\obj\\",
+      "outputPath": "E:\\C#\\ClubConquistadoresAguilas\\DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

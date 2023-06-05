@@ -1,6 +1,7 @@
 ﻿CREATE DATABASE ClubConquistadoresAguilas;
 USE ClubConquistadoresAguilas;
 
+--Creacion de la tabla Clubes
 CREATE TABLE Clubs(
     ID INT IDENTITY NOT NULL,
     name NVARCHAR(25) NOT NULL,
@@ -20,6 +21,7 @@ CREATE TABLE Clubs(
     CONSTRAINT CK_MeetingHour CHECK (meetingHour >= '06:00:00' AND meetingHour <= '17:00:00')
 );
 
+--Creacion de la tabla Unidades
 CREATE TABLE Units(
     ID TINYINT IDENTITY NOT NULL,
     name NVARCHAR(15) NOT NULL,
@@ -31,6 +33,7 @@ CREATE TABLE Units(
     CONSTRAINT FK_Club_Units FOREIGN KEY (ClubID) REFERENCES Clubs(ID)
 );
 
+--Creacion de la tabla Cargos
 CREATE TABLE Positions(
     ID TINYINT IDENTITY NOT NULL,
     name NVARCHAR(20) NOT NULL,
@@ -38,6 +41,7 @@ CREATE TABLE Positions(
     CONSTRAINT PK_Positions PRIMARY KEY (ID)
 );
 
+--Creacion de la tabla Personas
 CREATE TABLE People(
     ID INT IDENTITY NOT NULL,
     firstName NVARCHAR(30) NOT NULL,
@@ -58,6 +62,7 @@ CREATE TABLE People(
     CONSTRAINT CK_Email CHECK (email LIKE '%@%.%' AND email NOT LIKE '%@%@%')
 );
 
+--Creacion de la tabla CargoPersonaUnidad
 CREATE TABLE PositionPersonUnit(
     UnitID TINYINT NOT NULL,
     PersonID INT NOT NULL,
@@ -68,6 +73,7 @@ CREATE TABLE PositionPersonUnit(
     CONSTRAINT FK_PositionPersonUnit_Position FOREIGN KEY (PositionID) REFERENCES Positions(ID),
 );
 
+--Creacion de la tabla Actividades
 CREATE TABLE Activities(
     ID INT IDENTITY NOT NULL,
     name NVARCHAR(20) NOT NULL,
@@ -83,6 +89,7 @@ CREATE TABLE Activities(
     CONSTRAINT CK_EndDate CHECK (endDate >= startDate)
 );
 
+--Creacion de la tabla CargoPersonaActividad
 CREATE TABLE PositionPersonActivity(
     ActivityID INT NOT NULL,
     PersonID INT NOT NULL,
@@ -93,6 +100,7 @@ CREATE TABLE PositionPersonActivity(
     CONSTRAINT FK_PositionPersonActivity_Position FOREIGN KEY (PositionID) REFERENCES Positions(ID),
 );
 
+--Creacion de la tabla Categorias
 CREATE TABLE Categories(
     ID TINYINT IDENTITY NOT NULL,
     name NVARCHAR(15) NOT NULL,
@@ -100,6 +108,7 @@ CREATE TABLE Categories(
     CONSTRAINT PK_Categories PRIMARY KEY (ID)
 );
 
+--Creacion de la tabla Especialidades
 CREATE TABLE Specialties(
     ID SMALLINT IDENTITY NOT NULL,
     name NVARCHAR(25) NOT NULL,
@@ -110,6 +119,7 @@ CREATE TABLE Specialties(
     CONSTRAINT FK_Category_Specialties FOREIGN KEY (CategoryID) REFERENCES Categories(ID)
 );
 
+--Creacion de la tabla EspecialidadPersona
 CREATE TABLE SpecialtyPerson(
     PersonID INT NOT NULL,
     SpecialtyID SMALLINT NOT NULL,
@@ -118,6 +128,7 @@ CREATE TABLE SpecialtyPerson(
     CONSTRAINT FK_SpecialtyPerson_Specialty FOREIGN KEY (SpecialtyID) REFERENCES Specialties(ID)
 );
 
+--Creacion de la tabla Clases
 CREATE TABLE Classes(
     ID TINYINT IDENTITY NOT NULL,
     name NVARCHAR(15) NOT NULL,
@@ -125,6 +136,7 @@ CREATE TABLE Classes(
     CONSTRAINT PK_Classes PRIMARY KEY (ID), 
 );
 
+--Creacion de la tabla ClasePersona
 CREATE TABLE ClassPerson(
     PersonID INT NOT NULL,
     ClassID TINYINT NOT NULL,
@@ -133,6 +145,7 @@ CREATE TABLE ClassPerson(
     CONSTRAINT FK_ClassPerson_Class FOREIGN KEY (ClassID) REFERENCES Classes(ID)
 );
 
+--Creacion de la tabla Usuarios
 CREATE TABLE Users(
     ID INT NOT NULL,
     userName NVARCHAR(15),
@@ -143,6 +156,7 @@ CREATE TABLE Users(
     CONSTRAINT CK_Password CHECK (password LIKE '%[0-9]%' AND password LIKE '%[A-Z]%' AND password LIKE '%[!@#$%^&*()]%')
 );
 
+--Creacion de la tabla Permisos
 CREATE TABLE Permissions(
     ID TINYINT IDENTITY NOT NULL,
     name NVARCHAR(20) NOT NULL,
@@ -151,6 +165,7 @@ CREATE TABLE Permissions(
     CONSTRAINT PK_Permissions PRIMARY KEY (ID),
 );
 
+--Creacion de la tabla Roles
 CREATE TABLE Roles(
     ID TINYINT IDENTITY NOT NULL,
     name NVARCHAR(20) NOT NULL,
@@ -159,6 +174,7 @@ CREATE TABLE Roles(
     CONSTRAINT PK_Roles PRIMARY KEY (ID),
 );
 
+--Creacion de la tabla UnidadPermiso
 CREATE TABLE UserPermission(
     UserID INT NOT NULL,
     PermissionID TINYINT NOT NULL,
@@ -167,6 +183,7 @@ CREATE TABLE UserPermission(
     CONSTRAINT FK_UserPermission_Permission FOREIGN KEY (PermissionID) REFERENCES Permissions(ID),
 );
 
+--Creacion de la tabla UsuarioRol
 CREATE TABLE UserRol(
     UserID INT NOT NULL,
     RolID TINYINT NOT NULL,
@@ -175,6 +192,7 @@ CREATE TABLE UserRol(
     CONSTRAINT FK_UserRol_Rol FOREIGN KEY (RolID) REFERENCES Roles(ID),
 );
 
+--Creacion de la tabla RolPermiso
 CREATE TABLE RolPermission(
     RolID TINYINT NOT NULL,
     PermissionID TINYINT NOT NULL,

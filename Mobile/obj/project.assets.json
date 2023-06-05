@@ -24639,11 +24639,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Mobile\\Mobile.csproj",
+      "projectUniqueName": "E:\\C#\\ClubConquistadoresAguilas\\Mobile\\Mobile.csproj",
       "projectName": "Mobile",
-      "projectPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Mobile\\Mobile.csproj",
+      "projectPath": "E:\\C#\\ClubConquistadoresAguilas\\Mobile\\Mobile.csproj",
       "packagesPath": "C:\\Users\\dyfmeks\\.nuget\\packages\\",
-      "outputPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Mobile\\obj\\",
+      "outputPath": "E:\\C#\\ClubConquistadoresAguilas\\Mobile\\obj\\",
       "projectStyle": "PackageReference",
       "crossTargeting": true,
       "fallbackFolders": [

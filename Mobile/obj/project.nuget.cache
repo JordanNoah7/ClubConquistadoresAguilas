@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Po1pLKYagr4/0XA0bcHZza3+xc9areKNdbRgk1dQd3HO9yUsOcMCyiqmdsAjnJP0jt3yizUs2wW7rN6wXScAIg==",
+  "dgSpecHash": "JByO4TjkvJPndMmMwB9/lmUIw+Df+RlpGcbnN52yJNi7MJVY+u4Xm5Xy4INup+WJlVApnDVCgEbrur4kEoceDg==",
   "success": true,
-  "projectFilePath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Mobile\\Mobile.csproj",
+  "projectFilePath": "E:\\C#\\ClubConquistadoresAguilas\\Mobile\\Mobile.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dyfmeks\\.nuget\\packages\\googlegson\\2.9.0.1\\googlegson.2.9.0.1.nupkg.sha512",
     "C:\\Users\\dyfmeks\\.nuget\\packages\\microsoft.extensions.configuration\\6.0.1\\microsoft.extensions.configuration.6.0.1.nupkg.sha512",

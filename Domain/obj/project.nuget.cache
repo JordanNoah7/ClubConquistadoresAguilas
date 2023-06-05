@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "LV7NEgAkaeVsQ4KeJF/ya3XjX6G3sJlDQUH2zdlmoHGEa21OR2ZJVRkTzEprt8v+ltL62sXtkuxJhUjUlNWUyw==",
+  "dgSpecHash": "lfBIRSyE+85RJhFypvOrwFEM6nn3znRgdBxY5ggHqfVrbar4iuay6ObldK6JGppcARbri+SaLxZE1cmAm6+LYA==",
   "success": true,
-  "projectFilePath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Domain\\Domain.csproj",
+  "projectFilePath": "E:\\C#\\ClubConquistadoresAguilas\\Domain\\Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
