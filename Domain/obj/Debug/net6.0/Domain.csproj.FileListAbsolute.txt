@@ -10,3 +10,15 @@ G:\Programacion\C#\ClubConquistadoresAguilas\Domain\obj\Debug\net6.0\Domain.dll
 G:\Programacion\C#\ClubConquistadoresAguilas\Domain\obj\Debug\net6.0\refint\Domain.dll
 G:\Programacion\C#\ClubConquistadoresAguilas\Domain\obj\Debug\net6.0\Domain.pdb
 G:\Programacion\C#\ClubConquistadoresAguilas\Domain\obj\Debug\net6.0\ref\Domain.dll
+E:\C#\ClubConquistadoresAguilas\Domain\bin\Debug\net6.0\Domain.deps.json
+E:\C#\ClubConquistadoresAguilas\Domain\bin\Debug\net6.0\Domain.dll
+E:\C#\ClubConquistadoresAguilas\Domain\bin\Debug\net6.0\Domain.pdb
+E:\C#\ClubConquistadoresAguilas\Domain\obj\Debug\net6.0\Domain.csproj.AssemblyReference.cache
+E:\C#\ClubConquistadoresAguilas\Domain\obj\Debug\net6.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+E:\C#\ClubConquistadoresAguilas\Domain\obj\Debug\net6.0\Domain.AssemblyInfoInputs.cache
+E:\C#\ClubConquistadoresAguilas\Domain\obj\Debug\net6.0\Domain.AssemblyInfo.cs
+E:\C#\ClubConquistadoresAguilas\Domain\obj\Debug\net6.0\Domain.csproj.CoreCompileInputs.cache
+E:\C#\ClubConquistadoresAguilas\Domain\obj\Debug\net6.0\Domain.dll
+E:\C#\ClubConquistadoresAguilas\Domain\obj\Debug\net6.0\refint\Domain.dll
+E:\C#\ClubConquistadoresAguilas\Domain\obj\Debug\net6.0\Domain.pdb
+E:\C#\ClubConquistadoresAguilas\Domain\obj\Debug\net6.0\ref\Domain.dll
