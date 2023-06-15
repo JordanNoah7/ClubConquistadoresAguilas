@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\DataAccess\\DataAccess.csproj": {}
+    "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\DataAccess\\DataAccess.csproj": {}
   },
   "projects": {
-    "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\DataAccess\\DataAccess.csproj": {
+    "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\DataAccess\\DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\DataAccess\\DataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\DataAccess\\DataAccess.csproj",
         "projectName": "DataAccess",
-        "projectPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\DataAccess\\DataAccess.csproj",
-        "packagesPath": "C:\\Users\\dyfmeks\\.nuget\\packages\\",
-        "outputPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\DataAccess\\obj\\",
+        "projectPath": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\DataAccess\\DataAccess.csproj",
+        "packagesPath": "C:\\Users\\FN\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\FN\\Source\\Repos\\NancyNdo\\ClubConquistadoresAguilas\\DataAccess\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\dyfmeks\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\FN\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,18 +22,17 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Infrastructure\\Infrastructure.csproj": {
-                "projectPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Infrastructure\\Infrastructure.csproj"
+              "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Infrastructure\\Infrastructure.csproj"
               },
-              "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj": {
-                "projectPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj"
+              "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Models\\Models.csproj": {
+                "projectPath": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Models\\Models.csproj"
               }
             }
           }
@@ -67,25 +62,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Infrastructure\\Infrastructure.csproj": {
+    "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Infrastructure\\Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\dyfmeks\\.nuget\\packages\\",
-        "outputPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Infrastructure\\Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\FN\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\FN\\Source\\Repos\\NancyNdo\\ClubConquistadoresAguilas\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\dyfmeks\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\FN\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -93,15 +84,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj": {
-                "projectPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj"
+              "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Models\\Models.csproj": {
+                "projectPath": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Models\\Models.csproj"
               }
             }
           }
@@ -143,25 +133,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj": {
+    "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Models\\Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj",
+        "projectUniqueName": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Models\\Models.csproj",
         "projectName": "Models",
-        "projectPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj",
-        "packagesPath": "C:\\Users\\dyfmeks\\.nuget\\packages\\",
-        "outputPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Models\\obj\\",
+        "projectPath": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Models\\Models.csproj",
+        "packagesPath": "C:\\Users\\FN\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\FN\\Source\\Repos\\NancyNdo\\ClubConquistadoresAguilas\\Models\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\dyfmeks\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\FN\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -169,7 +155,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -203,7 +188,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }
