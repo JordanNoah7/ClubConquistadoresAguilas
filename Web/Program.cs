@@ -1,5 +1,10 @@
+using Application.IService;
+using Application.Service;
+using DataAccess.Repositories;
+using Domain;
 using Microsoft.EntityFrameworkCore;
 using Infrastructure.Context;
+using Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +12,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ClubConquistadoresAguilasContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("connection")));
+
+//Inyeccion de dependencias
+builder.Services.AddScoped<IGenericRepository<User>, UserRepository>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 var app = builder.Build();
 

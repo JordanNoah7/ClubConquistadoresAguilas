@@ -148,9 +148,9 @@ CREATE TABLE ClassPerson(
 --Creacion de la tabla Usuarios
 CREATE TABLE Users(
     ID INT NOT NULL,
-    userName NVARCHAR(15),
-    password NVARCHAR(15),
-    creationDate DATE,
+    userName NVARCHAR(15) NOT NULL,
+    password NVARCHAR(15) NOT NULL,
+    creationDate DATE DEFAULT GETDATE(),
     CONSTRAINT PK_Users PRIMARY KEY (ID),
     CONSTRAINT FK_Person_User FOREIGN KEY (ID) REFERENCES People(ID),
     CONSTRAINT CK_Password CHECK (password LIKE '%[0-9]%' AND password LIKE '%[A-Z]%' AND password LIKE '%[!@#$%^&*()]%')
