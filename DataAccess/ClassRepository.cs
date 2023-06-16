@@ -1,17 +1,18 @@
-﻿using Infrastructure.Context;
+﻿using Domain;
+using Infrastructure.Context;
 using Models;
 
 namespace DataAccess.Repositories;
 
-public class SpecialtyRepository: ContextRepository, IGenericRepository<Specialty>
+public class ClassRepository:ContextRepository, IGenericRepository<Class>
 {
-    public SpecialtyRepository(ClubConquistadoresAguilasContext context) : base(context) { }
+    public ClassRepository(ClubConquistadoresAguilasContext context) : base(context) { }
 
-    public async Task<bool> Insert(Specialty model)
+    public async Task<bool> Insert(Class model)
     {
         try
         {
-            _dbContext.Specialties.Add(model);
+            _dbContext.Classes.Add(model);
             await _dbContext.SaveChangesAsync();
             return true;
         }
@@ -21,11 +22,11 @@ public class SpecialtyRepository: ContextRepository, IGenericRepository<Specialt
         }
     }
 
-    public async Task<bool> Update(Specialty model)
+    public async Task<bool> Update(Class model)
     {
         try
         {
-            _dbContext.Specialties.Update(model);
+            _dbContext.Classes.Update(model);
             await _dbContext.SaveChangesAsync();
             return true;
         }
@@ -39,8 +40,8 @@ public class SpecialtyRepository: ContextRepository, IGenericRepository<Specialt
     {
         try
         {
-            Specialty model = _dbContext.Specialties.First(s => s.Id == id1);
-            _dbContext.Specialties.Remove(model);
+            Class model = _dbContext.Classes.First(c => c.Id == id1);
+            _dbContext.Classes.Remove(model);
             await _dbContext.SaveChangesAsync();
             return true;
         }
@@ -50,11 +51,11 @@ public class SpecialtyRepository: ContextRepository, IGenericRepository<Specialt
         }
     }
 
-    public async Task<Specialty> Get(int id1, int id2 = 0)
+    public async Task<Class> Get(int id1, int id2 = 0)
     {
         try
         {
-            return await _dbContext.Specialties.FindAsync(id1);
+            return await _dbContext.Classes.FindAsync(id1);
         }
         catch (Exception ex)
         {
@@ -62,12 +63,12 @@ public class SpecialtyRepository: ContextRepository, IGenericRepository<Specialt
         }
     }
 
-    public async Task<IQueryable<Specialty>> GetAll()
+    public async Task<IQueryable<Class>> GetAll()
     {
         try
         {
-            IQueryable<Specialty> querySpecialtiesSQL = _dbContext.Specialties;
-            return querySpecialtiesSQL;
+            IQueryable<Class> queryClassesSQL = _dbContext.Classes;
+            return queryClassesSQL;
         }
         catch (Exception ex)
         {

@@ -1,17 +1,18 @@
 ﻿using Infrastructure.Context;
+using Domain;
 using Models;
 
 namespace DataAccess.Repositories;
 
-public class ClubRepository:ContextRepository, IGenericRepository<Club>
+public class CategoryRepository: ContextRepository , IGenericRepository<Category>
 {
-    public ClubRepository(ClubConquistadoresAguilasContext context) : base(context) { }
-
-    public async Task<bool> Insert(Club model)
+    public CategoryRepository(ClubConquistadoresAguilasContext context) : base(context) { }
+    
+    public async Task<bool> Insert(Category model)
     {
         try
         {
-            _dbContext.Clubs.Add(model);
+            _dbContext.Categories.Add(model);
             await _dbContext.SaveChangesAsync();
             return true;
         }
@@ -21,11 +22,11 @@ public class ClubRepository:ContextRepository, IGenericRepository<Club>
         }
     }
 
-    public async Task<bool> Update(Club model)
+    public async Task<bool> Update(Category model)
     {
         try
         {
-            _dbContext.Clubs.Update(model);
+            _dbContext.Categories.Update(model);
             await _dbContext.SaveChangesAsync();
             return true;
         }
@@ -39,22 +40,22 @@ public class ClubRepository:ContextRepository, IGenericRepository<Club>
     {
         try
         {
-            Club model = _dbContext.Clubs.First(c => c.Id == id1);
-            _dbContext.Clubs.Remove(model);
+            Category model = _dbContext.Categories.First(c => c.Id == id1);
+            _dbContext.Categories.Remove(model);
             await _dbContext.SaveChangesAsync();
             return true;
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
             return false;
         }
     }
 
-    public async Task<Club> Get(int id1, int id2 = 0)
+    public async Task<Category> Get(int id1, int id2 = 0)
     {
         try
         {
-            return await _dbContext.Clubs.FindAsync(id1);
+            return await _dbContext.Categories.FindAsync(id1);
         }
         catch (Exception ex)
         {
@@ -62,14 +63,14 @@ public class ClubRepository:ContextRepository, IGenericRepository<Club>
         }
     }
 
-    public async Task<IQueryable<Club>> GetAll()
+    public async Task<IQueryable<Category>> GetAll()
     {
         try
         {
-            IQueryable<Club> queryClubsSQL = _dbContext.Clubs;
-            return queryClubsSQL;
+            IQueryable<Category> queryCategoriesSQL = _dbContext.Categories;
+            return queryCategoriesSQL;
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
             return null;
         }

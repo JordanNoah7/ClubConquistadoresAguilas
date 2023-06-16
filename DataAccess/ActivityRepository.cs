@@ -1,17 +1,18 @@
 ﻿using Infrastructure.Context;
+using Domain;
 using Models;
 
 namespace DataAccess.Repositories;
 
-public class RoleRepository: ContextRepository, IGenericRepository<Role>
+public class ActivityRepository:ContextRepository,IGenericRepository<Activity>
 {
-    public RoleRepository(ClubConquistadoresAguilasContext context) : base(context) { }
-
-    public async Task<bool> Insert(Role model)
+    public ActivityRepository(ClubConquistadoresAguilasContext context) : base(context) { }
+    
+    public async Task<bool> Insert(Activity model)
     {
         try
         {
-            _dbContext.Roles.Add(model);
+            _dbContext.Activities.Add(model);
             await _dbContext.SaveChangesAsync();
             return true;
         }
@@ -21,11 +22,11 @@ public class RoleRepository: ContextRepository, IGenericRepository<Role>
         }
     }
 
-    public async Task<bool> Update(Role model)
+    public async Task<bool> Update(Activity model)
     {
         try
         {
-            _dbContext.Roles.Update(model);
+            _dbContext.Activities.Update(model);
             await _dbContext.SaveChangesAsync();
             return true;
         }
@@ -39,8 +40,8 @@ public class RoleRepository: ContextRepository, IGenericRepository<Role>
     {
         try
         {
-            Role model = _dbContext.Roles.First(c => c.Id == id1);
-            _dbContext.Roles.Remove(model);
+            Activity model = _dbContext.Activities.First(a => a.Id == id1);
+            _dbContext.Activities.Remove(model);
             await _dbContext.SaveChangesAsync();
             return true;
         }
@@ -50,11 +51,11 @@ public class RoleRepository: ContextRepository, IGenericRepository<Role>
         }
     }
 
-    public async Task<Role> Get(int id1, int id2 = 0)
+    public async Task<Activity> Get(int id1, int id2 = 0)
     {
         try
         {
-            return await _dbContext.Roles.FindAsync(id1);
+            return await _dbContext.Activities.FindAsync(id1);
         }
         catch (Exception ex)
         {
@@ -62,12 +63,12 @@ public class RoleRepository: ContextRepository, IGenericRepository<Role>
         }
     }
 
-    public async Task<IQueryable<Role>> GetAll()
+    public async Task<IQueryable<Activity>> GetAll()
     {
         try
         {
-            IQueryable<Role> queryRolesSQL = _dbContext.Roles;
-            return queryRolesSQL;
+            IQueryable<Activity> queryActivitiesSQL = _dbContext.Activities;
+            return queryActivitiesSQL;
         }
         catch (Exception ex)
         {

@@ -1,17 +1,18 @@
-﻿using Infrastructure.Context;
+﻿using Domain;
+using Infrastructure.Context;
 using Models;
 
 namespace DataAccess.Repositories;
 
-public class ClassRepository:ContextRepository, IGenericRepository<Class>
+public class UnitRepository: ContextRepository, IGenericRepository<Unit>
 {
-    public ClassRepository(ClubConquistadoresAguilasContext context) : base(context) { }
+    public UnitRepository(ClubConquistadoresAguilasContext context) : base(context) { }
 
-    public async Task<bool> Insert(Class model)
+    public async Task<bool> Insert(Unit model)
     {
         try
         {
-            _dbContext.Classes.Add(model);
+            _dbContext.Units.Add(model);
             await _dbContext.SaveChangesAsync();
             return true;
         }
@@ -21,11 +22,11 @@ public class ClassRepository:ContextRepository, IGenericRepository<Class>
         }
     }
 
-    public async Task<bool> Update(Class model)
+    public async Task<bool> Update(Unit model)
     {
         try
         {
-            _dbContext.Classes.Update(model);
+            _dbContext.Units.Add(model);
             await _dbContext.SaveChangesAsync();
             return true;
         }
@@ -39,8 +40,8 @@ public class ClassRepository:ContextRepository, IGenericRepository<Class>
     {
         try
         {
-            Class model = _dbContext.Classes.First(c => c.Id == id1);
-            _dbContext.Classes.Remove(model);
+            Unit model = _dbContext.Units.First(u => u.Id == id1);
+            _dbContext.Units.Remove(model);
             await _dbContext.SaveChangesAsync();
             return true;
         }
@@ -50,11 +51,11 @@ public class ClassRepository:ContextRepository, IGenericRepository<Class>
         }
     }
 
-    public async Task<Class> Get(int id1, int id2 = 0)
+    public async Task<Unit> Get(int id1, int id2 = 0)
     {
         try
         {
-            return await _dbContext.Classes.FindAsync(id1);
+            return await _dbContext.Units.FindAsync(id1);
         }
         catch (Exception ex)
         {
@@ -62,12 +63,12 @@ public class ClassRepository:ContextRepository, IGenericRepository<Class>
         }
     }
 
-    public async Task<IQueryable<Class>> GetAll()
+    public async Task<IQueryable<Unit>> GetAll()
     {
         try
         {
-            IQueryable<Class> queryClassesSQL = _dbContext.Classes;
-            return queryClassesSQL;
+            IQueryable<Unit> queryUnitsSQL = _dbContext.Units;
+            return queryUnitsSQL;
         }
         catch (Exception ex)
         {

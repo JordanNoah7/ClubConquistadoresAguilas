@@ -1,17 +1,18 @@
-﻿using Infrastructure.Context;
+﻿using Domain;
+using Infrastructure.Context;
 using Models;
 
 namespace DataAccess.Repositories;
 
-public class CategoryRepository: ContextRepository , IGenericRepository<Category>
+public class PositionRepository:ContextRepository, IGenericRepository<Position>
 {
-    public CategoryRepository(ClubConquistadoresAguilasContext context) : base(context) { }
-    
-    public async Task<bool> Insert(Category model)
+    public PositionRepository(ClubConquistadoresAguilasContext context) : base(context) { }
+
+    public async Task<bool> Insert(Position model)
     {
         try
         {
-            _dbContext.Categories.Add(model);
+            _dbContext.Positions.Add(model);
             await _dbContext.SaveChangesAsync();
             return true;
         }
@@ -21,11 +22,11 @@ public class CategoryRepository: ContextRepository , IGenericRepository<Category
         }
     }
 
-    public async Task<bool> Update(Category model)
+    public async Task<bool> Update(Position model)
     {
         try
         {
-            _dbContext.Categories.Update(model);
+            _dbContext.Positions.Update(model);
             await _dbContext.SaveChangesAsync();
             return true;
         }
@@ -39,8 +40,8 @@ public class CategoryRepository: ContextRepository , IGenericRepository<Category
     {
         try
         {
-            Category model = _dbContext.Categories.First(c => c.Id == id1);
-            _dbContext.Categories.Remove(model);
+            Position model = _dbContext.Positions.First(p => p.Id == id1);
+            _dbContext.Positions.Remove(model);
             await _dbContext.SaveChangesAsync();
             return true;
         }
@@ -50,11 +51,11 @@ public class CategoryRepository: ContextRepository , IGenericRepository<Category
         }
     }
 
-    public async Task<Category> Get(int id1, int id2 = 0)
+    public async Task<Position> Get(int id1, int id2 = 0)
     {
         try
         {
-            return await _dbContext.Categories.FindAsync(id1);
+            return await _dbContext.Positions.FindAsync(id1);
         }
         catch (Exception ex)
         {
@@ -62,12 +63,12 @@ public class CategoryRepository: ContextRepository , IGenericRepository<Category
         }
     }
 
-    public async Task<IQueryable<Category>> GetAll()
+    public async Task<IQueryable<Position>> GetAll()
     {
         try
         {
-            IQueryable<Category> queryCategoriesSQL = _dbContext.Categories;
-            return queryCategoriesSQL;
+            IQueryable<Position> queryPositionsSQL = _dbContext.Positions;
+            return queryPositionsSQL;
         }
         catch (Exception ex)
         {

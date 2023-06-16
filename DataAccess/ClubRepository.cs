@@ -1,17 +1,18 @@
-﻿using Infrastructure.Context;
+﻿using Domain;
+using Infrastructure.Context;
 using Models;
 
 namespace DataAccess.Repositories;
 
-public class PositionRepository:ContextRepository, IGenericRepository<Position>
+public class ClubRepository:ContextRepository, IGenericRepository<Club>
 {
-    public PositionRepository(ClubConquistadoresAguilasContext context) : base(context) { }
+    public ClubRepository(ClubConquistadoresAguilasContext context) : base(context) { }
 
-    public async Task<bool> Insert(Position model)
+    public async Task<bool> Insert(Club model)
     {
         try
         {
-            _dbContext.Positions.Add(model);
+            _dbContext.Clubs.Add(model);
             await _dbContext.SaveChangesAsync();
             return true;
         }
@@ -21,11 +22,11 @@ public class PositionRepository:ContextRepository, IGenericRepository<Position>
         }
     }
 
-    public async Task<bool> Update(Position model)
+    public async Task<bool> Update(Club model)
     {
         try
         {
-            _dbContext.Positions.Update(model);
+            _dbContext.Clubs.Update(model);
             await _dbContext.SaveChangesAsync();
             return true;
         }
@@ -39,22 +40,22 @@ public class PositionRepository:ContextRepository, IGenericRepository<Position>
     {
         try
         {
-            Position model = _dbContext.Positions.First(p => p.Id == id1);
-            _dbContext.Positions.Remove(model);
+            Club model = _dbContext.Clubs.First(c => c.Id == id1);
+            _dbContext.Clubs.Remove(model);
             await _dbContext.SaveChangesAsync();
             return true;
         }
-        catch (Exception ex)
+        catch (Exception e)
         {
             return false;
         }
     }
 
-    public async Task<Position> Get(int id1, int id2 = 0)
+    public async Task<Club> Get(int id1, int id2 = 0)
     {
         try
         {
-            return await _dbContext.Positions.FindAsync(id1);
+            return await _dbContext.Clubs.FindAsync(id1);
         }
         catch (Exception ex)
         {
@@ -62,14 +63,14 @@ public class PositionRepository:ContextRepository, IGenericRepository<Position>
         }
     }
 
-    public async Task<IQueryable<Position>> GetAll()
+    public async Task<IQueryable<Club>> GetAll()
     {
         try
         {
-            IQueryable<Position> queryPositionsSQL = _dbContext.Positions;
-            return queryPositionsSQL;
+            IQueryable<Club> queryClubsSQL = _dbContext.Clubs;
+            return queryClubsSQL;
         }
-        catch (Exception ex)
+        catch (Exception e)
         {
             return null;
         }

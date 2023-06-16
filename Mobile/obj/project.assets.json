@@ -2711,25 +2711,11 @@
           "bin/placeholder/Application.dll": {}
         }
       },
-      "DataAccess/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Infrastructure": "1.0.0",
-          "Models": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/DataAccess.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DataAccess.dll": {}
-        }
-      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "DataAccess": "1.0.0",
+          "Infrastructure": "1.0.0",
           "Models": "1.0.0"
         },
         "compile": {
@@ -5376,25 +5362,11 @@
           "bin/placeholder/Application.dll": {}
         }
       },
-      "DataAccess/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Infrastructure": "1.0.0",
-          "Models": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/DataAccess.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DataAccess.dll": {}
-        }
-      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "DataAccess": "1.0.0",
+          "Infrastructure": "1.0.0",
           "Models": "1.0.0"
         },
         "compile": {
@@ -8041,25 +8013,11 @@
           "bin/placeholder/Application.dll": {}
         }
       },
-      "DataAccess/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Infrastructure": "1.0.0",
-          "Models": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/DataAccess.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DataAccess.dll": {}
-        }
-      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "DataAccess": "1.0.0",
+          "Infrastructure": "1.0.0",
           "Models": "1.0.0"
         },
         "compile": {
@@ -10706,25 +10664,11 @@
           "bin/placeholder/Application.dll": {}
         }
       },
-      "DataAccess/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Infrastructure": "1.0.0",
-          "Models": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/DataAccess.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DataAccess.dll": {}
-        }
-      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "DataAccess": "1.0.0",
+          "Infrastructure": "1.0.0",
           "Models": "1.0.0"
         },
         "compile": {
@@ -13371,25 +13315,11 @@
           "bin/placeholder/Application.dll": {}
         }
       },
-      "DataAccess/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Infrastructure": "1.0.0",
-          "Models": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/DataAccess.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DataAccess.dll": {}
-        }
-      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "DataAccess": "1.0.0",
+          "Infrastructure": "1.0.0",
           "Models": "1.0.0"
         },
         "compile": {
@@ -16036,25 +15966,11 @@
           "bin/placeholder/Application.dll": {}
         }
       },
-      "DataAccess/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Infrastructure": "1.0.0",
-          "Models": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/DataAccess.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DataAccess.dll": {}
-        }
-      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "DataAccess": "1.0.0",
+          "Infrastructure": "1.0.0",
           "Models": "1.0.0"
         },
         "compile": {
@@ -18701,25 +18617,11 @@
           "bin/placeholder/Application.dll": {}
         }
       },
-      "DataAccess/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Infrastructure": "1.0.0",
-          "Models": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/DataAccess.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DataAccess.dll": {}
-        }
-      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "DataAccess": "1.0.0",
+          "Infrastructure": "1.0.0",
           "Models": "1.0.0"
         },
         "compile": {
@@ -21377,25 +21279,11 @@
           "bin/placeholder/Application.dll": {}
         }
       },
-      "DataAccess/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Infrastructure": "1.0.0",
-          "Models": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/DataAccess.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DataAccess.dll": {}
-        }
-      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "DataAccess": "1.0.0",
+          "Infrastructure": "1.0.0",
           "Models": "1.0.0"
         },
         "compile": {
@@ -22545,25 +22433,11 @@
           "bin/placeholder/Application.dll": {}
         }
       },
-      "DataAccess/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Infrastructure": "1.0.0",
-          "Models": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/DataAccess.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DataAccess.dll": {}
-        }
-      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "DataAccess": "1.0.0",
+          "Infrastructure": "1.0.0",
           "Models": "1.0.0"
         },
         "compile": {
@@ -23736,25 +23610,11 @@
           "bin/placeholder/Application.dll": {}
         }
       },
-      "DataAccess/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Infrastructure": "1.0.0",
-          "Models": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/DataAccess.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DataAccess.dll": {}
-        }
-      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "DataAccess": "1.0.0",
+          "Infrastructure": "1.0.0",
           "Models": "1.0.0"
         },
         "compile": {
@@ -24927,25 +24787,11 @@
           "bin/placeholder/Application.dll": {}
         }
       },
-      "DataAccess/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Infrastructure": "1.0.0",
-          "Models": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/DataAccess.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DataAccess.dll": {}
-        }
-      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "DataAccess": "1.0.0",
+          "Infrastructure": "1.0.0",
           "Models": "1.0.0"
         },
         "compile": {
@@ -26118,25 +25964,11 @@
           "bin/placeholder/Application.dll": {}
         }
       },
-      "DataAccess/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Infrastructure": "1.0.0",
-          "Models": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/DataAccess.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DataAccess.dll": {}
-        }
-      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "DataAccess": "1.0.0",
+          "Infrastructure": "1.0.0",
           "Models": "1.0.0"
         },
         "compile": {
@@ -27309,25 +27141,11 @@
           "bin/placeholder/Application.dll": {}
         }
       },
-      "DataAccess/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Infrastructure": "1.0.0",
-          "Models": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/DataAccess.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DataAccess.dll": {}
-        }
-      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "DataAccess": "1.0.0",
+          "Infrastructure": "1.0.0",
           "Models": "1.0.0"
         },
         "compile": {
@@ -28500,25 +28318,11 @@
           "bin/placeholder/Application.dll": {}
         }
       },
-      "DataAccess/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Infrastructure": "1.0.0",
-          "Models": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/DataAccess.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DataAccess.dll": {}
-        }
-      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "DataAccess": "1.0.0",
+          "Infrastructure": "1.0.0",
           "Models": "1.0.0"
         },
         "compile": {
@@ -29691,25 +29495,11 @@
           "bin/placeholder/Application.dll": {}
         }
       },
-      "DataAccess/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Infrastructure": "1.0.0",
-          "Models": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/DataAccess.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DataAccess.dll": {}
-        }
-      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "DataAccess": "1.0.0",
+          "Infrastructure": "1.0.0",
           "Models": "1.0.0"
         },
         "compile": {
@@ -30869,25 +30659,11 @@
           "bin/placeholder/Application.dll": {}
         }
       },
-      "DataAccess/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Infrastructure": "1.0.0",
-          "Models": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/DataAccess.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DataAccess.dll": {}
-        }
-      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "DataAccess": "1.0.0",
+          "Infrastructure": "1.0.0",
           "Models": "1.0.0"
         },
         "compile": {
@@ -32037,25 +31813,11 @@
           "bin/placeholder/Application.dll": {}
         }
       },
-      "DataAccess/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Infrastructure": "1.0.0",
-          "Models": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/DataAccess.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DataAccess.dll": {}
-        }
-      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "DataAccess": "1.0.0",
+          "Infrastructure": "1.0.0",
           "Models": "1.0.0"
         },
         "compile": {
@@ -33228,25 +32990,11 @@
           "bin/placeholder/Application.dll": {}
         }
       },
-      "DataAccess/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Infrastructure": "1.0.0",
-          "Models": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/DataAccess.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DataAccess.dll": {}
-        }
-      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "DataAccess": "1.0.0",
+          "Infrastructure": "1.0.0",
           "Models": "1.0.0"
         },
         "compile": {
@@ -34419,25 +34167,11 @@
           "bin/placeholder/Application.dll": {}
         }
       },
-      "DataAccess/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Infrastructure": "1.0.0",
-          "Models": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/DataAccess.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DataAccess.dll": {}
-        }
-      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "DataAccess": "1.0.0",
+          "Infrastructure": "1.0.0",
           "Models": "1.0.0"
         },
         "compile": {
@@ -35610,25 +35344,11 @@
           "bin/placeholder/Application.dll": {}
         }
       },
-      "DataAccess/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Infrastructure": "1.0.0",
-          "Models": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/DataAccess.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DataAccess.dll": {}
-        }
-      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "DataAccess": "1.0.0",
+          "Infrastructure": "1.0.0",
           "Models": "1.0.0"
         },
         "compile": {
@@ -36801,25 +36521,11 @@
           "bin/placeholder/Application.dll": {}
         }
       },
-      "DataAccess/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Infrastructure": "1.0.0",
-          "Models": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/DataAccess.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DataAccess.dll": {}
-        }
-      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "DataAccess": "1.0.0",
+          "Infrastructure": "1.0.0",
           "Models": "1.0.0"
         },
         "compile": {
@@ -37992,25 +37698,11 @@
           "bin/placeholder/Application.dll": {}
         }
       },
-      "DataAccess/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Infrastructure": "1.0.0",
-          "Models": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/DataAccess.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DataAccess.dll": {}
-        }
-      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "DataAccess": "1.0.0",
+          "Infrastructure": "1.0.0",
           "Models": "1.0.0"
         },
         "compile": {
@@ -39183,25 +38875,11 @@
           "bin/placeholder/Application.dll": {}
         }
       },
-      "DataAccess/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Infrastructure": "1.0.0",
-          "Models": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/DataAccess.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DataAccess.dll": {}
-        }
-      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "DataAccess": "1.0.0",
+          "Infrastructure": "1.0.0",
           "Models": "1.0.0"
         },
         "compile": {
@@ -40361,25 +40039,11 @@
           "bin/placeholder/Application.dll": {}
         }
       },
-      "DataAccess/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Infrastructure": "1.0.0",
-          "Models": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/DataAccess.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DataAccess.dll": {}
-        }
-      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "DataAccess": "1.0.0",
+          "Infrastructure": "1.0.0",
           "Models": "1.0.0"
         },
         "compile": {
@@ -41701,25 +41365,11 @@
           "bin/placeholder/Application.dll": {}
         }
       },
-      "DataAccess/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Infrastructure": "1.0.0",
-          "Models": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/DataAccess.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DataAccess.dll": {}
-        }
-      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "DataAccess": "1.0.0",
+          "Infrastructure": "1.0.0",
           "Models": "1.0.0"
         },
         "compile": {
@@ -43022,25 +42672,11 @@
           "bin/placeholder/Application.dll": {}
         }
       },
-      "DataAccess/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Infrastructure": "1.0.0",
-          "Models": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/DataAccess.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DataAccess.dll": {}
-        }
-      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "DataAccess": "1.0.0",
+          "Infrastructure": "1.0.0",
           "Models": "1.0.0"
         },
         "compile": {
@@ -44343,25 +43979,11 @@
           "bin/placeholder/Application.dll": {}
         }
       },
-      "DataAccess/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Infrastructure": "1.0.0",
-          "Models": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/DataAccess.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DataAccess.dll": {}
-        }
-      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "DataAccess": "1.0.0",
+          "Infrastructure": "1.0.0",
           "Models": "1.0.0"
         },
         "compile": {
@@ -45664,25 +45286,11 @@
           "bin/placeholder/Application.dll": {}
         }
       },
-      "DataAccess/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Infrastructure": "1.0.0",
-          "Models": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/DataAccess.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DataAccess.dll": {}
-        }
-      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "DataAccess": "1.0.0",
+          "Infrastructure": "1.0.0",
           "Models": "1.0.0"
         },
         "compile": {
@@ -46985,25 +46593,11 @@
           "bin/placeholder/Application.dll": {}
         }
       },
-      "DataAccess/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Infrastructure": "1.0.0",
-          "Models": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/DataAccess.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DataAccess.dll": {}
-        }
-      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "DataAccess": "1.0.0",
+          "Infrastructure": "1.0.0",
           "Models": "1.0.0"
         },
         "compile": {
@@ -48306,25 +47900,11 @@
           "bin/placeholder/Application.dll": {}
         }
       },
-      "DataAccess/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Infrastructure": "1.0.0",
-          "Models": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/DataAccess.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DataAccess.dll": {}
-        }
-      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "DataAccess": "1.0.0",
+          "Infrastructure": "1.0.0",
           "Models": "1.0.0"
         },
         "compile": {
@@ -49627,25 +49207,11 @@
           "bin/placeholder/Application.dll": {}
         }
       },
-      "DataAccess/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Infrastructure": "1.0.0",
-          "Models": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/DataAccess.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DataAccess.dll": {}
-        }
-      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "DataAccess": "1.0.0",
+          "Infrastructure": "1.0.0",
           "Models": "1.0.0"
         },
         "compile": {
@@ -50944,25 +50510,11 @@
           "bin/placeholder/Application.dll": {}
         }
       },
-      "DataAccess/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Infrastructure": "1.0.0",
-          "Models": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/DataAccess.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DataAccess.dll": {}
-        }
-      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "DataAccess": "1.0.0",
+          "Infrastructure": "1.0.0",
           "Models": "1.0.0"
         },
         "compile": {
@@ -56392,11 +55944,6 @@
       "path": "../Application/Application.csproj",
       "msbuildProject": "../Application/Application.csproj"
     },
-    "DataAccess/1.0.0": {
-      "type": "project",
-      "path": "../DataAccess/DataAccess.csproj",
-      "msbuildProject": "../DataAccess/DataAccess.csproj"
-    },
     "Domain/1.0.0": {
       "type": "project",
       "path": "../Domain/Domain.csproj",
@@ -56448,11 +55995,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\C#\\ClubConquistadoresAguilas\\Mobile\\Mobile.csproj",
+      "projectUniqueName": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Mobile\\Mobile.csproj",
       "projectName": "Mobile",
-      "projectPath": "E:\\C#\\ClubConquistadoresAguilas\\Mobile\\Mobile.csproj",
+      "projectPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Mobile\\Mobile.csproj",
       "packagesPath": "C:\\Users\\dyfmeks\\.nuget\\packages\\",
-      "outputPath": "E:\\C#\\ClubConquistadoresAguilas\\Mobile\\obj\\",
+      "outputPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Mobile\\obj\\",
       "projectStyle": "PackageReference",
       "crossTargeting": true,
       "fallbackFolders": [
@@ -56477,44 +56024,44 @@
         "net6.0-android31.0": {
           "targetAlias": "net6.0-android",
           "projectReferences": {
-            "E:\\C#\\ClubConquistadoresAguilas\\Application\\Application.csproj": {
-              "projectPath": "E:\\C#\\ClubConquistadoresAguilas\\Application\\Application.csproj"
+            "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Application\\Application.csproj": {
+              "projectPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Application\\Application.csproj"
             },
-            "E:\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj": {
-              "projectPath": "E:\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj"
+            "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj": {
+              "projectPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj"
             }
           }
         },
         "net6.0-ios16.1": {
           "targetAlias": "net6.0-ios",
           "projectReferences": {
-            "E:\\C#\\ClubConquistadoresAguilas\\Application\\Application.csproj": {
-              "projectPath": "E:\\C#\\ClubConquistadoresAguilas\\Application\\Application.csproj"
+            "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Application\\Application.csproj": {
+              "projectPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Application\\Application.csproj"
             },
-            "E:\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj": {
-              "projectPath": "E:\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj"
+            "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj": {
+              "projectPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj"
             }
           }
         },
         "net6.0-maccatalyst16.1": {
           "targetAlias": "net6.0-maccatalyst",
           "projectReferences": {
-            "E:\\C#\\ClubConquistadoresAguilas\\Application\\Application.csproj": {
-              "projectPath": "E:\\C#\\ClubConquistadoresAguilas\\Application\\Application.csproj"
+            "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Application\\Application.csproj": {
+              "projectPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Application\\Application.csproj"
             },
-            "E:\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj": {
-              "projectPath": "E:\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj"
+            "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj": {
+              "projectPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj"
             }
           }
         },
         "net6.0-windows10.0.19041": {
           "targetAlias": "net6.0-windows10.0.19041.0",
           "projectReferences": {
-            "E:\\C#\\ClubConquistadoresAguilas\\Application\\Application.csproj": {
-              "projectPath": "E:\\C#\\ClubConquistadoresAguilas\\Application\\Application.csproj"
+            "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Application\\Application.csproj": {
+              "projectPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Application\\Application.csproj"
             },
-            "E:\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj": {
-              "projectPath": "E:\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj"
+            "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj": {
+              "projectPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj"
             }
           }
         }

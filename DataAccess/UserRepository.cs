@@ -1,17 +1,18 @@
-﻿using Infrastructure.Context;
+﻿using Domain;
+using Infrastructure.Context;
 using Models;
 
 namespace DataAccess.Repositories;
 
-public class UnitRepository: ContextRepository, IGenericRepository<Unit>
+public class UserRepository: ContextRepository, IGenericRepository<User>
 {
-    public UnitRepository(ClubConquistadoresAguilasContext context) : base(context) { }
+    public UserRepository(ClubConquistadoresAguilasContext context) : base(context) { }
 
-    public async Task<bool> Insert(Unit model)
+    public async Task<bool> Insert(User model)
     {
         try
         {
-            _dbContext.Units.Add(model);
+            _dbContext.Users.Add(model);
             await _dbContext.SaveChangesAsync();
             return true;
         }
@@ -21,11 +22,11 @@ public class UnitRepository: ContextRepository, IGenericRepository<Unit>
         }
     }
 
-    public async Task<bool> Update(Unit model)
+    public async Task<bool> Update(User model)
     {
         try
         {
-            _dbContext.Units.Add(model);
+            _dbContext.Users.Update(model);
             await _dbContext.SaveChangesAsync();
             return true;
         }
@@ -39,8 +40,8 @@ public class UnitRepository: ContextRepository, IGenericRepository<Unit>
     {
         try
         {
-            Unit model = _dbContext.Units.First(u => u.Id == id1);
-            _dbContext.Units.Remove(model);
+            User model = _dbContext.Users.First(u => u.Id == id1);
+            _dbContext.Users.Remove(model);
             await _dbContext.SaveChangesAsync();
             return true;
         }
@@ -50,11 +51,11 @@ public class UnitRepository: ContextRepository, IGenericRepository<Unit>
         }
     }
 
-    public async Task<Unit> Get(int id1, int id2 = 0)
+    public async Task<User> Get(int id1, int id2 = 0)
     {
         try
         {
-            return await _dbContext.Units.FindAsync(id1);
+            return await _dbContext.Users.FindAsync(id1);
         }
         catch (Exception ex)
         {
@@ -62,12 +63,12 @@ public class UnitRepository: ContextRepository, IGenericRepository<Unit>
         }
     }
 
-    public async Task<IQueryable<Unit>> GetAll()
+    public async Task<IQueryable<User>> GetAll()
     {
         try
         {
-            IQueryable<Unit> queryUnitsSQL = _dbContext.Units;
-            return queryUnitsSQL;
+            IQueryable<User> queryUsersSQL = _dbContext.Users;
+            return queryUsersSQL;
         }
         catch (Exception ex)
         {

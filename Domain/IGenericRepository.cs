@@ -1,4 +1,4 @@
-﻿namespace DataAccess.Repositories;
+﻿namespace Domain;
 
 public interface IGenericRepository<TEntityModel> where TEntityModel : class
 {

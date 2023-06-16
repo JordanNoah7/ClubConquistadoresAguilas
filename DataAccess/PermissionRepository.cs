@@ -1,31 +1,32 @@
-﻿using Infrastructure.Context;
+﻿using Domain;
+using Infrastructure.Context;
 using Models;
 
 namespace DataAccess.Repositories;
 
-public class PersonRepository:ContextRepository,IGenericRepository<Person>
+public class PermissionRepository:ContextRepository, IGenericRepository<Permission>
 {
-    public PersonRepository(ClubConquistadoresAguilasContext context) : base(context) { }
+    public PermissionRepository(ClubConquistadoresAguilasContext context) : base(context) { }
 
-    public async Task<bool> Insert(Person model)
+    public async Task<bool> Insert(Permission model)
     {
         try
         {
-            _dbContext.People.Add(model);
+            _dbContext.Permissions.Add(model);
             await _dbContext.SaveChangesAsync();
             return true;
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
             return false;
         }
     }
 
-    public async Task<bool> Update(Person model)
+    public async Task<bool> Update(Permission model)
     {
         try
         {
-            _dbContext.People.Update(model);
+            _dbContext.Permissions.Update(model);
             await _dbContext.SaveChangesAsync();
             return true;
         }
@@ -39,8 +40,8 @@ public class PersonRepository:ContextRepository,IGenericRepository<Person>
     {
         try
         {
-            Person model = _dbContext.People.First(p => p.Id.Equals(id1));
-            _dbContext.People.Remove(model);
+            Permission model = _dbContext.Permissions.First(p=>p.Id.Equals(id1));
+            _dbContext.Permissions.Remove(model);
             await _dbContext.SaveChangesAsync();
             return true;
         }
@@ -50,11 +51,11 @@ public class PersonRepository:ContextRepository,IGenericRepository<Person>
         }
     }
 
-    public async Task<Person> Get(int id1, int id2 = 0)
+    public async Task<Permission> Get(int id1, int id2 = 0)
     {
         try
         {
-            return await _dbContext.People.FindAsync(id1);
+            return await _dbContext.Permissions.FindAsync(id1);
         }
         catch (Exception e)
         {
@@ -62,12 +63,12 @@ public class PersonRepository:ContextRepository,IGenericRepository<Person>
         }
     }
 
-    public async Task<IQueryable<Person>> GetAll()
+    public async Task<IQueryable<Permission>> GetAll()
     {
         try
         {
-            IQueryable<Person> queryPeopleSQL = _dbContext.People;
-            return queryPeopleSQL;
+            IQueryable<Permission> queryPermissionsSQL = _dbContext.Permissions;
+            return queryPermissionsSQL;
         }
         catch (Exception e)
         {
