@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap');
-@import "~@flaticon/flaticon-uicons/css/all/all";
+/*@import "~@flaticon/flaticon-uicons/css/all/all";
 @import "~@flaticon/flaticon-uicons/css/{FONTWEIGHT}/{STYLENAME}";
-@import "~@flaticon/flaticon-uicons/css/brands/all";
+@import "~@flaticon/flaticon-uicons/css/brands/all";*/
 
 *,
     *::before,
@@ -33,7 +33,7 @@ main {
     height: 640px;
     background-color: #FFFFFF;
     border-radius:2.5rem;
-    box-shadow:0 60px 40px -30px (0,0,0,0.27);
+    /*box-shadow:0 60px 40px -30px; (0,0,0,0.27);*/
 }
 .inner-box {
     position: absolute;

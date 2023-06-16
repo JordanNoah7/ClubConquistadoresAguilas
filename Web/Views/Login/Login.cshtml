@@ -31,7 +31,8 @@
             <div class="forms-wrap">
                 <!-- Estas redirigiendo a una pagina php que no esta en este proyecto
                 form action="action_page.php" method="post" autocomplete="off" class="sing-in-form"-->
-                <form action="/Login/Log_in" method="post" autocomplete="off" class="sing-in-form">
+                <!-- hace referencia al controller en el atributo action -->
+                <form action="@Url.Action("Log_in", "Login")" method="post" autocomplete="off" class="sing-in-form">
                     <div class="logo">
                         <img src="~/img/logo.png"/>
 
@@ -70,7 +71,7 @@
                                     <input type="password"
                                            class="form-control"
                                            id="password"
-                                           name="username"
+                                           name="password"
                                            autocomplete="off"
                                            @*placeholder="Ingresar Contraseña"*@
                                            required>
