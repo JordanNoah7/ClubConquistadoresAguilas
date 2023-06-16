@@ -35,11 +35,11 @@ public class SpecialtyRepository: ContextRepository, IGenericRepository<Specialt
         }
     }
 
-    public async Task<bool> Delete(int id)
+    public async Task<bool> Delete(int id1, int id2 = 0)
     {
         try
         {
-            Specialty model = _dbContext.Specialties.First(c => c.Id == id);
+            Specialty model = _dbContext.Specialties.First(s => s.Id == id1);
             _dbContext.Specialties.Remove(model);
             await _dbContext.SaveChangesAsync();
             return true;
@@ -50,11 +50,11 @@ public class SpecialtyRepository: ContextRepository, IGenericRepository<Specialt
         }
     }
 
-    public async Task<Specialty> Get(int id)
+    public async Task<Specialty> Get(int id1, int id2 = 0)
     {
         try
         {
-            return await _dbContext.Specialties.FindAsync(id);
+            return await _dbContext.Specialties.FindAsync(id1);
         }
         catch (Exception ex)
         {

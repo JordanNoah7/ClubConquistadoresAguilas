@@ -3,15 +3,15 @@ using Models;
 
 namespace DataAccess.Repositories;
 
-public class ClassRepository:ContextRepository, IGenericRepository<Class>
+public class UserRepository: ContextRepository, IGenericRepository<User>
 {
-    public ClassRepository(ClubConquistadoresAguilasContext context) : base(context) { }
+    public UserRepository(ClubConquistadoresAguilasContext context) : base(context) { }
 
-    public async Task<bool> Insert(Class model)
+    public async Task<bool> Insert(User model)
     {
         try
         {
-            _dbContext.Classes.Add(model);
+            _dbContext.Users.Add(model);
             await _dbContext.SaveChangesAsync();
             return true;
         }
@@ -21,11 +21,11 @@ public class ClassRepository:ContextRepository, IGenericRepository<Class>
         }
     }
 
-    public async Task<bool> Update(Class model)
+    public async Task<bool> Update(User model)
     {
         try
         {
-            _dbContext.Classes.Update(model);
+            _dbContext.Users.Update(model);
             await _dbContext.SaveChangesAsync();
             return true;
         }
@@ -35,12 +35,12 @@ public class ClassRepository:ContextRepository, IGenericRepository<Class>
         }
     }
 
-    public async Task<bool> Delete(int id1, int id2)
+    public async Task<bool> Delete(int id1, int id2 = 0)
     {
         try
         {
-            Class model = _dbContext.Classes.First(c => c.Id == id1);
-            _dbContext.Classes.Remove(model);
+            User model = _dbContext.Users.First(u => u.Id == id1);
+            _dbContext.Users.Remove(model);
             await _dbContext.SaveChangesAsync();
             return true;
         }
@@ -50,11 +50,11 @@ public class ClassRepository:ContextRepository, IGenericRepository<Class>
         }
     }
 
-    public async Task<Class> Get(int id1, int id2)
+    public async Task<User> Get(int id1, int id2 = 0)
     {
         try
         {
-            return await _dbContext.Classes.FindAsync(id1);
+            return await _dbContext.Users.FindAsync(id1);
         }
         catch (Exception ex)
         {
@@ -62,12 +62,12 @@ public class ClassRepository:ContextRepository, IGenericRepository<Class>
         }
     }
 
-    public async Task<IQueryable<Class>> GetAll()
+    public async Task<IQueryable<User>> GetAll()
     {
         try
         {
-            IQueryable<Class> queryClassesSQL = _dbContext.Classes;
-            return queryClassesSQL;
+            IQueryable<User> queryUsersSQL = _dbContext.Users;
+            return queryUsersSQL;
         }
         catch (Exception ex)
         {

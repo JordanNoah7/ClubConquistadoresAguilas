@@ -35,11 +35,11 @@ public class ClubRepository:ContextRepository, IGenericRepository<Club>
         }
     }
 
-    public async Task<bool> Delete(int id)
+    public async Task<bool> Delete(int id1, int id2)
     {
         try
         {
-            Club model = _dbContext.Clubs.First(c => c.Id == id);
+            Club model = _dbContext.Clubs.First(c => c.Id == id1);
             _dbContext.Clubs.Remove(model);
             await _dbContext.SaveChangesAsync();
             return true;
@@ -50,11 +50,11 @@ public class ClubRepository:ContextRepository, IGenericRepository<Club>
         }
     }
 
-    public async Task<Club> Get(int id)
+    public async Task<Club> Get(int id1, int id2)
     {
         try
         {
-            return await _dbContext.Clubs.FindAsync(id);
+            return await _dbContext.Clubs.FindAsync(id1);
         }
         catch (Exception ex)
         {

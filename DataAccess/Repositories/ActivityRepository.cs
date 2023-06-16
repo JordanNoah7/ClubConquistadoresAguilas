@@ -5,13 +5,6 @@ namespace DataAccess.Repositories;
 
 public class ActivityRepository:ContextRepository,IGenericRepository<Activity>
 {
-    /*private readonly ClubConquistadoresAguilasContext _dbContext;
-    
-    public ActivityRepository(ClubConquistadoresAguilasContext context)
-    {
-        _dbContext = context;
-    }*/
-
     public ActivityRepository(ClubConquistadoresAguilasContext context) : base(context) { }
     
     public async Task<bool> Insert(Activity model)
@@ -42,11 +35,11 @@ public class ActivityRepository:ContextRepository,IGenericRepository<Activity>
         }
     }
 
-    public async Task<bool> Delete(int id)
+    public async Task<bool> Delete(int id1, int id2)
     {
         try
         {
-            Activity model = _dbContext.Activities.First(a => a.Id == id);
+            Activity model = _dbContext.Activities.First(a => a.Id == id1);
             _dbContext.Activities.Remove(model);
             await _dbContext.SaveChangesAsync();
             return true;
@@ -57,11 +50,11 @@ public class ActivityRepository:ContextRepository,IGenericRepository<Activity>
         }
     }
 
-    public async Task<Activity> Get(int id)
+    public async Task<Activity> Get(int id1, int id2)
     {
         try
         {
-            return await _dbContext.Activities.FindAsync(id);
+            return await _dbContext.Activities.FindAsync(id1);
         }
         catch (Exception ex)
         {

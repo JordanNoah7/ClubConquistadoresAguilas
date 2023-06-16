@@ -35,11 +35,11 @@ public class PermissionRepository:ContextRepository, IGenericRepository<Permissi
         }
     }
 
-    public async Task<bool> Delete(int id)
+    public async Task<bool> Delete(int id1, int id2)
     {
         try
         {
-            Permission model = _dbContext.Permissions.First(p=>p.Id.Equals(id));
+            Permission model = _dbContext.Permissions.First(p=>p.Id.Equals(id1));
             _dbContext.Permissions.Remove(model);
             await _dbContext.SaveChangesAsync();
             return true;
@@ -50,11 +50,11 @@ public class PermissionRepository:ContextRepository, IGenericRepository<Permissi
         }
     }
 
-    public async Task<Permission> Get(int id)
+    public async Task<Permission> Get(int id1, int id2)
     {
         try
         {
-            return await _dbContext.Permissions.FindAsync(id);
+            return await _dbContext.Permissions.FindAsync(id1);
         }
         catch (Exception e)
         {

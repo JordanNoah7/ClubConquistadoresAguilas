@@ -35,11 +35,11 @@ public class CategoryRepository: ContextRepository , IGenericRepository<Category
         }
     }
 
-    public async Task<bool> Delete(int id)
+    public async Task<bool> Delete(int id1, int id2)
     {
         try
         {
-            Category model = _dbContext.Categories.First(c => c.Id == id);
+            Category model = _dbContext.Categories.First(c => c.Id == id1);
             _dbContext.Categories.Remove(model);
             await _dbContext.SaveChangesAsync();
             return true;
@@ -50,11 +50,11 @@ public class CategoryRepository: ContextRepository , IGenericRepository<Category
         }
     }
 
-    public async Task<Category> Get(int id)
+    public async Task<Category> Get(int id1, int id2)
     {
         try
         {
-            return await _dbContext.Categories.FindAsync(id);
+            return await _dbContext.Categories.FindAsync(id1);
         }
         catch (Exception ex)
         {

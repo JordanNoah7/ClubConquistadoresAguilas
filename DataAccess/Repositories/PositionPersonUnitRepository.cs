@@ -1,4 +1,5 @@
 ﻿using Infrastructure.Context;
+using Microsoft.EntityFrameworkCore;
 using Models;
 
 namespace DataAccess.Repositories;
@@ -35,11 +36,11 @@ public class PositionPersonUnitRepository: ContextRepository, IGenericRepository
         }
     }
 
-    public async Task<bool> Delete(int id)
+    public async Task<bool> Delete(int id1, int id2)
     {
         try
         {
-            PositionPersonUnit model = _dbContext.PositionPersonUnits.First(c => c.PositionId == id);
+            PositionPersonUnit model = _dbContext.PositionPersonUnits.First(ppu => ppu.UnitId == id1 && ppu.PersonId == id2);
             _dbContext.PositionPersonUnits.Remove(model);
             await _dbContext.SaveChangesAsync();
             return true;
@@ -50,11 +51,11 @@ public class PositionPersonUnitRepository: ContextRepository, IGenericRepository
         }
     }
 
-    public async Task<PositionPersonUnit> Get(int id)
+    public async Task<PositionPersonUnit> Get(int id1, int id2)
     {
         try
         {
-            return await _dbContext.PositionPersonUnits.FindAsync(id);
+            return await _dbContext.PositionPersonUnits.FirstOrDefaultAsync(ppu => ppu.UnitId == id1 && ppu.PersonId == id2);
         }
         catch (Exception ex)
         {
