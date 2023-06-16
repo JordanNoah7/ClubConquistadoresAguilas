@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\FN\source\repos\NancyNdo\ClubConquistadoresAguilas\Web
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/FN/source/repos/NancyNdo/ClubConquistadoresAguilas/Web/Views/Home/Home.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxIb21lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/FN/source/repos/NancyNdo/ClubConquistadoresAguilas/Web/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -36,6 +40,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/FN/source/repos/NancyNdo/ClubConquistadoresAguilas/Web/Views/UserDirector/Director-Organizacion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckRpcmVjdG9yXERpcmVjdG9yLU9yZ2FuaXphY2lvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/FN/source/repos/NancyNdo/ClubConquistadoresAguilas/Web/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -47,3 +55,7 @@ build_metadata.AdditionalFiles.CssScope =
 [C:/Users/FN/source/repos/NancyNdo/ClubConquistadoresAguilas/Web/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-lzldzk1rll
+
+[C:/Users/FN/source/repos/NancyNdo/ClubConquistadoresAguilas/Web/Views/Shared/_NavbarYFooter.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9OYXZiYXJZRm9vdGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-ocqyle9f33

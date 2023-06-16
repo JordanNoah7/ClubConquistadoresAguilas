@@ -21,6 +21,18 @@
       "PackagePath": "staticwebassets\\icono\\iconousuario.png"
     },
     {
+      "Id": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Web\\wwwroot\\icono\\llave(verde).png",
+      "PackagePath": "staticwebassets\\icono\\llave(verde).png"
+    },
+    {
+      "Id": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Web\\wwwroot\\icono\\usuario (verde).png",
+      "PackagePath": "staticwebassets\\icono\\usuario (verde).png"
+    },
+    {
+      "Id": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Web\\wwwroot\\img\\imagen.jpg",
+      "PackagePath": "staticwebassets\\img\\imagen.jpg"
+    },
+    {
       "Id": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Web\\wwwroot\\img\\login.png",
       "PackagePath": "staticwebassets\\img\\login.png"
     },

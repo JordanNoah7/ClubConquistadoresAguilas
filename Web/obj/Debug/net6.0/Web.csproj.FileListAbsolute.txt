@@ -149,3 +149,4 @@ C:\Users\FN\source\repos\NancyNdo\ClubConquistadoresAguilas\Web\obj\Debug\net6.0
 C:\Users\FN\source\repos\NancyNdo\ClubConquistadoresAguilas\Web\obj\Debug\net6.0\Web.csproj.CopyComplete
 C:\Users\FN\source\repos\NancyNdo\ClubConquistadoresAguilas\Web\obj\Debug\net6.0\Web.genruntimeconfig.cache
 C:\Users\FN\source\repos\NancyNdo\ClubConquistadoresAguilas\Web\obj\Debug\net6.0\ref\Web.dll
+C:\Users\FN\source\repos\NancyNdo\ClubConquistadoresAguilas\Web\obj\Debug\net6.0\scopedcss\Views\Shared\_NavbarYFooter.cshtml.rz.scp.css

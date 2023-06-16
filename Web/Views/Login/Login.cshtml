@@ -14,6 +14,7 @@
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
     
     
+    
 
     <title>Iniciar Sesión</title>
 
@@ -23,51 +24,55 @@
         <div class="box">
             <div class="inner-box">
                 <div class="carousel">
-                    
+                                        
                         <img src="~/img/login.png" class="image img-1" alt="" />
-
-                   
+ 
                
                 </div>
                
-                <div class="forms-wrap">
+                <div class="forms-wrap ">
                     <form action="action_page.php" method="post" autocomplete="off" class="sing-in-form">
                         <div class="logo">
                             <img src="~/img/logo.png"/>
                             
                         </div>
-                        @*<div class="cabecera">
+                       @* <div class="cabecera">
                             <h2>Bienvenido</h2>
 
                         </div>*@
                         <div class="formulario">
                             <div class=" container">
-                                <div class="input-wrap1">
+                                <div class="input-wrap">
 
                                     <label class="visually-hidden" for="unombre">Username</label>
                                     <div class="input-group input-group-lg">
-                                        <div class="input-group-text"><i class="fi fi-ss-user"></i></div>
+                                        <div class="input-group-text">
+                                            @*<i class="fi fi-ss-user">*@
+                                            <img src="~/icono/usuario (verde).png" />
+
+                                            </i></div>
 
                                         <input type="text"
                                                class="form-control"
                                                id="unombre"
                                                autocomplete="off"
-                                        @*placeholder="Ingresar Usuario"*@
+                                               placeholder="Ingresar Usuario"
                                                required>
                                     </div>
                                 </div>
-                                <div class="input-wrap2">
+                                <div class="input-wrap">
 
                                     <label class="visually-hidden" for="pass">Password</label>
                                     <div class="input-group input-group-lg">
                                         <div class="input-group-text">
-                                            <i class="fi fi-sr-key"></i>
+                                            @*<i class="fi fi-sr-key"></i>*@
+                                            <img src="~/icono/llave(verde).png" />
                                         </div>
                                         <input type="password"
                                                class="form-control"
                                                id="pass"
                                                autocomplete="off"
-                                        @*placeholder="Ingresar Contraseña"*@
+                                               placeholder="Ingresar Contraseña"
                                                required>
                                     </div>
 
