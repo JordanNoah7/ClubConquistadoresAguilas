@@ -18,8 +18,8 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyProductAttribute("Mobile")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Mobile")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
-[assembly: System.Runtime.Versioning.TargetPlatformAttribute("android0.0")]
-[assembly: System.Runtime.Versioning.SupportedOSPlatformAttribute("android21.0")]
+[assembly: System.Runtime.Versioning.TargetPlatformAttribute("Windows10.0.19041.0")]
+[assembly: System.Runtime.Versioning.SupportedOSPlatformAttribute("Windows10.0.17763.0")]
 
 // Generado por la clase WriteCodeFragment de MSBuild.
 
