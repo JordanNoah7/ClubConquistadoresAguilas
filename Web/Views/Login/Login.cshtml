@@ -7,100 +7,108 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     @*<link rel="stylesheet" src="~/css/styleLogin.css" type="text/css">*@
-    <link rel="stylesheet" href="~/css/styleLogin.css" asp-append-version="true" />
-   @* <link rel="stylesheet" href="~/Web.styles.css" asp-append-version="true" />*@
+    <link rel="stylesheet" href="~/css/styleLogin.css" asp-append-version="true"/>
+    @* <link rel="stylesheet" href="~/Web.styles.css" asp-append-version="true" />*@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css'>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
-    
-    
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css">
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css">
+
 
     <title>Iniciar Sesión</title>
 
 </head>
 <body>
-    <main>
-        <div class="box">
-            <div class="inner-box">
-                <div class="carousel">
-                    
-                        <img src="~/img/login.png" class="image img-1" alt="" />
+<main>
+    <div class="box">
+        <div class="inner-box">
+            <div class="carousel">
 
-                   
-               
-                </div>
-               
-                <div class="forms-wrap">
-                    <form action="action_page.php" method="post" autocomplete="off" class="sing-in-form">
-                        <div class="logo">
-                            <img src="~/img/logo.png"/>
-                            
-                        </div>
-                        @*<div class="cabecera">
+                <img src="~/img/login.png" class="image img-1" alt=""/>
+
+
+            </div>
+
+            <div class="forms-wrap">
+                <!-- Estas redirigiendo a una pagina php que no esta en este proyecto
+                form action="action_page.php" method="post" autocomplete="off" class="sing-in-form"-->
+                <form action="/Login/Log_in" method="post" autocomplete="off" class="sing-in-form">
+                    <div class="logo">
+                        <img src="~/img/logo.png"/>
+
+                    </div>
+                    @*<div class="cabecera">
                             <h2>Bienvenido</h2>
 
                         </div>*@
-                        <div class="formulario">
-                            <div class=" container">
-                                <div class="input-wrap1">
+                    <div class="formulario">
+                        <div class=" container">
+                            <div class="input-wrap1">
 
-                                    <label class="visually-hidden" for="unombre">Username</label>
-                                    <div class="input-group input-group-lg">
-                                        <div class="input-group-text"><i class="fi fi-ss-user"></i></div>
-
-                                        <input type="text"
-                                               class="form-control"
-                                               id="unombre"
-                                               autocomplete="off"
-                                        @*placeholder="Ingresar Usuario"*@
-                                               required>
+                                <label class="visually-hidden" for="unombre">Username</label>
+                                <div class="input-group input-group-lg">
+                                    <div class="input-group-text">
+                                        <i class="fi fi-ss-user"></i>
                                     </div>
-                                </div>
-                                <div class="input-wrap2">
-
-                                    <label class="visually-hidden" for="pass">Password</label>
-                                    <div class="input-group input-group-lg">
-                                        <div class="input-group-text">
-                                            <i class="fi fi-sr-key"></i>
-                                        </div>
-                                        <input type="password"
-                                               class="form-control"
-                                               id="pass"
-                                               autocomplete="off"
-                                        @*placeholder="Ingresar Contraseña"*@
-                                               required>
-                                    </div>
-
+                                    <!-- Agregre el atributo name para referenciar el valor -->
+                                    <input type="text"
+                                           class="form-control"
+                                           id="username"
+                                           name="username"
+                                           autocomplete="off"
+                                           @*placeholder="Ingresar Usuario"*@
+                                           required>
                                 </div>
                             </div>
-                            <div class="container-fluid h-100">
-                                <div class="row w-100 align-items-center">
-                                    <div class=" col text-center">
-                                        <a href="#" 
-                                        class="btn btn-outline-success center-block" 
-                                        role="button">Ingresar</a>
+                            <div class="input-wrap2">
+
+                                <label class="visually-hidden" for="pass">Password</label>
+                                <div class="input-group input-group-lg">
+                                    <div class="input-group-text">
+                                        <i class="fi fi-sr-key"></i>
                                     </div>
-                                   
+                                    <!-- Agregre el atributo name para referenciar el valor -->
+                                    <input type="password"
+                                           class="form-control"
+                                           id="password"
+                                           name="username"
+                                           autocomplete="off"
+                                           @*placeholder="Ingresar Contraseña"*@
+                                           required>
                                 </div>
 
                             </div>
-                           
-                                
-                          
+                        </div>
+                        <div class="container-fluid h-100">
+                            <div class="row w-100 align-items-center">
+                                <div class=" col text-center">
+                                    <!--Usar boton en ves de link
+                                    <a href="#"
+                                       class="btn btn-outline-success center-block"
+                                       role="button">
+                                        Ingresar
+                                    </a>-->
+                                    <button type="submit" class="btn btn-outline-success center-block" id="btnIngresar">
+                                        Ingresar
+                                    </button>
+                                </div>
+
+                            </div>
+
                         </div>
 
-                    </form>
-                </div>
-                
+
+                    </div>
+
+                </form>
             </div>
 
         </div>
-    </main>
 
-    @*archivo Javascript*@
-    <script scr="js/login.js"> </script>
+    </div>
+</main>
+
+@*archivo Javascript*@
+<script scr="js/login.js"> </script>
 
 </body>
 </html>
-
-

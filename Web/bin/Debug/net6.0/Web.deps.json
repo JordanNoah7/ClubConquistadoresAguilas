@@ -9,6 +9,7 @@
       "Web/1.0.0": {
         "dependencies": {
           "Application": "1.0.0",
+          "DataAccess": "1.0.0",
           "Models": "1.0.0"
         },
         "runtime": {
@@ -622,6 +623,7 @@
       },
       "DataAccess/1.0.0": {
         "dependencies": {
+          "Domain": "1.0.0",
           "Infrastructure": "1.0.0",
           "Models": "1.0.0"
         },
@@ -631,7 +633,7 @@
       },
       "Domain/1.0.0": {
         "dependencies": {
-          "DataAccess": "1.0.0",
+          "Infrastructure": "1.0.0",
           "Models": "1.0.0"
         },
         "runtime": {
