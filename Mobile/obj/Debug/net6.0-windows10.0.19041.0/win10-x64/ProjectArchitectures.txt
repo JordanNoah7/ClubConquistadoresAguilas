@@ -1,1 +1,0 @@
-E:\C#\ClubConquistadoresAguilas\Mobile\Mobile.csproj;x64
