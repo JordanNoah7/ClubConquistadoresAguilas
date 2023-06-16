@@ -35,7 +35,7 @@ public class RoleRepository: ContextRepository, IGenericRepository<Role>
         }
     }
 
-    public async Task<bool> Delete(int id1, int id2)
+    public async Task<bool> Delete(int id1, int id2 = 0)
     {
         try
         {
@@ -50,7 +50,7 @@ public class RoleRepository: ContextRepository, IGenericRepository<Role>
         }
     }
 
-    public async Task<Role> Get(int id1, int id2)
+    public async Task<Role> Get(int id1, int id2 = 0)
     {
         try
         {

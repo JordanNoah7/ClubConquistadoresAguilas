@@ -35,7 +35,7 @@ public class PersonRepository:ContextRepository,IGenericRepository<Person>
         }
     }
 
-    public async Task<bool> Delete(int id1, int id2)
+    public async Task<bool> Delete(int id1, int id2 = 0)
     {
         try
         {
@@ -50,7 +50,7 @@ public class PersonRepository:ContextRepository,IGenericRepository<Person>
         }
     }
 
-    public async Task<Person> Get(int id1, int id2)
+    public async Task<Person> Get(int id1, int id2 = 0)
     {
         try
         {
