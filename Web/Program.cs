@@ -17,6 +17,8 @@ builder.Services.AddDbContext<ClubConquistadoresAguilasContext>(options =>
 builder.Services.AddScoped<IGenericRepository<User>, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
 
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
