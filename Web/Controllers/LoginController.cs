@@ -1,5 +1,6 @@
 ﻿using Application.IService;
 using Microsoft.AspNetCore.Mvc;
+using Models;
 
 namespace Web.Controllers
 {
@@ -13,13 +14,34 @@ namespace Web.Controllers
         }
         public IActionResult Login()
         {
+            ViewBag.ErrorMessage = "";
             return View();
         }
 
         [HttpPost]
-        public IActionResult Log_in(string username, string password)
+        public async Task<IActionResult> Login(string username, string password)
         {
-            if (username.Equals("admin") && password.Equals("12345"))
+            User user = await _userService.GetByUsername(username);
+            if (user == null)
+            {
+                ViewBag.ErrorMessage = "Nombre de usuario o contraseña incorrectos";
+                return View();
+            }
+            else
+            {
+                if (user.Password.Equals(password))
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    ViewBag.ErrorMessage = "Nombre de usuario o contraseña incorrectos";
+                    return View();
+                }
+            }
+            
+            
+            /*if (username.Equals("admin") && password.Equals("12345"))
             {
                 ViewBag.ErrorMessage = "Credenciales validas";
                 return RedirectToAction("Index", "Home");
@@ -28,7 +50,7 @@ namespace Web.Controllers
             {
                 ViewBag.ErrorMessage = "Credenciales invalidas";
                 return RedirectToAction("Login", "Login");
-            }
+            }*/
         }
     }
     

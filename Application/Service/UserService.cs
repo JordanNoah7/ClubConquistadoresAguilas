@@ -39,10 +39,10 @@ public class UserService: IUserService
         return await _userRepo.GetAll();
     }
 
-    public async Task<User> GetByUsernamePassword(string username, string password)
+    public async Task<User> GetByUsername(string username)
     {
         IQueryable<User> queryUserSQL = await _userRepo.GetAll();
-        User user = queryUserSQL.Where(u => u.UserName == username && u.Password == password).FirstOrDefault();
+        User user = queryUserSQL.Where(u => u.UserName == username).FirstOrDefault();
         return user;
     }
 }

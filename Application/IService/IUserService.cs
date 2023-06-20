@@ -9,5 +9,5 @@ public interface IUserService
     Task<bool> Delete(int id1, int id2 = 0);
     Task<User> Get(int id1, int id2 = 0);
     Task<IQueryable<User>> GetAll();
-    Task<User> GetByUsernamePassword(string username, string password);
+    Task<User> GetByUsername(string username);
 }

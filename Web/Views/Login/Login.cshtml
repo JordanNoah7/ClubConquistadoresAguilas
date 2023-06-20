@@ -15,7 +15,7 @@
 
 
     <title>Iniciar Sesión</title>
-
+    
 </head>
 <body>
 <main>
@@ -29,10 +29,14 @@
             </div>
 
             <div class="forms-wrap">
+                @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+                {
+                    <p id="message">@ViewBag.ErrorMessage</p>
+                }
                 <!-- Estas redirigiendo a una pagina php que no esta en este proyecto
                 form action="action_page.php" method="post" autocomplete="off" class="sing-in-form"-->
                 <!-- hace referencia al controller en el atributo action -->
-                <form action="@Url.Action("Log_in", "Login")" method="post" autocomplete="off" class="sing-in-form">
+                <form action="@Url.Action("Login", "Login")" method="post" autocomplete="off" class="sing-in-form">
                     <div class="logo">
                         <img src="~/img/logo.png"/>
 
@@ -109,7 +113,7 @@
 </main>
 
 @*archivo Javascript*@
-<script scr="js/login.js"> </script>
+<script src="/js/login.js"> </script>
 
 </body>
 </html>
