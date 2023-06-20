@@ -1,5 +1,6 @@
 ﻿using Application.IService;
 using Microsoft.AspNetCore.Mvc;
+using Web.Models.ViewModels;
 
 namespace Web.Controllers;
 
@@ -32,17 +33,5 @@ public class LoginController : Controller
 
         ViewBag.ErrorMessage = "Nombre de usuario o contraseña incorrectos";
         return View();
-
-
-        /*if (username.Equals("admin") && password.Equals("12345"))
-        {
-            ViewBag.ErrorMessage = "Credenciales validas";
-            return RedirectToAction("Index", "Home");
-        }
-        else
-        {
-            ViewBag.ErrorMessage = "Credenciales invalidas";
-            return RedirectToAction("Login", "Login");
-        }*/
     }
 }

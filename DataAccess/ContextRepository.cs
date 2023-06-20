@@ -1,6 +1,6 @@
 ﻿using Infrastructure.Context;
 
-namespace DataAccess.Repositories;
+namespace DataAccess;
 
 public class ContextRepository
 {

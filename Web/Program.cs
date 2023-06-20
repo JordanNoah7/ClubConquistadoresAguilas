@@ -1,5 +1,6 @@
 using Application.IService;
 using Application.Service;
+using DataAccess;
 using DataAccess.Repositories;
 using Domain;
 using Infrastructure.Context;
@@ -14,8 +15,14 @@ builder.Services.AddDbContext<ClubConquistadoresAguilasContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("connection")));
 
 //Inyeccion de dependencias
+//User
 builder.Services.AddScoped<IGenericRepository<User>, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
+//Person
+
+//Activity
+
+//Club
 
 
 var app = builder.Build();
