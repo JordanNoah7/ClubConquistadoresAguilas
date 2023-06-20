@@ -16,11 +16,11 @@
 -->
 
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:tools="http://schemas.android.com/tools"
-  android:layout_width="wrap_content"
-  android:layout_height="wrap_content"
-  android:textColor="?attr/colorOnSurface"
-  android:padding="@dimen/material_clock_number_text_padding"
-  android:textSize="@dimen/material_clock_number_text_size"
-  android:visibility="gone"
-  tools:ignore="SpUsage" />
+          xmlns:tools="http://schemas.android.com/tools"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textColor="?attr/colorOnSurface"
+          android:padding="@dimen/material_clock_number_text_padding"
+          android:textSize="@dimen/material_clock_number_text_size"
+          android:visibility="gone"
+          tools:ignore="SpUsage"/>

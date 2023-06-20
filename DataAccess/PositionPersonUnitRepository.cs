@@ -5,9 +5,11 @@ using Models;
 
 namespace DataAccess.Repositories;
 
-public class PositionPersonUnitRepository: ContextRepository, IGenericRepository<PositionPersonUnit>
+public class PositionPersonUnitRepository : ContextRepository, IGenericRepository<PositionPersonUnit>
 {
-    public PositionPersonUnitRepository(ClubConquistadoresAguilasContext context) : base(context) { }
+    public PositionPersonUnitRepository(ClubConquistadoresAguilasContext context) : base(context)
+    {
+    }
 
     public async Task<bool> Insert(PositionPersonUnit model)
     {
@@ -53,7 +55,8 @@ public class PositionPersonUnitRepository: ContextRepository, IGenericRepository
         {
             try
             {
-                PositionPersonUnit model = _dbContext.PositionPersonUnits.First(ppu => ppu.UnitId == id1 && ppu.PersonId == id2);
+                var model =
+                    _dbContext.PositionPersonUnits.First(ppu => ppu.UnitId == id1 && ppu.PersonId == id2);
                 _dbContext.PositionPersonUnits.Remove(model);
                 await _dbContext.SaveChangesAsync();
                 transaction.Commit();
@@ -71,7 +74,8 @@ public class PositionPersonUnitRepository: ContextRepository, IGenericRepository
     {
         try
         {
-            return await _dbContext.PositionPersonUnits.FirstOrDefaultAsync(ppu => ppu.UnitId == id1 && ppu.PersonId == id2);
+            return await _dbContext.PositionPersonUnits.FirstOrDefaultAsync(ppu =>
+                ppu.UnitId == id1 && ppu.PersonId == id2);
         }
         catch (Exception ex)
         {

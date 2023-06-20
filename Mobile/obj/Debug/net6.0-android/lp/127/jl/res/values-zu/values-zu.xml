@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="mtrl_badge_content_description">
-    <item quantity="one">%d izaziso ezintsha</item>
-    <item quantity="other">%d izaziso ezintsha</item>
-  </plurals>
+        <item quantity="one">%d izaziso ezintsha</item>
+        <item quantity="other">%d izaziso ezintsha</item>
+    </plurals>
     <string name="bottomsheet_action_expand_halfway">Nweba phakathi</string>
     <string name="character_counter_content_description">Izinhlamvu ezifakiwe ezingu-%1$d zokungu-%2$d</string>
-    <string name="character_counter_overflowed_content_description">Umkhawulo wezinhlamvu udlule u-%1$d kokungu-%2$d</string>
+    <string name="character_counter_overflowed_content_description">Umkhawulo wezinhlamvu udlule u-%1$d kokungu-%2$d
+    </string>
     <string name="clear_text_end_icon_content_description">Sula umbhalo</string>
     <string name="error_icon_content_description">Iphutha</string>
     <string name="exposed_dropdown_menu_content_description">Bonisa imenyu yokudonsela phansi</string>
@@ -23,7 +24,9 @@
     <string name="material_timepicker_minute">Iminithi</string>
     <string name="material_timepicker_pm">PM</string>
     <string name="material_timepicker_select_time">Khetha isikhathi</string>
-    <string name="material_timepicker_text_input_mode_description">Shintshela kumodi yokufaka umbhalo ngokufaka isikhathi.</string>
+    <string name="material_timepicker_text_input_mode_description">Shintshela kumodi yokufaka umbhalo ngokufaka
+        isikhathi.
+    </string>
     <string name="mtrl_badge_numberless_content_description">Isaziso esisha</string>
     <string name="mtrl_chip_close_icon_content_description">Susa i-%1$s</string>
     <string name="mtrl_exceed_max_badge_number_content_description">Izaziso ezintsha ezingaphezu kokungu-%1$d</string>

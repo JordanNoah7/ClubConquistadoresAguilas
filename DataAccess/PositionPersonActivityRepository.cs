@@ -5,9 +5,11 @@ using Models;
 
 namespace DataAccess.Repositories;
 
-public class PositionPersonActivityRepository: ContextRepository, IGenericRepository<PositionPersonActivity>
+public class PositionPersonActivityRepository : ContextRepository, IGenericRepository<PositionPersonActivity>
 {
-    public PositionPersonActivityRepository(ClubConquistadoresAguilasContext context) : base(context) { }
+    public PositionPersonActivityRepository(ClubConquistadoresAguilasContext context) : base(context)
+    {
+    }
 
     public async Task<bool> Insert(PositionPersonActivity model)
     {
@@ -53,7 +55,8 @@ public class PositionPersonActivityRepository: ContextRepository, IGenericReposi
         {
             try
             {
-                PositionPersonActivity model = _dbContext.PositionPersonActivities.First(ppa => ppa.ActivityId == id1 && ppa.PersonId == id2);
+                var model =
+                    _dbContext.PositionPersonActivities.First(ppa => ppa.ActivityId == id1 && ppa.PersonId == id2);
                 _dbContext.PositionPersonActivities.Remove(model);
                 await _dbContext.SaveChangesAsync();
                 transaction.Commit();
@@ -71,7 +74,8 @@ public class PositionPersonActivityRepository: ContextRepository, IGenericReposi
     {
         try
         {
-            return await _dbContext.PositionPersonActivities.FirstOrDefaultAsync(ppa => ppa.ActivityId == id1 && ppa.PersonId == id2);
+            return await _dbContext.PositionPersonActivities.FirstOrDefaultAsync(ppa =>
+                ppa.ActivityId == id1 && ppa.PersonId == id2);
         }
         catch (Exception ex)
         {
@@ -86,7 +90,7 @@ public class PositionPersonActivityRepository: ContextRepository, IGenericReposi
             IQueryable<PositionPersonActivity> queryPosPerActSQL = _dbContext.PositionPersonActivities;
             return queryPosPerActSQL;
         }
-        catch (Exception ex)    
+        catch (Exception ex)
         {
             return null;
         }

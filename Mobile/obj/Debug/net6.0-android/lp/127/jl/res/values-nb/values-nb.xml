@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="mtrl_badge_content_description">
-    <item quantity="one">%d nytt varsel</item>
-    <item quantity="other">%d nye varsler</item>
-  </plurals>
+        <item quantity="one">%d nytt varsel</item>
+        <item quantity="other">%d nye varsler</item>
+    </plurals>
     <string name="bottomsheet_action_expand_halfway">Vis halve feltet nederst</string>
     <string name="character_counter_content_description">%1$d av %2$d tegn er skrevet inn</string>
     <string name="character_counter_overflowed_content_description">Tegngrensen er overskredet – %1$d av %2$d</string>

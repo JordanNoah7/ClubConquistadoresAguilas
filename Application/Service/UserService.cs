@@ -1,19 +1,18 @@
 ﻿using Application.IService;
 using Domain;
-using Microsoft.EntityFrameworkCore;
 using Models;
 
 namespace Application.Service;
 
-public class UserService: IUserService
+public class UserService : IUserService
 {
     private readonly IGenericRepository<User> _userRepo;
-    
+
     public UserService(IGenericRepository<User> userRepo)
     {
         _userRepo = userRepo;
     }
-    
+
     public async Task<bool> Insert(User model)
     {
         return await _userRepo.Insert(model);
@@ -41,8 +40,8 @@ public class UserService: IUserService
 
     public async Task<User> GetByUsername(string username)
     {
-        IQueryable<User> queryUserSQL = await _userRepo.GetAll();
-        User user = queryUserSQL.Where(u => u.UserName == username).FirstOrDefault();
+        var queryUserSQL = await _userRepo.GetAll();
+        var user = queryUserSQL.Where(u => u.UserName == username).FirstOrDefault();
         return user;
     }
 }

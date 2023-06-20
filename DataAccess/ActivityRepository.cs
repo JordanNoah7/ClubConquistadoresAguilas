@@ -1,13 +1,15 @@
-﻿using Infrastructure.Context;
-using Domain;
+﻿using Domain;
+using Infrastructure.Context;
 using Models;
 
 namespace DataAccess.Repositories;
 
-public class ActivityRepository:ContextRepository,IGenericRepository<Activity>
+public class ActivityRepository : ContextRepository, IGenericRepository<Activity>
 {
-    public ActivityRepository(ClubConquistadoresAguilasContext context) : base(context) { }
-    
+    public ActivityRepository(ClubConquistadoresAguilasContext context) : base(context)
+    {
+    }
+
     public async Task<bool> Insert(Activity model)
     {
         using (var transaction = _dbContext.Database.BeginTransaction())
@@ -52,7 +54,7 @@ public class ActivityRepository:ContextRepository,IGenericRepository<Activity>
         {
             try
             {
-                Activity model = _dbContext.Activities.First(a => a.Id == id1);
+                var model = _dbContext.Activities.First(a => a.Id == id1);
                 _dbContext.Activities.Remove(model);
                 await _dbContext.SaveChangesAsync();
                 transaction.Commit();

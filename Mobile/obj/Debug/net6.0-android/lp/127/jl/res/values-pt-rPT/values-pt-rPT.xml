@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="mtrl_badge_content_description">
-    <item quantity="one">%d nova notificação</item>
-    <item quantity="other">%d novas notificações</item>
-  </plurals>
+        <item quantity="one">%d nova notificação</item>
+        <item quantity="other">%d novas notificações</item>
+    </plurals>
     <string name="bottomsheet_action_expand_halfway">Expandir até metade</string>
     <string name="character_counter_content_description">Carateres introduzidos: %1$d de %2$d</string>
     <string name="character_counter_overflowed_content_description">Limite de carateres excedido: %1$d de %2$d</string>
@@ -18,12 +18,15 @@
     <string name="material_minute_selection">Selecionar minutos</string>
     <string name="material_minute_suffix">%1$s minutos</string>
     <string name="material_timepicker_am">AM</string>
-    <string name="material_timepicker_clock_mode_description">Mude para o modo de relógio para a introdução da hora.</string>
+    <string name="material_timepicker_clock_mode_description">Mude para o modo de relógio para a introdução da hora.
+    </string>
     <string name="material_timepicker_hour">Hora</string>
     <string name="material_timepicker_minute">Minuto</string>
     <string name="material_timepicker_pm">PM</string>
     <string name="material_timepicker_select_time">Selecionar hora</string>
-    <string name="material_timepicker_text_input_mode_description">Mude para o modo de introdução de texto para a introdução da hora.</string>
+    <string name="material_timepicker_text_input_mode_description">Mude para o modo de introdução de texto para a
+        introdução da hora.
+    </string>
     <string name="mtrl_badge_numberless_content_description">Nova notificação</string>
     <string name="mtrl_chip_close_icon_content_description">Remover %1$s</string>
     <string name="mtrl_exceed_max_badge_number_content_description">Mais de %1$d notificações novas</string>

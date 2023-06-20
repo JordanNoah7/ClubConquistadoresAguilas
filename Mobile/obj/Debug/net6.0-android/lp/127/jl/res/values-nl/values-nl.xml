@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="mtrl_badge_content_description">
-    <item quantity="one">%d nieuwe melding</item>
-    <item quantity="other">%d nieuwe meldingen</item>
-  </plurals>
+        <item quantity="one">%d nieuwe melding</item>
+        <item quantity="other">%d nieuwe meldingen</item>
+    </plurals>
     <string name="bottomsheet_action_expand_halfway">Half uitvouwen</string>
     <string name="character_counter_content_description">%1$d van %2$d tekens opgegeven</string>
-    <string name="character_counter_overflowed_content_description">Tekenlimiet heeft %1$d van %2$d overschreden</string>
+    <string name="character_counter_overflowed_content_description">Tekenlimiet heeft %1$d van %2$d overschreden
+    </string>
     <string name="clear_text_end_icon_content_description">Tekst wissen</string>
     <string name="error_icon_content_description">Fout</string>
     <string name="exposed_dropdown_menu_content_description">Dropdownmenu weergeven</string>
@@ -18,12 +19,15 @@
     <string name="material_minute_selection">Minuten selecteren</string>
     <string name="material_minute_suffix">%1$s minuten</string>
     <string name="material_timepicker_am">a.m.</string>
-    <string name="material_timepicker_clock_mode_description">Schakel naar de klokmodus om de tijd in te voeren.</string>
+    <string name="material_timepicker_clock_mode_description">Schakel naar de klokmodus om de tijd in te voeren.
+    </string>
     <string name="material_timepicker_hour">Uur</string>
     <string name="material_timepicker_minute">Minuut</string>
     <string name="material_timepicker_pm">p.m.</string>
     <string name="material_timepicker_select_time">Tijd selecteren</string>
-    <string name="material_timepicker_text_input_mode_description">Schakel naar de tekstinvoermodus om de tijd in te voeren.</string>
+    <string name="material_timepicker_text_input_mode_description">Schakel naar de tekstinvoermodus om de tijd in te
+        voeren.
+    </string>
     <string name="mtrl_badge_numberless_content_description">Nieuwe melding</string>
     <string name="mtrl_chip_close_icon_content_description">%1$s verwijderen</string>
     <string name="mtrl_exceed_max_badge_number_content_description">Meer dan %1$d nieuwe meldingen</string>

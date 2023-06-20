@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿namespace Models;
 
-namespace Models;
-
-public partial class PositionPersonUnit
+public class PositionPersonUnit
 {
     public byte UnitId { get; set; }
 

@@ -12,8 +12,9 @@ $("#btnIngresar").click(()=>{
     UserModel["password"]=$("#password").val();
 })*/
 
-function hideErrorMessage(){
+function hideErrorMessage() {
     var errorMessageElement = document.getElementById('message');
     errorMessageElement.style.display = 'none';
 }
+
 setTimeout(hideErrorMessage, 5000);

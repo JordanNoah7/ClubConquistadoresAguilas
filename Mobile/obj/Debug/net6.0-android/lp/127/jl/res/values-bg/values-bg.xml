@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="mtrl_badge_content_description">
-    <item quantity="one">%d ново известие</item>
-    <item quantity="other">%d нови известия</item>
-  </plurals>
+        <item quantity="one">%d ново известие</item>
+        <item quantity="other">%d нови известия</item>
+    </plurals>
     <string name="bottomsheet_action_expand_halfway">Разгъване наполовина</string>
     <string name="character_counter_content_description">Въведени знаци: %1$d от %2$d</string>
-    <string name="character_counter_overflowed_content_description">Максималният брой знаци е надхвърлен с(ъс) %1$d от %2$d</string>
+    <string name="character_counter_overflowed_content_description">Максималният брой знаци е надхвърлен с(ъс) %1$d от
+        %2$d
+    </string>
     <string name="clear_text_end_icon_content_description">Изчистване на текста</string>
     <string name="error_icon_content_description">Грешка</string>
     <string name="exposed_dropdown_menu_content_description">Показване на падащото меню</string>
@@ -18,12 +20,15 @@
     <string name="material_minute_selection">Избиране на минути</string>
     <string name="material_minute_suffix">%1$s минути</string>
     <string name="material_timepicker_am">AM</string>
-    <string name="material_timepicker_clock_mode_description">Превключете към режима за часовник, за да въведете часа.</string>
+    <string name="material_timepicker_clock_mode_description">Превключете към режима за часовник, за да въведете часа.
+    </string>
     <string name="material_timepicker_hour">Час</string>
     <string name="material_timepicker_minute">Минута</string>
     <string name="material_timepicker_pm">PM</string>
     <string name="material_timepicker_select_time">Избор на час</string>
-    <string name="material_timepicker_text_input_mode_description">Превключете към режима за въвеждане на текст, за да въведете часа.</string>
+    <string name="material_timepicker_text_input_mode_description">Превключете към режима за въвеждане на текст, за да
+        въведете часа.
+    </string>
     <string name="mtrl_badge_numberless_content_description">Ново известие</string>
     <string name="mtrl_chip_close_icon_content_description">Премахване на %1$s</string>
     <string name="mtrl_exceed_max_badge_number_content_description">Повече от %1$d нови известия</string>

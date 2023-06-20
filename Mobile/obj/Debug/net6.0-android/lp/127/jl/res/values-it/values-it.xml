@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="mtrl_badge_content_description">
-    <item quantity="one">%d nuova notifica</item>
-    <item quantity="other">%d nuove notifiche</item>
-  </plurals>
+        <item quantity="one">%d nuova notifica</item>
+        <item quantity="other">%d nuove notifiche</item>
+    </plurals>
     <string name="bottomsheet_action_expand_halfway">Espandi a metà</string>
     <string name="character_counter_content_description">%1$d caratteri inserirti su %2$d</string>
-    <string name="character_counter_overflowed_content_description">Sono presenti %2$d caratteri in più rispetto al limite di %1$d</string>
+    <string name="character_counter_overflowed_content_description">Sono presenti %2$d caratteri in più rispetto al
+        limite di %1$d
+    </string>
     <string name="clear_text_end_icon_content_description">Cancella testo</string>
     <string name="error_icon_content_description">Errore</string>
     <string name="exposed_dropdown_menu_content_description">Mostra il menu a discesa</string>
@@ -23,7 +25,9 @@
     <string name="material_timepicker_minute">Minuto</string>
     <string name="material_timepicker_pm">pm</string>
     <string name="material_timepicker_select_time">Seleziona l\'ora</string>
-    <string name="material_timepicker_text_input_mode_description">Passa alla modalità di immissione testo per inserire l\'ora.</string>
+    <string name="material_timepicker_text_input_mode_description">Passa alla modalità di immissione testo per inserire
+        l\'ora.
+    </string>
     <string name="mtrl_badge_numberless_content_description">Nuova notifica</string>
     <string name="mtrl_chip_close_icon_content_description">Rimuovi %1$s</string>
     <string name="mtrl_exceed_max_badge_number_content_description">Più di %1$d nuove notifiche</string>

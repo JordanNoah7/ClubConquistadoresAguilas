@@ -4,9 +4,11 @@ using Models;
 
 namespace DataAccess.Repositories;
 
-public class PermissionRepository:ContextRepository, IGenericRepository<Permission>
+public class PermissionRepository : ContextRepository, IGenericRepository<Permission>
 {
-    public PermissionRepository(ClubConquistadoresAguilasContext context) : base(context) { }
+    public PermissionRepository(ClubConquistadoresAguilasContext context) : base(context)
+    {
+    }
 
     public async Task<bool> Insert(Permission model)
     {
@@ -52,7 +54,7 @@ public class PermissionRepository:ContextRepository, IGenericRepository<Permissi
         {
             try
             {
-                Permission model = _dbContext.Permissions.First(p=>p.Id.Equals(id1));
+                var model = _dbContext.Permissions.First(p => p.Id.Equals(id1));
                 _dbContext.Permissions.Remove(model);
                 await _dbContext.SaveChangesAsync();
                 transaction.Commit();

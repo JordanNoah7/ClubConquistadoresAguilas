@@ -1,13 +1,14 @@
 ﻿using Domain;
 using Infrastructure.Context;
-using Microsoft.EntityFrameworkCore;
 using Models;
 
 namespace DataAccess.Repositories;
 
-public class ClassRepository:ContextRepository, IGenericRepository<Class>
+public class ClassRepository : ContextRepository, IGenericRepository<Class>
 {
-    public ClassRepository(ClubConquistadoresAguilasContext context) : base(context) { }
+    public ClassRepository(ClubConquistadoresAguilasContext context) : base(context)
+    {
+    }
 
     public async Task<bool> Insert(Class model)
     {
@@ -53,7 +54,7 @@ public class ClassRepository:ContextRepository, IGenericRepository<Class>
         {
             try
             {
-                Class model = _dbContext.Classes.First(c => c.Id == id1);
+                var model = _dbContext.Classes.First(c => c.Id == id1);
                 _dbContext.Classes.Remove(model);
                 await _dbContext.SaveChangesAsync();
                 transaction.Commit();

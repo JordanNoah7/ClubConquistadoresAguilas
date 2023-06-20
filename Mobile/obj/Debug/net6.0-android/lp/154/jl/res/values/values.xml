@@ -1,1 +1,3 @@
-<resources><string name="maui_empty_unused" /></resources>
+<resources>
+    <string name="maui_empty_unused"/>
+</resources>

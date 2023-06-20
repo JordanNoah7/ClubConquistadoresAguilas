@@ -1,14 +1,15 @@
-﻿using Infrastructure.Context;
-using Domain;
-using Microsoft.EntityFrameworkCore;
+﻿using Domain;
+using Infrastructure.Context;
 using Models;
 
 namespace DataAccess.Repositories;
 
-public class CategoryRepository: ContextRepository , IGenericRepository<Category>
+public class CategoryRepository : ContextRepository, IGenericRepository<Category>
 {
-    public CategoryRepository(ClubConquistadoresAguilasContext context) : base(context) { }
-    
+    public CategoryRepository(ClubConquistadoresAguilasContext context) : base(context)
+    {
+    }
+
     public async Task<bool> Insert(Category model)
     {
         using (var transaction = _dbContext.Database.BeginTransaction())
@@ -53,7 +54,7 @@ public class CategoryRepository: ContextRepository , IGenericRepository<Category
         {
             try
             {
-                Category model = _dbContext.Categories.First(c => c.Id == id1);
+                var model = _dbContext.Categories.First(c => c.Id == id1);
                 _dbContext.Categories.Remove(model);
                 await _dbContext.SaveChangesAsync();
                 transaction.Commit();

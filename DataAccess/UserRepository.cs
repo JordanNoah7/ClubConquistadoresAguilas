@@ -4,9 +4,11 @@ using Models;
 
 namespace DataAccess.Repositories;
 
-public class UserRepository: ContextRepository, IGenericRepository<User>
+public class UserRepository : ContextRepository, IGenericRepository<User>
 {
-    public UserRepository(ClubConquistadoresAguilasContext context) : base(context) { }
+    public UserRepository(ClubConquistadoresAguilasContext context) : base(context)
+    {
+    }
 
     public async Task<bool> Insert(User model)
     {
@@ -52,7 +54,7 @@ public class UserRepository: ContextRepository, IGenericRepository<User>
         {
             try
             {
-                User model = _dbContext.Users.First(u => u.Id == id1);
+                var model = _dbContext.Users.First(u => u.Id == id1);
                 _dbContext.Users.Remove(model);
                 await _dbContext.SaveChangesAsync();
                 transaction.Commit();

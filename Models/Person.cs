@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿namespace Models;
 
-namespace Models;
-
-public partial class Person
+public class Person
 {
     public int Id { get; set; }
 
@@ -33,7 +30,8 @@ public partial class Person
 
     public virtual Person? PersonNavigation { get; set; }
 
-    public virtual ICollection<PositionPersonActivity> PositionPersonActivities { get; set; } = new List<PositionPersonActivity>();
+    public virtual ICollection<PositionPersonActivity> PositionPersonActivities { get; set; } =
+        new List<PositionPersonActivity>();
 
     public virtual ICollection<PositionPersonUnit> PositionPersonUnits { get; set; } = new List<PositionPersonUnit>();
 

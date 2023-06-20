@@ -4,9 +4,11 @@ using Models;
 
 namespace DataAccess.Repositories;
 
-public class SpecialtyRepository: ContextRepository, IGenericRepository<Specialty>
+public class SpecialtyRepository : ContextRepository, IGenericRepository<Specialty>
 {
-    public SpecialtyRepository(ClubConquistadoresAguilasContext context) : base(context) { }
+    public SpecialtyRepository(ClubConquistadoresAguilasContext context) : base(context)
+    {
+    }
 
     public async Task<bool> Insert(Specialty model)
     {
@@ -52,7 +54,7 @@ public class SpecialtyRepository: ContextRepository, IGenericRepository<Specialt
         {
             try
             {
-                Specialty model = _dbContext.Specialties.First(s => s.Id == id1);
+                var model = _dbContext.Specialties.First(s => s.Id == id1);
                 _dbContext.Specialties.Remove(model);
                 await _dbContext.SaveChangesAsync();
                 transaction.Commit();

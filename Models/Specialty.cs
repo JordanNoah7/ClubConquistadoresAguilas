@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿namespace Models;
 
-namespace Models;
-
-public partial class Specialty
+public class Specialty
 {
     public short Id { get; set; }
 
