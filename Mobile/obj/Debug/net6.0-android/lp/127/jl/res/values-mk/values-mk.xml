@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="mtrl_badge_content_description">
-        <item quantity="one">%d ново известување</item>
-        <item quantity="other">%d нови известувања</item>
-    </plurals>
+    <item quantity="one">%d ново известување</item>
+    <item quantity="other">%d нови известувања</item>
+  </plurals>
     <string name="bottomsheet_action_expand_halfway">Прошири до половина</string>
     <string name="character_counter_content_description">Внесени се %1$d од %2$d знаци</string>
-    <string name="character_counter_overflowed_content_description">Ограничувањето на знаците надмина %1$d од %2$d
-    </string>
+    <string name="character_counter_overflowed_content_description">Ограничувањето на знаците надмина %1$d од %2$d</string>
     <string name="clear_text_end_icon_content_description">Избриши го текстот</string>
     <string name="error_icon_content_description">Грешка</string>
     <string name="exposed_dropdown_menu_content_description">Прикажи паѓачко мени</string>
@@ -19,15 +18,12 @@
     <string name="material_minute_selection">Избери минути</string>
     <string name="material_minute_suffix">%1$s минути</string>
     <string name="material_timepicker_am">пр.</string>
-    <string name="material_timepicker_clock_mode_description">Префрлете се на режимот за часовник за да внесете време.
-    </string>
+    <string name="material_timepicker_clock_mode_description">Префрлете се на режимот за часовник за да внесете време.</string>
     <string name="material_timepicker_hour">Час</string>
     <string name="material_timepicker_minute">Минута</string>
     <string name="material_timepicker_pm">по.</string>
     <string name="material_timepicker_select_time">Изберете време</string>
-    <string name="material_timepicker_text_input_mode_description">Префрлете се на режимот за внесување текст за да
-        внесете време.
-    </string>
+    <string name="material_timepicker_text_input_mode_description">Префрлете се на режимот за внесување текст за да внесете време.</string>
     <string name="mtrl_badge_numberless_content_description">Ново известување</string>
     <string name="mtrl_chip_close_icon_content_description">Отстрани %1$s</string>
     <string name="mtrl_exceed_max_badge_number_content_description">Над %1$d нови известувања</string>

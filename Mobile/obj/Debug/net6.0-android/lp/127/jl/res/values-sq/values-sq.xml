@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="mtrl_badge_content_description">
-        <item quantity="one">%d njoftim i ri</item>
-        <item quantity="other">%d njoftime të reja</item>
-    </plurals>
+    <item quantity="one">%d njoftim i ri</item>
+    <item quantity="other">%d njoftime të reja</item>
+  </plurals>
     <string name="bottomsheet_action_expand_halfway">Zgjeroje deri në gjysmë</string>
     <string name="character_counter_content_description">Karakteret e futura: %1$d nga %2$d</string>
-    <string name="character_counter_overflowed_content_description">Kufiri i karaktereve është kaluar: %1$d nga %2$d
-    </string>
+    <string name="character_counter_overflowed_content_description">Kufiri i karaktereve është kaluar: %1$d nga %2$d</string>
     <string name="clear_text_end_icon_content_description">Pastro tekstin</string>
     <string name="error_icon_content_description">Gabim</string>
     <string name="exposed_dropdown_menu_content_description">Shfaq menynë me lëshim poshtë</string>
@@ -24,9 +23,7 @@
     <string name="material_timepicker_minute">Minuta</string>
     <string name="material_timepicker_pm">PD</string>
     <string name="material_timepicker_select_time">Zgjidh orën</string>
-    <string name="material_timepicker_text_input_mode_description">Kalo te modaliteti i hyrjes së tekstit për hyrjen e
-        kohës.
-    </string>
+    <string name="material_timepicker_text_input_mode_description">Kalo te modaliteti i hyrjes së tekstit për hyrjen e kohës.</string>
     <string name="mtrl_badge_numberless_content_description">Njoftim i ri</string>
     <string name="mtrl_chip_close_icon_content_description">Hiq %1$s</string>
     <string name="mtrl_exceed_max_badge_number_content_description">Më shumë se %1$d njoftime të reja</string>
