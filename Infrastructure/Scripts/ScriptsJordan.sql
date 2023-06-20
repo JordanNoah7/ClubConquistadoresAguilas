@@ -6,6 +6,8 @@ INSERT INTO People (firstName, fathersSurname, mothersSurname, birthDate, gender
 VALUES ('Jordan', 'Quispe', 'Supo', '09/07/1999', 'M', 'Ciudad Municipal', '914786862', 'j.jordan.quispe.supo@gmail.com', 1);
 
 INSERT INTO Users (ID, userName, password)
-VALUES (1, 'dyfmeks', '12345');
+VALUES (1, 'dyfmeks', '#Aa12345');
 
-SELECT * FROM Clubs;
+SELECT * FROM People;
+SELECT * FROM Users;
+SELECT * FROM People join Users U on People.ID = U.ID;

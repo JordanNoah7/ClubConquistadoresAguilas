@@ -58,7 +58,8 @@ CREATE TABLE People(
     CONSTRAINT FK_Club_People FOREIGN KEY (ClubID) REFERENCES Clubs(ID),
     CONSTRAINT FK_Parent_Child FOREIGN KEY (PersonID) REFERENCES People(ID),
     CONSTRAINT CK_Gender CHECK (gender IN ('M', 'F')),
-    CONSTRAINT CK_Phone CHECK (phone LIKE '[0-9]' AND LEN(phone) >= 9 AND LEN(phone) <= 15),
+    CONSTRAINT CK_Phone CHECK (phone LIKE '[0][1-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]' 
+                                   OR phone LIKE '[9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]'),
     CONSTRAINT CK_Email CHECK (email LIKE '%@%.%' AND email NOT LIKE '%@%@%')
 );
 
