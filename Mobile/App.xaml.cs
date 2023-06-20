@@ -1,12 +1,11 @@
-﻿namespace Mobile
-{
-    public partial class App : Microsoft.Maui.Controls.Application
-    {
-        public App()
-        {
-            InitializeComponent();
+﻿namespace Mobile;
 
-            MainPage = new AppShell();
-        }
+public partial class App : Microsoft.Maui.Controls.Application
+{
+    public App()
+    {
+        InitializeComponent();
+
+        MainPage = new AppShell();
     }
 }
