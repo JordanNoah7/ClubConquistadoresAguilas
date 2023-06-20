@@ -1,7 +1,7 @@
 using Application.IService;
 using Application.Service;
 using DataAccess;
-using DataAccess.Repositories;
+using DataAccess;
 using Domain;
 using Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;

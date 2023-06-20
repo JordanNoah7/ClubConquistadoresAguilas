@@ -2,7 +2,7 @@
 using Infrastructure.Context;
 using Models;
 
-namespace DataAccess.Repositories;
+namespace DataAccess;
 
 public class ClassRepository : ContextRepository, IGenericRepository<Class>
 {

@@ -3,7 +3,7 @@ using Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 using Models;
 
-namespace DataAccess.Repositories;
+namespace DataAccess;
 
 public class PositionPersonActivityRepository : ContextRepository, IGenericRepository<PositionPersonActivity>
 {
