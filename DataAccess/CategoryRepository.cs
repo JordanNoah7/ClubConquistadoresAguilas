@@ -1,5 +1,6 @@
 ﻿using Infrastructure.Context;
 using Domain;
+using Microsoft.EntityFrameworkCore;
 using Models;
 
 namespace DataAccess.Repositories;
@@ -10,44 +11,59 @@ public class CategoryRepository: ContextRepository , IGenericRepository<Category
     
     public async Task<bool> Insert(Category model)
     {
-        try
+        using (var transaction = _dbContext.Database.BeginTransaction())
         {
-            _dbContext.Categories.Add(model);
-            await _dbContext.SaveChangesAsync();
-            return true;
-        }
-        catch (Exception ex)
-        {
-            return false;
+            try
+            {
+                _dbContext.Categories.Add(model);
+                await _dbContext.SaveChangesAsync();
+                transaction.Commit();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                return false;
+            }
         }
     }
 
     public async Task<bool> Update(Category model)
     {
-        try
+        using (var transaction = _dbContext.Database.BeginTransaction())
         {
-            _dbContext.Categories.Update(model);
-            await _dbContext.SaveChangesAsync();
-            return true;
-        }
-        catch (Exception ex)
-        {
-            return false;
+            try
+            {
+                _dbContext.Categories.Update(model);
+                await _dbContext.SaveChangesAsync();
+                transaction.Commit();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                return false;
+            }
         }
     }
 
     public async Task<bool> Delete(int id1, int id2 = 0)
     {
-        try
+        using (var transaction = _dbContext.Database.BeginTransaction())
         {
-            Category model = _dbContext.Categories.First(c => c.Id == id1);
-            _dbContext.Categories.Remove(model);
-            await _dbContext.SaveChangesAsync();
-            return true;
-        }
-        catch (Exception ex)
-        {
-            return false;
+            try
+            {
+                Category model = _dbContext.Categories.First(c => c.Id == id1);
+                _dbContext.Categories.Remove(model);
+                await _dbContext.SaveChangesAsync();
+                transaction.Commit();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                return false;
+            }
         }
     }
 

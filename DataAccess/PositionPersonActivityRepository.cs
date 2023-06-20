@@ -11,44 +11,59 @@ public class PositionPersonActivityRepository: ContextRepository, IGenericReposi
 
     public async Task<bool> Insert(PositionPersonActivity model)
     {
-        try
+        using (var transaction = _dbContext.Database.BeginTransaction())
         {
-            _dbContext.PositionPersonActivities.Add(model);
-            await _dbContext.SaveChangesAsync();
-            return true;
-        }
-        catch (Exception ex)
-        {
-            return false;
+            try
+            {
+                _dbContext.PositionPersonActivities.Add(model);
+                await _dbContext.SaveChangesAsync();
+                transaction.Commit();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                return false;
+            }
         }
     }
 
     public async Task<bool> Update(PositionPersonActivity model)
     {
-        try
+        using (var transaction = _dbContext.Database.BeginTransaction())
         {
-            _dbContext.PositionPersonActivities.Update(model);
-            await _dbContext.SaveChangesAsync();
-            return true;
-        }
-        catch (Exception ex)
-        {
-            return false;
+            try
+            {
+                _dbContext.PositionPersonActivities.Update(model);
+                await _dbContext.SaveChangesAsync();
+                transaction.Commit();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                return false;
+            }
         }
     }
 
     public async Task<bool> Delete(int id1, int id2)
     {
-        try
+        using (var transaction = _dbContext.Database.BeginTransaction())
         {
-            PositionPersonActivity model = _dbContext.PositionPersonActivities.First(ppa => ppa.ActivityId == id1 && ppa.PersonId == id2);
-            _dbContext.PositionPersonActivities.Remove(model);
-            await _dbContext.SaveChangesAsync();
-            return true;
-        }
-        catch (Exception ex)
-        {
-            return false;
+            try
+            {
+                PositionPersonActivity model = _dbContext.PositionPersonActivities.First(ppa => ppa.ActivityId == id1 && ppa.PersonId == id2);
+                _dbContext.PositionPersonActivities.Remove(model);
+                await _dbContext.SaveChangesAsync();
+                transaction.Commit();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                return false;
+            }
         }
     }
 

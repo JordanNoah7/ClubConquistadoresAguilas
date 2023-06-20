@@ -10,44 +10,59 @@ public class PersonRepository:ContextRepository,IGenericRepository<Person>
 
     public async Task<bool> Insert(Person model)
     {
-        try
+        using (var transaction = _dbContext.Database.BeginTransaction())
         {
-            _dbContext.People.Add(model);
-            await _dbContext.SaveChangesAsync();
-            return true;
-        }
-        catch (Exception e)
-        {
-            return false;
+            try
+            {
+                _dbContext.People.Add(model);
+                await _dbContext.SaveChangesAsync();
+                transaction.Commit();
+                return true;
+            }
+            catch (Exception e)
+            {
+                transaction.Rollback();
+                return false;
+            }
         }
     }
 
     public async Task<bool> Update(Person model)
     {
-        try
+        using (var transaction = _dbContext.Database.BeginTransaction())
         {
-            _dbContext.People.Update(model);
-            await _dbContext.SaveChangesAsync();
-            return true;
-        }
-        catch (Exception e)
-        {
-            return false;
+            try
+            {
+                _dbContext.People.Update(model);
+                await _dbContext.SaveChangesAsync();
+                transaction.Commit();
+                return true;
+            }
+            catch (Exception e)
+            {
+                transaction.Rollback();
+                return false;
+            }
         }
     }
 
     public async Task<bool> Delete(int id1, int id2 = 0)
     {
-        try
+        using (var transaction = _dbContext.Database.BeginTransaction())
         {
-            Person model = _dbContext.People.First(p => p.Id.Equals(id1));
-            _dbContext.People.Remove(model);
-            await _dbContext.SaveChangesAsync();
-            return true;
-        }
-        catch (Exception e)
-        {
-            return false;
+            try
+            {
+                Person model = _dbContext.People.First(p => p.Id.Equals(id1));
+                _dbContext.People.Remove(model);
+                await _dbContext.SaveChangesAsync();
+                transaction.Commit();
+                return true;
+            }
+            catch (Exception e)
+            {
+                transaction.Rollback();
+                return false;
+            }
         }
     }
 

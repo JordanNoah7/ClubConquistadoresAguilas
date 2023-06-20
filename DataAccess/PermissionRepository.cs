@@ -10,44 +10,59 @@ public class PermissionRepository:ContextRepository, IGenericRepository<Permissi
 
     public async Task<bool> Insert(Permission model)
     {
-        try
+        using (var transaction = _dbContext.Database.BeginTransaction())
         {
-            _dbContext.Permissions.Add(model);
-            await _dbContext.SaveChangesAsync();
-            return true;
-        }
-        catch (Exception ex)
-        {
-            return false;
+            try
+            {
+                _dbContext.Permissions.Add(model);
+                await _dbContext.SaveChangesAsync();
+                transaction.Commit();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                return false;
+            }
         }
     }
 
     public async Task<bool> Update(Permission model)
     {
-        try
+        using (var transaction = _dbContext.Database.BeginTransaction())
         {
-            _dbContext.Permissions.Update(model);
-            await _dbContext.SaveChangesAsync();
-            return true;
-        }
-        catch (Exception e)
-        {
-            return false;
+            try
+            {
+                _dbContext.Permissions.Update(model);
+                await _dbContext.SaveChangesAsync();
+                transaction.Commit();
+                return true;
+            }
+            catch (Exception e)
+            {
+                transaction.Rollback();
+                return false;
+            }
         }
     }
 
     public async Task<bool> Delete(int id1, int id2 = 0)
     {
-        try
+        using (var transaction = _dbContext.Database.BeginTransaction())
         {
-            Permission model = _dbContext.Permissions.First(p=>p.Id.Equals(id1));
-            _dbContext.Permissions.Remove(model);
-            await _dbContext.SaveChangesAsync();
-            return true;
-        }
-        catch (Exception e)
-        {
-            return false;
+            try
+            {
+                Permission model = _dbContext.Permissions.First(p=>p.Id.Equals(id1));
+                _dbContext.Permissions.Remove(model);
+                await _dbContext.SaveChangesAsync();
+                transaction.Commit();
+                return true;
+            }
+            catch (Exception e)
+            {
+                transaction.Rollback();
+                return false;
+            }
         }
     }
 

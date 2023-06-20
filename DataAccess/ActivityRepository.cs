@@ -10,44 +10,59 @@ public class ActivityRepository:ContextRepository,IGenericRepository<Activity>
     
     public async Task<bool> Insert(Activity model)
     {
-        try
+        using (var transaction = _dbContext.Database.BeginTransaction())
         {
-            _dbContext.Activities.Add(model);
-            await _dbContext.SaveChangesAsync();
-            return true;
-        }
-        catch (Exception ex)
-        {
-            return false;
+            try
+            {
+                _dbContext.Activities.Add(model);
+                await _dbContext.SaveChangesAsync();
+                transaction.Commit();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                return false;
+            }
         }
     }
 
     public async Task<bool> Update(Activity model)
     {
-        try
+        using (var transaction = _dbContext.Database.BeginTransaction())
         {
-            _dbContext.Activities.Update(model);
-            await _dbContext.SaveChangesAsync();
-            return true;
-        }
-        catch (Exception ex)
-        {
-            return false;
+            try
+            {
+                _dbContext.Activities.Update(model);
+                await _dbContext.SaveChangesAsync();
+                transaction.Commit();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                return false;
+            }
         }
     }
 
     public async Task<bool> Delete(int id1, int id2 = 0)
     {
-        try
+        using (var transaction = _dbContext.Database.BeginTransaction())
         {
-            Activity model = _dbContext.Activities.First(a => a.Id == id1);
-            _dbContext.Activities.Remove(model);
-            await _dbContext.SaveChangesAsync();
-            return true;
-        }
-        catch (Exception ex)
-        {
-            return false;
+            try
+            {
+                Activity model = _dbContext.Activities.First(a => a.Id == id1);
+                _dbContext.Activities.Remove(model);
+                await _dbContext.SaveChangesAsync();
+                transaction.Commit();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                return false;
+            }
         }
     }
 

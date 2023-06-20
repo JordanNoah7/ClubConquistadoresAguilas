@@ -1,5 +1,6 @@
 ﻿using Domain;
 using Infrastructure.Context;
+using Microsoft.EntityFrameworkCore;
 using Models;
 
 namespace DataAccess.Repositories;
@@ -10,44 +11,59 @@ public class ClubRepository:ContextRepository, IGenericRepository<Club>
 
     public async Task<bool> Insert(Club model)
     {
-        try
+        using (var transaction = _dbContext.Database.BeginTransaction())
         {
-            _dbContext.Clubs.Add(model);
-            await _dbContext.SaveChangesAsync();
-            return true;
-        }
-        catch (Exception ex)
-        {
-            return false;
+            try
+            {
+                _dbContext.Clubs.Add(model);
+                await _dbContext.SaveChangesAsync();
+                transaction.Commit();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                return false;
+            }
         }
     }
 
     public async Task<bool> Update(Club model)
     {
-        try
+        using (var transaction = _dbContext.Database.BeginTransaction())
         {
-            _dbContext.Clubs.Update(model);
-            await _dbContext.SaveChangesAsync();
-            return true;
-        }
-        catch (Exception ex)
-        {
-            return false;
+            try
+            {
+                _dbContext.Clubs.Update(model);
+                await _dbContext.SaveChangesAsync();
+                transaction.Commit();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                return false;
+            }
         }
     }
 
     public async Task<bool> Delete(int id1, int id2 = 0)
     {
-        try
+        using (var transaction = _dbContext.Database.BeginTransaction())
         {
-            Club model = _dbContext.Clubs.First(c => c.Id == id1);
-            _dbContext.Clubs.Remove(model);
-            await _dbContext.SaveChangesAsync();
-            return true;
-        }
-        catch (Exception e)
-        {
-            return false;
+            try
+            {
+                Club model = _dbContext.Clubs.First(c => c.Id == id1);
+                _dbContext.Clubs.Remove(model);
+                await _dbContext.SaveChangesAsync();
+                transaction.Commit();
+                return true;
+            }
+            catch (Exception e)
+            {
+                transaction.Rollback();
+                return false;
+            }
         }
     }
 

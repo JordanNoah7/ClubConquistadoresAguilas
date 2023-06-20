@@ -11,44 +11,59 @@ public class PositionPersonUnitRepository: ContextRepository, IGenericRepository
 
     public async Task<bool> Insert(PositionPersonUnit model)
     {
-        try
+        using (var transaction = _dbContext.Database.BeginTransaction())
         {
-            _dbContext.PositionPersonUnits.Add(model);
-            await _dbContext.SaveChangesAsync();
-            return true;
-        }
-        catch (Exception ex)
-        {
-            return false;
+            try
+            {
+                _dbContext.PositionPersonUnits.Add(model);
+                await _dbContext.SaveChangesAsync();
+                transaction.Commit();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                return false;
+            }
         }
     }
 
     public async Task<bool> Update(PositionPersonUnit model)
     {
-        try
+        using (var transaction = _dbContext.Database.BeginTransaction())
         {
-            _dbContext.PositionPersonUnits.Update(model);
-            await _dbContext.SaveChangesAsync();
-            return true;
-        }
-        catch (Exception ex)
-        {
-            return false;
+            try
+            {
+                _dbContext.PositionPersonUnits.Update(model);
+                await _dbContext.SaveChangesAsync();
+                transaction.Commit();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                return false;
+            }
         }
     }
 
     public async Task<bool> Delete(int id1, int id2)
     {
-        try
+        using (var transaction = _dbContext.Database.BeginTransaction())
         {
-            PositionPersonUnit model = _dbContext.PositionPersonUnits.First(ppu => ppu.UnitId == id1 && ppu.PersonId == id2);
-            _dbContext.PositionPersonUnits.Remove(model);
-            await _dbContext.SaveChangesAsync();
-            return true;
-        }
-        catch (Exception ex)
-        {
-            return false;
+            try
+            {
+                PositionPersonUnit model = _dbContext.PositionPersonUnits.First(ppu => ppu.UnitId == id1 && ppu.PersonId == id2);
+                _dbContext.PositionPersonUnits.Remove(model);
+                await _dbContext.SaveChangesAsync();
+                transaction.Commit();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                return false;
+            }
         }
     }
 
