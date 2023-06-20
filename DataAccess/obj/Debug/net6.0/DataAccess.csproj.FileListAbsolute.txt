@@ -46,3 +46,22 @@ G:\Programacion\C#\ClubConquistadoresAguilas\DataAccess\bin\Debug\net6.0\Domain.
 G:\Programacion\C#\ClubConquistadoresAguilas\DataAccess\bin\Debug\net6.0\Infrastructure.pdb
 G:\Programacion\C#\ClubConquistadoresAguilas\DataAccess\bin\Debug\net6.0\Models.pdb
 G:\Programacion\C#\ClubConquistadoresAguilas\DataAccess\obj\Debug\net6.0\DataAccess.csproj.CopyComplete
+C:\Nancy - Isur6toSemestre\Distribuidas\PaginaConquistadores\RepositorioConquis\DataAccess\bin\Debug\net6.0\DataAccess.deps.json
+C:\Nancy - Isur6toSemestre\Distribuidas\PaginaConquistadores\RepositorioConquis\DataAccess\bin\Debug\net6.0\DataAccess.dll
+C:\Nancy - Isur6toSemestre\Distribuidas\PaginaConquistadores\RepositorioConquis\DataAccess\bin\Debug\net6.0\DataAccess.pdb
+C:\Nancy - Isur6toSemestre\Distribuidas\PaginaConquistadores\RepositorioConquis\DataAccess\bin\Debug\net6.0\Domain.dll
+C:\Nancy - Isur6toSemestre\Distribuidas\PaginaConquistadores\RepositorioConquis\DataAccess\bin\Debug\net6.0\Infrastructure.dll
+C:\Nancy - Isur6toSemestre\Distribuidas\PaginaConquistadores\RepositorioConquis\DataAccess\bin\Debug\net6.0\Models.dll
+C:\Nancy - Isur6toSemestre\Distribuidas\PaginaConquistadores\RepositorioConquis\DataAccess\bin\Debug\net6.0\Domain.pdb
+C:\Nancy - Isur6toSemestre\Distribuidas\PaginaConquistadores\RepositorioConquis\DataAccess\bin\Debug\net6.0\Infrastructure.pdb
+C:\Nancy - Isur6toSemestre\Distribuidas\PaginaConquistadores\RepositorioConquis\DataAccess\bin\Debug\net6.0\Models.pdb
+C:\Nancy - Isur6toSemestre\Distribuidas\PaginaConquistadores\RepositorioConquis\DataAccess\obj\Debug\net6.0\DataAccess.csproj.AssemblyReference.cache
+C:\Nancy - Isur6toSemestre\Distribuidas\PaginaConquistadores\RepositorioConquis\DataAccess\obj\Debug\net6.0\DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Nancy - Isur6toSemestre\Distribuidas\PaginaConquistadores\RepositorioConquis\DataAccess\obj\Debug\net6.0\DataAccess.AssemblyInfoInputs.cache
+C:\Nancy - Isur6toSemestre\Distribuidas\PaginaConquistadores\RepositorioConquis\DataAccess\obj\Debug\net6.0\DataAccess.AssemblyInfo.cs
+C:\Nancy - Isur6toSemestre\Distribuidas\PaginaConquistadores\RepositorioConquis\DataAccess\obj\Debug\net6.0\DataAccess.csproj.CoreCompileInputs.cache
+C:\Nancy - Isur6toSemestre\Distribuidas\PaginaConquistadores\RepositorioConquis\DataAccess\obj\Debug\net6.0\DataAccess.csproj.CopyComplete
+C:\Nancy - Isur6toSemestre\Distribuidas\PaginaConquistadores\RepositorioConquis\DataAccess\obj\Debug\net6.0\DataAccess.dll
+C:\Nancy - Isur6toSemestre\Distribuidas\PaginaConquistadores\RepositorioConquis\DataAccess\obj\Debug\net6.0\refint\DataAccess.dll
+C:\Nancy - Isur6toSemestre\Distribuidas\PaginaConquistadores\RepositorioConquis\DataAccess\obj\Debug\net6.0\DataAccess.pdb
+C:\Nancy - Isur6toSemestre\Distribuidas\PaginaConquistadores\RepositorioConquis\DataAccess\obj\Debug\net6.0\ref\DataAccess.dll
