@@ -1,7 +1,6 @@
 using Application.IService;
 using Application.Service;
 using DataAccess;
-using DataAccess;
 using Domain;
 using Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
@@ -19,7 +18,8 @@ builder.Services.AddDbContext<ClubConquistadoresAguilasContext>(options =>
 builder.Services.AddScoped<IGenericRepository<User>, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
 //Person
-
+builder.Services.AddScoped<IGenericRepository<Person>, PersonRepository>();
+builder.Services.AddScoped<IPersonService, PersonService>();
 //Activity
 
 //Club

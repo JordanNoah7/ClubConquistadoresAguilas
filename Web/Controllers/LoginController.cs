@@ -1,16 +1,18 @@
 ﻿using Application.IService;
 using Microsoft.AspNetCore.Mvc;
-using Web.Models.ViewModels;
+using Models;
 
 namespace Web.Controllers;
 
 public class LoginController : Controller
 {
+    private readonly IPersonService _personService;
     private readonly IUserService _userService;
 
-    public LoginController(IUserService userService)
+    public LoginController(IUserService userService, IPersonService personService)
     {
         _userService = userService;
+        _personService = personService;
     }
 
     public IActionResult Login()
@@ -22,14 +24,18 @@ public class LoginController : Controller
     [HttpPost]
     public async Task<IActionResult> Login(string username, string password)
     {
-        var user = await _userService.GetByUsername(username);
+        User user = await _userService.GetByUsername(username);
         if (user == null)
         {
             ViewBag.ErrorMessage = "Nombre de usuario o contraseña incorrectos";
             return View();
         }
 
-        if (user.Password.Equals(password)) return RedirectToAction("Index", "Home");
+        if (user.Password.Equals(password))
+        {
+            Person person = await _personService.Get(user.Id);
+            return RedirectToAction("Index", "Home");
+        }
 
         ViewBag.ErrorMessage = "Nombre de usuario o contraseña incorrectos";
         return View();

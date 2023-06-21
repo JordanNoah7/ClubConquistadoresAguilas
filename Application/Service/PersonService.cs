@@ -15,17 +15,57 @@ public class PersonService : IPersonService
 
     public async Task<bool> Insert(Person model)
     {
-        return await _personRepo.Insert(model);
+        try
+        {
+            await _personRepo.BeginTransaction();
+            bool result = await _personRepo.Insert(model);
+            if (result)
+                await _personRepo.Commit();
+            else
+                await _personRepo.Rollback();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return false;
+        }
+        
     }
 
     public async Task<bool> Update(Person model)
     {
-        return await _personRepo.Update(model);
+        try
+        {
+            await _personRepo.BeginTransaction();
+            bool result = await _personRepo.Update(model);
+            if (result)
+                await _personRepo.Commit();
+            else
+                await _personRepo.Rollback();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return false;
+        }
     }
 
     public async Task<bool> Delete(int id1, int id2 = 0)
     {
-        return await _personRepo.Delete(id1);
+        try
+        {
+            await _personRepo.BeginTransaction();
+            bool result = await _personRepo.Delete(id1);
+            if (result)
+                await _personRepo.Commit();
+            else
+                await _personRepo.Rollback();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return false;
+        }
     }
 
     public async Task<Person> Get(int id1, int id2 = 0)
