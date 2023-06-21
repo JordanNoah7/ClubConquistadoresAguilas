@@ -12,60 +12,57 @@ public class SpecialtyRepository : ContextRepository, IGenericRepository<Special
 
     public async Task<bool> Insert(Specialty model)
     {
-        using (var transaction = _dbContext.Database.BeginTransaction())
-        {
+        
             try
             {
                 _dbContext.Specialties.Add(model);
                 await _dbContext.SaveChangesAsync();
-                transaction.Commit();
+        
                 return true;
             }
             catch (Exception ex)
             {
-                transaction.Rollback();
+        
                 return false;
             }
-        }
+        
     }
 
     public async Task<bool> Update(Specialty model)
     {
-        using (var transaction = _dbContext.Database.BeginTransaction())
-        {
+        
             try
             {
                 _dbContext.Specialties.Update(model);
                 await _dbContext.SaveChangesAsync();
-                transaction.Commit();
+        
                 return true;
             }
             catch (Exception ex)
             {
-                transaction.Rollback();
+        
                 return false;
             }
-        }
+        
     }
 
     public async Task<bool> Delete(int id1, int id2 = 0)
     {
-        using (var transaction = _dbContext.Database.BeginTransaction())
-        {
+        
             try
             {
                 var model = _dbContext.Specialties.First(s => s.Id == id1);
                 _dbContext.Specialties.Remove(model);
                 await _dbContext.SaveChangesAsync();
-                transaction.Commit();
+        
                 return true;
             }
             catch (Exception ex)
             {
-                transaction.Rollback();
+        
                 return false;
             }
-        }
+        
     }
 
     public async Task<Specialty> Get(int id1, int id2 = 0)

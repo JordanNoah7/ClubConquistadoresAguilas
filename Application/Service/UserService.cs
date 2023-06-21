@@ -15,17 +15,59 @@ public class UserService : IUserService
 
     public async Task<bool> Insert(User model)
     {
-        return await _userRepo.Insert(model);
+        try
+        {
+            await _userRepo.BeginTransaction();
+            bool result = await _userRepo.Insert(model);
+            if (result)
+                await _userRepo.Commit();
+            else
+                await _userRepo.Rollback();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return false;
+        }
+        
     }
 
     public async Task<bool> Update(User model)
     {
-        return await _userRepo.Update(model);
+        try
+        {
+            await _userRepo.BeginTransaction();
+            bool result = await _userRepo.Update(model);
+            if (result)
+                await _userRepo.Commit();
+            else
+                await _userRepo.Rollback();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return false;
+        }
+        
     }
 
     public async Task<bool> Delete(int id1, int id2 = 0)
     {
-        return await _userRepo.Delete(id1);
+        try
+        {
+            await _userRepo.BeginTransaction();
+            bool result = await _userRepo.Delete(id1);
+            if (result)
+                await _userRepo.Commit();
+            else
+                await _userRepo.Rollback();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return false;
+        }
+        
     }
 
     public async Task<User> Get(int id1, int id2 = 0)

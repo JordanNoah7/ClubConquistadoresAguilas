@@ -13,61 +13,58 @@ public class PositionPersonActivityRepository : ContextRepository, IGenericRepos
 
     public async Task<bool> Insert(PositionPersonActivity model)
     {
-        using (var transaction = _dbContext.Database.BeginTransaction())
-        {
+        
             try
             {
                 _dbContext.PositionPersonActivities.Add(model);
                 await _dbContext.SaveChangesAsync();
-                transaction.Commit();
+        
                 return true;
             }
             catch (Exception ex)
             {
-                transaction.Rollback();
+        
                 return false;
             }
-        }
+        
     }
 
     public async Task<bool> Update(PositionPersonActivity model)
     {
-        using (var transaction = _dbContext.Database.BeginTransaction())
-        {
+        
             try
             {
                 _dbContext.PositionPersonActivities.Update(model);
                 await _dbContext.SaveChangesAsync();
-                transaction.Commit();
+        
                 return true;
             }
             catch (Exception ex)
             {
-                transaction.Rollback();
+        
                 return false;
             }
-        }
+        
     }
 
     public async Task<bool> Delete(int id1, int id2)
     {
-        using (var transaction = _dbContext.Database.BeginTransaction())
-        {
+        
             try
             {
                 var model =
                     _dbContext.PositionPersonActivities.First(ppa => ppa.ActivityId == id1 && ppa.PersonId == id2);
                 _dbContext.PositionPersonActivities.Remove(model);
                 await _dbContext.SaveChangesAsync();
-                transaction.Commit();
+        
                 return true;
             }
             catch (Exception ex)
             {
-                transaction.Rollback();
+        
                 return false;
             }
-        }
+        
     }
 
     public async Task<PositionPersonActivity> Get(int id1, int id2)

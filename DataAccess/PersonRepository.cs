@@ -12,60 +12,57 @@ public class PersonRepository : ContextRepository, IGenericRepository<Person>
 
     public async Task<bool> Insert(Person model)
     {
-        using (var transaction = _dbContext.Database.BeginTransaction())
-        {
+        
             try
             {
                 _dbContext.People.Add(model);
                 await _dbContext.SaveChangesAsync();
-                transaction.Commit();
+        
                 return true;
             }
             catch (Exception e)
             {
-                transaction.Rollback();
+        
                 return false;
             }
-        }
+        
     }
 
     public async Task<bool> Update(Person model)
     {
-        using (var transaction = _dbContext.Database.BeginTransaction())
-        {
+        
             try
             {
                 _dbContext.People.Update(model);
                 await _dbContext.SaveChangesAsync();
-                transaction.Commit();
+        
                 return true;
             }
             catch (Exception e)
             {
-                transaction.Rollback();
+        
                 return false;
             }
-        }
+        
     }
 
     public async Task<bool> Delete(int id1, int id2 = 0)
     {
-        using (var transaction = _dbContext.Database.BeginTransaction())
-        {
+        
             try
             {
                 var model = _dbContext.People.First(p => p.Id.Equals(id1));
                 _dbContext.People.Remove(model);
                 await _dbContext.SaveChangesAsync();
-                transaction.Commit();
+        
                 return true;
             }
             catch (Exception e)
             {
-                transaction.Rollback();
+        
                 return false;
             }
-        }
+        
     }
 
     public async Task<Person> Get(int id1, int id2 = 0)

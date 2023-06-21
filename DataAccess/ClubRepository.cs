@@ -12,60 +12,57 @@ public class ClubRepository : ContextRepository, IGenericRepository<Club>
 
     public async Task<bool> Insert(Club model)
     {
-        using (var transaction = _dbContext.Database.BeginTransaction())
-        {
+        
             try
             {
                 _dbContext.Clubs.Add(model);
                 await _dbContext.SaveChangesAsync();
-                transaction.Commit();
+        
                 return true;
             }
             catch (Exception ex)
             {
-                transaction.Rollback();
+        
                 return false;
             }
-        }
+        
     }
 
     public async Task<bool> Update(Club model)
     {
-        using (var transaction = _dbContext.Database.BeginTransaction())
-        {
+        
             try
             {
                 _dbContext.Clubs.Update(model);
                 await _dbContext.SaveChangesAsync();
-                transaction.Commit();
+        
                 return true;
             }
             catch (Exception ex)
             {
-                transaction.Rollback();
+        
                 return false;
             }
-        }
+        
     }
 
     public async Task<bool> Delete(int id1, int id2 = 0)
     {
-        using (var transaction = _dbContext.Database.BeginTransaction())
-        {
+        
             try
             {
                 var model = _dbContext.Clubs.First(c => c.Id == id1);
                 _dbContext.Clubs.Remove(model);
                 await _dbContext.SaveChangesAsync();
-                transaction.Commit();
+        
                 return true;
             }
             catch (Exception e)
             {
-                transaction.Rollback();
+        
                 return false;
             }
-        }
+        
     }
 
     public async Task<Club> Get(int id1, int id2 = 0)

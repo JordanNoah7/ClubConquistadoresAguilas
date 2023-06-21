@@ -3284,11 +3284,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\C#\\ClubConquistadoresAguilas\\DataAccess\\DataAccess.csproj",
+      "projectUniqueName": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\DataAccess\\DataAccess.csproj",
       "projectName": "DataAccess",
-      "projectPath": "E:\\C#\\ClubConquistadoresAguilas\\DataAccess\\DataAccess.csproj",
+      "projectPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\DataAccess\\DataAccess.csproj",
       "packagesPath": "C:\\Users\\dyfmeks\\.nuget\\packages\\",
-      "outputPath": "E:\\C#\\ClubConquistadoresAguilas\\DataAccess\\obj\\",
+      "outputPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -3310,14 +3310,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "E:\\C#\\ClubConquistadoresAguilas\\Domain\\Domain.csproj": {
-              "projectPath": "E:\\C#\\ClubConquistadoresAguilas\\Domain\\Domain.csproj"
+            "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Domain\\Domain.csproj": {
+              "projectPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Domain\\Domain.csproj"
             },
-            "E:\\C#\\ClubConquistadoresAguilas\\Infrastructure\\Infrastructure.csproj": {
-              "projectPath": "E:\\C#\\ClubConquistadoresAguilas\\Infrastructure\\Infrastructure.csproj"
+            "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Infrastructure\\Infrastructure.csproj"
             },
-            "E:\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj": {
-              "projectPath": "E:\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj"
+            "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj": {
+              "projectPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj"
             }
           }
         }

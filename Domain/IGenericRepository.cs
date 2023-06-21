@@ -7,4 +7,7 @@ public interface IGenericRepository<TEntityModel> where TEntityModel : class
     Task<bool> Delete(int id1, int id2 = 0);
     Task<TEntityModel> Get(int id1, int id2 = 0);
     Task<IQueryable<TEntityModel>> GetAll();
+    Task BeginTransaction();
+    Task Commit();
+    Task Rollback();
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TYr8IHu6RMwBL0L6ox7JdK/n+wZ1Iz+BBZFcnF+k077IeBnebslH+9MZ0M4xQgxzBrqRz0UiuDpe2wowI1qkKQ==",
+  "dgSpecHash": "0ZM0RR+1/2kMxy9glLBGP56hLTCzmsojdQFPI4F9jLyjjKNCBjQn8BE8PtwxRH+n7GDFuZa+CF/txOjW3jUWqA==",
   "success": true,
-  "projectFilePath": "E:\\C#\\ClubConquistadoresAguilas\\Mobile\\Mobile.csproj",
+  "projectFilePath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Mobile\\Mobile.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dyfmeks\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\dyfmeks\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

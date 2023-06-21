@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QQvvI58o42Na1i8ivDW0g1M9b8uglMSIxBdtJB0CwUI8biabgneK06Un9VxdIpSrSSNIlDk6ZRrgZcPwYlIgsg==",
+  "dgSpecHash": "NmDpYrDsbnfnw1WDrjxfj2UO483MZTYMOc8zrtkOW7HbuIW/zvwhyHBHa89yWoauOPWp09rW6dT9xhrtJjxgdQ==",
   "success": true,
-  "projectFilePath": "E:\\C#\\ClubConquistadoresAguilas\\Web\\Web.csproj",
+  "projectFilePath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Web\\Web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dyfmeks\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\dyfmeks\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
