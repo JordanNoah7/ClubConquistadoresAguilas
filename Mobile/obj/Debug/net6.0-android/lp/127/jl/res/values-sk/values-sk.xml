@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="mtrl_badge_content_description">
-        <item quantity="one">%d nové upozornenie</item>
-        <item quantity="few">%d nové upozornenia</item>
-        <item quantity="many">%d new notifications</item>
-        <item quantity="other">%d nových upozornení</item>
-    </plurals>
+    <item quantity="one">%d nové upozornenie</item>
+    <item quantity="few">%d nové upozornenia</item>
+    <item quantity="many">%d new notifications</item>
+    <item quantity="other">%d nových upozornení</item>
+  </plurals>
     <string name="bottomsheet_action_expand_halfway">Rozbaliť napoly</string>
     <string name="character_counter_content_description">Zadané znaky: %1$d z %2$d</string>
-    <string name="character_counter_overflowed_content_description">Bol prekročený povolený počet znakov (%1$d z %2$d)
-    </string>
+    <string name="character_counter_overflowed_content_description">Bol prekročený povolený počet znakov (%1$d z %2$d)</string>
     <string name="clear_text_end_icon_content_description">Vymazať text</string>
     <string name="error_icon_content_description">Chyba</string>
     <string name="exposed_dropdown_menu_content_description">Zobraziť rozbaľovaciu ponuku</string>
@@ -26,9 +25,7 @@
     <string name="material_timepicker_minute">Minúta</string>
     <string name="material_timepicker_pm">PM</string>
     <string name="material_timepicker_select_time">Vyberte čas</string>
-    <string name="material_timepicker_text_input_mode_description">Ak chcete zadať čas, prepnite na textový režim
-        vstupu
-    </string>
+    <string name="material_timepicker_text_input_mode_description">Ak chcete zadať čas, prepnite na textový režim vstupu</string>
     <string name="mtrl_badge_numberless_content_description">Nové upozornenie</string>
     <string name="mtrl_chip_close_icon_content_description">Odstrániť položku %1$s</string>
     <string name="mtrl_exceed_max_badge_number_content_description">Viac než %1$d nových upozornení</string>

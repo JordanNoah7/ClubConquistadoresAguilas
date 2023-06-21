@@ -16,15 +16,15 @@
 -->
 
 <com.google.android.material.internal.CheckableImageButton
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/text_input_start_icon"
-        android:visibility="gone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical|start|left"
-        android:layout_marginEnd="@dimen/mtrl_textinput_start_icon_margin_end"
-        android:background="?attr/actionBarItemBackground"
-        android:minHeight="48dp"
-        android:minWidth="48dp"
-        tools:ignore="Overdraw"/>
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/text_input_start_icon"
+    android:visibility="gone"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical|start|left"
+    android:layout_marginEnd="@dimen/mtrl_textinput_start_icon_margin_end"
+    android:background="?attr/actionBarItemBackground"
+    android:minHeight="48dp"
+    android:minWidth="48dp"
+    tools:ignore="Overdraw"/>

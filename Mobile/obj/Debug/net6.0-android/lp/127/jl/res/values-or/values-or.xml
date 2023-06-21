@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="mtrl_badge_content_description">
-        <item quantity="one">%d new notification</item>
-        <item quantity="other">%d new notifications</item>
-    </plurals>
+    <item quantity="one">%d new notification</item>
+    <item quantity="other">%d new notifications</item>
+  </plurals>
     <string name="bottomsheet_action_expand_halfway">Expand halfway</string>
     <string name="character_counter_content_description">%2$d ର %1$d ଅକ୍ଷର ଲେଖିଛନ୍ତି</string>
     <string name="character_counter_overflowed_content_description">%2$d ର %1$d ଅକ୍ଷର ଲେଖିଛନ୍ତି</string>
@@ -23,8 +23,7 @@
     <string name="material_timepicker_minute">Minute</string>
     <string name="material_timepicker_pm">PM</string>
     <string name="material_timepicker_select_time">Select time</string>
-    <string name="material_timepicker_text_input_mode_description">ସମୟ ଇନପୁଟ୍‍ ପାଇଁ ଟେକ୍ସଟ୍‍ ଇନପୁଟ୍‌କୁ ବଦଳାନ୍ତୁ।
-    </string>
+    <string name="material_timepicker_text_input_mode_description">ସମୟ ଇନପୁଟ୍‍ ପାଇଁ ଟେକ୍ସଟ୍‍ ଇନପୁଟ୍‌କୁ ବଦଳାନ୍ତୁ।</string>
     <string name="mtrl_badge_numberless_content_description">New notification</string>
     <string name="mtrl_chip_close_icon_content_description">%1$s କାଢ଼ିଦିଅନ୍ତୁ</string>
     <string name="mtrl_exceed_max_badge_number_content_description">More than %1$d new notifications</string>
