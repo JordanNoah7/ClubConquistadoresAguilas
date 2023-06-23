@@ -80,11 +80,11 @@ public class PositionPersonUnitRepository : ContextRepository, IGenericRepositor
         }
     }
 
-    public async Task<IQueryable<PositionPersonUnit>> GetAll()
+    public async Task<IEnumerable<PositionPersonUnit>> GetAll()
     {
         try
         {
-            IQueryable<PositionPersonUnit> queryPosPerUniSQL = _dbContext.PositionPersonUnits;
+ IEnumerable<PositionPersonUnit> queryPosPerUniSQL = _dbContext.PositionPersonUnits;
             return queryPosPerUniSQL;
         }
         catch (Exception ex)

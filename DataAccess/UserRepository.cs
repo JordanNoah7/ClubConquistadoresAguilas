@@ -1,5 +1,6 @@
 ﻿using Domain;
 using Infrastructure.Context;
+using Microsoft.EntityFrameworkCore;
 using Models;
 
 namespace DataAccess;
@@ -68,16 +69,34 @@ public class UserRepository : ContextRepository, IGenericRepository<User>
         }
     }
 
-    public async Task<IQueryable<User>> GetAll()
+    public async Task<IEnumerable<User>> GetAll()
     {
-        try
+        /*
+            try
+            {
+                IQueryable<User> queryUsersSQL = _dbContext.Users;
+                return queryUsersSQL;
+        
+            }
+            catch (Exception ex)
+            {
+                return null;
+        
+            }
+        */
+        using (var transaction = await _dbContext.Database.BeginTransactionAsync())
         {
-            IQueryable<User> queryUsersSQL = _dbContext.Users;
-            return queryUsersSQL;
-        }
-        catch (Exception ex)
-        {
-            return null;
+            try
+            {
+                IEnumerable<User> queryUsersSql = _dbContext.Set<User>().FromSqlRaw("EXECUTE usp_GetUsers").ToList();
+                await transaction.CommitAsync();
+                return queryUsersSql;
+            }
+            catch (Exception ex)
+            {
+                await transaction.RollbackAsync();
+                throw;
+            }
         }
     }
 }

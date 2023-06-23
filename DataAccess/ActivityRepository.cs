@@ -75,11 +75,11 @@ public class ActivityRepository : ContextRepository, IGenericRepository<Activity
         }
     }
 
-    public async Task<IQueryable<Activity>> GetAll()
+    public async Task<IEnumerable<Activity>> GetAll()
     {
         try
         {
-            IQueryable<Activity> queryActivitiesSQL = _dbContext.Activities;
+            IEnumerable<Activity> queryActivitiesSQL = _dbContext.Activities;
             return queryActivitiesSQL;
         }
         catch (Exception ex)

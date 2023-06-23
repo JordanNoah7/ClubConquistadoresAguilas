@@ -73,7 +73,7 @@ public class PersonService : IPersonService
         return await _personRepo.Get(id1);
     }
 
-    public async Task<IQueryable<Person>> GetAll()
+    public async Task<IEnumerable<Person>> GetAll()
     {
         return await _personRepo.GetAll();
     }

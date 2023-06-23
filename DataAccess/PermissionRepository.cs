@@ -76,11 +76,11 @@ public class PermissionRepository : ContextRepository, IGenericRepository<Permis
         }
     }
 
-    public async Task<IQueryable<Permission>> GetAll()
+    public async Task<IEnumerable<Permission>> GetAll()
     {
         try
         {
-            IQueryable<Permission> queryPermissionsSQL = _dbContext.Permissions;
+            IEnumerable<Permission> queryPermissionsSQL = _dbContext.Permissions;
             return queryPermissionsSQL;
         }
         catch (Exception e)

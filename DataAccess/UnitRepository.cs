@@ -77,11 +77,11 @@ public class UnitRepository : ContextRepository, IGenericRepository<Unit>
         }
     }
 
-    public async Task<IQueryable<Unit>> GetAll()
+    public async Task<IEnumerable<Unit>> GetAll()
     {
         try
         {
-            IQueryable<Unit> queryUnitsSQL = _dbContext.Units;
+ IEnumerable<Unit> queryUnitsSQL = _dbContext.Units;
             return queryUnitsSQL;
         }
         catch (Exception ex)

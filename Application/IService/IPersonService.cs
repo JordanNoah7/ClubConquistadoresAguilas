@@ -8,5 +8,5 @@ public interface IPersonService
     Task<bool> Update(Person model);
     Task<bool> Delete(int id1, int id2 = 0);
     Task<Person> Get(int id1, int id2 = 0);
-    Task<IQueryable<Person>> GetAll();
+    Task<IEnumerable<Person>> GetAll();
 }

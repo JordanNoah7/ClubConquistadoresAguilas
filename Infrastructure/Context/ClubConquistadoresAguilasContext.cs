@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using Models;
 
 namespace Infrastructure.Context;
@@ -442,4 +443,9 @@ public partial class ClubConquistadoresAguilasContext : DbContext
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+
+    public IEnumerable<User> GetUsersByCriteria(string criteria)
+    {
+        return Set<User>().FromSqlRaw("EXEC YourStoredProcedure @criteria", parameters:new SqlParameter("@criteria", criteria));
+    }
 }

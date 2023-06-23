@@ -75,15 +75,15 @@ public class UserService : IUserService
         return await _userRepo.Get(id1);
     }
 
-    public async Task<IQueryable<User>> GetAll()
+    public async Task<IEnumerable<User>> GetAll()
     {
         return await _userRepo.GetAll();
     }
 
     public async Task<User> GetByUsername(string username)
     {
-        var queryUserSQL = await _userRepo.GetAll();
-        var user = queryUserSQL.Where(u => u.UserName == username).FirstOrDefault();
+        var queryUserSql = await _userRepo.GetAll();
+        var user = queryUserSql.Where(u => u.UserName == username).FirstOrDefault();
         return user;
     }
 }

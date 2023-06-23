@@ -77,11 +77,11 @@ public class ClubRepository : ContextRepository, IGenericRepository<Club>
         }
     }
 
-    public async Task<IQueryable<Club>> GetAll()
+    public async Task<IEnumerable<Club>> GetAll()
     {
         try
         {
-            IQueryable<Club> queryClubsSQL = _dbContext.Clubs;
+            IEnumerable<Club> queryClubsSQL = _dbContext.Clubs;
             return queryClubsSQL;
         }
         catch (Exception e)

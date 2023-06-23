@@ -77,11 +77,11 @@ public class ClassRepository : ContextRepository, IGenericRepository<Class>
         }
     }
 
-    public async Task<IQueryable<Class>> GetAll()
+    public async Task<IEnumerable<Class>> GetAll()
     {
         try
         {
-            IQueryable<Class> queryClassesSQL = _dbContext.Classes;
+            IEnumerable<Class> queryClassesSQL = _dbContext.Classes;
             return queryClassesSQL;
         }
         catch (Exception ex)

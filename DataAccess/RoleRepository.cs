@@ -77,11 +77,11 @@ public class RoleRepository : ContextRepository, IGenericRepository<Role>
         }
     }
 
-    public async Task<IQueryable<Role>> GetAll()
+    public async Task<IEnumerable<Role>> GetAll()
     {
         try
         {
-            IQueryable<Role> queryRolesSQL = _dbContext.Roles;
+ IEnumerable<Role> queryRolesSQL = _dbContext.Roles;
             return queryRolesSQL;
         }
         catch (Exception ex)

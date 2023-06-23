@@ -77,11 +77,11 @@ public class PositionRepository : ContextRepository, IGenericRepository<Position
         }
     }
 
-    public async Task<IQueryable<Position>> GetAll()
+    public async Task<IEnumerable<Position>> GetAll()
     {
         try
         {
-            IQueryable<Position> queryPositionsSQL = _dbContext.Positions;
+ IEnumerable<Position> queryPositionsSQL = _dbContext.Positions;
             return queryPositionsSQL;
         }
         catch (Exception ex)

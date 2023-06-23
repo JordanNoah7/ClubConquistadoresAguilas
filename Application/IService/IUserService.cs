@@ -8,6 +8,6 @@ public interface IUserService
     Task<bool> Update(User model);
     Task<bool> Delete(int id1, int id2 = 0);
     Task<User> Get(int id1, int id2 = 0);
-    Task<IQueryable<User>> GetAll();
+    Task<IEnumerable<User>> GetAll();
     Task<User> GetByUsername(string username);
 }

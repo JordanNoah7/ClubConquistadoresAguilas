@@ -77,11 +77,11 @@ public class SpecialtyRepository : ContextRepository, IGenericRepository<Special
         }
     }
 
-    public async Task<IQueryable<Specialty>> GetAll()
+    public async Task<IEnumerable<Specialty>> GetAll()
     {
         try
         {
-            IQueryable<Specialty> querySpecialtiesSQL = _dbContext.Specialties;
+ IEnumerable<Specialty> querySpecialtiesSQL = _dbContext.Specialties;
             return querySpecialtiesSQL;
         }
         catch (Exception ex)
