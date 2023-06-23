@@ -12,58 +12,93 @@
 </head>
 <body>
 <header>
-    <nav >
 @* barra lateral*@
         <section id="sidebar">
-      
-                @*logo/marca enlace debe botar a la pagina de inicio*@
-            <a href="#" class="brand">
-                    <i class='bx bx-wink-smile'></i>
-                    <span class="text">Director</span>
-            </a>
+            
+                    @*logo/marca enlace debe botar a la pagina de inicio*@
+                     <a href="#" class="brand">
+                            <img src="~/img/logo.png" alt="" width="30" height="24" class="d-inline-block align-text-top" />
+                            <span class="text">Club Las Aguilas</span>      
+                    </a>
+                
+                
             <ul class="side-menu top">
-                <li>
+                <li class="active">
                     <a href="#">
                             <i class='bx bxs-dashboard'></i>
                             <span class="text">Dashboard</span>
                     </a>
                 </li>
-                    <li>
+                 <li>
+                        <div class="iocn-link">
+                            <a href="#">
+                                <i class='bx bxs-institution'></i>
+                                <span class="text">Organización</span>
+                            </a>
+                            <i class='bx bxs-down-arrow'></i>
+                        </div>
+                        <ul class="sub-menu">
+                            <li>
+                                <a class="link_name" href="#">
+                                    <i class='bx bxs-circle'></i>
+                                    <span class="text">Conquistador</span>
+                                </a>
+                                <a href="#">
+                                    <i class='bx bxs-circle'></i>
+                                    <span class="text">Consejero</span>
+                                </a>
+                                <a href="#">
+                                    <i class='bx bxs-circle'></i>
+                                    <span class="text">Instructor</span>
+                                </a>
+                            </li>
+                        </ul>
+                        
+                 </li>
+                 <li>
                         <a href="#">
-                            <i class='bx bx-sitemap'></i>
-                            <span class="text">Organización</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class='bx bx-trip'></i>
+                            <i class='bx bx-current-location'></i>
                             <span class="text">Actividades</span>
                         </a>
-                    </li>
-                    <li>
+                 </li>
+                 <li>
                         <a href="#">
                             <i class='bx bxs-message-dots'></i>
                             <span class="text">Notificar Reunión</span>
                         </a>
-                    </li>
+                 </li>
 
-                    
-            </ul>
+
+                </ul>
         </section>
   @* barra lateral*@
-    </nav>
+        <section id="content">
+                <nav>
+                    <p class="textUsuario">Hola David !</p>
+                    
+                        <a href="#" class="notification">
+                            <i class='bx bxs-bell'></i>
+                            <span class="num">8</span>
+                        </a>
+
+                        <a href="#" class="profile">
+                            <img src="~/icono/usuario (verde).png" />
+                        </a>
+                    
+                    
+                </nav>
+        </section>
+
 </header>
 <div class="container">
     <main role="main" class="pb-3">
         @RenderBody()
     </main>
 </div>
+<footer>
 
-<footer class="border-top footer text-muted">
-    <div class="container">
-        &copy; 2023 - Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-    </div>
 </footer>
+
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>

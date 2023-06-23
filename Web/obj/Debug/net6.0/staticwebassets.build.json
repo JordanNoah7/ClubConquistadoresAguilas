@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "anW/0qcbAgPtkbo4fRkhPbNKD7W4N402VE5skJNWgi0=",
+  "Hash": "uws40+gQwfIrG3n6h5MhJ0rY3DLFZqKlcfIL9HWv9nw=",
   "Source": "Web",
   "BasePath": "_content/Web",
   "Mode": "Default",
@@ -151,6 +151,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\icono\\usuario (verde).png"
+    },
+    {
+      "Identity": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Web\\wwwroot\\img\\foto_perfil.PNG",
+      "SourceId": "Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Web\\wwwroot\\",
+      "BasePath": "_content/Web",
+      "RelativePath": "img/foto_perfil.PNG",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\foto_perfil.PNG"
     },
     {
       "Identity": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Web\\wwwroot\\img\\imagen.jpg",

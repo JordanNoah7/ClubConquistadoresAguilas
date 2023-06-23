@@ -25,15 +25,234 @@ body {
 
 /*barra lateral*/
 
-#sidebar{
+#sidebar {
     position: fixed;
-    top:0;
-    left:0;
-    width:280px;
-    height:100%;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100%;
     background: white;
-    z-index:1000;
+    z-index: 1000;
+    font-family: sans-serif;
 }
 
 
+    #sidebar .brand {
+        font-size: 24px;
+        font-weight: 700;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        color: black;
+        font-family: monospace;
+        min-width: 60px;
+        justify-content: center;
+        
+    }
+
+/*no reconoce...no hace nada estas lineas*/
+    #sidebar .bx {
+        min-width: 60px;
+        display: flex;
+        justify-content: center;
+       
+    }
+
+    #sidebar .side-menu {
+        width: 100%;
+        margin-top: 48px;
+        
+    }
+
+        #sidebar .side-menu li {
+            height: 48px;
+            margin-left: 6px;
+            border-radius: 48px 0 0 48px;
+            padding: 4px;
+            position: relative;
+            transition: all 0.4s ease;
+
+            pointer-events: auto;
+        }
+
+            #sidebar .side-menu li a {
+                width: 100%;
+                height: 100%;
+                /*background: #00BF63;*/
+                background: transparent;
+                display: flex;
+                align-items: center;
+                border-radius: 48px;
+                font-size: 16px;
+                color: #2B463C;
+
+               
+            }
+
+            #sidebar .side-menu li a:hover {
+                    color: white;
+                    background: #00BF63;
+                    font-weight: bolder;
+            }
+
+            #sidebar .side-menu li a .bx {
+                    min-width: calc(60 px - ((4px + 6px) * 2));
+                    display: flex;
+                    justify-content: center;
+            }
+
+
+        /*categorias*/
+
+        #sidebar .side-menu.top li .iocn-link:hover {
+            color: white;
+            background: #00BF63;
+
+        }
+
+
+        #sidebar .side-menu li .iocn-link {
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            display: flex;
+            align-items: center;
+            border-radius: 48px;
+            font-size: 16px;
+            color: #2B463C;
+
+           
+        }
+
+
+        #sidebar .side-menu li .sub-menu {
+            /*display: none;*/
+            align-items: center;
+            justify-content: space-between;
+            background: #B5EBD1;
+            padding: 6px 6px 80px 50px;
+            
+            position: relative;
+            left: 100%;
+            top: 50%;
+            margin-top: 0;
+            border-radius: 0 6px 6px 0;
+
+            transform: translateY(-50%);
+            overflow: hidden;
+        }
+
+       #sidebar .side-menu li ul {
+           display: none;
+            position:absolute;
+        }
+
+        #sidebar .side-menu li:hover > ul {
+            display: block;
+        }
+
+
+       
+/*fin categorias*/
+
+        #sidebar .side-menu li.active{
+           
+            position: relative;
+           
+        }
+
+        #sidebar .side-menu li.active::before{
+            content:'';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            top: -40px;
+            right: 0;
+            box-shadow: 20px 20px 0 white; 
+            z-index: -1;
+        }
+
+            #sidebar .side-menu li.active::after {
+                content: '';
+                position: absolute;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                bottom: -40px;
+                right: 0;
+                box-shadow: 20px -20px 0 white;
+                z-index: -1;
+            }
+
 /*barra lateral*/
+
+/*contenido*/
+        #content {
+            position: relative;
+            width: calc(100% - 280px);
+            left: 280px;
+        }
+
+
+            #content nav {
+                height: 56px;
+                background: white;
+                padding: 0 24px;
+                display: flex;
+                align-items: center;
+                grid-gap: 24px;
+                font-family: sans-serif;
+                position: relative;
+                
+            }
+          /*  #content nav::before{
+                content:'';
+                position:absolute;
+                width: 40px;
+                height: 40px;
+                background: red;
+                left: 0;
+                border-radius: 50%;
+
+            }*/
+
+                #content nav a{
+                    color: black;
+                    position: relative;
+                }
+
+        #content nav .textUsuario {
+            font-family: sans-serif;
+            font-size: 24px;
+        }
+
+        #content nav .notificacion{
+            font-size: 20px;
+            position: relative;
+        }
+        #content nav .notification .num{
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid red;
+            background: red;
+            color: white;
+            font-weight: 700;
+            font-size: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        #content .profile img{
+            width: 36px;
+            height: 36px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+/*fin contenido*/
