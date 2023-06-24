@@ -7,9 +7,13 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Application\Application.csproj"/>
-        <ProjectReference Include="..\DataAccess\DataAccess.csproj"/>
-        <ProjectReference Include="..\Models\Models.csproj"/>
+      <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.14" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Application\Application.csproj" />
+        <ProjectReference Include="..\DataAccess\DataAccess.csproj" />
+        <ProjectReference Include="..\Models\Models.csproj" />
     </ItemGroup>
 
 </Project>

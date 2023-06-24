@@ -23,6 +23,14 @@ public class HomeController : Controller
         return View();
     }
 
+    public IActionResult DirectorConsejero()
+    {
+        return View();
+    }
+    public IActionResult DirectorInstructor()
+    {
+        return View();
+    }
     public IActionResult Privacy()
     {
         return View();

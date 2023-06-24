@@ -69,27 +69,28 @@ body[b-lzldzk1rll] {
         
     }
 
-    #sidebar .side-menu li[b-lzldzk1rll] {
+        #sidebar .side-menu li[b-lzldzk1rll] {
             height: 48px;
             background: transparent;
             margin-left: 6px;
             border-radius: 48px 0 0 48px;
             padding: 4px;
-    }
+            
+        }
 
-    #sidebar .side-menu li a[b-lzldzk1rll] {
-           width: 100%;
-           height: 100%;
-          /*background: #00BF63;*/
-           /*background: transparent;*/
-           display: flex;
-           align-items: center;
-           border-radius: 48px;
-           font-size: 16px;
-           color: #2B463C;
-           white-space: nowrap;
+        #sidebar .side-menu li a[b-lzldzk1rll] {
            
-    }
+            width: 100%;
+            height: 100%;
+            /*background: #00BF63;*/
+            /*background: transparent;*/
+            display: flex;
+            align-items: center;
+            border-radius: 48px;
+            font-size: 16px;
+            color: #2B463C;
+            white-space: nowrap;
+        }
 
             #sidebar .side-menu li a:hover[b-lzldzk1rll] {
                     color: white;
@@ -109,7 +110,7 @@ body[b-lzldzk1rll] {
         #sidebar .side-menu.top li .iocn-link:hover[b-lzldzk1rll] {
             color: white;
             background: #00BF63;
-
+            
         }
 
 
@@ -122,7 +123,6 @@ body[b-lzldzk1rll] {
             border-radius: 48px;
             font-size: 16px;
             color: #2B463C;
-
            
         }
 
@@ -131,26 +131,28 @@ body[b-lzldzk1rll] {
             /*display: none;*/
             align-items: center;
             justify-content: space-between;
-            background: #B5EBD1;
             padding: 6px 6px 80px 50px;
-            
             position: relative;
             left: 100%;
             top: 50%;
             margin-top: 0;
             border-radius: 0 6px 6px 0;
-
             transform: translateY(-50%);
             overflow: hidden;
-        }
 
-       #sidebar .side-menu li ul[b-lzldzk1rll] {
-           display: none;
-           position:absolute;
+
+            
         }
+            
+
+            #sidebar .side-menu li ul[b-lzldzk1rll] {
+                display: none;
+                position: absolute;
+            }
 
         #sidebar .side-menu li:hover > ul[b-lzldzk1rll] {
             display: block;
+            
         }
 
 
@@ -314,3 +316,15 @@ body[b-lzldzk1rll] {
             border-radius: 50%;
         }
 /*fin contenido*/
+
+/*main*/
+
+/*.pb-3 {
+    
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100%;
+    background: white;
+    z-index: 1000;
+}*/

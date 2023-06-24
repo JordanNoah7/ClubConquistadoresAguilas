@@ -20,6 +20,14 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEaXJlY3RvckNvbnF1aXN0YWRvci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Home/DirectorConsejero.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEaXJlY3RvckNvbnNlamVyby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Home/DirectorInstructor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEaXJlY3Rvckluc3RydWN0b3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -28,12 +36,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Home/prueba.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxwcnVlYmEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Login/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Shared/_LayoutCRUD.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRDUlVELmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Shared/_ValidationScriptsPartial.cshtml]
