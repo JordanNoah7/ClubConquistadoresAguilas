@@ -18,7 +18,7 @@ public class UserService : IUserService
         try
         {
             await _userRepo.BeginTransaction();
-            bool result = await _userRepo.Insert(model);
+            var result = await _userRepo.Insert(model);
             if (result)
                 await _userRepo.Commit();
             else
@@ -29,7 +29,6 @@ public class UserService : IUserService
         {
             return false;
         }
-        
     }
 
     public async Task<bool> Update(User model)
@@ -37,7 +36,7 @@ public class UserService : IUserService
         try
         {
             await _userRepo.BeginTransaction();
-            bool result = await _userRepo.Update(model);
+            var result = await _userRepo.Update(model);
             if (result)
                 await _userRepo.Commit();
             else
@@ -48,7 +47,6 @@ public class UserService : IUserService
         {
             return false;
         }
-        
     }
 
     public async Task<bool> Delete(int id1, int id2 = 0)
@@ -56,7 +54,7 @@ public class UserService : IUserService
         try
         {
             await _userRepo.BeginTransaction();
-            bool result = await _userRepo.Delete(id1);
+            var result = await _userRepo.Delete(id1);
             if (result)
                 await _userRepo.Commit();
             else
@@ -67,7 +65,6 @@ public class UserService : IUserService
         {
             return false;
         }
-        
     }
 
     public async Task<User> Get(int id1, int id2 = 0)

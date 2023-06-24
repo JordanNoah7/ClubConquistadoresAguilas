@@ -12,57 +12,48 @@ public class SpecialtyRepository : ContextRepository, IGenericRepository<Special
 
     public async Task<bool> Insert(Specialty model)
     {
-        
-            try
-            {
-                _dbContext.Specialties.Add(model);
-                await _dbContext.SaveChangesAsync();
-        
-                return true;
-            }
-            catch (Exception ex)
-            {
-        
-                return false;
-            }
-        
+        try
+        {
+            _dbContext.Specialties.Add(model);
+            await _dbContext.SaveChangesAsync();
+
+            return true;
+        }
+        catch (Exception ex)
+        {
+            return false;
+        }
     }
 
     public async Task<bool> Update(Specialty model)
     {
-        
-            try
-            {
-                _dbContext.Specialties.Update(model);
-                await _dbContext.SaveChangesAsync();
-        
-                return true;
-            }
-            catch (Exception ex)
-            {
-        
-                return false;
-            }
-        
+        try
+        {
+            _dbContext.Specialties.Update(model);
+            await _dbContext.SaveChangesAsync();
+
+            return true;
+        }
+        catch (Exception ex)
+        {
+            return false;
+        }
     }
 
     public async Task<bool> Delete(int id1, int id2 = 0)
     {
-        
-            try
-            {
-                var model = _dbContext.Specialties.First(s => s.Id == id1);
-                _dbContext.Specialties.Remove(model);
-                await _dbContext.SaveChangesAsync();
-        
-                return true;
-            }
-            catch (Exception ex)
-            {
-        
-                return false;
-            }
-        
+        try
+        {
+            var model = _dbContext.Specialties.First(s => s.Id == id1);
+            _dbContext.Specialties.Remove(model);
+            await _dbContext.SaveChangesAsync();
+
+            return true;
+        }
+        catch (Exception ex)
+        {
+            return false;
+        }
     }
 
     public async Task<Specialty> Get(int id1, int id2 = 0)
@@ -81,7 +72,7 @@ public class SpecialtyRepository : ContextRepository, IGenericRepository<Special
     {
         try
         {
- IEnumerable<Specialty> querySpecialtiesSQL = _dbContext.Specialties;
+            IEnumerable<Specialty> querySpecialtiesSQL = _dbContext.Specialties;
             return querySpecialtiesSQL;
         }
         catch (Exception ex)

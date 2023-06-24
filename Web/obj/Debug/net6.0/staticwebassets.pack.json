@@ -29,8 +29,16 @@
       "PackagePath": "staticwebassets\\icono\\usuario (verde).png"
     },
     {
+      "Id": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Web\\wwwroot\\img\\facebook.png",
+      "PackagePath": "staticwebassets\\img\\facebook.png"
+    },
+    {
       "Id": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Web\\wwwroot\\img\\imagen.jpg",
       "PackagePath": "staticwebassets\\img\\imagen.jpg"
+    },
+    {
+      "Id": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Web\\wwwroot\\img\\instagram.png",
+      "PackagePath": "staticwebassets\\img\\instagram.png"
     },
     {
       "Id": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Web\\wwwroot\\img\\login.png",
@@ -39,6 +47,22 @@
     {
       "Id": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Web\\wwwroot\\img\\logo.png",
       "PackagePath": "staticwebassets\\img\\logo.png"
+    },
+    {
+      "Id": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Web\\wwwroot\\img\\smalllogo.png",
+      "PackagePath": "staticwebassets\\img\\smalllogo.png"
+    },
+    {
+      "Id": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Web\\wwwroot\\img\\tiktok.png",
+      "PackagePath": "staticwebassets\\img\\tiktok.png"
+    },
+    {
+      "Id": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Web\\wwwroot\\img\\whatsapp.png",
+      "PackagePath": "staticwebassets\\img\\whatsapp.png"
+    },
+    {
+      "Id": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Web\\wwwroot\\img\\youtube.png",
+      "PackagePath": "staticwebassets\\img\\youtube.png"
     },
     {
       "Id": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Web\\wwwroot\\js\\login.js",

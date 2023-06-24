@@ -12,57 +12,48 @@ public class RoleRepository : ContextRepository, IGenericRepository<Role>
 
     public async Task<bool> Insert(Role model)
     {
-        
-            try
-            {
-                _dbContext.Roles.Add(model);
-                await _dbContext.SaveChangesAsync();
-        
-                return true;
-            }
-            catch (Exception ex)
-            {
-        
-                return false;
-            }
-        
+        try
+        {
+            _dbContext.Roles.Add(model);
+            await _dbContext.SaveChangesAsync();
+
+            return true;
+        }
+        catch (Exception ex)
+        {
+            return false;
+        }
     }
 
     public async Task<bool> Update(Role model)
     {
-        
-            try
-            {
-                _dbContext.Roles.Update(model);
-                await _dbContext.SaveChangesAsync();
-        
-                return true;
-            }
-            catch (Exception ex)
-            {
-        
-                return false;
-            }
-        
+        try
+        {
+            _dbContext.Roles.Update(model);
+            await _dbContext.SaveChangesAsync();
+
+            return true;
+        }
+        catch (Exception ex)
+        {
+            return false;
+        }
     }
 
     public async Task<bool> Delete(int id1, int id2 = 0)
     {
-        
-            try
-            {
-                var model = _dbContext.Roles.First(c => c.Id == id1);
-                _dbContext.Roles.Remove(model);
-                await _dbContext.SaveChangesAsync();
-        
-                return true;
-            }
-            catch (Exception ex)
-            {
-        
-                return false;
-            }
-        
+        try
+        {
+            var model = _dbContext.Roles.First(c => c.Id == id1);
+            _dbContext.Roles.Remove(model);
+            await _dbContext.SaveChangesAsync();
+
+            return true;
+        }
+        catch (Exception ex)
+        {
+            return false;
+        }
     }
 
     public async Task<Role> Get(int id1, int id2 = 0)
@@ -81,7 +72,7 @@ public class RoleRepository : ContextRepository, IGenericRepository<Role>
     {
         try
         {
- IEnumerable<Role> queryRolesSQL = _dbContext.Roles;
+            IEnumerable<Role> queryRolesSQL = _dbContext.Roles;
             return queryRolesSQL;
         }
         catch (Exception ex)

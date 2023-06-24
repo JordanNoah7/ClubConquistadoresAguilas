@@ -5,9 +5,7 @@
 @import "~@flaticon/flaticon-uicons/css/brands/all";*/
 
 *,
-
 *::before,
-
 *::after {
     padding: 0;
     margin: 0;
@@ -45,7 +43,7 @@ main {
     height: calc(100% - 4.1rem);
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
 }
 
 .carousel {
@@ -106,7 +104,6 @@ form {
     border-radius: 60px;
     justify-content: center;
 }
-
 
 
 .input-group .input-group-text {
@@ -183,8 +180,8 @@ form {
     }
 
     .carousel img {
-            display: none;
-        }
+        display: none;
+    }
 
     .container-fluid {
         max-width: revert;
@@ -202,13 +199,13 @@ form {
 }
 
 /*fin responsive*/
-  
+
 /*ventana emergente*/
 
-    #message {
-        border-radius: 5px;
-        background-color: red;
-        color: white;
-        text-align: center;
-        padding: 10px;
-    }
+#message {
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}

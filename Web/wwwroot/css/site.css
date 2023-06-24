@@ -16,3 +16,21 @@ html {
 body {
     margin-bottom: 60px;
 }
+
+.bg-green{
+    background-color: #2B463C !important;
+}
+
+.btn-border-color{
+    border-color: #879D7E !important;
+}
+
+.footer{
+    position:absolute !important;
+    bottom:0;
+    width: 100%;
+}
+
+.text-red{
+    color:red !important;
+}

@@ -13,58 +13,49 @@ public class PositionPersonUnitRepository : ContextRepository, IGenericRepositor
 
     public async Task<bool> Insert(PositionPersonUnit model)
     {
-        
-            try
-            {
-                _dbContext.PositionPersonUnits.Add(model);
-                await _dbContext.SaveChangesAsync();
-        
-                return true;
-            }
-            catch (Exception ex)
-            {
-        
-                return false;
-            }
-        
+        try
+        {
+            _dbContext.PositionPersonUnits.Add(model);
+            await _dbContext.SaveChangesAsync();
+
+            return true;
+        }
+        catch (Exception ex)
+        {
+            return false;
+        }
     }
 
     public async Task<bool> Update(PositionPersonUnit model)
     {
-        
-            try
-            {
-                _dbContext.PositionPersonUnits.Update(model);
-                await _dbContext.SaveChangesAsync();
-        
-                return true;
-            }
-            catch (Exception ex)
-            {
-        
-                return false;
-            }
-        
+        try
+        {
+            _dbContext.PositionPersonUnits.Update(model);
+            await _dbContext.SaveChangesAsync();
+
+            return true;
+        }
+        catch (Exception ex)
+        {
+            return false;
+        }
     }
 
     public async Task<bool> Delete(int id1, int id2)
     {
-        
-            try
-            {
-                var model =
-                    _dbContext.PositionPersonUnits.First(ppu => ppu.UnitId == id1 && ppu.PersonId == id2);
-                _dbContext.PositionPersonUnits.Remove(model);
-                await _dbContext.SaveChangesAsync();
-        
-                return true;
-            }
-            catch (Exception ex)
-            {
-        
-                return false;
-            }
-        
+        try
+        {
+            var model =
+                _dbContext.PositionPersonUnits.First(ppu => ppu.UnitId == id1 && ppu.PersonId == id2);
+            _dbContext.PositionPersonUnits.Remove(model);
+            await _dbContext.SaveChangesAsync();
+
+            return true;
+        }
+        catch (Exception ex)
+        {
+            return false;
+        }
     }
 
     public async Task<PositionPersonUnit> Get(int id1, int id2)
@@ -84,7 +75,7 @@ public class PositionPersonUnitRepository : ContextRepository, IGenericRepositor
     {
         try
         {
- IEnumerable<PositionPersonUnit> queryPosPerUniSQL = _dbContext.PositionPersonUnits;
+            IEnumerable<PositionPersonUnit> queryPosPerUniSQL = _dbContext.PositionPersonUnits;
             return queryPosPerUniSQL;
         }
         catch (Exception ex)

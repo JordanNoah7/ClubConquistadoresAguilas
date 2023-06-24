@@ -12,56 +12,48 @@ public class PermissionRepository : ContextRepository, IGenericRepository<Permis
 
     public async Task<bool> Insert(Permission model)
     {
-            try
-            {
-                _dbContext.Permissions.Add(model);
-                await _dbContext.SaveChangesAsync();
+        try
+        {
+            _dbContext.Permissions.Add(model);
+            await _dbContext.SaveChangesAsync();
 
-                return true;
-            }
-            catch (Exception ex)
-            {
-
-                return false;
-            }
-
+            return true;
+        }
+        catch (Exception ex)
+        {
+            return false;
+        }
     }
 
     public async Task<bool> Update(Permission model)
     {
+        try
+        {
+            _dbContext.Permissions.Update(model);
+            await _dbContext.SaveChangesAsync();
 
-            try
-            {
-                _dbContext.Permissions.Update(model);
-                await _dbContext.SaveChangesAsync();
-
-                return true;
-            }
-            catch (Exception e)
-            {
-
-                return false;
-            }
-
+            return true;
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
     }
 
     public async Task<bool> Delete(int id1, int id2 = 0)
     {
+        try
+        {
+            var model = _dbContext.Permissions.First(p => p.Id.Equals(id1));
+            _dbContext.Permissions.Remove(model);
+            await _dbContext.SaveChangesAsync();
 
-            try
-            {
-                var model = _dbContext.Permissions.First(p => p.Id.Equals(id1));
-                _dbContext.Permissions.Remove(model);
-                await _dbContext.SaveChangesAsync();
-
-                return true;
-            }
-            catch (Exception e)
-            {
-
-                return false;
-            }
-
+            return true;
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
     }
 
     public async Task<Permission> Get(int id1, int id2 = 0)

@@ -12,7 +12,7 @@ public class ContextRepository
     {
         _dbContext = context;
     }
-    
+
     public async Task BeginTransaction()
     {
         _currentTransaction = await _dbContext.Database.BeginTransactionAsync();

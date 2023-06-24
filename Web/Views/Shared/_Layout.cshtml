@@ -4,15 +4,17 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>@ViewData["Title"] - Web</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
-    <link rel="stylesheet" href="~/Web.styles.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
 </head>
 <body>
 <header>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <nav class="bg-green navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
         <div class="container-fluid">
-            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Web</a>
+            <a class="navbar-brand" href="#">
+                <img src="/img/logo.png" alt="Bootstrap" width="70" height="70">
+            </a>
+            <a class="navbar-brand text-white" asp-area="" asp-controller="Home" asp-action="Index">Club de Conquistadores "Las Águilas"</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -20,25 +22,73 @@
             <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">INICIO</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Privacy">¿QUIENES SOMOS?</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">CONTACTANOS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Privacy">INICIAR SESION</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 </header>
+
 <div class="container">
     <main role="main" class="pb-3">
         @RenderBody()
     </main>
 </div>
 
-<footer class="border-top footer text-muted">
-    <div class="container">
-        &copy; 2023 - Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+<footer class="bg-green footer navbar bg-body-tertiary">
+    <div class="bg-green container-fluid navbar navbar-expand-sm navbar-toggleable-sm navbar-light box-shadow mb-3">
+        <a class="navbar-brand" href="#">
+            <img src="/img/smalllogo.png" alt="Bootstrap" width="40" height="40">
+        </a>
+        <div class="text-center">
+            <h1 class="navbar-brand text-white">Contáctanos</h1>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+            <ul class="navbar-nav flex-grow-1 navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="#">
+                        <img src="/img/facebook.png" alt="Facebook" width="30" height="30">
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="#">
+                        <img src="/img/instagram.png" alt="Instagram" width="30" height="30">
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="#">
+                        <img src="/img/tiktok.png" alt="TikTok" width="30" height="30">
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="#">
+                        <img src="/img/whatsapp.png" alt="Whatsapp" width="30" height="30">
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="#">
+                        <img src="/img/youtube.png" alt="YouTube" width="30" height="30">
+                    </a>
+                </li>
+            </ul>
+            &copy; 2023 - Web - <a class="text-center" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+        <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Celular/Correo" aria-label="Celular/Correo">
+            <button class="btn-border-color btn btn-outline-success text-white" type="submit">Enviar</button>
+        </form>
     </div>
 </footer>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>

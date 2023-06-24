@@ -446,6 +446,6 @@ public partial class ClubConquistadoresAguilasContext : DbContext
 
     public IEnumerable<User> GetUsersByCriteria(string criteria)
     {
-        return Set<User>().FromSqlRaw("EXEC YourStoredProcedure @criteria", parameters:new SqlParameter("@criteria", criteria));
+        return Set<User>().FromSqlRaw("EXEC YourStoredProcedure @criteria", new SqlParameter("@criteria", criteria));
     }
 }

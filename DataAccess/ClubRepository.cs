@@ -12,57 +12,48 @@ public class ClubRepository : ContextRepository, IGenericRepository<Club>
 
     public async Task<bool> Insert(Club model)
     {
-        
-            try
-            {
-                _dbContext.Clubs.Add(model);
-                await _dbContext.SaveChangesAsync();
-        
-                return true;
-            }
-            catch (Exception ex)
-            {
-        
-                return false;
-            }
-        
+        try
+        {
+            _dbContext.Clubs.Add(model);
+            await _dbContext.SaveChangesAsync();
+
+            return true;
+        }
+        catch (Exception ex)
+        {
+            return false;
+        }
     }
 
     public async Task<bool> Update(Club model)
     {
-        
-            try
-            {
-                _dbContext.Clubs.Update(model);
-                await _dbContext.SaveChangesAsync();
-        
-                return true;
-            }
-            catch (Exception ex)
-            {
-        
-                return false;
-            }
-        
+        try
+        {
+            _dbContext.Clubs.Update(model);
+            await _dbContext.SaveChangesAsync();
+
+            return true;
+        }
+        catch (Exception ex)
+        {
+            return false;
+        }
     }
 
     public async Task<bool> Delete(int id1, int id2 = 0)
     {
-        
-            try
-            {
-                var model = _dbContext.Clubs.First(c => c.Id == id1);
-                _dbContext.Clubs.Remove(model);
-                await _dbContext.SaveChangesAsync();
-        
-                return true;
-            }
-            catch (Exception e)
-            {
-        
-                return false;
-            }
-        
+        try
+        {
+            var model = _dbContext.Clubs.First(c => c.Id == id1);
+            _dbContext.Clubs.Remove(model);
+            await _dbContext.SaveChangesAsync();
+
+            return true;
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
     }
 
     public async Task<Club> Get(int id1, int id2 = 0)

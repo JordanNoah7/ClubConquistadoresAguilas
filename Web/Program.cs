@@ -44,6 +44,6 @@ app.Run();*/
 
 app.MapControllerRoute(
     "default",
-    "{controller=Login}/{action=Login}/{id?}");
+    "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();

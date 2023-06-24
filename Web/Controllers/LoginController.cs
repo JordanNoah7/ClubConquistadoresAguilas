@@ -1,6 +1,5 @@
 ﻿using Application.IService;
 using Microsoft.AspNetCore.Mvc;
-using Models;
 
 namespace Web.Controllers;
 
@@ -24,7 +23,7 @@ public class LoginController : Controller
     [HttpPost]
     public async Task<IActionResult> Login(string username, string password)
     {
-        User user = await _userService.GetByUsername(username);
+        var user = await _userService.GetByUsername(username);
         if (user == null)
         {
             ViewBag.ErrorMessage = "Nombre de usuario o contraseña incorrectos";
@@ -33,7 +32,7 @@ public class LoginController : Controller
 
         if (user.Password.Equals(password))
         {
-            Person person = await _personService.Get(user.Id);
+            var person = await _personService.Get(user.Id);
             return RedirectToAction("Index", "Home");
         }
 

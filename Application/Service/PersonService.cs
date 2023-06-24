@@ -18,7 +18,7 @@ public class PersonService : IPersonService
         try
         {
             await _personRepo.BeginTransaction();
-            bool result = await _personRepo.Insert(model);
+            var result = await _personRepo.Insert(model);
             if (result)
                 await _personRepo.Commit();
             else
@@ -29,7 +29,6 @@ public class PersonService : IPersonService
         {
             return false;
         }
-        
     }
 
     public async Task<bool> Update(Person model)
@@ -37,7 +36,7 @@ public class PersonService : IPersonService
         try
         {
             await _personRepo.BeginTransaction();
-            bool result = await _personRepo.Update(model);
+            var result = await _personRepo.Update(model);
             if (result)
                 await _personRepo.Commit();
             else
@@ -55,7 +54,7 @@ public class PersonService : IPersonService
         try
         {
             await _personRepo.BeginTransaction();
-            bool result = await _personRepo.Delete(id1);
+            var result = await _personRepo.Delete(id1);
             if (result)
                 await _personRepo.Commit();
             else

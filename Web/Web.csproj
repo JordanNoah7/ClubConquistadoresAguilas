@@ -13,19 +13,19 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Remove="Models\ViewModels\**" />
+        <Compile Remove="Models\ViewModels\**" />
     </ItemGroup>
 
     <ItemGroup>
-      <EmbeddedResource Remove="Models\ViewModels\**" />
+        <EmbeddedResource Remove="Models\ViewModels\**" />
     </ItemGroup>
 
     <ItemGroup>
-      <Content Remove="Models\ViewModels\**" />
+        <Content Remove="Models\ViewModels\**" />
     </ItemGroup>
 
     <ItemGroup>
-      <None Remove="Models\ViewModels\**" />
+        <None Remove="Models\ViewModels\**" />
     </ItemGroup>
 
 </Project>
