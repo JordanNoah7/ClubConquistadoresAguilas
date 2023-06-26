@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿namespace Models;
 
-namespace Models;
-
-public partial class Category
+public class Category
 {
     public byte Id { get; set; }
 

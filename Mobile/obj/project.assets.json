@@ -19,11 +19,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Mobile\\Mobile.csproj",
+      "projectUniqueName": "C:\\Users\\FN\\Source\\Repos\\NancyNdo\\ClubConquistadoresAguilas\\Mobile\\Mobile.csproj",
       "projectName": "Mobile",
-      "projectPath": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Mobile\\Mobile.csproj",
+      "projectPath": "C:\\Users\\FN\\Source\\Repos\\NancyNdo\\ClubConquistadoresAguilas\\Mobile\\Mobile.csproj",
       "packagesPath": "C:\\Users\\FN\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Mobile\\obj\\",
+      "outputPath": "C:\\Users\\FN\\Source\\Repos\\NancyNdo\\ClubConquistadoresAguilas\\Mobile\\obj\\",
       "projectStyle": "PackageReference",
       "crossTargeting": true,
       "configFilePaths": [
@@ -44,44 +44,44 @@
         "net6.0-android": {
           "targetAlias": "net6.0-android",
           "projectReferences": {
-            "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Application\\Application.csproj": {
-              "projectPath": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Application\\Application.csproj"
+            "C:\\Users\\FN\\Source\\Repos\\NancyNdo\\ClubConquistadoresAguilas\\Application\\Application.csproj": {
+              "projectPath": "C:\\Users\\FN\\Source\\Repos\\NancyNdo\\ClubConquistadoresAguilas\\Application\\Application.csproj"
             },
-            "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Models\\Models.csproj": {
-              "projectPath": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Models\\Models.csproj"
+            "C:\\Users\\FN\\Source\\Repos\\NancyNdo\\ClubConquistadoresAguilas\\Models\\Models.csproj": {
+              "projectPath": "C:\\Users\\FN\\Source\\Repos\\NancyNdo\\ClubConquistadoresAguilas\\Models\\Models.csproj"
             }
           }
         },
         "net6.0-ios": {
           "targetAlias": "net6.0-ios",
           "projectReferences": {
-            "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Application\\Application.csproj": {
-              "projectPath": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Application\\Application.csproj"
+            "C:\\Users\\FN\\Source\\Repos\\NancyNdo\\ClubConquistadoresAguilas\\Application\\Application.csproj": {
+              "projectPath": "C:\\Users\\FN\\Source\\Repos\\NancyNdo\\ClubConquistadoresAguilas\\Application\\Application.csproj"
             },
-            "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Models\\Models.csproj": {
-              "projectPath": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Models\\Models.csproj"
+            "C:\\Users\\FN\\Source\\Repos\\NancyNdo\\ClubConquistadoresAguilas\\Models\\Models.csproj": {
+              "projectPath": "C:\\Users\\FN\\Source\\Repos\\NancyNdo\\ClubConquistadoresAguilas\\Models\\Models.csproj"
             }
           }
         },
         "net6.0-maccatalyst": {
           "targetAlias": "net6.0-maccatalyst",
           "projectReferences": {
-            "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Application\\Application.csproj": {
-              "projectPath": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Application\\Application.csproj"
+            "C:\\Users\\FN\\Source\\Repos\\NancyNdo\\ClubConquistadoresAguilas\\Application\\Application.csproj": {
+              "projectPath": "C:\\Users\\FN\\Source\\Repos\\NancyNdo\\ClubConquistadoresAguilas\\Application\\Application.csproj"
             },
-            "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Models\\Models.csproj": {
-              "projectPath": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Models\\Models.csproj"
+            "C:\\Users\\FN\\Source\\Repos\\NancyNdo\\ClubConquistadoresAguilas\\Models\\Models.csproj": {
+              "projectPath": "C:\\Users\\FN\\Source\\Repos\\NancyNdo\\ClubConquistadoresAguilas\\Models\\Models.csproj"
             }
           }
         },
         "net6.0-windows10.0.19041": {
           "targetAlias": "net6.0-windows10.0.19041.0",
           "projectReferences": {
-            "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Application\\Application.csproj": {
-              "projectPath": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Application\\Application.csproj"
+            "C:\\Users\\FN\\Source\\Repos\\NancyNdo\\ClubConquistadoresAguilas\\Application\\Application.csproj": {
+              "projectPath": "C:\\Users\\FN\\Source\\Repos\\NancyNdo\\ClubConquistadoresAguilas\\Application\\Application.csproj"
             },
-            "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Models\\Models.csproj": {
-              "projectPath": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Models\\Models.csproj"
+            "C:\\Users\\FN\\Source\\Repos\\NancyNdo\\ClubConquistadoresAguilas\\Models\\Models.csproj": {
+              "projectPath": "C:\\Users\\FN\\Source\\Repos\\NancyNdo\\ClubConquistadoresAguilas\\Models\\Models.csproj"
             }
           }
         }

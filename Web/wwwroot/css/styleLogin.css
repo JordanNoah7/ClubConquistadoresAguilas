@@ -1,46 +1,50 @@
 @import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap');
-@import "~@flaticon/flaticon-uicons/css/all/all";
+
+/*@import "~@flaticon/flaticon-uicons/css/all/all";
 @import "~@flaticon/flaticon-uicons/css/{FONTWEIGHT}/{STYLENAME}";
-@import "~@flaticon/flaticon-uicons/css/brands/all";
+@import "~@flaticon/flaticon-uicons/css/brands/all";*/
 
 *,
-    *::before,
 
-    *::after {
+*::before,
+
+*::after {
     padding: 0;
     margin: 0;
-    box-sizing:border-box;
+    box-sizing: border-box;
 }
 
-body , input{
+body, input {
     font-family: "Arimo", sans-serif;
 }
+
 main {
     width: 100%;
     min-height: 100vh;
     overflow: hidden;
     background-color: #879d7e;
     padding: 2rem;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .box {
-    position:relative;
-    width:100%;
+    position: relative;
+    width: 100%;
     max-width: 1020px;
     height: 640px;
-    background-color: #FFFFFF;
-    border-radius:2.5rem;
-    box-shadow:0 60px 40px -30px (0,0,0,0.27);
+    background-color: #FFFDFD;
+    border-radius: 2.5rem;
+    box-shadow: 0 60px 40px -30px;
 }
+
 .inner-box {
     position: absolute;
     width: calc(100% - 4.1rem);
     height: calc(100% - 4.1rem);
-    top:50%;
-    left:50%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%,-50%);
 }
 
@@ -51,6 +55,7 @@ main {
     top: 0;
     left: 0;
 }
+
 .forms-wrap {
     position: absolute;
     width: 50%;
@@ -59,20 +64,16 @@ main {
     left: 50%;
     background-color: #2B463C;
     border-radius: 1rem;
-
-    
 }
 
-form{
-    max-width: 260px;
-    width:100%;
+form {
+    width: 100%;
+    max-width: 400px;
     margin: 0 auto;
     height: 100%;
-   display:flex;
-   flex-direction:column;
-   
-   justify-content: space-evenly;
-  
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
 .logo img {
@@ -84,54 +85,130 @@ form{
 .cabecera h2 {
     font-size: 0.5rem;
     font-weight: 600;
-    color: #FFFFFF;
-    background-color:red;
+    color: white;
+    background-color: red;
 }
 
 .carousel img {
     display: flex;
     width: 100%;
-    height:100%;
+    height: 100%;
     margin: auto;
 }
 
-/*.container {
+
+.container {
     position: relative;
-    height: 50%;
-    width: 100%;
-    padding-top: 30%;
-    padding-right: 30%;
-    padding-bottom: 30%;
-    padding-left: 30%;
+    padding-top: 10%;
+    padding-bottom: 10%;
     background-color: transparent;
     border: 2px solid #879D7E;
-    border-radius: 20px;
+    border-radius: 60px;
     justify-content: center;
 }
 
-.input-wrap1 {
 
-   background-color:red;
-   position: absolute;
-   justify-content:center;
-}
 
-.input-wrap2{
-    background-color:chartreuse;
-    position:absolute;
-}
-
-#unombre {
-    background-color: transparent;
-    border-color:transparent;
-}
-#pass {
+.input-group .input-group-text {
     background-color: transparent;
     border-color: transparent;
+    border-right-color: #13A34B;
+    text-decoration-color: white;
 }
-*/
+
+
+.input-wrap input:focus {
+    outline-color: aqua;
+    border-radius: 20px;
+}
+
+#username {
+    background-color: transparent;
+    border-color: transparent;
+    bottom: 10px;
+    color: white;
+}
+
+
+#password {
+    background-color: transparent;
+    border-color: transparent;
+    color: white;
+}
+
 
 .container-fluid {
-       display: flex;
+    max-height: 100px;
+    display: flex;
     justify-content: center;
 }
+
+
+/*responsive*/
+
+@media (max-width: 850px) {
+    .box {
+        height: auto;
+        max-width: 550px;
+        overflow: hidden;
+    }
+
+
+    .inner-box {
+        position: static;
+        transform: none;
+        width: revert;
+        height: revert;
+        padding: 2rem;
+    }
+
+    .forms-wrap {
+        position: revert;
+        width: 100%;
+        height: auto;
+    }
+
+    form {
+        max-width: revert;
+        padding: 1.5rem 2.5rem 2rem;
+    }
+
+
+    .carousel {
+        position: revert;
+        height: auto;
+        width: 100%;
+        padding: 3rem 2rem;
+        display: flex;
+    }
+
+    .carousel img {
+            display: none;
+        }
+
+    .container-fluid {
+        max-width: revert;
+        padding: 1.5rem 2.5rem 2rem;
+    }
+
+    .logo img {
+        height: auto;
+        width: 25%
+    }
+
+    .logo {
+        margin-bottom: 30px;
+    }
+}
+
+/*fin responsive*/
+  
+/*ventana emergente*/
+
+    #message {
+        border-radius: 5px;
+        background-color: red;
+        color: white;
+        text-align: center;
+        padding: 10px;
+    }

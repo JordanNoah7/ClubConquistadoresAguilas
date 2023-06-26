@@ -16,6 +16,6 @@
   -->
 
 <badge
-  xmlns:app="http://schemas.android.com/apk/res-auto"
-  app:maxCharacterCount="2"
-  app:badgeGravity="BOTTOM_START"/>
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:maxCharacterCount="2"
+        app:badgeGravity="BOTTOM_START"/>

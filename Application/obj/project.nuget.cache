@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UK4jEEwKQk+ZEFtDyT0LmH77nsYMyWZ2qalf1jymxMXIn1dApCEn1ViLm3Qm2TNsCtKlWwJWw909VsELeOTrKQ==",
+  "dgSpecHash": "GjEVuYolqY6dcqYOhdXPxAt4DSVH479Y/jPW3knmxrwSberhLHc/YkA1vgXZoSoWO3ze2iEBnxiONOUrVaPVpQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Application\\Application.csproj",
+  "projectFilePath": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Application\\Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\FN\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\FN\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

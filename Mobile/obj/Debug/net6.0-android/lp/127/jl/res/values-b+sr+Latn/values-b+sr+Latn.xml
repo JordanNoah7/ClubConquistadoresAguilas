@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="mtrl_badge_content_description">
-    <item quantity="one">%d novo obaveštenje</item>
-    <item quantity="few">%d nova obaveštenja</item>
-    <item quantity="other">%d novih obaveštenja</item>
-  </plurals>
+        <item quantity="one">%d novo obaveštenje</item>
+        <item quantity="few">%d nova obaveštenja</item>
+        <item quantity="other">%d novih obaveštenja</item>
+    </plurals>
     <string name="bottomsheet_action_expand_halfway">Proširite do pola</string>
     <string name="character_counter_content_description">Uneti znakovi: %1$d od %2$d</string>
-    <string name="character_counter_overflowed_content_description">Prekoračeno je ograničenje broja znakova: %1$d od %2$d</string>
+    <string name="character_counter_overflowed_content_description">Prekoračeno je ograničenje broja znakova: %1$d od
+        %2$d
+    </string>
     <string name="clear_text_end_icon_content_description">Obriši tekst</string>
     <string name="error_icon_content_description">Greška</string>
     <string name="exposed_dropdown_menu_content_description">Prikaži padajući meni</string>
@@ -24,7 +26,8 @@
     <string name="material_timepicker_minute">Minut</string>
     <string name="material_timepicker_pm">PM</string>
     <string name="material_timepicker_select_time">Izaberite vreme</string>
-    <string name="material_timepicker_text_input_mode_description">Pređite u režim unosa teksta radi unosa vremena.</string>
+    <string name="material_timepicker_text_input_mode_description">Pređite u režim unosa teksta radi unosa vremena.
+    </string>
     <string name="mtrl_badge_numberless_content_description">Novo obaveštenje</string>
     <string name="mtrl_chip_close_icon_content_description">Uklonite %1$s</string>
     <string name="mtrl_exceed_max_badge_number_content_description">Novih obaveštenja: više od %1$d</string>

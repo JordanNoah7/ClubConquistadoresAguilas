@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿namespace Models;
 
-namespace Models;
-
-public partial class Activity
+public class Activity
 {
     public int Id { get; set; }
 
@@ -23,5 +20,6 @@ public partial class Activity
 
     public virtual Club Club { get; set; } = null!;
 
-    public virtual ICollection<PositionPersonActivity> PositionPersonActivities { get; set; } = new List<PositionPersonActivity>();
+    public virtual ICollection<PositionPersonActivity> PositionPersonActivities { get; set; } =
+        new List<PositionPersonActivity>();
 }

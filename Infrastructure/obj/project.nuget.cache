@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5osBt4pqCKJnme7bVQOun/BHD6rd5lxTHFBvCReFIzFvC3xJGCVBT196iRSVsy+GxlW03KJsOC3heZInU+Mzpg==",
+  "dgSpecHash": "+yHfeYIBZrMlT75q4+V3twW8Ai3uzF6LSyB3cwbo7KMSG5gZKohAo3oGidlUr7eDUOyLP44jlwV7gmvf+pDQMA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Infrastructure\\Infrastructure.csproj",
+  "projectFilePath": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Infrastructure\\Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\FN\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\FN\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

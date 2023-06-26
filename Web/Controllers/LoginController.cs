@@ -1,15 +1,37 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Web.Models;
+﻿using Application.IService;
+using Microsoft.AspNetCore.Mvc;
+using Web.Models.ViewModels;
 
-namespace Web.Controllers
+namespace Web.Controllers;
+
+public class LoginController : Controller
 {
-    public class LoginController : Controller
+    private readonly IUserService _userService;
+
+    public LoginController(IUserService userService)
     {
-        public IActionResult Login()
+        _userService = userService;
+    }
+
+    public IActionResult Login()
+    {
+        ViewBag.ErrorMessage = "";
+        return View();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Login(string username, string password)
+    {
+        var user = await _userService.GetByUsername(username);
+        if (user == null)
         {
+            ViewBag.ErrorMessage = "Nombre de usuario o contraseña incorrectos";
             return View();
         }
 
+        if (user.Password.Equals(password)) return RedirectToAction("Index", "Home");
+
+        ViewBag.ErrorMessage = "Nombre de usuario o contraseña incorrectos";
+        return View();
     }
-    
 }

@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="mtrl_badge_content_description">
-    <item quantity="one">%d nové oznámení</item>
-    <item quantity="few">%d nová oznámení</item>
-    <item quantity="many">%d nového oznámení</item>
-    <item quantity="other">%d nových oznámení</item>
-  </plurals>
+        <item quantity="one">%d nové oznámení</item>
+        <item quantity="few">%d nová oznámení</item>
+        <item quantity="many">%d nového oznámení</item>
+        <item quantity="other">%d nových oznámení</item>
+    </plurals>
     <string name="bottomsheet_action_expand_halfway">Rozbalit napůl</string>
     <string name="character_counter_content_description">Zadané znaky: %1$d z %2$d</string>
-    <string name="character_counter_overflowed_content_description">Byl překročen povolený počet znaků (%1$d z %2$d)</string>
+    <string name="character_counter_overflowed_content_description">Byl překročen povolený počet znaků (%1$d z %2$d)
+    </string>
     <string name="clear_text_end_icon_content_description">Vymazat text</string>
     <string name="error_icon_content_description">Chyba</string>
     <string name="exposed_dropdown_menu_content_description">Zobrazit rozbalovací nabídku</string>
@@ -25,7 +26,8 @@
     <string name="material_timepicker_minute">Minuta</string>
     <string name="material_timepicker_pm">PM</string>
     <string name="material_timepicker_select_time">Vyberte čas</string>
-    <string name="material_timepicker_text_input_mode_description">Chcete-li zadat čas, přepněte na režim textu.</string>
+    <string name="material_timepicker_text_input_mode_description">Chcete-li zadat čas, přepněte na režim textu.
+    </string>
     <string name="mtrl_badge_numberless_content_description">Nové oznámení</string>
     <string name="mtrl_chip_close_icon_content_description">Odstranit položku %1$s</string>
     <string name="mtrl_exceed_max_badge_number_content_description">Více než %1$d nových oznámení</string>

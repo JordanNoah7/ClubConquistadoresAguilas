@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="mtrl_badge_content_description">
-    <item quantity="one">%d նոր ծանուցում</item>
-    <item quantity="other">%d նոր ծանուցում</item>
-  </plurals>
+        <item quantity="one">%d նոր ծանուցում</item>
+        <item quantity="other">%d նոր ծանուցում</item>
+    </plurals>
     <string name="bottomsheet_action_expand_halfway">Ծավալել կիսով չափ</string>
     <string name="character_counter_content_description">Մուտքագրված նիշեր՝ %1$d/%2$d</string>
-    <string name="character_counter_overflowed_content_description">Նիշերի առավելագույն քանակը գերազանցվել է (%1$d/%2$d)</string>
+    <string name="character_counter_overflowed_content_description">Նիշերի առավելագույն քանակը գերազանցվել է
+        (%1$d/%2$d)
+    </string>
     <string name="clear_text_end_icon_content_description">Ջնջել տեքստը</string>
     <string name="error_icon_content_description">Սխալ</string>
     <string name="exposed_dropdown_menu_content_description">Ցույց տալ իջնող ընտրացանկը</string>
@@ -18,12 +20,15 @@
     <string name="material_minute_selection">Ընտրեք րոպեն</string>
     <string name="material_minute_suffix">%1$s րոպե</string>
     <string name="material_timepicker_am">AM</string>
-    <string name="material_timepicker_clock_mode_description">Ժամը մուտքագրելու համար միացրեք ժամացույցի ռեժիմը:</string>
+    <string name="material_timepicker_clock_mode_description">Ժամը մուտքագրելու համար միացրեք ժամացույցի ռեժիմը:
+    </string>
     <string name="material_timepicker_hour">Ժամ</string>
     <string name="material_timepicker_minute">Րոպե</string>
     <string name="material_timepicker_pm">PM</string>
     <string name="material_timepicker_select_time">Ժամանակի ընտրություն</string>
-    <string name="material_timepicker_text_input_mode_description">Ժամը մուտքագրելու համար միացրեք տեքստի մուտքագրման ռեժիմը:</string>
+    <string name="material_timepicker_text_input_mode_description">Ժամը մուտքագրելու համար միացրեք տեքստի մուտքագրման
+        ռեժիմը:
+    </string>
     <string name="mtrl_badge_numberless_content_description">Նոր ծանուցում</string>
     <string name="mtrl_chip_close_icon_content_description">Հեռացնել (%1$s)</string>
     <string name="mtrl_exceed_max_badge_number_content_description">Ավելի քան %1$d նոր ծանուցում</string>

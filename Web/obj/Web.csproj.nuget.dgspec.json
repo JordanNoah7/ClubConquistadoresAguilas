@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Web\\Web.csproj": {}
+    "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Web\\Web.csproj": {}
   },
   "projects": {
-    "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Application\\Application.csproj": {
+    "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Application\\Application.csproj",
+        "projectPath": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Application\\Application.csproj",
         "packagesPath": "C:\\Users\\FN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Application\\obj\\",
+        "outputPath": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\FN\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,11 +28,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Domain\\Domain.csproj"
+              "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Domain\\Domain.csproj"
               },
-              "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Models\\Models.csproj": {
-                "projectPath": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Models\\Models.csproj"
+              "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Models\\Models.csproj": {
+                "projectPath": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Models\\Models.csproj"
               }
             }
           }
@@ -66,14 +66,14 @@
         }
       }
     },
-    "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\DataAccess\\DataAccess.csproj": {
+    "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\DataAccess\\DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\DataAccess\\DataAccess.csproj",
+        "projectUniqueName": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\DataAccess\\DataAccess.csproj",
         "projectName": "DataAccess",
-        "projectPath": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\DataAccess\\DataAccess.csproj",
+        "projectPath": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\DataAccess\\DataAccess.csproj",
         "packagesPath": "C:\\Users\\FN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\DataAccess\\obj\\",
+        "outputPath": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\FN\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -90,11 +90,14 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Infrastructure\\Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Infrastructure\\Infrastructure.csproj"
+              "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Domain\\Domain.csproj"
               },
-              "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Models\\Models.csproj": {
-                "projectPath": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Models\\Models.csproj"
+              "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Infrastructure\\Infrastructure.csproj"
+              },
+              "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Models\\Models.csproj": {
+                "projectPath": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Models\\Models.csproj"
               }
             }
           }
@@ -128,14 +131,14 @@
         }
       }
     },
-    "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Domain\\Domain.csproj": {
+    "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\FN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Domain\\obj\\",
+        "outputPath": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\FN\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -152,11 +155,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\DataAccess\\DataAccess.csproj": {
-                "projectPath": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\DataAccess\\DataAccess.csproj"
+              "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Infrastructure\\Infrastructure.csproj"
               },
-              "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Models\\Models.csproj": {
-                "projectPath": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Models\\Models.csproj"
+              "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Models\\Models.csproj": {
+                "projectPath": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Models\\Models.csproj"
               }
             }
           }
@@ -190,14 +193,14 @@
         }
       }
     },
-    "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Infrastructure\\Infrastructure.csproj": {
+    "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Infrastructure\\Infrastructure.csproj",
+        "projectPath": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Infrastructure\\Infrastructure.csproj",
         "packagesPath": "C:\\Users\\FN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Infrastructure\\obj\\",
+        "outputPath": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\FN\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -214,8 +217,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Models\\Models.csproj": {
-                "projectPath": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Models\\Models.csproj"
+              "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Models\\Models.csproj": {
+                "projectPath": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Models\\Models.csproj"
               }
             }
           }
@@ -261,14 +264,14 @@
         }
       }
     },
-    "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Models\\Models.csproj": {
+    "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Models\\Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Models\\Models.csproj",
+        "projectUniqueName": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Models\\Models.csproj",
         "projectName": "Models",
-        "projectPath": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Models\\Models.csproj",
+        "projectPath": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Models\\Models.csproj",
         "packagesPath": "C:\\Users\\FN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Models\\obj\\",
+        "outputPath": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Models\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\FN\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -316,14 +319,14 @@
         }
       }
     },
-    "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Web\\Web.csproj": {
+    "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Web\\Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Web\\Web.csproj",
+        "projectUniqueName": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Web\\Web.csproj",
         "projectName": "Web",
-        "projectPath": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Web\\Web.csproj",
+        "projectPath": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Web\\Web.csproj",
         "packagesPath": "C:\\Users\\FN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Web\\obj\\",
+        "outputPath": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Web\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\FN\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -340,11 +343,14 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Application\\Application.csproj": {
-                "projectPath": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Application\\Application.csproj"
+              "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Application\\Application.csproj": {
+                "projectPath": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Application\\Application.csproj"
               },
-              "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Models\\Models.csproj": {
-                "projectPath": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Models\\Models.csproj"
+              "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\DataAccess\\DataAccess.csproj": {
+                "projectPath": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\DataAccess\\DataAccess.csproj"
+              },
+              "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Models\\Models.csproj": {
+                "projectPath": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Models\\Models.csproj"
               }
             }
           }
@@ -358,6 +364,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[6.0.14, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

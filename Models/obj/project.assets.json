@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Models\\Models.csproj",
+      "projectUniqueName": "C:\\Users\\FN\\Source\\Repos\\NancyNdo\\ClubConquistadoresAguilas\\Models\\Models.csproj",
       "projectName": "Models",
-      "projectPath": "C:\\Users\\FN\\source\\repos\\NancyNdo\\ClubConquistadoresAguilas\\Models\\Models.csproj",
+      "projectPath": "C:\\Users\\FN\\Source\\Repos\\NancyNdo\\ClubConquistadoresAguilas\\Models\\Models.csproj",
       "packagesPath": "C:\\Users\\FN\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\FN\\Source\\Repos\\NancyNdo\\ClubConquistadoresAguilas\\Models\\obj\\",
       "projectStyle": "PackageReference",
@@ -64,5 +64,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema al leer el archivo de caché C:\\Users\\FN\\Source\\Repos\\NancyNdo\\ClubConquistadoresAguilas\\Models\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
