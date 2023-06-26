@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "p6jjy5vKWan4GGcJY0z/0J4/vJeYRpGvRerPnA483hs=",
+  "Hash": "bwfqWVeVNumiPXRz28IBf7APK0zoLkTQF1eD+VZ8G5A=",
   "Source": "Web",
   "BasePath": "_content/Web",
   "Mode": "Default",
@@ -168,6 +168,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\facebook.png"
+    },
+    {
+      "Identity": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Web\\wwwroot\\img\\fondo.png",
+      "SourceId": "Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Web\\wwwroot\\",
+      "BasePath": "_content/Web",
+      "RelativePath": "img/fondo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\fondo.png"
     },
     {
       "Identity": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Web\\wwwroot\\img\\imagen.jpg",

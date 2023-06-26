@@ -33,6 +33,10 @@
       "PackagePath": "staticwebassets\\img\\facebook.png"
     },
     {
+      "Id": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Web\\wwwroot\\img\\fondo.png",
+      "PackagePath": "staticwebassets\\img\\fondo.png"
+    },
+    {
       "Id": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Web\\wwwroot\\img\\imagen.jpg",
       "PackagePath": "staticwebassets\\img\\imagen.jpg"
     },
