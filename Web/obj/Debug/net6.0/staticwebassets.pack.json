@@ -5,6 +5,14 @@
       "PackagePath": "staticwebassets\\Web.bundle.scp.css"
     },
     {
+      "Id": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Web\\wwwroot\\css\\CrudOrganizacion.css",
+      "PackagePath": "staticwebassets\\css\\CrudOrganizacion.css"
+    },
+    {
+      "Id": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Web\\wwwroot\\css\\EstilosCrud.css",
+      "PackagePath": "staticwebassets\\css\\EstilosCrud.css"
+    },
+    {
       "Id": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Web\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

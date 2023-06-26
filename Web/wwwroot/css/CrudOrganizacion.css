@@ -1,0 +1,13 @@
+﻿
+main .recent-orders{
+    margin-top: 2rem;
+}
+
+main .recert-orders h2 {
+    margin-bottom: 0.8rem;
+    color: red;
+}
+main .recert-orders table {
+    background: red;
+    width: 100%;
+}

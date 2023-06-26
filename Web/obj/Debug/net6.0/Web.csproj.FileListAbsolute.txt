@@ -477,3 +477,4 @@ C:\Nancy - Isur6toSemestre\Distribuidas\PaginaConquistadores\RepositorioConquis\
 C:\Nancy - Isur6toSemestre\Distribuidas\PaginaConquistadores\RepositorioConquis\Web\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 C:\Nancy - Isur6toSemestre\Distribuidas\PaginaConquistadores\RepositorioConquis\Web\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Nancy - Isur6toSemestre\Distribuidas\PaginaConquistadores\RepositorioConquis\Web\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Nancy - Isur6toSemestre\Distribuidas\PaginaConquistadores\RepositorioConquis\Web\obj\Debug\net6.0\scopedcss\Views\Shared\_LayoutCrud.cshtml.rz.scp.css
