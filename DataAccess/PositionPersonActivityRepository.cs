@@ -13,60 +13,48 @@ public class PositionPersonActivityRepository : ContextRepository, IGenericRepos
 
     public async Task<bool> Insert(PositionPersonActivity model)
     {
-        using (var transaction = _dbContext.Database.BeginTransaction())
+        try
         {
-            try
-            {
-                _dbContext.PositionPersonActivities.Add(model);
-                await _dbContext.SaveChangesAsync();
-                transaction.Commit();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                transaction.Rollback();
-                return false;
-            }
+            _dbContext.PositionPersonActivities.Add(model);
+            await _dbContext.SaveChangesAsync();
+
+            return true;
+        }
+        catch (Exception ex)
+        {
+            return false;
         }
     }
 
     public async Task<bool> Update(PositionPersonActivity model)
     {
-        using (var transaction = _dbContext.Database.BeginTransaction())
+        try
         {
-            try
-            {
-                _dbContext.PositionPersonActivities.Update(model);
-                await _dbContext.SaveChangesAsync();
-                transaction.Commit();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                transaction.Rollback();
-                return false;
-            }
+            _dbContext.PositionPersonActivities.Update(model);
+            await _dbContext.SaveChangesAsync();
+
+            return true;
+        }
+        catch (Exception ex)
+        {
+            return false;
         }
     }
 
     public async Task<bool> Delete(int id1, int id2)
     {
-        using (var transaction = _dbContext.Database.BeginTransaction())
+        try
         {
-            try
-            {
-                var model =
-                    _dbContext.PositionPersonActivities.First(ppa => ppa.ActivityId == id1 && ppa.PersonId == id2);
-                _dbContext.PositionPersonActivities.Remove(model);
-                await _dbContext.SaveChangesAsync();
-                transaction.Commit();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                transaction.Rollback();
-                return false;
-            }
+            var model =
+                _dbContext.PositionPersonActivities.First(ppa => ppa.ActivityId == id1 && ppa.PersonId == id2);
+            _dbContext.PositionPersonActivities.Remove(model);
+            await _dbContext.SaveChangesAsync();
+
+            return true;
+        }
+        catch (Exception ex)
+        {
+            return false;
         }
     }
 
@@ -83,11 +71,11 @@ public class PositionPersonActivityRepository : ContextRepository, IGenericRepos
         }
     }
 
-    public async Task<IQueryable<PositionPersonActivity>> GetAll()
+    public async Task<IEnumerable<PositionPersonActivity>> GetAll()
     {
         try
         {
-            IQueryable<PositionPersonActivity> queryPosPerActSQL = _dbContext.PositionPersonActivities;
+            IEnumerable<PositionPersonActivity> queryPosPerActSQL = _dbContext.PositionPersonActivities;
             return queryPosPerActSQL;
         }
         catch (Exception ex)

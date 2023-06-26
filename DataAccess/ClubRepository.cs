@@ -12,59 +12,47 @@ public class ClubRepository : ContextRepository, IGenericRepository<Club>
 
     public async Task<bool> Insert(Club model)
     {
-        using (var transaction = _dbContext.Database.BeginTransaction())
+        try
         {
-            try
-            {
-                _dbContext.Clubs.Add(model);
-                await _dbContext.SaveChangesAsync();
-                transaction.Commit();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                transaction.Rollback();
-                return false;
-            }
+            _dbContext.Clubs.Add(model);
+            await _dbContext.SaveChangesAsync();
+
+            return true;
+        }
+        catch (Exception ex)
+        {
+            return false;
         }
     }
 
     public async Task<bool> Update(Club model)
     {
-        using (var transaction = _dbContext.Database.BeginTransaction())
+        try
         {
-            try
-            {
-                _dbContext.Clubs.Update(model);
-                await _dbContext.SaveChangesAsync();
-                transaction.Commit();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                transaction.Rollback();
-                return false;
-            }
+            _dbContext.Clubs.Update(model);
+            await _dbContext.SaveChangesAsync();
+
+            return true;
+        }
+        catch (Exception ex)
+        {
+            return false;
         }
     }
 
     public async Task<bool> Delete(int id1, int id2 = 0)
     {
-        using (var transaction = _dbContext.Database.BeginTransaction())
+        try
         {
-            try
-            {
-                var model = _dbContext.Clubs.First(c => c.Id == id1);
-                _dbContext.Clubs.Remove(model);
-                await _dbContext.SaveChangesAsync();
-                transaction.Commit();
-                return true;
-            }
-            catch (Exception e)
-            {
-                transaction.Rollback();
-                return false;
-            }
+            var model = _dbContext.Clubs.First(c => c.Id == id1);
+            _dbContext.Clubs.Remove(model);
+            await _dbContext.SaveChangesAsync();
+
+            return true;
+        }
+        catch (Exception e)
+        {
+            return false;
         }
     }
 
@@ -80,11 +68,11 @@ public class ClubRepository : ContextRepository, IGenericRepository<Club>
         }
     }
 
-    public async Task<IQueryable<Club>> GetAll()
+    public async Task<IEnumerable<Club>> GetAll()
     {
         try
         {
-            IQueryable<Club> queryClubsSQL = _dbContext.Clubs;
+            IEnumerable<Club> queryClubsSQL = _dbContext.Clubs;
             return queryClubsSQL;
         }
         catch (Exception e)

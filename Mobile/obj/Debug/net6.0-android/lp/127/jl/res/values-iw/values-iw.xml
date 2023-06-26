@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="mtrl_badge_content_description">
-        <item quantity="one">התראה חדשה אחת (%d)</item>
-        <item quantity="two">%d התראות חדשות</item>
-        <item quantity="many">%d התראות חדשות</item>
-        <item quantity="other">%d התראות חדשות</item>
-    </plurals>
+    <item quantity="one">התראה חדשה אחת (%d)</item>
+    <item quantity="two">%d התראות חדשות</item>
+    <item quantity="many">%d התראות חדשות</item>
+    <item quantity="other">%d התראות חדשות</item>
+  </plurals>
     <string name="bottomsheet_action_expand_halfway">הרחבה עד האמצע</string>
     <string name="character_counter_content_description">הוזנו %1$d תווים מתוך %2$d</string>
     <string name="character_counter_overflowed_content_description">מגבלת התווים חורגת ב-%1$d מתוך %2$d</string>

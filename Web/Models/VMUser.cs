@@ -1,4 +1,4 @@
-﻿namespace Web.Models.ViewModels;
+﻿namespace Web.Models;
 
 public class VMUser
 {

@@ -12,59 +12,47 @@ public class RoleRepository : ContextRepository, IGenericRepository<Role>
 
     public async Task<bool> Insert(Role model)
     {
-        using (var transaction = _dbContext.Database.BeginTransaction())
+        try
         {
-            try
-            {
-                _dbContext.Roles.Add(model);
-                await _dbContext.SaveChangesAsync();
-                transaction.Commit();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                transaction.Rollback();
-                return false;
-            }
+            _dbContext.Roles.Add(model);
+            await _dbContext.SaveChangesAsync();
+
+            return true;
+        }
+        catch (Exception ex)
+        {
+            return false;
         }
     }
 
     public async Task<bool> Update(Role model)
     {
-        using (var transaction = _dbContext.Database.BeginTransaction())
+        try
         {
-            try
-            {
-                _dbContext.Roles.Update(model);
-                await _dbContext.SaveChangesAsync();
-                transaction.Commit();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                transaction.Rollback();
-                return false;
-            }
+            _dbContext.Roles.Update(model);
+            await _dbContext.SaveChangesAsync();
+
+            return true;
+        }
+        catch (Exception ex)
+        {
+            return false;
         }
     }
 
     public async Task<bool> Delete(int id1, int id2 = 0)
     {
-        using (var transaction = _dbContext.Database.BeginTransaction())
+        try
         {
-            try
-            {
-                var model = _dbContext.Roles.First(c => c.Id == id1);
-                _dbContext.Roles.Remove(model);
-                await _dbContext.SaveChangesAsync();
-                transaction.Commit();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                transaction.Rollback();
-                return false;
-            }
+            var model = _dbContext.Roles.First(c => c.Id == id1);
+            _dbContext.Roles.Remove(model);
+            await _dbContext.SaveChangesAsync();
+
+            return true;
+        }
+        catch (Exception ex)
+        {
+            return false;
         }
     }
 
@@ -80,11 +68,11 @@ public class RoleRepository : ContextRepository, IGenericRepository<Role>
         }
     }
 
-    public async Task<IQueryable<Role>> GetAll()
+    public async Task<IEnumerable<Role>> GetAll()
     {
         try
         {
-            IQueryable<Role> queryRolesSQL = _dbContext.Roles;
+            IEnumerable<Role> queryRolesSQL = _dbContext.Roles;
             return queryRolesSQL;
         }
         catch (Exception ex)

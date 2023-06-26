@@ -12,59 +12,47 @@ public class PermissionRepository : ContextRepository, IGenericRepository<Permis
 
     public async Task<bool> Insert(Permission model)
     {
-        using (var transaction = _dbContext.Database.BeginTransaction())
+        try
         {
-            try
-            {
-                _dbContext.Permissions.Add(model);
-                await _dbContext.SaveChangesAsync();
-                transaction.Commit();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                transaction.Rollback();
-                return false;
-            }
+            _dbContext.Permissions.Add(model);
+            await _dbContext.SaveChangesAsync();
+
+            return true;
+        }
+        catch (Exception ex)
+        {
+            return false;
         }
     }
 
     public async Task<bool> Update(Permission model)
     {
-        using (var transaction = _dbContext.Database.BeginTransaction())
+        try
         {
-            try
-            {
-                _dbContext.Permissions.Update(model);
-                await _dbContext.SaveChangesAsync();
-                transaction.Commit();
-                return true;
-            }
-            catch (Exception e)
-            {
-                transaction.Rollback();
-                return false;
-            }
+            _dbContext.Permissions.Update(model);
+            await _dbContext.SaveChangesAsync();
+
+            return true;
+        }
+        catch (Exception e)
+        {
+            return false;
         }
     }
 
     public async Task<bool> Delete(int id1, int id2 = 0)
     {
-        using (var transaction = _dbContext.Database.BeginTransaction())
+        try
         {
-            try
-            {
-                var model = _dbContext.Permissions.First(p => p.Id.Equals(id1));
-                _dbContext.Permissions.Remove(model);
-                await _dbContext.SaveChangesAsync();
-                transaction.Commit();
-                return true;
-            }
-            catch (Exception e)
-            {
-                transaction.Rollback();
-                return false;
-            }
+            var model = _dbContext.Permissions.First(p => p.Id.Equals(id1));
+            _dbContext.Permissions.Remove(model);
+            await _dbContext.SaveChangesAsync();
+
+            return true;
+        }
+        catch (Exception e)
+        {
+            return false;
         }
     }
 
@@ -80,11 +68,11 @@ public class PermissionRepository : ContextRepository, IGenericRepository<Permis
         }
     }
 
-    public async Task<IQueryable<Permission>> GetAll()
+    public async Task<IEnumerable<Permission>> GetAll()
     {
         try
         {
-            IQueryable<Permission> queryPermissionsSQL = _dbContext.Permissions;
+            IEnumerable<Permission> queryPermissionsSQL = _dbContext.Permissions;
             return queryPermissionsSQL;
         }
         catch (Exception e)

@@ -11129,19 +11129,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\FN\\.nuget\\packages\\": {}
+    "C:\\Users\\dyfmeks\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Web\\Web.csproj",
+      "projectUniqueName": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Web\\Web.csproj",
       "projectName": "Web",
-      "projectPath": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Web\\Web.csproj",
-      "packagesPath": "C:\\Users\\FN\\.nuget\\packages\\",
-      "outputPath": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Web\\obj\\",
+      "projectPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Web\\Web.csproj",
+      "packagesPath": "C:\\Users\\dyfmeks\\.nuget\\packages\\",
+      "outputPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Web\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\FN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\dyfmeks\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -11149,20 +11154,22 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
+        "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Application\\Application.csproj": {
-              "projectPath": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Application\\Application.csproj"
+            "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Application\\Application.csproj": {
+              "projectPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Application\\Application.csproj"
             },
-            "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\DataAccess\\DataAccess.csproj": {
-              "projectPath": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\DataAccess\\DataAccess.csproj"
+            "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\DataAccess\\DataAccess.csproj": {
+              "projectPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\DataAccess\\DataAccess.csproj"
             },
-            "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Models\\Models.csproj": {
-              "projectPath": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Models\\Models.csproj"
+            "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj": {
+              "projectPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj"
             }
           }
         }
@@ -11201,7 +11208,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

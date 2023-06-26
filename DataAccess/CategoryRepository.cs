@@ -12,59 +12,47 @@ public class CategoryRepository : ContextRepository, IGenericRepository<Category
 
     public async Task<bool> Insert(Category model)
     {
-        using (var transaction = _dbContext.Database.BeginTransaction())
+        try
         {
-            try
-            {
-                _dbContext.Categories.Add(model);
-                await _dbContext.SaveChangesAsync();
-                transaction.Commit();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                transaction.Rollback();
-                return false;
-            }
+            _dbContext.Categories.Add(model);
+            await _dbContext.SaveChangesAsync();
+
+            return true;
+        }
+        catch (Exception ex)
+        {
+            return false;
         }
     }
 
     public async Task<bool> Update(Category model)
     {
-        using (var transaction = _dbContext.Database.BeginTransaction())
+        try
         {
-            try
-            {
-                _dbContext.Categories.Update(model);
-                await _dbContext.SaveChangesAsync();
-                transaction.Commit();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                transaction.Rollback();
-                return false;
-            }
+            _dbContext.Categories.Update(model);
+            await _dbContext.SaveChangesAsync();
+
+            return true;
+        }
+        catch (Exception ex)
+        {
+            return false;
         }
     }
 
     public async Task<bool> Delete(int id1, int id2 = 0)
     {
-        using (var transaction = _dbContext.Database.BeginTransaction())
+        try
         {
-            try
-            {
-                var model = _dbContext.Categories.First(c => c.Id == id1);
-                _dbContext.Categories.Remove(model);
-                await _dbContext.SaveChangesAsync();
-                transaction.Commit();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                transaction.Rollback();
-                return false;
-            }
+            var model = _dbContext.Categories.First(c => c.Id == id1);
+            _dbContext.Categories.Remove(model);
+            await _dbContext.SaveChangesAsync();
+
+            return true;
+        }
+        catch (Exception ex)
+        {
+            return false;
         }
     }
 
@@ -80,11 +68,11 @@ public class CategoryRepository : ContextRepository, IGenericRepository<Category
         }
     }
 
-    public async Task<IQueryable<Category>> GetAll()
+    public async Task<IEnumerable<Category>> GetAll()
     {
         try
         {
-            IQueryable<Category> queryCategoriesSQL = _dbContext.Categories;
+            IEnumerable<Category> queryCategoriesSQL = _dbContext.Categories;
             return queryCategoriesSQL;
         }
         catch (Exception ex)

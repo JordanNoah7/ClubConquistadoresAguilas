@@ -12,59 +12,47 @@ public class ClassRepository : ContextRepository, IGenericRepository<Class>
 
     public async Task<bool> Insert(Class model)
     {
-        using (var transaction = _dbContext.Database.BeginTransaction())
+        try
         {
-            try
-            {
-                _dbContext.Classes.Add(model);
-                await _dbContext.SaveChangesAsync();
-                transaction.Commit();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                transaction.Rollback();
-                return false;
-            }
+            _dbContext.Classes.Add(model);
+            await _dbContext.SaveChangesAsync();
+
+            return true;
+        }
+        catch (Exception ex)
+        {
+            return false;
         }
     }
 
     public async Task<bool> Update(Class model)
     {
-        using (var transaction = _dbContext.Database.BeginTransaction())
+        try
         {
-            try
-            {
-                _dbContext.Classes.Update(model);
-                await _dbContext.SaveChangesAsync();
-                transaction.Commit();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                transaction.Rollback();
-                return false;
-            }
+            _dbContext.Classes.Update(model);
+            await _dbContext.SaveChangesAsync();
+
+            return true;
+        }
+        catch (Exception ex)
+        {
+            return false;
         }
     }
 
     public async Task<bool> Delete(int id1, int id2 = 0)
     {
-        using (var transaction = _dbContext.Database.BeginTransaction())
+        try
         {
-            try
-            {
-                var model = _dbContext.Classes.First(c => c.Id == id1);
-                _dbContext.Classes.Remove(model);
-                await _dbContext.SaveChangesAsync();
-                transaction.Commit();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                transaction.Rollback();
-                return false;
-            }
+            var model = _dbContext.Classes.First(c => c.Id == id1);
+            _dbContext.Classes.Remove(model);
+            await _dbContext.SaveChangesAsync();
+
+            return true;
+        }
+        catch (Exception ex)
+        {
+            return false;
         }
     }
 
@@ -80,11 +68,11 @@ public class ClassRepository : ContextRepository, IGenericRepository<Class>
         }
     }
 
-    public async Task<IQueryable<Class>> GetAll()
+    public async Task<IEnumerable<Class>> GetAll()
     {
         try
         {
-            IQueryable<Class> queryClassesSQL = _dbContext.Classes;
+            IEnumerable<Class> queryClassesSQL = _dbContext.Classes;
             return queryClassesSQL;
         }
         catch (Exception ex)

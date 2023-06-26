@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="mtrl_badge_content_description">
-        <item quantity="one">%d नयाँ सूचना</item>
-        <item quantity="other">%d नयाँ सूचनाहरू</item>
-    </plurals>
+    <item quantity="one">%d नयाँ सूचना</item>
+    <item quantity="other">%d नयाँ सूचनाहरू</item>
+  </plurals>
     <string name="bottomsheet_action_expand_halfway">आधा ठुलो पार्नुहोस्</string>
     <string name="character_counter_content_description">%2$d मध्ये %1$d वर्ण प्रविष्ट गरियो</string>
     <string name="character_counter_overflowed_content_description">%2$d मध्ये %1$d वर्ण सीमा नाघ्यो</string>
@@ -23,8 +23,7 @@
     <string name="material_timepicker_minute">मिनेट</string>
     <string name="material_timepicker_pm">अपराह्न</string>
     <string name="material_timepicker_select_time">समय चयन गर्नुहोस्</string>
-    <string name="material_timepicker_text_input_mode_description">समय इनपुट गर्न पाठ इनपुट मोडमा स्विच गर्नुहोस्।
-    </string>
+    <string name="material_timepicker_text_input_mode_description">समय इनपुट गर्न पाठ इनपुट मोडमा स्विच गर्नुहोस्।</string>
     <string name="mtrl_badge_numberless_content_description">नयाँ सूचना</string>
     <string name="mtrl_chip_close_icon_content_description">%1$s हटाउनुहोस्</string>
     <string name="mtrl_exceed_max_badge_number_content_description">%1$d भन्दा बढी नयाँ सूचनाहरू</string>

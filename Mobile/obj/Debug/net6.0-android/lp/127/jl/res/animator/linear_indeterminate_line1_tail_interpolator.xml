@@ -15,9 +15,9 @@
   ~ limitations under the License.
 -->
 <pathInterpolator xmlns:android="http://schemas.android.com/apk/res/android"
-                  xmlns:tools="http://schemas.android.com/tools"
-                  tools:ignore="UnusedAttribute"
-                  android:controlX1="0.4"
-                  android:controlY1="0.0"
-                  android:controlX2="1.0"
-                  android:controlY2="1.0"/>
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="UnusedAttribute"
+    android:controlX1="0.4"
+    android:controlY1="0.0"
+    android:controlX2="1.0"
+    android:controlY2="1.0"/>

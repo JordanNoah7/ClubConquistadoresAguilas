@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="mtrl_badge_content_description">
-        <item quantity="zero">%d jaunu paziņojumu</item>
-        <item quantity="one">%d jauns paziņojums</item>
-        <item quantity="other">%d jauni paziņojumi</item>
-    </plurals>
+    <item quantity="zero">%d jaunu paziņojumu</item>
+    <item quantity="one">%d jauns paziņojums</item>
+    <item quantity="other">%d jauni paziņojumi</item>
+  </plurals>
     <string name="bottomsheet_action_expand_halfway">Izvērst līdz pusei</string>
     <string name="character_counter_content_description">Ievadītās rakstzīmes: %1$d no %2$d</string>
-    <string name="character_counter_overflowed_content_description">Pārsniegts rakstzīmju skaita ierobežojums
-        (%1$d no %2$d)
-    </string>
+    <string name="character_counter_overflowed_content_description">Pārsniegts rakstzīmju skaita ierobežojums (%1$d no %2$d)</string>
     <string name="clear_text_end_icon_content_description">Notīrīt tekstu</string>
     <string name="error_icon_content_description">Kļūda</string>
     <string name="exposed_dropdown_menu_content_description">Rādīt nolaižamo izvēlni</string>
     <string name="icon_content_description">Dialoglodziņa ikona</string>
     <string name="item_view_role_description">Cilne</string>
-    <string name="material_clock_toggle_content_description">Atlasiet “AM” (priekšpusdienā) vai “PM” (pēcpusdienā).
-    </string>
+    <string name="material_clock_toggle_content_description">Atlasiet “AM” (priekšpusdienā) vai “PM” (pēcpusdienā).</string>
     <string name="material_hour_selection">Atlasiet stundu</string>
     <string name="material_hour_suffix">plkst. %1$s</string>
     <string name="material_minute_selection">Atlasiet minūtes.</string>
@@ -27,9 +24,7 @@
     <string name="material_timepicker_minute">Minūte</string>
     <string name="material_timepicker_pm">PM</string>
     <string name="material_timepicker_select_time">Laika atlasīšana</string>
-    <string name="material_timepicker_text_input_mode_description">Lai ievadītu laiku, ieslēdziet teksta ievades
-        režīmu.
-    </string>
+    <string name="material_timepicker_text_input_mode_description">Lai ievadītu laiku, ieslēdziet teksta ievades režīmu.</string>
     <string name="mtrl_badge_numberless_content_description">Jauns paziņojums</string>
     <string name="mtrl_chip_close_icon_content_description">Noņemt: %1$s</string>
     <string name="mtrl_exceed_max_badge_number_content_description">Vairāk nekā %1$d jauni paziņojumi</string>
