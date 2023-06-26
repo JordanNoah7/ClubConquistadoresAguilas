@@ -8,6 +8,7 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Mobile
+<<<<<<< HEAD
 build_property.ProjectDir = G:\Programacion\C#\ClubConquistadoresAguilas\Mobile\
 
 [G:/Programacion/C\#/ClubConquistadoresAguilas/Mobile/App.xaml]
@@ -39,3 +40,6 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Mobile.Resources.Styles.Styles.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
+=======
+build_property.ProjectDir = C:\Users\FN\Source\Repos\NancyNdo\ClubConquistadoresAguilas\Mobile\
+>>>>>>> parent of 2f3fa56 (Fusionando2606)
