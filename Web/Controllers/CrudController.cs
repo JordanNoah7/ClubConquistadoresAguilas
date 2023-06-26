@@ -26,7 +26,7 @@ namespace Web.Controllers
         }
 
         // GET: CrudController/Details/5
-        public ActionResult Details(int id)
+        /*public ActionResult Details(int id)
         {
             return View();
         }
@@ -92,6 +92,6 @@ namespace Web.Controllers
             {
                 return View();
             }
-        }
+        }*/
     }
 }
