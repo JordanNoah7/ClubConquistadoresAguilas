@@ -11,7 +11,16 @@ namespace Web.Controllers
             return View();
         }
 
-        public ActionResult CrudDirector()
+        public ActionResult CrudConquistador()
+        {
+            return View();
+        }
+
+        public ActionResult CrudConsejero()
+        {
+            return View();
+        }
+        public ActionResult CrudInstructor()
         {
             return View();
         }

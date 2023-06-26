@@ -16,24 +16,20 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Nancy - Isur6toSemestre\Distribuidas\PaginaConquistadores\RepositorioConquis\Web
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Crud/CrudDirector.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3J1ZFxDcnVkRGlyZWN0b3IuY3NodG1s
+[C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Crud/CrudConquistador.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3J1ZFxDcnVkQ29ucXVpc3RhZG9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Crud/CrudConsejero.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3J1ZFxDcnVkQ29uc2VqZXJvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Crud/CrudInstructor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3J1ZFxDcnVkSW5zdHJ1Y3Rvci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Crud/Inicio.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3J1ZFxJbmljaW8uY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Home/DirectorConquistador.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEaXJlY3RvckNvbnF1aXN0YWRvci5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Home/DirectorConsejero.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEaXJlY3RvckNvbnNlamVyby5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Home/DirectorInstructor.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEaXJlY3Rvckluc3RydWN0b3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Home/Index.cshtml]
@@ -42,10 +38,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Home/prueba.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxwcnVlYmEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Login/Login.cshtml]

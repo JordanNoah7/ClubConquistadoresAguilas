@@ -3,12 +3,12 @@
 :root {
     --color-background: #f6f6f9;
     --card-border-radius: 2rem;
-    --border-radius-1: 0.4 rem;
+    --border-radius-1: 0.4rem;
     --border-radius-2: 0.8rem;
     --border-radius-3: 1.2rem;
     --card-padding: 1.8rem;
     --padding-1: 1.2rem;
-    --boz-shadow: 0 2rem 3rem (132,139,200,0.18);
+    --box-shadow: 0 2rem 3rem (132,139,200,0.18);
 }
 
 * {
@@ -90,9 +90,8 @@ small{
 }
 /*foto de contacto mensajes*/
 /*texto como fondo--silenciado*/
-.text-muted{
-    /*gris*/
-    color: #7d8da1;
+.text-muted {
+    color: #7d8da1; /*gris*/
 }
 
 /*texto como fondo--silenciado*/
@@ -135,7 +134,7 @@ aside .close{
         left: 100%;
         top: 50%;
         align-items: center;
-        
+        background: var(--color-background);
     }
 
 
@@ -228,5 +227,85 @@ aside .sidebar a span{
         margin-top: 1.4rem;
     }
 
+/*derecha -perfil*/
+.right {
+    margin-top: 1.4rem;
+}
 
- 
+.right .top{
+    display:flex;
+    justify-content: end;
+    gap: 2rem;
+} 
+
+.right .top button{
+    display: none;
+}
+
+.right .theme-toggler{
+    background: #DCDFDF; /*plomo*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 1.6rem;
+    width: 4.2rem;
+    cursor: pointer;
+    border-radius: var(--border-radius-1);
+}
+.right .theme-toggler span{
+
+    display: none;
+
+    font-size: 1.2rem;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.right .theme-toggler span.active{
+    background: #A2CEB7; /*verde pastel*/
+    color: white;
+    border-radius: var(--border-radius-1);
+}
+
+.right .top .profile{
+    display: flex;
+    gap: 2rem;
+    text-align: right;
+}
+
+
+/*media queries responsive*/
+@media screen and (max-width:1200px ){
+   .container{
+       width: 94%;
+       grid-template-columns: 7rem auto 23rem;
+   }
+
+  aside .logo h2{
+      display: none;
+  }
+
+  aside .sidebar h3{
+    display: none;
+  }
+
+  aside .sidebar a{
+      width: 5.6rem;
+  }
+  aside .sidebar a:last-child{
+      position: relative;
+      margin-top: 1.8rem;
+  }
+
+    aside .categorias ul li ul li {
+        position: absolute;
+        display: inline-block;
+        background: black;
+        transform: translateY(-100%);
+        justify-content: center;
+    }
+
+}

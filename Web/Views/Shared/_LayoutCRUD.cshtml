@@ -5,16 +5,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    
+    <title>@ViewData["Vista"] - Web</title>
     <link rel="stylesheet" href="~/css/EstilosCrud.css" asp-append-version="true" />
-
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    @*iconos boxicons*@
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
 </head>
 <body>
     <div class="container">
         <aside>
+           
             <div class="top">
                 <div class="logo">
                     <img src="/img/logo.png" />
@@ -24,8 +23,9 @@
                     <span class="material-symbols-outlined">close</span>
                 </div>
             </div>
-            <div class="sidebar">
-                <a href="#" class="active">
+            @*<a asp-area="" asp-controller="Home" asp-action="DirectorInstructor">*@
+            <div class="sidebar" >
+                <a class="active" asp-area="" asp-controller="Crud" asp-action="Inicio">
                     <span class="material-symbols-outlined">dashboard</span>
                     <h3>Inicio</h3>
                 </a>
@@ -33,26 +33,26 @@
                     <ul>
 
                         <li>
-                            <a href="#" >
+                            <a>
                                 <span class="material-symbols-outlined">tenancy</span>
                                 <h3>Organización</h3>
                             </a>
 
                             <ul>
                                 <li>
-                                    <a href="#">
+                                    <a asp-area="" asp-controller="Crud" asp-action="CrudConquistador">
                                         <span class="material-symbols-outlined"> child_care</span>
                                         <h3>Conquistador</h3>
                                     </a>
                                 
                                 
-                                    <a href="#">
+                                    <a asp-area="" asp-controller="Crud" asp-action="CrudConsejero">
                                         <span class="material-symbols-outlined">diversity_3</span>
                                         <h3>Coordinador</h3>
                                     </a>
                                 
                                 
-                                    <a href="#">
+                                    <a asp-area="" asp-controller="Crud" asp-action="CrudInstructor">
                                         <span class="material-symbols-outlined">sports_kabaddi</span>
                                         <h3>Instructor</h3>
                                     </a>
@@ -103,7 +103,29 @@
     <!--fin de aside-->
     <main>
             @RenderBody()
-    </main>  
+    </main> 
+    
+    <div class="right">
+        <div class="top">
+            <button id="menu-btn">
+                    <span class="material-symbols-outlined">menu</span>
+            </button>
+            <div class="theme-toggler">
+                    <span class="material-symbols-outlined active">light_mode</span>
+                    <span class="material-symbols-outlined">dark_mode</span>
+            </div>
+            <div class="profile">
+                <div class="info">
+                    <p>Soy, <b name="fullnameUsuario">Pedro Perez</b></p>
+                        <small class="text-muted"><b name="RolUsuario">Director</b></small>
+                </div>
+                <div class="profile-photo">
+                    <img src="./img/fotoPerfil.png"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
     </div>
 </body>
 </html>
