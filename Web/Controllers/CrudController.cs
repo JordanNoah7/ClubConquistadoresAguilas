@@ -24,6 +24,10 @@ namespace Web.Controllers
         {
             return View();
         }
+        public ActionResult Actividades()
+        {
+            return View();
+        }
 
         // GET: CrudController/Details/5
         public ActionResult Details(int id)
@@ -44,7 +48,7 @@ namespace Web.Controllers
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Inicio));
             }
             catch
             {
@@ -65,7 +69,7 @@ namespace Web.Controllers
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Inicio));
             }
             catch
             {
@@ -86,7 +90,7 @@ namespace Web.Controllers
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Inicio));
             }
             catch
             {

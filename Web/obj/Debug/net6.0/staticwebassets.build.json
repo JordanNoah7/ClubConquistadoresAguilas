@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "PYicqyYmgx7hSpucTCmiRG6YnDdU8LNAS3KTZ9nXeq4=",
+  "Hash": "iji5rA05dOEmVwN2jMa3Kjm6t+LKPJAZpY1diTRfPZs=",
   "Source": "Web",
   "BasePath": "_content/Web",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\EstilosCrud.css"
+    },
+    {
+      "Identity": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Web\\wwwroot\\css\\NuevaPerson.css",
+      "SourceId": "Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Web\\wwwroot\\",
+      "BasePath": "_content/Web",
+      "RelativePath": "css/NuevaPerson.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\NuevaPerson.css"
     },
     {
       "Identity": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Web\\wwwroot\\css\\site.css",

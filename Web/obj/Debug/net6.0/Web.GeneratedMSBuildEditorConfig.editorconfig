@@ -16,6 +16,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Nancy - Isur6toSemestre\Distribuidas\PaginaConquistadores\RepositorioConquis\Web
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Crud/Actividades.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3J1ZFxBY3RpdmlkYWRlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Crud/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3J1ZFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Crud/CrudConquistador.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3J1ZFxDcnVkQ29ucXVpc3RhZG9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
