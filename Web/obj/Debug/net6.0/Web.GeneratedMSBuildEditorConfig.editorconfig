@@ -16,6 +16,12 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = G:\Programacion\C#\ClubConquistadoresAguilas\Web
 build_property._RazorSourceGeneratorDebug = 
 
+[G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/Crud/Actividades.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3J1ZFxBY3RpdmlkYWRlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+[G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/Crud/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3J1ZFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
 [G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/Crud/CrudConquistador.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3J1ZFxDcnVkQ29ucXVpc3RhZG9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
