@@ -13,6 +13,44 @@ VALUES ('Jordan', 'Quispe', 'Supo', '09/07/1999', 'M', 'Ciudad Municipal', '9147
 INSERT INTO Users (ID, userName, password)
 VALUES (1, 'dyfmeks', '#Aa12345');
 
+--Añadiendo campo para control de concurrencia a las tablas
+ALTER TABLE Clubs
+    ADD concurrencyClub TIMESTAMP NOT NULL;
+ALTER TABLE Units
+    ADD concurrencyUnit TIMESTAMP NOT NULL;
+ALTER TABLE Positions
+    ADD concurrencyPosition TIMESTAMP NOT NULL;
+ALTER TABLE People
+    ADD concurrencyPerson TIMESTAMP NOT NULL;
+ALTER TABLE PositionPersonUnit
+    ADD concurrencyPPU TIMESTAMP NOT NULL;
+ALTER TABLE Activities
+    ADD concurrencyActivity TIMESTAMP NOT NULL;
+ALTER TABLE PositionPersonActivity
+    ADD concurrencyPPA TIMESTAMP NOT NULL;
+ALTER TABLE Categories
+    ADD concurrencyCategory TIMESTAMP NOT NULL;
+ALTER TABLE Specialties
+    ADD concurrencySpecialty TIMESTAMP NOT NULL;
+ALTER TABLE SpecialtyPerson
+    ADD concurrencySP TIMESTAMP NOT NULL;
+ALTER TABLE Classes
+    ADD concurrencyClass TIMESTAMP NOT NULL;
+ALTER TABLE ClassPerson
+    ADD concurrencyCP TIMESTAMP NOT NULL;
+ALTER TABLE Users
+    ADD concurrencyUser TIMESTAMP NOT NULL;
+ALTER TABLE Permissions
+    ADD concurrencyPermission TIMESTAMP NOT NULL;
+ALTER TABLE Roles
+    ADD concurrencyRole TIMESTAMP NOT NULL;
+ALTER TABLE UserPermission
+    ADD concurrencyUP TIMESTAMP NOT NULL;
+ALTER TABLE UserRol
+    ADD concurrencyUR TIMESTAMP NOT NULL;
+ALTER TABLE RolPermission
+    ADD concurrencyRP TIMESTAMP NOT NULL;
+
 --Procedimientos almacenados
 ---Procedimiento para obtener todos los usuarios
 CREATE PROCEDURE usp_GetUsers
@@ -197,43 +235,7 @@ BEGIN
 END
 GO
 
-ALTER TABLE Clubs
-    ADD concurrencyClub TIMESTAMP;
-ALTER TABLE Units
-    ADD concurrencyUnit TIMESTAMP;
-ALTER TABLE Positions
-    ADD concurrencyPosition TIMESTAMP;
-ALTER TABLE People
-    ADD concurrencyPerson TIMESTAMP;
-ALTER TABLE PositionPersonUnit
-    ADD concurrencyPPU TIMESTAMP;
-ALTER TABLE Activities
-    ADD concurrencyActivity TIMESTAMP;
-ALTER TABLE PositionPersonActivity
-    ADD concurrencyPPA TIMESTAMP;
-ALTER TABLE Categories
-    ADD concurrencyCategory TIMESTAMP;
-ALTER TABLE Specialties
-    ADD concurrencySpecialty TIMESTAMP;
-ALTER TABLE SpecialtyPerson
-    ADD concurrencySP TIMESTAMP;
-ALTER TABLE Classes
-    ADD concurrencyClass TIMESTAMP;
-ALTER TABLE ClassPerson
-    ADD concurrencyCP TIMESTAMP;
-ALTER TABLE Users
-    ADD concurrencyUser TIMESTAMP;
-ALTER TABLE Permissions
-    ADD concurrencyPermission TIMESTAMP;
-ALTER TABLE Roles
-    ADD concurrencyRole TIMESTAMP;
-ALTER TABLE UserPermission
-    ADD concurrencyUP TIMESTAMP;
-ALTER TABLE UserRol
-    ADD concurrencyUR TIMESTAMP;
-ALTER TABLE RolPermission
-    ADD concurrencyRP TIMESTAMP;
-
+---Procedimientno para eliminar una persona
 CREATE PROCEDURE usp_DeletePerson @PersonID INT
 AS
 BEGIN
@@ -246,6 +248,101 @@ BEGIN
             DELETE U
             FROM Users AS U
             WHERE U.ID = @PersonID
+            COMMIT
+        END TRY
+        BEGIN CATCH
+            ROLLBACK
+        END CATCH
+END
+GO
+
+---Procedimiento para obtener el club
+CREATE PROCEDURE usp_GetClub @ClubID INT
+AS
+BEGIN
+    BEGIN TRAN
+        BEGIN TRY
+            SELECT *
+            FROM Clubs
+            WHERE ID = @ClubID
+            COMMIT
+        END TRY
+        BEGIN CATCH
+            ROLLBACK
+        END CATCH
+END
+GO
+
+---Procedimiento para obtener una unidad
+CREATE PROCEDURE usp_GetUnit @UnitID INT
+AS
+BEGIN
+    BEGIN TRAN
+        BEGIN TRY
+            SELECT *
+            FROM Units
+            WHERE ID = @UnitID
+            COMMIT
+        END TRY
+        BEGIN CATCH
+            ROLLBACK
+        END CATCH
+END
+GO
+
+---Procedimiento para obtener unidades
+CREATE PROCEDURE usp_GetUnits
+AS
+BEGIN
+    BEGIN TRAN
+        BEGIN TRY
+            SELECT *
+            FROM Units
+            COMMIT
+        END TRY
+        BEGIN CATCH
+            ROLLBACK
+        END CATCH
+END
+GO
+
+---Procedimiento para insertar unidad
+CREATE PROCEDURE usp_InsertUnit @name NVARCHAR(15),
+                                @motto NVARCHAR(100),
+                                @battleCry NVARCHAR(250),
+                                @description NVARCHAR(250),
+                                @ClubID INT
+AS
+BEGIN
+    BEGIN TRAN
+        BEGIN TRY
+            INSERT INTO Units (name, motto, battleCry, description, ClubID)
+            VALUES (@name, @motto, @battleCry, @description, @ClubID);
+            COMMIT
+        END TRY
+        BEGIN CATCH
+            ROLLBACK
+        END CATCH
+END
+GO
+
+---Procedimiento para actualizar unidad
+CREATE PROCEDURE usp_UpdateUnit @UnitID TINYINT,
+                                @name NVARCHAR(15),
+                                @motto NVARCHAR(100),
+                                @battleCry NVARCHAR(250),
+                                @description NVARCHAR(250)
+AS
+BEGIN
+    BEGIN TRAN
+        BEGIN TRY
+            UPDATE Units
+            SET
+                name = @name,
+                motto = @motto,
+                battleCry = @battleCry,
+                description = @description
+            WHERE ID = @UnitID
             COMMIT
         END TRY
         BEGIN CATCH
