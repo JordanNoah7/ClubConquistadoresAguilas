@@ -3,7 +3,7 @@
     ViewData["Vista"] = "CrudConsejero";
 }
 
-<link rel="stylesheet" href="~/css/CrudOrganizacion.css" asp-append-version="true"/>
+<link rel="stylesheet" href="~/css/CrudOrganizacion.css" asp-append-version="true" />
 
 @*action="@Url.Action("Login", "Login")" method="post" autocomplete="off"*@
 
@@ -20,34 +20,35 @@
 
     <table class="table table-hover">
         <thead>
-        <tr name="columna">
-            <th scope="col" name="nro">Item</th>
-            <th class="nombre" name="colNombre">Nombre</th>
-            <th class="apellido" name="colApellido">Apellido</th>
-            <th class="telefono" name="colTelefono">Telefono</th>
-            <th class="clase" name="colClase">Clase</th>
-            <th class="unidad" name="colUnidad">Unidad</th>
-        </tr>
+            <tr name="columna">
+                <th scope="col" name="nro">Item</th>
+                <th class="nombre" name="colNombre">Nombre</th>
+                <th class="apellido" name="colApellido">Apellido</th>
+                <th class="telefono" name="colTelefono">Telefono</th>
+                <th class="clase" name="colClase">Clase</th>
+                <th class="unidad" name="colUnidad">Unidad</th>
+            </tr>
         </thead>
         <tbody>
-        <tr name="fila">
-            <th scope="row" name="nro">1</th>
-            <td class="nombre" name="rowNombre">Mark</td>
-            <td class="apellido" name="rowApellido">Otto</td>
-            <td class="telefono" name="rowTelefono">44444</td>
-            <td class="clase" name="rowClase">clase1</td>
-            <td class="unidad" name="rowUnidad">unidad1</td>
-            <td>
-                <button type="button" id="delete" class="btn btn-default">
-                    <span class="material-symbols-outlined">delete</span>
-                </button>
-                <button type="button" id="edit" class="btn btn-default">
-                    <span class="material-symbols-outlined">edit_square</span>
-                </button>
+            <tr name="fila">
+                <th scope="row" name="nro">1</th>
+                <td class="nombre" name="rowNombre">Mark</td>
+                <td class="apellido" name="rowApellido">Otto</td>
+                <td class="telefono" name="rowTelefono">44444</td>
+                <td class="clase" name="rowClase">clase1</td>
+                <td class="unidad" name="rowUnidad">unidad1</td>
+                <td>
+                    <button type="button" id="delete" class="btn btn-default">
+                        <span class="material-symbols-outlined">delete</span>
+                    </button>
+                    <button type="button" id="edit" class="btn btn-default">
+                        <span class="material-symbols-outlined">edit_square</span>
+                    </button>
 
-            </td>
-        </tr>
+                </td>
+            </tr>
 
         </tbody>
     </table>
 </div>
+
