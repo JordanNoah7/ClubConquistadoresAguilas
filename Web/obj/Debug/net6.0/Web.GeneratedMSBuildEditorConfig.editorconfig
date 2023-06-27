@@ -9,81 +9,81 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Web
 build_property.RootNamespace = Web
-build_property.ProjectDir = G:\Programacion\C#\ClubConquistadoresAguilas\Web\
+build_property.ProjectDir = D:\ISUR\DISTRIBUIDAS\DistribuidasProyectoFinal\Web\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = G:\Programacion\C#\ClubConquistadoresAguilas\Web
+build_property.MSBuildProjectDirectory = D:\ISUR\DISTRIBUIDAS\DistribuidasProyectoFinal\Web
 build_property._RazorSourceGeneratorDebug = 
 
-[G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/Crud/Actividades.cshtml]
+[D:/ISUR/DISTRIBUIDAS/DistribuidasProyectoFinal/Web/Views/Crud/Actividades.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3J1ZFxBY3RpdmlkYWRlcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/Crud/Create.cshtml]
+[D:/ISUR/DISTRIBUIDAS/DistribuidasProyectoFinal/Web/Views/Crud/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3J1ZFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/Crud/CrudConquistador.cshtml]
+[D:/ISUR/DISTRIBUIDAS/DistribuidasProyectoFinal/Web/Views/Crud/CrudConquistador.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3J1ZFxDcnVkQ29ucXVpc3RhZG9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/Crud/CrudConsejero.cshtml]
+[D:/ISUR/DISTRIBUIDAS/DistribuidasProyectoFinal/Web/Views/Crud/CrudConsejero.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3J1ZFxDcnVkQ29uc2VqZXJvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/Crud/CrudInstructor.cshtml]
+[D:/ISUR/DISTRIBUIDAS/DistribuidasProyectoFinal/Web/Views/Crud/CrudInstructor.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3J1ZFxDcnVkSW5zdHJ1Y3Rvci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/Crud/Delete.cshtml]
+[D:/ISUR/DISTRIBUIDAS/DistribuidasProyectoFinal/Web/Views/Crud/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3J1ZFxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/Crud/Details.cshtml]
+[D:/ISUR/DISTRIBUIDAS/DistribuidasProyectoFinal/Web/Views/Crud/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3J1ZFxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/Crud/Edit.cshtml]
+[D:/ISUR/DISTRIBUIDAS/DistribuidasProyectoFinal/Web/Views/Crud/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3J1ZFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/Crud/Inicio.cshtml]
+[D:/ISUR/DISTRIBUIDAS/DistribuidasProyectoFinal/Web/Views/Crud/Inicio.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3J1ZFxJbmljaW8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/Home/Index.cshtml]
+[D:/ISUR/DISTRIBUIDAS/DistribuidasProyectoFinal/Web/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/Home/Privacy.cshtml]
+[D:/ISUR/DISTRIBUIDAS/DistribuidasProyectoFinal/Web/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/Login/Login.cshtml]
+[D:/ISUR/DISTRIBUIDAS/DistribuidasProyectoFinal/Web/Views/Login/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/Shared/Error.cshtml]
+[D:/ISUR/DISTRIBUIDAS/DistribuidasProyectoFinal/Web/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/ISUR/DISTRIBUIDAS/DistribuidasProyectoFinal/Web/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/_ViewImports.cshtml]
+[D:/ISUR/DISTRIBUIDAS/DistribuidasProyectoFinal/Web/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/_ViewStart.cshtml]
+[D:/ISUR/DISTRIBUIDAS/DistribuidasProyectoFinal/Web/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/Shared/_Layout.cshtml]
+[D:/ISUR/DISTRIBUIDAS/DistribuidasProyectoFinal/Web/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-lzldzk1rll
 
-[G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/Shared/_LayoutCRUD.cshtml]
+[D:/ISUR/DISTRIBUIDAS/DistribuidasProyectoFinal/Web/Views/Shared/_LayoutCRUD.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRDUlVELmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = b-u9i9dgf1xd
