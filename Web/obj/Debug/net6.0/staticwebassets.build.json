@@ -1,6 +1,10 @@
 {
   "Version": 1,
+<<<<<<< HEAD
   "Hash": "Eg53aVkLIVQ8pMHdHCVsKFyP5DFIQBYkH4SGKU1dhD4=",
+=======
+  "Hash": "iji5rA05dOEmVwN2jMa3Kjm6t+LKPJAZpY1diTRfPZs=",
+>>>>>>> 5341ec88b4a9b921a93f05307ee80140179723ee
   "Source": "Web",
   "BasePath": "_content/Web",
   "Mode": "Default",
@@ -85,7 +89,28 @@
       "OriginalItemSpec": "wwwroot\\css\\EstilosCrud.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Web\\wwwroot\\css\\site.css",
+=======
+      "Identity": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Web\\wwwroot\\css\\NuevaPerson.css",
+      "SourceId": "Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Web\\wwwroot\\",
+      "BasePath": "_content/Web",
+      "RelativePath": "css/NuevaPerson.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\NuevaPerson.css"
+    },
+    {
+      "Identity": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Web\\wwwroot\\css\\site.css",
+>>>>>>> 5341ec88b4a9b921a93f05307ee80140179723ee
       "SourceId": "Web",
       "SourceType": "Discovered",
       "ContentRoot": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Web\\wwwroot\\",

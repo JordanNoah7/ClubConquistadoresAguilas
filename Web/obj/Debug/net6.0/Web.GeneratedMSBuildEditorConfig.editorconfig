@@ -16,6 +16,7 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = G:\Programacion\C#\ClubConquistadoresAguilas\Web
 build_property._RazorSourceGeneratorDebug = 
 
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
 [G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/Crud/Actividades.cshtml]
@@ -28,6 +29,17 @@ build_metadata.AdditionalFiles.CssScope =
 
 >>>>>>> Stashed changes
 [G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/Crud/CrudConquistador.cshtml]
+=======
+[C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Crud/Actividades.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3J1ZFxBY3RpdmlkYWRlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Crud/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3J1ZFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Crud/CrudConquistador.cshtml]
+>>>>>>> 5341ec88b4a9b921a93f05307ee80140179723ee
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3J1ZFxDcnVkQ29ucXVpc3RhZG9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
