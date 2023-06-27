@@ -6,9 +6,9 @@
 
         public string Name { get; set; } = null!;
 
-        public string StartDate { get; set; }
+        public string StartDate { get; set; } = null!;
 
-        public string EndDate { get; set; }
+        public string EndDate { get; set; } = null!;
 
         public string Location { get; set; } = null!;
 
