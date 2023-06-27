@@ -15,13 +15,13 @@
   limitations under the License.
   -->
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:alpha="@dimen/material_emphasis_disabled"
-          android:color="?attr/colorOnSurface"
-          android:state_enabled="false"/>
+  <item android:alpha="@dimen/material_emphasis_disabled"
+      android:color="?attr/colorOnSurface"
+      android:state_enabled="false"/>
 
-    <!-- Selected -->
-    <item android:color="?attr/colorPrimary" android:state_selected="true"/>
+  <!-- Selected -->
+  <item android:color="?attr/colorPrimary" android:state_selected="true"/>
 
-    <!-- Not selected -->
-    <item android:color="?attr/colorOnSurfaceVariant"/>
+  <!-- Not selected -->
+  <item android:color="?attr/colorOnSurfaceVariant"/>
 </selector>

@@ -15,5 +15,5 @@
 -->
 
 <paths>
-    <files-path path="image_provider/" name="image_provider_images"/>
+    <files-path path="image_provider/" name="image_provider_images" />
 </paths>

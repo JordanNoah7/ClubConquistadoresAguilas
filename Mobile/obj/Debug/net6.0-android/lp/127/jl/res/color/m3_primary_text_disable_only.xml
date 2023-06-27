@@ -16,7 +16,6 @@
 -->
 <!-- Material3 alternative to textColorPrimaryDisableOnly for light theme -->
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_enabled="false" android:alpha="@dimen/material_emphasis_medium"
-          android:color="@color/m3_sys_color_light_on_background"/>
+    <item android:state_enabled="false" android:alpha="@dimen/material_emphasis_medium" android:color="@color/m3_sys_color_light_on_background"/>
     <item android:color="@color/m3_sys_color_light_on_background"/>
 </selector>

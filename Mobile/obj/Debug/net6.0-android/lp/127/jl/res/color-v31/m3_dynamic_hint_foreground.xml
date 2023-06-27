@@ -19,7 +19,7 @@
     <item android:state_enabled="true"
           android:state_pressed="true"
           android:alpha="@dimen/material_emphasis_medium"
-          android:color="@color/m3_sys_color_dynamic_light_on_background"/>
+          android:color="@color/m3_sys_color_dynamic_light_on_background" />
     <item android:alpha="@dimen/material_emphasis_disabled"
-          android:color="@color/m3_sys_color_dynamic_light_on_background"/>
+          android:color="@color/m3_sys_color_dynamic_light_on_background" />
 </selector>

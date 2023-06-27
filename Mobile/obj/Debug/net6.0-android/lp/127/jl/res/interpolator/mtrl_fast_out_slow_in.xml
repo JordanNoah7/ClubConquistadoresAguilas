@@ -16,4 +16,4 @@
   -->
 
 <!-- MotionSpec replaces this with a fast out slow in interpolator. -->
-<accelerateDecelerateInterpolator/>
+<accelerateDecelerateInterpolator />

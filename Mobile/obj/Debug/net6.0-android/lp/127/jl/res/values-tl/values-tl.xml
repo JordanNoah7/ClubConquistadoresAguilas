@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="mtrl_badge_content_description">
-        <item quantity="one">%d bagong notification</item>
-        <item quantity="other">%d na bagong notification</item>
-    </plurals>
+    <item quantity="one">%d bagong notification</item>
+    <item quantity="other">%d na bagong notification</item>
+  </plurals>
     <string name="bottomsheet_action_expand_halfway">I-expand hanggang gitna</string>
     <string name="character_counter_content_description">Mga character na nailagay %1$d sa %2$d</string>
-    <string name="character_counter_overflowed_content_description">Lumampas sa limitasyon sa bilang ng character %1$d
-        sa %2$d
-    </string>
+    <string name="character_counter_overflowed_content_description">Lumampas sa limitasyon sa bilang ng character %1$d sa %2$d</string>
     <string name="clear_text_end_icon_content_description">I-clear ang text</string>
     <string name="error_icon_content_description">Error</string>
     <string name="exposed_dropdown_menu_content_description">Ipakita ang dropdown na menu</string>
@@ -25,9 +23,7 @@
     <string name="material_timepicker_minute">Minuto</string>
     <string name="material_timepicker_pm">PM</string>
     <string name="material_timepicker_select_time">Pumili ng oras</string>
-    <string name="material_timepicker_text_input_mode_description">Lumipat sa pamamaraan ng pag-input ng text para sa
-        input na oras.
-    </string>
+    <string name="material_timepicker_text_input_mode_description">Lumipat sa pamamaraan ng pag-input ng text para sa input na oras.</string>
     <string name="mtrl_badge_numberless_content_description">Bagong notification</string>
     <string name="mtrl_chip_close_icon_content_description">Alisin ang %1$s</string>
     <string name="mtrl_exceed_max_badge_number_content_description">Mahigit %1$d (na) bagong notification</string>

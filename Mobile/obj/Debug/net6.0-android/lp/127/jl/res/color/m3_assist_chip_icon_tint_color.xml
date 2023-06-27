@@ -16,10 +16,9 @@
   -->
 
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Disabled state -->
-    <item android:alpha="@dimen/material_emphasis_disabled" android:color="?attr/colorOnSurface"
-          android:state_enabled="false"/>
+  <!-- Disabled state -->
+  <item android:alpha="@dimen/material_emphasis_disabled" android:color="?attr/colorOnSurface" android:state_enabled="false"/>
 
-    <!-- Enabled state -->
-    <item android:color="?attr/colorPrimary"/>
+  <!-- Enabled state -->
+  <item android:color="?attr/colorPrimary"/>
 </selector>

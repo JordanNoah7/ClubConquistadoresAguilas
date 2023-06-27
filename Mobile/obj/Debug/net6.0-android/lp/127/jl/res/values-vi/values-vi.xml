@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="mtrl_badge_content_description">
-        <item quantity="one">%d thông báo mới</item>
-        <item quantity="other">%d thông báo mới</item>
-    </plurals>
+    <item quantity="one">%d thông báo mới</item>
+    <item quantity="other">%d thông báo mới</item>
+  </plurals>
     <string name="bottomsheet_action_expand_halfway">Mở rộng một nửa</string>
     <string name="character_counter_content_description">Đã nhập %1$d trong số %2$d ký tự</string>
     <string name="character_counter_overflowed_content_description">Đã vượt quá giới hạn ký tự %1$d/%2$d</string>
@@ -23,8 +23,7 @@
     <string name="material_timepicker_minute">Phút</string>
     <string name="material_timepicker_pm">CH</string>
     <string name="material_timepicker_select_time">Chọn thời gian</string>
-    <string name="material_timepicker_text_input_mode_description">Chuyển sang chế độ nhập văn bản để nhập thời gian.
-    </string>
+    <string name="material_timepicker_text_input_mode_description">Chuyển sang chế độ nhập văn bản để nhập thời gian.</string>
     <string name="mtrl_badge_numberless_content_description">Thông báo mới</string>
     <string name="mtrl_chip_close_icon_content_description">Xóa %1$s</string>
     <string name="mtrl_exceed_max_badge_number_content_description">Hơn %1$d thông báo mới</string>

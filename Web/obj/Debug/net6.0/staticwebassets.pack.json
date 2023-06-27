@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\Web.bundle.scp.css"
     },
     {
+      "Id": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Web\\wwwroot\\css\\Create.css",
+      "PackagePath": "staticwebassets\\css\\Create.css"
+    },
+    {
       "Id": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Web\\wwwroot\\css\\CrudOrganizacion.css",
       "PackagePath": "staticwebassets\\css\\CrudOrganizacion.css"
     },
@@ -13,15 +17,7 @@
       "PackagePath": "staticwebassets\\css\\EstilosCrud.css"
     },
     {
-<<<<<<< HEAD
       "Id": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Web\\wwwroot\\css\\site.css",
-=======
-      "Id": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Web\\wwwroot\\css\\NuevaPerson.css",
-      "PackagePath": "staticwebassets\\css\\NuevaPerson.css"
-    },
-    {
-      "Id": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Web\\wwwroot\\css\\site.css",
->>>>>>> 5341ec88b4a9b921a93f05307ee80140179723ee
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {

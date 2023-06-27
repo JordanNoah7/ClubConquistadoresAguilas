@@ -15,16 +15,15 @@
      limitations under the License.
 -->
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Disabled -->
-    <item android:alpha="@dimen/material_emphasis_disabled" android:color="?attr/colorOnSurface"
-          android:state_enabled="false"/>
+  <!-- Disabled -->
+  <item android:alpha="@dimen/material_emphasis_disabled" android:color="?attr/colorOnSurface" android:state_enabled="false"/>
 
-    <!-- Focused -->
-    <item android:color="?attr/colorPrimary" android:state_focused="true"/>
+  <!-- Focused -->
+  <item android:color="?attr/colorPrimary" android:state_focused="true"/>
 
-    <!-- Hovered -->
-    <item android:color="?attr/colorOnSurface" android:state_hovered="true"/>
+  <!-- Hovered -->
+  <item android:color="?attr/colorOnSurface" android:state_hovered="true"/>
 
-    <!-- Normal -->
-    <item android:color="?attr/colorOutline"/>
+  <!-- Normal -->
+  <item android:color="?attr/colorOutline"/>
 </selector>

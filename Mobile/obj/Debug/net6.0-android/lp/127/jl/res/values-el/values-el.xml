@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="mtrl_badge_content_description">
-        <item quantity="one">%d νέα ειδοποίηση</item>
-        <item quantity="other">%d νέες ειδοποιήσεις</item>
-    </plurals>
+    <item quantity="one">%d νέα ειδοποίηση</item>
+    <item quantity="other">%d νέες ειδοποιήσεις</item>
+  </plurals>
     <string name="bottomsheet_action_expand_halfway">Ανάπτυξη μέχρι τη μέση</string>
     <string name="character_counter_content_description">Εισήχθησαν %1$d από %2$d χαρακτήρες</string>
     <string name="character_counter_overflowed_content_description">Υπέρβαση ορίου χαρακτήρων %1$d από %2$d</string>
@@ -18,16 +18,12 @@
     <string name="material_minute_selection">Επιλογή λεπτών</string>
     <string name="material_minute_suffix">%1$s λεπτά</string>
     <string name="material_timepicker_am">ΠΜ</string>
-    <string name="material_timepicker_clock_mode_description">Κάντε εναλλαγή στη λειτουργία ρολογιού, για την εισαγωγή
-        της ώρας.
-    </string>
+    <string name="material_timepicker_clock_mode_description">Κάντε εναλλαγή στη λειτουργία ρολογιού, για την εισαγωγή της ώρας.</string>
     <string name="material_timepicker_hour">Ώρα</string>
     <string name="material_timepicker_minute">Λεπτό</string>
     <string name="material_timepicker_pm">ΜΜ</string>
     <string name="material_timepicker_select_time">Επιλέξτε ώρα</string>
-    <string name="material_timepicker_text_input_mode_description">Κάντε εναλλαγή στη λειτουργία εισαγωγής κειμένου, για
-        την εισαγωγή της ώρας.
-    </string>
+    <string name="material_timepicker_text_input_mode_description">Κάντε εναλλαγή στη λειτουργία εισαγωγής κειμένου, για την εισαγωγή της ώρας.</string>
     <string name="mtrl_badge_numberless_content_description">Νέα ειδοποίηση</string>
     <string name="mtrl_chip_close_icon_content_description">Κατάργηση %1$s</string>
     <string name="mtrl_exceed_max_badge_number_content_description">Πάνω από %1$d νέες ειδοποιήσεις</string>

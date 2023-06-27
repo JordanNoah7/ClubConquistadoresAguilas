@@ -15,10 +15,10 @@
   limitations under the License.
   -->
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:gravity="bottom">
-        <shape>
-            <size android:height="1dp"/>
-            <solid android:color="?attr/colorSurfaceVariant"/>
-        </shape>
-    </item>
+  <item android:gravity="bottom">
+    <shape>
+      <size android:height="1dp" />
+      <solid android:color="?attr/colorSurfaceVariant" />
+    </shape>
+  </item>
 </layer-list>

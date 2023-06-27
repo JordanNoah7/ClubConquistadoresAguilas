@@ -30,4 +30,4 @@
                  android:drawableLeft="?android:attr/listChoiceIndicatorSingle"
                  android:drawableStart="?android:attr/listChoiceIndicatorSingle"
                  android:drawablePadding="20dp"
-                 android:ellipsize="marquee"/>
+                 android:ellipsize="marquee" />

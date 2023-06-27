@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="mtrl_badge_content_description">
-        <item quantity="one">%d ახალი შეტყობინება</item>
-        <item quantity="other">%d ახალი შეტყობინება</item>
-    </plurals>
+    <item quantity="one">%d ახალი შეტყობინება</item>
+    <item quantity="other">%d ახალი შეტყობინება</item>
+  </plurals>
     <string name="bottomsheet_action_expand_halfway">ნახევრამდე გაფართოება</string>
     <string name="character_counter_content_description">შეყვანილია %2$d-დან %1$d სიმბოლო</string>
-    <string name="character_counter_overflowed_content_description">გადაჭარბებულია სიმბოლოთა ლიმიტი (%2$d-დან %1$d)
-    </string>
+    <string name="character_counter_overflowed_content_description">გადაჭარბებულია სიმბოლოთა ლიმიტი (%2$d-დან %1$d)</string>
     <string name="clear_text_end_icon_content_description">ტექსტის გასუფთავება</string>
     <string name="error_icon_content_description">შეცდომა</string>
     <string name="exposed_dropdown_menu_content_description">ჩამოსაშლელი მენიუს ჩვენება</string>
@@ -24,9 +23,7 @@
     <string name="material_timepicker_minute">წუთი</string>
     <string name="material_timepicker_pm">PM</string>
     <string name="material_timepicker_select_time">აირჩიეთ დრო</string>
-    <string name="material_timepicker_text_input_mode_description">დროის შეყვანისთვის ტექსტის შეყვანის რეჟიმზე
-        გადართვა.
-    </string>
+    <string name="material_timepicker_text_input_mode_description">დროის შეყვანისთვის ტექსტის შეყვანის რეჟიმზე გადართვა.</string>
     <string name="mtrl_badge_numberless_content_description">ახალი შეტყობინება</string>
     <string name="mtrl_chip_close_icon_content_description">%1$s-ის ამოშლა</string>
     <string name="mtrl_exceed_max_badge_number_content_description">%1$d-ზე მეტი ახალი შეტყობინება</string>
