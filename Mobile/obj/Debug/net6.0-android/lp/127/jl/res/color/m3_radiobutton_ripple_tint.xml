@@ -16,28 +16,28 @@
 -->
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
-  <!-- Checked. -->
+    <!-- Checked. -->
 
-  <!-- Uses the primary state layer since tapping a checked radiobutton keeps it checked. -->
-  <item android:alpha="@dimen/m3_ripple_pressed_alpha" android:color="?attr/colorPrimary"
-      android:state_pressed="true" android:state_checked="true"/>
-  <item android:alpha="@dimen/m3_ripple_focused_alpha" android:color="?attr/colorPrimary"
-      android:state_focused="true" android:state_checked="true"/>
-  <item android:alpha="@dimen/m3_ripple_hovered_alpha" android:color="?attr/colorPrimary"
-      android:state_hovered="true" android:state_checked="true"/>
-  <item android:alpha="@dimen/m3_ripple_default_alpha" android:color="?attr/colorPrimary"
-      android:state_checked="true"/>
+    <!-- Uses the primary state layer since tapping a checked radiobutton keeps it checked. -->
+    <item android:alpha="@dimen/m3_ripple_pressed_alpha" android:color="?attr/colorPrimary"
+          android:state_pressed="true" android:state_checked="true"/>
+    <item android:alpha="@dimen/m3_ripple_focused_alpha" android:color="?attr/colorPrimary"
+          android:state_focused="true" android:state_checked="true"/>
+    <item android:alpha="@dimen/m3_ripple_hovered_alpha" android:color="?attr/colorPrimary"
+          android:state_hovered="true" android:state_checked="true"/>
+    <item android:alpha="@dimen/m3_ripple_default_alpha" android:color="?attr/colorPrimary"
+          android:state_checked="true"/>
 
-  <!-- Unchecked. -->
+    <!-- Unchecked. -->
 
-  <!-- Uses the primary state layer since tapping an unchecked radiobutton will turn it blue
-       (checked). -->
-  <item android:alpha="@dimen/m3_ripple_selectable_pressed_alpha" android:color="?attr/colorPrimary"
-      android:state_pressed="true"/>
-  <item android:alpha="@dimen/m3_ripple_focused_alpha" android:color="?attr/colorOnSurface"
-      android:state_focused="true"/>
-  <item android:alpha="@dimen/m3_ripple_hovered_alpha" android:color="?attr/colorOnSurface"
-      android:state_hovered="true"/>
-  <item android:alpha="@dimen/m3_ripple_default_alpha" android:color="?attr/colorOnSurface"/>
+    <!-- Uses the primary state layer since tapping an unchecked radiobutton will turn it blue
+         (checked). -->
+    <item android:alpha="@dimen/m3_ripple_selectable_pressed_alpha" android:color="?attr/colorPrimary"
+          android:state_pressed="true"/>
+    <item android:alpha="@dimen/m3_ripple_focused_alpha" android:color="?attr/colorOnSurface"
+          android:state_focused="true"/>
+    <item android:alpha="@dimen/m3_ripple_hovered_alpha" android:color="?attr/colorOnSurface"
+          android:state_hovered="true"/>
+    <item android:alpha="@dimen/m3_ripple_default_alpha" android:color="?attr/colorOnSurface"/>
 
 </selector>

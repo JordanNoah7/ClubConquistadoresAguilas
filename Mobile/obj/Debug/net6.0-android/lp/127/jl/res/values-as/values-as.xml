@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="mtrl_badge_content_description">
-    <item quantity="one">%d new notification</item>
-    <item quantity="other">%d new notifications</item>
-  </plurals>
+        <item quantity="one">%d new notification</item>
+        <item quantity="other">%d new notifications</item>
+    </plurals>
     <string name="bottomsheet_action_expand_halfway">Expand halfway</string>
     <string name="character_counter_content_description">%2$dটাৰ ভিতৰত %1$dটা বৰ্ণ লিখা হৈছে</string>
-    <string name="character_counter_overflowed_content_description">%2$dটাৰ ভিতৰত %1$dটা বৰ্ণৰ সীমা অতিক্ৰম কৰিছে</string>
+    <string name="character_counter_overflowed_content_description">%2$dটাৰ ভিতৰত %1$dটা বৰ্ণৰ সীমা অতিক্ৰম কৰিছে
+    </string>
     <string name="clear_text_end_icon_content_description">Clear text</string>
     <string name="error_icon_content_description">Error</string>
     <string name="exposed_dropdown_menu_content_description">Show dropdown menu</string>

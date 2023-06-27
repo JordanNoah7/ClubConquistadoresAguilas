@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="mtrl_badge_content_description">
-    <item quantity="one">%d ny avisering</item>
-    <item quantity="other">%d nya aviseringar</item>
-  </plurals>
+        <item quantity="one">%d ny avisering</item>
+        <item quantity="other">%d nya aviseringar</item>
+    </plurals>
     <string name="bottomsheet_action_expand_halfway">Utöka till hälften</string>
     <string name="character_counter_content_description">%1$d av %2$d tecken har angetts</string>
-    <string name="character_counter_overflowed_content_description">Teckengränsen har överskridits: %1$d av %2$d</string>
+    <string name="character_counter_overflowed_content_description">Teckengränsen har överskridits: %1$d av %2$d
+    </string>
     <string name="clear_text_end_icon_content_description">Rensa text</string>
     <string name="error_icon_content_description">Fel</string>
     <string name="exposed_dropdown_menu_content_description">Visa rullgardinsmenyn</string>

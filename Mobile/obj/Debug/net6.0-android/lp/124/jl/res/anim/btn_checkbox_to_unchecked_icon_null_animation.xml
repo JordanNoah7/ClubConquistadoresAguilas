@@ -22,13 +22,13 @@
                 android:propertyName="scaleX"
                 android:valueFrom="0.2"
                 android:valueTo="0.18"
-                android:interpolator="@interpolator/btn_checkbox_checked_mtrl_animation_interpolator_1" />
+                android:interpolator="@interpolator/btn_checkbox_checked_mtrl_animation_interpolator_1"/>
         <objectAnimator
                 android:duration="333"
                 android:propertyName="scaleX"
                 android:valueFrom="0.18"
                 android:valueTo="0.2"
-                android:interpolator="@interpolator/btn_checkbox_checked_mtrl_animation_interpolator_1" />
+                android:interpolator="@interpolator/btn_checkbox_checked_mtrl_animation_interpolator_1"/>
     </set>
     <set android:ordering="sequentially">
         <objectAnimator
@@ -36,12 +36,12 @@
                 android:propertyName="scaleY"
                 android:valueFrom="0.2"
                 android:valueTo="0.18"
-                android:interpolator="@interpolator/btn_checkbox_checked_mtrl_animation_interpolator_1" />
+                android:interpolator="@interpolator/btn_checkbox_checked_mtrl_animation_interpolator_1"/>
         <objectAnimator
                 android:duration="333"
                 android:propertyName="scaleY"
                 android:valueFrom="0.18"
                 android:valueTo="0.2"
-                android:interpolator="@interpolator/btn_checkbox_checked_mtrl_animation_interpolator_1" />
+                android:interpolator="@interpolator/btn_checkbox_checked_mtrl_animation_interpolator_1"/>
     </set>
 </set>

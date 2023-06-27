@@ -25,19 +25,19 @@
         android:orientation="vertical">
 
     <ImageView
-        android:id="@+id/group_divider"
-        android:layout_width="match_parent"
-        android:layout_height="1dip"
-        android:layout_marginTop="4dip"
-        android:layout_marginBottom="4dip"
-        android:background="@drawable/abc_list_divider_material" />
+            android:id="@+id/group_divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:layout_marginTop="4dip"
+            android:layout_marginBottom="4dip"
+            android:background="@drawable/abc_list_divider_material"/>
 
     <LinearLayout
-        android:id="@+id/content"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/dropdownListPreferredItemHeight"
-        android:duplicateParentState="true"
-        style="@style/RtlOverlay.Widget.AppCompat.PopupMenuItem">
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/dropdownListPreferredItemHeight"
+            android:duplicateParentState="true"
+            style="@style/RtlOverlay.Widget.AppCompat.PopupMenuItem">
 
         <!-- Icon will be inserted here. -->
 
@@ -49,7 +49,7 @@
                 android:textAppearance="?attr/textAppearanceLargePopupMenu"
                 android:singleLine="true"
                 android:duplicateParentState="true"
-                style="@style/RtlOverlay.Widget.AppCompat.PopupMenuItem.Title" />
+                style="@style/RtlOverlay.Widget.AppCompat.PopupMenuItem.Title"/>
 
         <Space
                 android:layout_width="0dip"
@@ -64,7 +64,7 @@
                 android:textAppearance="?attr/textAppearanceSmallPopupMenu"
                 android:singleLine="true"
                 android:duplicateParentState="true"
-                style="@style/RtlOverlay.Widget.AppCompat.PopupMenuItem.Shortcut" />
+                style="@style/RtlOverlay.Widget.AppCompat.PopupMenuItem.Shortcut"/>
 
         <ImageView
                 android:id="@+id/submenuarrow"
@@ -73,7 +73,7 @@
                 android:layout_gravity="center"
                 android:scaleType="center"
                 android:visibility="gone"
-                style="@style/RtlOverlay.Widget.AppCompat.PopupMenuItem.SubmenuArrow" />
+                style="@style/RtlOverlay.Widget.AppCompat.PopupMenuItem.SubmenuArrow"/>
 
         <!-- Checkbox, and/or radio button will be inserted here. -->
 

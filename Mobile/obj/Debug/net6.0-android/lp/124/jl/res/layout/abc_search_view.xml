@@ -18,10 +18,10 @@
 
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/search_bar"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+              android:id="@+id/search_bar"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="horizontal">
 
     <!-- This is actually used for the badge icon *or* the badge label (or neither) -->
     <TextView
@@ -33,7 +33,7 @@
             android:drawablePadding="0dip"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="?android:attr/textColorPrimary"
-            android:visibility="gone" />
+            android:visibility="gone"/>
 
     <ImageView
             android:id="@+id/search_button"
@@ -42,7 +42,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="center_vertical"
             android:focusable="true"
-            android:contentDescription="@string/abc_searchview_description_search" />
+            android:contentDescription="@string/abc_searchview_description_search"/>
 
     <LinearLayout
             android:id="@+id/search_edit_frame"
@@ -61,7 +61,7 @@
                 android:scaleType="centerInside"
                 android:layout_gravity="center_vertical"
                 android:visibility="gone"
-                style="@style/RtlOverlay.Widget.AppCompat.SearchView.MagIcon" />
+                style="@style/RtlOverlay.Widget.AppCompat.SearchView.MagIcon"/>
 
         <!-- Inner layout contains the app icon, button(s) and EditText -->
         <LinearLayout
@@ -88,7 +88,7 @@
                   android:dropDownHeight="wrap_content"
                   android:dropDownAnchor="@id/search_edit_frame"
                   android:dropDownVerticalOffset="0dip"
-                  android:dropDownHorizontalOffset="0dip" />
+                  android:dropDownHorizontalOffset="0dip"/>
 
             <ImageView
                     android:id="@+id/search_close_btn"
@@ -99,7 +99,7 @@
                     android:layout_gravity="center_vertical"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:focusable="true"
-                    android:contentDescription="@string/abc_searchview_description_clear" />
+                    android:contentDescription="@string/abc_searchview_description_clear"/>
 
         </LinearLayout>
 
@@ -119,7 +119,7 @@
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:visibility="gone"
                     android:focusable="true"
-                    android:contentDescription="@string/abc_searchview_description_submit" />
+                    android:contentDescription="@string/abc_searchview_description_submit"/>
 
             <ImageView
                     android:id="@+id/search_voice_btn"
@@ -131,7 +131,7 @@
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:visibility="gone"
                     android:focusable="true"
-                    android:contentDescription="@string/abc_searchview_description_voice" />
+                    android:contentDescription="@string/abc_searchview_description_voice"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

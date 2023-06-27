@@ -32,6 +32,6 @@
             android:singleLine="true"
             android:ellipsize="marquee"
             android:fadingEdge="horizontal"
-            android:textAlignment="viewStart" />
+            android:textAlignment="viewStart"/>
 
 </FrameLayout>

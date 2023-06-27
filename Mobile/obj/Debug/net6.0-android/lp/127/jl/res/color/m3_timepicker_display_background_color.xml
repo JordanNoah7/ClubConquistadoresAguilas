@@ -15,9 +15,9 @@
     limitations under the License.
 -->
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-  <!-- Selected. -->
-  <item android:color="?attr/colorPrimaryContainer" android:state_selected="true"/>
+    <!-- Selected. -->
+    <item android:color="?attr/colorPrimaryContainer" android:state_selected="true"/>
 
-  <!-- Not-selected. -->
-  <item android:color="?attr/colorSurfaceVariant"/>
+    <!-- Not-selected. -->
+    <item android:color="?attr/colorSurfaceVariant"/>
 </selector>

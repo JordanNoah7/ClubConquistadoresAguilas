@@ -15,19 +15,19 @@
   limitations under the License.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="androidx.window" >
+          package="androidx.window">
 
     <uses-sdk
-        android:minSdkVersion="14"
-        android:targetSdkVersion="31" />
+            android:minSdkVersion="14"
+            android:targetSdkVersion="31"/>
 
     <application>
         <uses-library
-            android:name="androidx.window.extensions"
-            android:required="false" />
+                android:name="androidx.window.extensions"
+                android:required="false"/>
         <uses-library
-            android:name="androidx.window.sidecar"
-            android:required="false" />
+                android:name="androidx.window.sidecar"
+                android:required="false"/>
     </application>
 
 </manifest>

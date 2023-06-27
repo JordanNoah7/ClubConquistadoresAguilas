@@ -15,15 +15,16 @@
      limitations under the License.
 -->
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-  <!-- Disabled -->
-  <item android:alpha="@dimen/material_emphasis_disabled" android:color="?attr/colorOnSurface" android:state_enabled="false" />
+    <!-- Disabled -->
+    <item android:alpha="@dimen/material_emphasis_disabled" android:color="?attr/colorOnSurface"
+          android:state_enabled="false"/>
 
-  <!-- Uncheckable -->
-  <item android:color="?attr/colorOnContainer" android:state_checkable="false" />
+    <!-- Uncheckable -->
+    <item android:color="?attr/colorOnContainer" android:state_checkable="false"/>
 
-  <!-- Checked Buttons. -->
-  <item android:color="?attr/colorOnSecondaryContainer" android:state_checked="true" />
+    <!-- Checked Buttons. -->
+    <item android:color="?attr/colorOnSecondaryContainer" android:state_checked="true"/>
 
-  <!-- Not-checked Buttons. -->
-  <item android:color="?attr/colorOnSurface" />
+    <!-- Not-checked Buttons. -->
+    <item android:color="?attr/colorOnSurface"/>
 </selector>

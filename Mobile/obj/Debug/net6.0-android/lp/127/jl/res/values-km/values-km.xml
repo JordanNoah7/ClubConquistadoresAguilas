@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="mtrl_badge_content_description">
-    <item quantity="one">ការជូនដំណឹងថ្មី %d</item>
-    <item quantity="other">ការជូនដំណឹងថ្មី %d</item>
-  </plurals>
+        <item quantity="one">ការជូនដំណឹងថ្មី %d</item>
+        <item quantity="other">ការជូនដំណឹងថ្មី %d</item>
+    </plurals>
     <string name="bottomsheet_action_expand_halfway">ពង្រីក​ពាក់កណ្ដាល</string>
     <string name="character_counter_content_description">តួ​អក្សរ​បាន​បញ្ចូល​ %1$d នៃ %2$d</string>
     <string name="character_counter_overflowed_content_description">ដែនកំណត់តួអក្សរបានលើស %1$d នៃ %2$d</string>
@@ -23,7 +23,9 @@
     <string name="material_timepicker_minute">នាទី​</string>
     <string name="material_timepicker_pm">ល្ងាច</string>
     <string name="material_timepicker_select_time">ជ្រើស​ម៉ោង</string>
-    <string name="material_timepicker_text_input_mode_description">ប្តូរ​ទៅ​មុខងារ​បញ្ចូល​អក្សរ​សម្រាប់​ការ​បញ្ចូល​ម៉ោង។</string>
+    <string name="material_timepicker_text_input_mode_description">
+        ប្តូរ​ទៅ​មុខងារ​បញ្ចូល​អក្សរ​សម្រាប់​ការ​បញ្ចូល​ម៉ោង។
+    </string>
     <string name="mtrl_badge_numberless_content_description">ការជូនដំណឹងថ្មី</string>
     <string name="mtrl_chip_close_icon_content_description">លុប %1$s</string>
     <string name="mtrl_exceed_max_badge_number_content_description">ការជូនដំណឹង​ថ្មីៗ​លើស %1$d ហើយ</string>

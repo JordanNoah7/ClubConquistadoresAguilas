@@ -22,11 +22,11 @@
         tools:ignore="NewApi">
     <target
             android:name="ring_outer"
-            android:animation="@anim/btn_radio_to_off_mtrl_ring_outer_animation" />
+            android:animation="@anim/btn_radio_to_off_mtrl_ring_outer_animation"/>
     <target
             android:name="ring_outer_path"
-            android:animation="@anim/btn_radio_to_off_mtrl_ring_outer_path_animation" />
+            android:animation="@anim/btn_radio_to_off_mtrl_ring_outer_path_animation"/>
     <target
             android:name="dot_group"
-            android:animation="@anim/btn_radio_to_off_mtrl_dot_group_animation" />
+            android:animation="@anim/btn_radio_to_off_mtrl_dot_group_animation"/>
 </animated-vector>

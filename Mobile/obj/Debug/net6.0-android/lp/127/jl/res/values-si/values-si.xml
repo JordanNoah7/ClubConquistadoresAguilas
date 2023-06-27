@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="mtrl_badge_content_description">
-    <item quantity="one">නව දැනුම්දීම් %dක්</item>
-    <item quantity="other">නව දැනුම්දීම් %dක්</item>
-  </plurals>
+        <item quantity="one">නව දැනුම්දීම් %dක්</item>
+        <item quantity="other">නව දැනුම්දීම් %dක්</item>
+    </plurals>
     <string name="bottomsheet_action_expand_halfway">අඩක් දිග හරින්න</string>
     <string name="character_counter_content_description">අනුලකුණු %2$dන් %1$dක් ඇතුළු කෙරිණි</string>
     <string name="character_counter_overflowed_content_description">අනුලකුණු සීමාව %2$dකින් %1$d ඉක්ම විය</string>
@@ -23,7 +23,8 @@
     <string name="material_timepicker_minute">මිනිත්තු</string>
     <string name="material_timepicker_pm">පව</string>
     <string name="material_timepicker_select_time">වේලාව තෝරන්න</string>
-    <string name="material_timepicker_text_input_mode_description">වේලා ආදානය සඳහා ආදාන ප්‍රකාරය වෙත මාරු වෙන්න.</string>
+    <string name="material_timepicker_text_input_mode_description">වේලා ආදානය සඳහා ආදාන ප්‍රකාරය වෙත මාරු වෙන්න.
+    </string>
     <string name="mtrl_badge_numberless_content_description">නව දැනුම්දීම</string>
     <string name="mtrl_chip_close_icon_content_description">%1$s ඉවත් කරන්න</string>
     <string name="mtrl_exceed_max_badge_number_content_description">නව දැනුම්දීම් %1$dකට වඩා</string>

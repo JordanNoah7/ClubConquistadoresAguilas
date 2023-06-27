@@ -16,19 +16,26 @@
 -->
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
-  <!-- Selected. -->
+    <!-- Selected. -->
 
-  <!-- Pressing on a selected display will remain selected. -->
-  <item android:alpha="@dimen/m3_ripple_pressed_alpha" android:color="?attr/colorOnPrimaryContainer" android:state_pressed="true" android:state_selected="true"/>
-  <item android:alpha="@dimen/m3_ripple_focused_alpha" android:color="?attr/colorOnPrimaryContainer" android:state_focused="true" android:state_selected="true"/>
-  <item android:alpha="@dimen/m3_ripple_hovered_alpha" android:color="?attr/colorOnPrimaryContainer" android:state_hovered="true" android:state_selected="true"/>
-  <item android:alpha="@dimen/m3_ripple_default_alpha" android:color="?attr/colorOnPrimaryContainer" android:state_selected="true"/>
+    <!-- Pressing on a selected display will remain selected. -->
+    <item android:alpha="@dimen/m3_ripple_pressed_alpha" android:color="?attr/colorOnPrimaryContainer"
+          android:state_pressed="true" android:state_selected="true"/>
+    <item android:alpha="@dimen/m3_ripple_focused_alpha" android:color="?attr/colorOnPrimaryContainer"
+          android:state_focused="true" android:state_selected="true"/>
+    <item android:alpha="@dimen/m3_ripple_hovered_alpha" android:color="?attr/colorOnPrimaryContainer"
+          android:state_hovered="true" android:state_selected="true"/>
+    <item android:alpha="@dimen/m3_ripple_default_alpha" android:color="?attr/colorOnPrimaryContainer"
+          android:state_selected="true"/>
 
-  <!-- Unselected. -->
+    <!-- Unselected. -->
 
-  <!-- Pressing on an unselected display will select it. -->
-  <item android:alpha="@dimen/m3_ripple_selectable_pressed_alpha" android:color="?attr/colorOnPrimaryContainer" android:state_pressed="true"/>
-  <item android:alpha="@dimen/m3_ripple_focused_alpha" android:color="?attr/colorOnSurface" android:state_focused="true"/>
-  <item android:alpha="@dimen/m3_ripple_hovered_alpha" android:color="?attr/colorOnSurface" android:state_hovered="true"/>
-  <item android:alpha="@dimen/m3_ripple_default_alpha" android:color="?attr/colorOnSurface"/>
+    <!-- Pressing on an unselected display will select it. -->
+    <item android:alpha="@dimen/m3_ripple_selectable_pressed_alpha" android:color="?attr/colorOnPrimaryContainer"
+          android:state_pressed="true"/>
+    <item android:alpha="@dimen/m3_ripple_focused_alpha" android:color="?attr/colorOnSurface"
+          android:state_focused="true"/>
+    <item android:alpha="@dimen/m3_ripple_hovered_alpha" android:color="?attr/colorOnSurface"
+          android:state_hovered="true"/>
+    <item android:alpha="@dimen/m3_ripple_default_alpha" android:color="?attr/colorOnSurface"/>
 </selector>

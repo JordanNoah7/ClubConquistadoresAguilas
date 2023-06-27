@@ -1,1 +1,313 @@
-{"GeneratedCodeFiles":["G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Mobile\\obj\\Debug\\net6.0-windows10.0.19041.0\\win10-x64\\Platforms\\Windows\\App.g.i.cs","G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Mobile\\obj\\Debug\\net6.0-windows10.0.19041.0\\win10-x64\\Platforms\\Windows\\App.g.cs","G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Mobile\\obj\\Debug\\net6.0-windows10.0.19041.0\\win10-x64\\XamlTypeInfo.g.cs"],"GeneratedXamlFiles":["G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Mobile\\obj\\Debug\\net6.0-windows10.0.19041.0\\win10-x64\\Platforms\\Windows\\App.xaml"],"GeneratedXbfFiles":["G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Mobile\\obj\\Debug\\net6.0-windows10.0.19041.0\\win10-x64\\Platforms\\Windows\\App.xbf"],"GeneratedXamlPagesFiles":[],"MSBuildLogEntries":[{"SubCategory":null,"ErrorCode":null,"HelpKeyword":null,"File":null,"LineNumber":0,"ColumnNumber":0,"EndLineNumber":0,"EndColumnNumber":0,"Message":"Xaml Compiler Marker: 17:49:04: 508 perfXC_StartPass1, Mobile"},{"SubCategory":null,"ErrorCode":null,"HelpKeyword":null,"File":null,"LineNumber":0,"ColumnNumber":0,"EndLineNumber":0,"EndColumnNumber":0,"Message":"Xaml Compiler Marker: 17:49:04: 538 perfXC_FingerprintCheck, Number of assemblies changed"},{"SubCategory":null,"ErrorCode":null,"HelpKeyword":null,"File":null,"LineNumber":0,"ColumnNumber":0,"EndLineNumber":0,"EndColumnNumber":0,"Message":"Xaml Compiler Marker: 17:49:04: 538 perfXC_FingerprintCheck, List of Assemblies Changed"},{"SubCategory":null,"ErrorCode":null,"HelpKeyword":null,"File":null,"LineNumber":0,"ColumnNumber":0,"EndLineNumber":0,"EndColumnNumber":0,"Message":"Xaml Compiler Marker: 17:49:04: 538 perfXC_FingerprintCheck, Reference Assemblies Fingerprint Changed"},{"SubCategory":null,"ErrorCode":null,"HelpKeyword":null,"File":null,"LineNumber":0,"ColumnNumber":0,"EndLineNumber":0,"EndColumnNumber":0,"Message":"Xaml Compiler Marker: 17:49:04: 539 perfXC_CreatingTypeUniverse"},{"SubCategory":null,"ErrorCode":null,"HelpKeyword":null,"File":null,"LineNumber":0,"ColumnNumber":0,"EndLineNumber":0,"EndColumnNumber":0,"Message":"Xaml Compiler Marker: 17:49:04: 548 perfXC_CreatedTypeUniverse"},{"SubCategory":null,"ErrorCode":null,"HelpKeyword":null,"File":null,"LineNumber":0,"ColumnNumber":0,"EndLineNumber":0,"EndColumnNumber":0,"Message":"Xaml Compiler Marker: 17:49:04: 553 perfXC_CreatingSchemaContext"},{"SubCategory":null,"ErrorCode":null,"HelpKeyword":null,"File":null,"LineNumber":0,"ColumnNumber":0,"EndLineNumber":0,"EndColumnNumber":0,"Message":"Xaml Compiler Marker: 17:49:04: 703 perfXC_InitializeTypeNameMapStart"},{"SubCategory":null,"ErrorCode":null,"HelpKeyword":null,"File":null,"LineNumber":0,"ColumnNumber":0,"EndLineNumber":0,"EndColumnNumber":0,"Message":"Xaml Compiler Marker: 17:49:07: 643 perfXC_InitializeTypeNameMapEnd"},{"SubCategory":null,"ErrorCode":null,"HelpKeyword":null,"File":null,"LineNumber":0,"ColumnNumber":0,"EndLineNumber":0,"EndColumnNumber":0,"Message":"Xaml Compiler Marker: 17:49:07: 715 perfXC_CreatedSchemaContext"},{"SubCategory":null,"ErrorCode":null,"HelpKeyword":null,"File":null,"LineNumber":0,"ColumnNumber":0,"EndLineNumber":0,"EndColumnNumber":0,"Message":"Xaml Compiler Marker: 17:49:07: 781 perfXC_PageStart, Platforms\\Windows\\App.xaml"},{"SubCategory":null,"ErrorCode":null,"HelpKeyword":null,"File":null,"LineNumber":0,"ColumnNumber":0,"EndLineNumber":0,"EndColumnNumber":0,"Message":"Xaml Compiler Marker: 17:49:07: 793 perfXC_PageLoadStart, G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Mobile\\Platforms\\Windows\\App.xaml"},{"SubCategory":null,"ErrorCode":null,"HelpKeyword":null,"File":null,"LineNumber":0,"ColumnNumber":0,"EndLineNumber":0,"EndColumnNumber":0,"Message":"Xaml Compiler Marker: 17:49:09: 853 perfXC_PageLoadEnd, G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Mobile\\Platforms\\Windows\\App.xaml"},{"SubCategory":null,"ErrorCode":null,"HelpKeyword":null,"File":null,"LineNumber":0,"ColumnNumber":0,"EndLineNumber":0,"EndColumnNumber":0,"Message":"Xaml Compiler Marker: 17:49:09: 891 perfXC_PageValidateStart, G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Mobile\\Platforms\\Windows\\App.xaml"},{"SubCategory":null,"ErrorCode":null,"HelpKeyword":null,"File":null,"LineNumber":0,"ColumnNumber":0,"EndLineNumber":0,"EndColumnNumber":0,"Message":"Xaml Compiler Marker: 17:49:09: 935 perfXC_PageValidateEnd, G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Mobile\\Platforms\\Windows\\App.xaml"},{"SubCategory":null,"ErrorCode":null,"HelpKeyword":null,"File":null,"LineNumber":0,"ColumnNumber":0,"EndLineNumber":0,"EndColumnNumber":0,"Message":"Xaml Compiler Marker: 17:49:09: 937 perfXC_PageHarvestStart, Platforms\\Windows\\App.xaml"},{"SubCategory":null,"ErrorCode":null,"HelpKeyword":null,"File":null,"LineNumber":0,"ColumnNumber":0,"EndLineNumber":0,"EndColumnNumber":0,"Message":"Xaml Compiler Marker: 17:49:10:   2 perfXC_PageHarvestEnd, Platforms\\Windows\\App.xaml"},{"SubCategory":null,"ErrorCode":null,"HelpKeyword":null,"File":null,"LineNumber":0,"ColumnNumber":0,"EndLineNumber":0,"EndColumnNumber":0,"Message":"Xaml Compiler Marker: 17:49:10:   3 perfXC_PageDone, Platforms\\Windows\\App.xaml"},{"SubCategory":null,"ErrorCode":null,"HelpKeyword":null,"File":null,"LineNumber":0,"ColumnNumber":0,"EndLineNumber":0,"EndColumnNumber":0,"Message":"Xaml Compiler Marker: 17:49:10:  11 perfXC_PageCodeGenStart, App"},{"SubCategory":null,"ErrorCode":null,"HelpKeyword":null,"File":null,"LineNumber":0,"ColumnNumber":0,"EndLineNumber":0,"EndColumnNumber":0,"Message":"Xaml Compiler Marker: 17:49:10:  30 perfXC_PageCodeGenEnd, App"},{"SubCategory":null,"ErrorCode":null,"HelpKeyword":null,"File":null,"LineNumber":0,"ColumnNumber":0,"EndLineNumber":0,"EndColumnNumber":0,"Message":"Xaml Compiler Marker: 17:49:10:  39 perfXC_WriteFilesToDiskStart"},{"SubCategory":null,"ErrorCode":null,"HelpKeyword":null,"File":null,"LineNumber":0,"ColumnNumber":0,"EndLineNumber":0,"EndColumnNumber":0,"Message":"Xaml Compiler Marker: 17:49:10:  52 perfXC_WriteFilesToDiskEnd"},{"SubCategory":null,"ErrorCode":null,"HelpKeyword":null,"File":null,"LineNumber":0,"ColumnNumber":0,"EndLineNumber":0,"EndColumnNumber":0,"Message":"Xaml Compiler Marker: 17:49:10:  72 perfXC_GenerateTypeInfoStart"},{"SubCategory":null,"ErrorCode":null,"HelpKeyword":null,"File":null,"LineNumber":0,"ColumnNumber":0,"EndLineNumber":0,"EndColumnNumber":0,"Message":"Xaml Compiler Marker: 17:49:10:  74 perfXC_GenerateTypeInfoEnd"},{"SubCategory":null,"ErrorCode":null,"HelpKeyword":null,"File":null,"LineNumber":0,"ColumnNumber":0,"EndLineNumber":0,"EndColumnNumber":0,"Message":"Xaml Compiler Marker: 17:49:10:  74 perfXC_WriteTypeinfoFilesToDiskStart"},{"SubCategory":null,"ErrorCode":null,"HelpKeyword":null,"File":null,"LineNumber":0,"ColumnNumber":0,"EndLineNumber":0,"EndColumnNumber":0,"Message":"Xaml Compiler Marker: 17:49:10:  74 perfXC_WriteTypeinfoFilesToDiskEnd"},{"SubCategory":null,"ErrorCode":null,"HelpKeyword":null,"File":null,"LineNumber":0,"ColumnNumber":0,"EndLineNumber":0,"EndColumnNumber":0,"Message":"Xaml Compiler Marker: 17:49:10:  77 perfXC_EndPass1, Mobile"}]}
+{
+  "GeneratedCodeFiles": [
+    "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Mobile\\obj\\Debug\\net6.0-windows10.0.19041.0\\win10-x64\\Platforms\\Windows\\App.g.i.cs",
+    "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Mobile\\obj\\Debug\\net6.0-windows10.0.19041.0\\win10-x64\\Platforms\\Windows\\App.g.cs",
+    "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Mobile\\obj\\Debug\\net6.0-windows10.0.19041.0\\win10-x64\\XamlTypeInfo.g.cs"
+  ],
+  "GeneratedXamlFiles": [
+    "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Mobile\\obj\\Debug\\net6.0-windows10.0.19041.0\\win10-x64\\Platforms\\Windows\\App.xaml"
+  ],
+  "GeneratedXbfFiles": [
+    "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Mobile\\obj\\Debug\\net6.0-windows10.0.19041.0\\win10-x64\\Platforms\\Windows\\App.xbf"
+  ],
+  "GeneratedXamlPagesFiles": [],
+  "MSBuildLogEntries": [
+    {
+      "SubCategory": null,
+      "ErrorCode": null,
+      "HelpKeyword": null,
+      "File": null,
+      "LineNumber": 0,
+      "ColumnNumber": 0,
+      "EndLineNumber": 0,
+      "EndColumnNumber": 0,
+      "Message": "Xaml Compiler Marker: 17:49:04: 508 perfXC_StartPass1, Mobile"
+    },
+    {
+      "SubCategory": null,
+      "ErrorCode": null,
+      "HelpKeyword": null,
+      "File": null,
+      "LineNumber": 0,
+      "ColumnNumber": 0,
+      "EndLineNumber": 0,
+      "EndColumnNumber": 0,
+      "Message": "Xaml Compiler Marker: 17:49:04: 538 perfXC_FingerprintCheck, Number of assemblies changed"
+    },
+    {
+      "SubCategory": null,
+      "ErrorCode": null,
+      "HelpKeyword": null,
+      "File": null,
+      "LineNumber": 0,
+      "ColumnNumber": 0,
+      "EndLineNumber": 0,
+      "EndColumnNumber": 0,
+      "Message": "Xaml Compiler Marker: 17:49:04: 538 perfXC_FingerprintCheck, List of Assemblies Changed"
+    },
+    {
+      "SubCategory": null,
+      "ErrorCode": null,
+      "HelpKeyword": null,
+      "File": null,
+      "LineNumber": 0,
+      "ColumnNumber": 0,
+      "EndLineNumber": 0,
+      "EndColumnNumber": 0,
+      "Message": "Xaml Compiler Marker: 17:49:04: 538 perfXC_FingerprintCheck, Reference Assemblies Fingerprint Changed"
+    },
+    {
+      "SubCategory": null,
+      "ErrorCode": null,
+      "HelpKeyword": null,
+      "File": null,
+      "LineNumber": 0,
+      "ColumnNumber": 0,
+      "EndLineNumber": 0,
+      "EndColumnNumber": 0,
+      "Message": "Xaml Compiler Marker: 17:49:04: 539 perfXC_CreatingTypeUniverse"
+    },
+    {
+      "SubCategory": null,
+      "ErrorCode": null,
+      "HelpKeyword": null,
+      "File": null,
+      "LineNumber": 0,
+      "ColumnNumber": 0,
+      "EndLineNumber": 0,
+      "EndColumnNumber": 0,
+      "Message": "Xaml Compiler Marker: 17:49:04: 548 perfXC_CreatedTypeUniverse"
+    },
+    {
+      "SubCategory": null,
+      "ErrorCode": null,
+      "HelpKeyword": null,
+      "File": null,
+      "LineNumber": 0,
+      "ColumnNumber": 0,
+      "EndLineNumber": 0,
+      "EndColumnNumber": 0,
+      "Message": "Xaml Compiler Marker: 17:49:04: 553 perfXC_CreatingSchemaContext"
+    },
+    {
+      "SubCategory": null,
+      "ErrorCode": null,
+      "HelpKeyword": null,
+      "File": null,
+      "LineNumber": 0,
+      "ColumnNumber": 0,
+      "EndLineNumber": 0,
+      "EndColumnNumber": 0,
+      "Message": "Xaml Compiler Marker: 17:49:04: 703 perfXC_InitializeTypeNameMapStart"
+    },
+    {
+      "SubCategory": null,
+      "ErrorCode": null,
+      "HelpKeyword": null,
+      "File": null,
+      "LineNumber": 0,
+      "ColumnNumber": 0,
+      "EndLineNumber": 0,
+      "EndColumnNumber": 0,
+      "Message": "Xaml Compiler Marker: 17:49:07: 643 perfXC_InitializeTypeNameMapEnd"
+    },
+    {
+      "SubCategory": null,
+      "ErrorCode": null,
+      "HelpKeyword": null,
+      "File": null,
+      "LineNumber": 0,
+      "ColumnNumber": 0,
+      "EndLineNumber": 0,
+      "EndColumnNumber": 0,
+      "Message": "Xaml Compiler Marker: 17:49:07: 715 perfXC_CreatedSchemaContext"
+    },
+    {
+      "SubCategory": null,
+      "ErrorCode": null,
+      "HelpKeyword": null,
+      "File": null,
+      "LineNumber": 0,
+      "ColumnNumber": 0,
+      "EndLineNumber": 0,
+      "EndColumnNumber": 0,
+      "Message": "Xaml Compiler Marker: 17:49:07: 781 perfXC_PageStart, Platforms\\Windows\\App.xaml"
+    },
+    {
+      "SubCategory": null,
+      "ErrorCode": null,
+      "HelpKeyword": null,
+      "File": null,
+      "LineNumber": 0,
+      "ColumnNumber": 0,
+      "EndLineNumber": 0,
+      "EndColumnNumber": 0,
+      "Message": "Xaml Compiler Marker: 17:49:07: 793 perfXC_PageLoadStart, G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Mobile\\Platforms\\Windows\\App.xaml"
+    },
+    {
+      "SubCategory": null,
+      "ErrorCode": null,
+      "HelpKeyword": null,
+      "File": null,
+      "LineNumber": 0,
+      "ColumnNumber": 0,
+      "EndLineNumber": 0,
+      "EndColumnNumber": 0,
+      "Message": "Xaml Compiler Marker: 17:49:09: 853 perfXC_PageLoadEnd, G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Mobile\\Platforms\\Windows\\App.xaml"
+    },
+    {
+      "SubCategory": null,
+      "ErrorCode": null,
+      "HelpKeyword": null,
+      "File": null,
+      "LineNumber": 0,
+      "ColumnNumber": 0,
+      "EndLineNumber": 0,
+      "EndColumnNumber": 0,
+      "Message": "Xaml Compiler Marker: 17:49:09: 891 perfXC_PageValidateStart, G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Mobile\\Platforms\\Windows\\App.xaml"
+    },
+    {
+      "SubCategory": null,
+      "ErrorCode": null,
+      "HelpKeyword": null,
+      "File": null,
+      "LineNumber": 0,
+      "ColumnNumber": 0,
+      "EndLineNumber": 0,
+      "EndColumnNumber": 0,
+      "Message": "Xaml Compiler Marker: 17:49:09: 935 perfXC_PageValidateEnd, G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Mobile\\Platforms\\Windows\\App.xaml"
+    },
+    {
+      "SubCategory": null,
+      "ErrorCode": null,
+      "HelpKeyword": null,
+      "File": null,
+      "LineNumber": 0,
+      "ColumnNumber": 0,
+      "EndLineNumber": 0,
+      "EndColumnNumber": 0,
+      "Message": "Xaml Compiler Marker: 17:49:09: 937 perfXC_PageHarvestStart, Platforms\\Windows\\App.xaml"
+    },
+    {
+      "SubCategory": null,
+      "ErrorCode": null,
+      "HelpKeyword": null,
+      "File": null,
+      "LineNumber": 0,
+      "ColumnNumber": 0,
+      "EndLineNumber": 0,
+      "EndColumnNumber": 0,
+      "Message": "Xaml Compiler Marker: 17:49:10:   2 perfXC_PageHarvestEnd, Platforms\\Windows\\App.xaml"
+    },
+    {
+      "SubCategory": null,
+      "ErrorCode": null,
+      "HelpKeyword": null,
+      "File": null,
+      "LineNumber": 0,
+      "ColumnNumber": 0,
+      "EndLineNumber": 0,
+      "EndColumnNumber": 0,
+      "Message": "Xaml Compiler Marker: 17:49:10:   3 perfXC_PageDone, Platforms\\Windows\\App.xaml"
+    },
+    {
+      "SubCategory": null,
+      "ErrorCode": null,
+      "HelpKeyword": null,
+      "File": null,
+      "LineNumber": 0,
+      "ColumnNumber": 0,
+      "EndLineNumber": 0,
+      "EndColumnNumber": 0,
+      "Message": "Xaml Compiler Marker: 17:49:10:  11 perfXC_PageCodeGenStart, App"
+    },
+    {
+      "SubCategory": null,
+      "ErrorCode": null,
+      "HelpKeyword": null,
+      "File": null,
+      "LineNumber": 0,
+      "ColumnNumber": 0,
+      "EndLineNumber": 0,
+      "EndColumnNumber": 0,
+      "Message": "Xaml Compiler Marker: 17:49:10:  30 perfXC_PageCodeGenEnd, App"
+    },
+    {
+      "SubCategory": null,
+      "ErrorCode": null,
+      "HelpKeyword": null,
+      "File": null,
+      "LineNumber": 0,
+      "ColumnNumber": 0,
+      "EndLineNumber": 0,
+      "EndColumnNumber": 0,
+      "Message": "Xaml Compiler Marker: 17:49:10:  39 perfXC_WriteFilesToDiskStart"
+    },
+    {
+      "SubCategory": null,
+      "ErrorCode": null,
+      "HelpKeyword": null,
+      "File": null,
+      "LineNumber": 0,
+      "ColumnNumber": 0,
+      "EndLineNumber": 0,
+      "EndColumnNumber": 0,
+      "Message": "Xaml Compiler Marker: 17:49:10:  52 perfXC_WriteFilesToDiskEnd"
+    },
+    {
+      "SubCategory": null,
+      "ErrorCode": null,
+      "HelpKeyword": null,
+      "File": null,
+      "LineNumber": 0,
+      "ColumnNumber": 0,
+      "EndLineNumber": 0,
+      "EndColumnNumber": 0,
+      "Message": "Xaml Compiler Marker: 17:49:10:  72 perfXC_GenerateTypeInfoStart"
+    },
+    {
+      "SubCategory": null,
+      "ErrorCode": null,
+      "HelpKeyword": null,
+      "File": null,
+      "LineNumber": 0,
+      "ColumnNumber": 0,
+      "EndLineNumber": 0,
+      "EndColumnNumber": 0,
+      "Message": "Xaml Compiler Marker: 17:49:10:  74 perfXC_GenerateTypeInfoEnd"
+    },
+    {
+      "SubCategory": null,
+      "ErrorCode": null,
+      "HelpKeyword": null,
+      "File": null,
+      "LineNumber": 0,
+      "ColumnNumber": 0,
+      "EndLineNumber": 0,
+      "EndColumnNumber": 0,
+      "Message": "Xaml Compiler Marker: 17:49:10:  74 perfXC_WriteTypeinfoFilesToDiskStart"
+    },
+    {
+      "SubCategory": null,
+      "ErrorCode": null,
+      "HelpKeyword": null,
+      "File": null,
+      "LineNumber": 0,
+      "ColumnNumber": 0,
+      "EndLineNumber": 0,
+      "EndColumnNumber": 0,
+      "Message": "Xaml Compiler Marker: 17:49:10:  74 perfXC_WriteTypeinfoFilesToDiskEnd"
+    },
+    {
+      "SubCategory": null,
+      "ErrorCode": null,
+      "HelpKeyword": null,
+      "File": null,
+      "LineNumber": 0,
+      "ColumnNumber": 0,
+      "EndLineNumber": 0,
+      "EndColumnNumber": 0,
+      "Message": "Xaml Compiler Marker: 17:49:10:  77 perfXC_EndPass1, Mobile"
+    }
+  ]
+}

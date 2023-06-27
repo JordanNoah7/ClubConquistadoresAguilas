@@ -15,12 +15,12 @@
   ~ limitations under the License.
 -->
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-  <!-- State Disabled -->
-  <item android:color="?attr/colorOnSurfaceInverse" android:state_enabled="false"/>
+    <!-- State Disabled -->
+    <item android:color="?attr/colorOnSurfaceInverse" android:state_enabled="false"/>
 
-  <!-- State Checked -->
-  <item android:color="?attr/colorPrimary" android:state_checked="true"/>
+    <!-- State Checked -->
+    <item android:color="?attr/colorPrimary" android:state_checked="true"/>
 
-  <!-- State Unchecked -->
-  <item android:color="?attr/colorOnSurface"/>
+    <!-- State Unchecked -->
+    <item android:color="?attr/colorOnSurface"/>
 </selector>

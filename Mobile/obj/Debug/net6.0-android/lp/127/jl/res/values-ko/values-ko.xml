@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="mtrl_badge_content_description">
-    <item quantity="one">새 알림 %d개</item>
-    <item quantity="other">새 알림 %d개</item>
-  </plurals>
+        <item quantity="one">새 알림 %d개</item>
+        <item quantity="other">새 알림 %d개</item>
+    </plurals>
     <string name="bottomsheet_action_expand_halfway">반만 펼치기</string>
     <string name="character_counter_content_description">입력된 글자 %1$d/%2$d</string>
     <string name="character_counter_overflowed_content_description">글자 수 제한이 초과되었습니다(%1$d/%2$d).</string>
