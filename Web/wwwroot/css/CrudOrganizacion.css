@@ -8,6 +8,7 @@ main .recent-order {
 }
 
 
+<<<<<<< HEAD
 main .recent-order button {
     background-color: white;
     color: #EF9645; /*naranja*/
@@ -19,6 +20,32 @@ main .recent-order button:hover {
     background-color: #EF9645;
     color: white;
 }
+=======
+   main .recent-order button {
+      background-color: white;
+      color: #EF9645; /*naranja*/
+      border: 2px solid #EF9645; /* plomo */
+      border-radius: 5px;
+    }
+    main .recent-order button a {
+      color: #EF9645; /*naranja*/
+    }
+
+   main .recent-order button:hover{
+            background-color: #EF9645;
+            
+   }
+
+   main .recent-order button a:hover{
+       color: white;
+   }
+   main .recent-order td #delete {
+            background: white;
+            color: #EA2027; /*rojo*/
+            border-radius: 10px;
+            border: none;
+        }
+>>>>>>> 5341ec88b4a9b921a93f05307ee80140179723ee
 
 main .recent-order td #delete {
     background: white;
