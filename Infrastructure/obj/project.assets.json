@@ -3531,11 +3531,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Infrastructure\\Infrastructure.csproj",
+      "projectUniqueName": "E:\\C#\\ClubConquistadoresAguilas\\Infrastructure\\Infrastructure.csproj",
       "projectName": "Infrastructure",
-      "projectPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Infrastructure\\Infrastructure.csproj",
+      "projectPath": "E:\\C#\\ClubConquistadoresAguilas\\Infrastructure\\Infrastructure.csproj",
       "packagesPath": "C:\\Users\\dyfmeks\\.nuget\\packages\\",
-      "outputPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Infrastructure\\obj\\",
+      "outputPath": "E:\\C#\\ClubConquistadoresAguilas\\Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -3557,8 +3557,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj": {
-              "projectPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj"
+            "E:\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj": {
+              "projectPath": "E:\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj"
             }
           }
         }
@@ -3600,7 +3600,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

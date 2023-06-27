@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YipEBmZboYoqOaAj6w9j6NTDMGCLBEfs5rHIPIpFRUsYy83Rc17k5FB1g80tcoqZpFPSZH1Nblz8D0cjAAqBtg==",
+  "dgSpecHash": "NOmyiTZWODPHE5Gi7/pFpi/QTbU5KsmtRykqgtbYRm9e2G4IVj6XlHvuyAj9Qvhk0Qlb/dRlRmyPGFVs9ZDPhQ==",
   "success": true,
-  "projectFilePath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Infrastructure\\Infrastructure.csproj",
+  "projectFilePath": "E:\\C#\\ClubConquistadoresAguilas\\Infrastructure\\Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dyfmeks\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\dyfmeks\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

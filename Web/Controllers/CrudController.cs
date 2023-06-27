@@ -45,10 +45,21 @@ public class CrudController : Controller
     {
         return View();
     }
+    
+    // GET: CrudController/Edit/5
+    public ActionResult Edit(int id)
+    {
+        return View();
+    }
 
+    // GET: CrudController/Delete/5
+    public ActionResult Delete(int id)
+    {
+        return View();
+    }
 
     // POST: CrudController/Create
-    [HttpPost]
+    /*[HttpPost]
     [ValidateAntiForgeryToken]
     public ActionResult Create(IFormCollection collection)
     {
@@ -63,15 +74,11 @@ public class CrudController : Controller
     }
 
 
-    // GET: CrudController/Edit/5
-    public ActionResult Edit(int id)
-    {
-        return View();
-    }
+    
 
 
     // POST: CrudController/Edit/5
-    /*[HttpPost]
+    [HttpPost]
     [ValidateAntiForgeryToken]
     public ActionResult Edit(int id, IFormCollection collection)
     {
@@ -83,18 +90,14 @@ public class CrudController : Controller
         {
             return View();
         }
-    }*/
-
-
-    // GET: CrudController/Delete/5
-    public ActionResult Delete(int id)
-    {
-        return View();
     }
 
 
+    
+
+
     // POST: CrudController/Delete/5
-    /*[HttpPost]
+    [HttpPost]
     [ValidateAntiForgeryToken]
     public ActionResult Delete(int id, IFormCollection collection)
     {

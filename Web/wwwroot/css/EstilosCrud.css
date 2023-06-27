@@ -8,7 +8,7 @@
     --border-radius-3: 1.2rem;
     --card-padding: 1.8rem;
     --padding-1: 1.2rem;
-    --box-shadow: 0 2rem 3rem (132, 139, 200, 0.18);
+    --box-shadow: 0 2rem 3rem; (132, 139, 200, 0.18);
 }
 
 * {
@@ -258,14 +258,6 @@ main {
     width: 4.2rem;
     cursor: pointer;
     border-radius: var(--border-radius-1);
-<<<<<<< HEAD
-}
-
-.right .theme-toggler span {
-=======
->>>>>>> 5341ec88b4a9b921a93f05307ee80140179723ee
-
-    display: none;
 }
     .right .theme-toggler span {
         font-size: 1.2rem;

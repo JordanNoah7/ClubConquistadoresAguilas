@@ -1,52 +1,38 @@
-﻿
-main h1 span {
+﻿main h1 span {
     color: #EF9645; /*naranja*/
 }
 
-main .recent-order {
+
+
+main .recent-order{
     margin-top: 2rem;
 }
 
 
-<<<<<<< HEAD
+
+
 main .recent-order button {
     background-color: white;
     color: #EF9645; /*naranja*/
     border: 2px solid #EF9645; /* plomo */
     border-radius: 5px;
 }
+main .recent-order button a {
+    color: #EF9645; /*naranja*/
+}
 
-main .recent-order button:hover {
+
+
+main .recent-order button:hover{
     background-color: #EF9645;
+
+}
+
+
+
+main .recent-order button a:hover{
     color: white;
 }
-=======
-   main .recent-order button {
-      background-color: white;
-      color: #EF9645; /*naranja*/
-      border: 2px solid #EF9645; /* plomo */
-      border-radius: 5px;
-    }
-    main .recent-order button a {
-      color: #EF9645; /*naranja*/
-    }
-
-   main .recent-order button:hover{
-            background-color: #EF9645;
-            
-   }
-
-   main .recent-order button a:hover{
-       color: white;
-   }
-   main .recent-order td #delete {
-            background: white;
-            color: #EA2027; /*rojo*/
-            border-radius: 10px;
-            border: none;
-        }
->>>>>>> 5341ec88b4a9b921a93f05307ee80140179723ee
-
 main .recent-order td #delete {
     background: white;
     color: #EA2027; /*rojo*/
@@ -54,10 +40,14 @@ main .recent-order td #delete {
     border: none;
 }
 
+
+
 main .recent-order td #delete:hover {
     background: #EA2027; /*rojo*/
     color: white;
 }
+
+
 
 main .recent-order td #edit {
     background: white;
@@ -66,16 +56,19 @@ main .recent-order td #edit {
     border: none;
 }
 
+
+
 main .recent-order td #edit:hover {
     background: #00BF63; /*verde*/
     color: white;
 }
 
 
+
+
 main .recent-order h2 {
     margin-bottom: 0.8rem;
 }
-
 main .recent-order table {
     background: #f6f6f9; /*#B5EBD1; verde palo*/
     width: 100%;
@@ -86,50 +79,64 @@ main .recent-order table {
     transition: all 300ms ease;
 }
 
-main .recent-order table:hover {
+
+
+main .recent-order table:hover{
     box-shadow: none;
 }
 
+
+
 main table tbody td {
     height: 2.8rem;
-    border-bottom: 1px solid #979497; /*plomo*/
+    border-bottom: 1px solid #979497;/*plomo*/
     color: black;
 }
 
-main table tbody tr:last-child td {
-    border: none;
+
+
+main table tbody tr:last-child td{
+    border:none;
 }
 
-main .recent-order a {
+
+
+main .recent-order a{
     text-align: center;
     display: block;
     margin: 1rem auto;
     color: black;
 }
 
-/*responsive tabla*/
-@media screen and (max-width: 1200px ) {
 
-    main .recent-order {
+
+/*responsive tabla*/
+@media screen and (max-width:1200px ) {
+
+
+
+    main .recent-order{
         width: 94%;
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
-        margin: 2rem 0 0 8.8rem;
+        margin:2rem 0 0 8.8rem;
     }
-
-    main .recent-order table {
+    main .recent-order table{
         width: 83vw;
     }
+
+
 
     main table thead tr th .telefono,
     main table thead tr th .clase {
         display: none;
     }
-
     main table tbody tr td .telefono,
     main table tbody tr td .clase {
         display: none;
     }
+
+
 
 }

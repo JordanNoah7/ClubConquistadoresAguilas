@@ -11135,11 +11135,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Web\\Web.csproj",
+      "projectUniqueName": "E:\\C#\\ClubConquistadoresAguilas\\Web\\Web.csproj",
       "projectName": "Web",
-      "projectPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Web\\Web.csproj",
+      "projectPath": "E:\\C#\\ClubConquistadoresAguilas\\Web\\Web.csproj",
       "packagesPath": "C:\\Users\\dyfmeks\\.nuget\\packages\\",
-      "outputPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Web\\obj\\",
+      "outputPath": "E:\\C#\\ClubConquistadoresAguilas\\Web\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -11155,21 +11155,21 @@
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
-        "C:\\Program Files\\dotnet\\sdk\\7.0.304\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
+        "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Application\\Application.csproj": {
-              "projectPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Application\\Application.csproj"
+            "E:\\C#\\ClubConquistadoresAguilas\\Application\\Application.csproj": {
+              "projectPath": "E:\\C#\\ClubConquistadoresAguilas\\Application\\Application.csproj"
             },
-            "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\DataAccess\\DataAccess.csproj": {
-              "projectPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\DataAccess\\DataAccess.csproj"
+            "E:\\C#\\ClubConquistadoresAguilas\\DataAccess\\DataAccess.csproj": {
+              "projectPath": "E:\\C#\\ClubConquistadoresAguilas\\DataAccess\\DataAccess.csproj"
             },
-            "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj": {
-              "projectPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj"
+            "E:\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj": {
+              "projectPath": "E:\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj"
             }
           }
         }
@@ -11208,7 +11208,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }
