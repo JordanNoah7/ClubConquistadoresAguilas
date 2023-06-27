@@ -1,6 +1,6 @@
 ﻿namespace Models;
 
-public class Class
+public partial class Class
 {
     public byte Id { get; set; }
 
@@ -8,5 +8,7 @@ public class Class
 
     public string Description { get; set; } = null!;
 
-    public virtual ICollection<Person> People { get; set; } = new List<Person>();
+    public object ConcurrencyClass { get; set; } = null!;
+
+    public virtual ICollection<ClassPerson> ClassPeople { get; set; } = new List<ClassPerson>();
 }

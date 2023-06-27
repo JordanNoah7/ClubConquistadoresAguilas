@@ -1,6 +1,6 @@
 ﻿namespace Models;
 
-public class Permission
+public partial class Permission
 {
     public byte Id { get; set; }
 
@@ -10,7 +10,9 @@ public class Permission
 
     public DateTime? CreationDate { get; set; }
 
-    public virtual ICollection<Role> Rols { get; set; } = new List<Role>();
+    public object ConcurrencyPermission { get; set; } = null!;
 
-    public virtual ICollection<User> Users { get; set; } = new List<User>();
+    public virtual ICollection<RolPermission> RolPermissions { get; set; } = new List<RolPermission>();
+
+    public virtual ICollection<UserPermission> UserPermissions { get; set; } = new List<UserPermission>();
 }

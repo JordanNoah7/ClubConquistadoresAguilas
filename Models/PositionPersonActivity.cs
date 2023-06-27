@@ -1,12 +1,14 @@
 ﻿namespace Models;
 
-public class PositionPersonActivity
+public partial class PositionPersonActivity
 {
     public int ActivityId { get; set; }
 
     public int PersonId { get; set; }
 
     public byte PositionId { get; set; }
+
+    public object ConcurrencyPpa { get; set; } = null!;
 
     public virtual Activity Activity { get; set; } = null!;
 
