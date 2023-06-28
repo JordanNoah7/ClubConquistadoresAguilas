@@ -251,18 +251,19 @@ aside .sidebar a span{
     width: 4.2rem;
     cursor: pointer;
     border-radius: var(--border-radius-1);
-}
-.right .theme-toggler span{
 
     display: none;
-
-    font-size: 1.2rem;
-    width: 50%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
+    .right .theme-toggler span {
+        font-size: 1.2rem;
+        width: 50%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        display: none;
+    }
 
 .right .theme-toggler span.active{
     background: #A2CEB7; /*verde pastel*/
