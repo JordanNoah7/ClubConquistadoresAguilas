@@ -1,6 +1,6 @@
 ﻿namespace Models;
 
-public class Specialty
+public partial class Specialty
 {
     public short Id { get; set; }
 
@@ -12,7 +12,9 @@ public class Specialty
 
     public byte CategoryId { get; set; }
 
+    public object ConcurrencySpecialty { get; set; } = null!;
+
     public virtual Category Category { get; set; } = null!;
 
-    public virtual ICollection<Person> People { get; set; } = new List<Person>();
+    public virtual ICollection<SpecialtyPerson> SpecialtyPeople { get; set; } = new List<SpecialtyPerson>();
 }

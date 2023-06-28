@@ -1,12 +1,14 @@
 ﻿namespace Models;
 
-public class PositionPersonUnit
+public partial class PositionPersonUnit
 {
     public byte UnitId { get; set; }
 
     public int PersonId { get; set; }
 
     public byte PositionId { get; set; }
+
+    public object ConcurrencyPpu { get; set; } = null!;
 
     public virtual Person Person { get; set; } = null!;
 
