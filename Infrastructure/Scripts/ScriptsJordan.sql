@@ -83,7 +83,7 @@ BEGIN
         END CATCH
 END
 GO
-
+execute dbo.usp_GetPerson 1
 ---Procedimiento para insertar un padre
 CREATE PROCEDURE usp_InsertFather @firstName NVARCHAR(30),
                                   @fathersSurname NVARCHAR(15),

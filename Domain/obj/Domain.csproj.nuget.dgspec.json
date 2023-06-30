@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ISUR\\DISTRIBUIDAS\\DistribuidasProyectoFinal\\Domain\\Domain.csproj": {}
+    "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "D:\\ISUR\\DISTRIBUIDAS\\DistribuidasProyectoFinal\\Domain\\Domain.csproj": {
+    "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ISUR\\DISTRIBUIDAS\\DistribuidasProyectoFinal\\Domain\\Domain.csproj",
+        "projectUniqueName": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "D:\\ISUR\\DISTRIBUIDAS\\DistribuidasProyectoFinal\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\rapaz\\.nuget\\packages\\",
-        "outputPath": "D:\\ISUR\\DISTRIBUIDAS\\DistribuidasProyectoFinal\\Domain\\obj\\",
+        "projectPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\dyfmeks\\.nuget\\packages\\",
+        "outputPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\rapaz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dyfmeks\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,17 +26,18 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\ISUR\\DISTRIBUIDAS\\DistribuidasProyectoFinal\\Infrastructure\\Infrastructure.csproj": {
-                "projectPath": "D:\\ISUR\\DISTRIBUIDAS\\DistribuidasProyectoFinal\\Infrastructure\\Infrastructure.csproj"
+              "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Infrastructure\\Infrastructure.csproj"
               },
-              "D:\\ISUR\\DISTRIBUIDAS\\DistribuidasProyectoFinal\\Models\\Models.csproj": {
-                "projectPath": "D:\\ISUR\\DISTRIBUIDAS\\DistribuidasProyectoFinal\\Models\\Models.csproj"
+              "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj": {
+                "projectPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj"
               }
             }
           }
@@ -70,20 +71,20 @@
         }
       }
     },
-    "D:\\ISUR\\DISTRIBUIDAS\\DistribuidasProyectoFinal\\Infrastructure\\Infrastructure.csproj": {
+    "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ISUR\\DISTRIBUIDAS\\DistribuidasProyectoFinal\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "D:\\ISUR\\DISTRIBUIDAS\\DistribuidasProyectoFinal\\Infrastructure\\Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\rapaz\\.nuget\\packages\\",
-        "outputPath": "D:\\ISUR\\DISTRIBUIDAS\\DistribuidasProyectoFinal\\Infrastructure\\obj\\",
+        "projectPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Infrastructure\\Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\dyfmeks\\.nuget\\packages\\",
+        "outputPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\rapaz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dyfmeks\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -92,14 +93,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\ISUR\\DISTRIBUIDAS\\DistribuidasProyectoFinal\\Models\\Models.csproj": {
-                "projectPath": "D:\\ISUR\\DISTRIBUIDAS\\DistribuidasProyectoFinal\\Models\\Models.csproj"
+              "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj": {
+                "projectPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj"
               }
             }
           }
@@ -145,20 +147,20 @@
         }
       }
     },
-    "D:\\ISUR\\DISTRIBUIDAS\\DistribuidasProyectoFinal\\Models\\Models.csproj": {
+    "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ISUR\\DISTRIBUIDAS\\DistribuidasProyectoFinal\\Models\\Models.csproj",
+        "projectUniqueName": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj",
         "projectName": "Models",
-        "projectPath": "D:\\ISUR\\DISTRIBUIDAS\\DistribuidasProyectoFinal\\Models\\Models.csproj",
-        "packagesPath": "C:\\Users\\rapaz\\.nuget\\packages\\",
-        "outputPath": "D:\\ISUR\\DISTRIBUIDAS\\DistribuidasProyectoFinal\\Models\\obj\\",
+        "projectPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj",
+        "packagesPath": "C:\\Users\\dyfmeks\\.nuget\\packages\\",
+        "outputPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\rapaz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dyfmeks\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -167,6 +169,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

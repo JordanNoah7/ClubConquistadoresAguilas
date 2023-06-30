@@ -1,19 +1,21 @@
 ﻿using Domain;
 using Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Models;
 
 namespace DataAccess;
 
 public class PositionPersonActivityRepository : ContextRepository, IGenericRepository<PositionPersonActivity>
 {
-    public PositionPersonActivityRepository(ClubConquistadoresAguilasContext context) : base(context)
+    public PositionPersonActivityRepository(IConfiguration configuration) : base(configuration)
     {
     }
 
     public async Task<bool> Insert(PositionPersonActivity model)
     {
-        try
+        throw new Exception();
+        /*try
         {
             _dbContext.PositionPersonActivities.Add(model);
             await _dbContext.SaveChangesAsync();
@@ -23,12 +25,13 @@ public class PositionPersonActivityRepository : ContextRepository, IGenericRepos
         catch (Exception ex)
         {
             return false;
-        }
+        }*/
     }
 
     public async Task<bool> Update(PositionPersonActivity model)
     {
-        try
+        throw new Exception();
+        /*try
         {
             _dbContext.PositionPersonActivities.Update(model);
             await _dbContext.SaveChangesAsync();
@@ -38,12 +41,13 @@ public class PositionPersonActivityRepository : ContextRepository, IGenericRepos
         catch (Exception ex)
         {
             return false;
-        }
+        }*/
     }
 
     public async Task<bool> Delete(int id1, int id2)
     {
-        try
+        throw new Exception();
+        /*try
         {
             var model =
                 _dbContext.PositionPersonActivities.First(ppa => ppa.ActivityId == id1 && ppa.PersonId == id2);
@@ -55,12 +59,13 @@ public class PositionPersonActivityRepository : ContextRepository, IGenericRepos
         catch (Exception ex)
         {
             return false;
-        }
+        }*/
     }
 
     public async Task<PositionPersonActivity> Get(int id1, int id2)
     {
-        try
+        throw new Exception();
+        /*try
         {
             return await _dbContext.PositionPersonActivities.FirstOrDefaultAsync(ppa =>
                 ppa.ActivityId == id1 && ppa.PersonId == id2);
@@ -68,12 +73,13 @@ public class PositionPersonActivityRepository : ContextRepository, IGenericRepos
         catch (Exception ex)
         {
             return null;
-        }
+        }*/
     }
 
     public async Task<IEnumerable<PositionPersonActivity>> GetAll()
     {
-        try
+        throw new Exception();
+        /*try
         {
             IEnumerable<PositionPersonActivity> queryPosPerActSQL = _dbContext.PositionPersonActivities;
             return queryPosPerActSQL;
@@ -81,6 +87,6 @@ public class PositionPersonActivityRepository : ContextRepository, IGenericRepos
         catch (Exception ex)
         {
             return null;
-        }
+        }*/
     }
 }
