@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -8,11 +8,117 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
 </head>
 <body>
-<header>
+    <section class="home">
+        <div class="cover">
+          <nav class="bg-green navbar navbar-expand-sm navbar-toggleable-sm navbar-light  box-shadow mb-3">
+                    <div class="container-fluid">
+                        @*<a class="navbar-brand" href="#">
+                            <img src="/img/logo.png" alt="Bootstrap" width="70" height="70">
+                        </a>
+                        <a class="navbar-brand text-white" asp-area="" asp-controller="Home" asp-action="Index">Club de Conquistadores "Las Águilas"</a>
+                        *@
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between" id="lista">
+                            <ul class="navbar-nav flex-grow-1">
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">INICIO</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Privacy">¿QUIENES SOMOS?</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">CONTÁCTANOS</a>
+                                </li>
+                                <li class="nav-iniciarsesion">
+                                    <a class="nav-link text-white" asp-area="" asp-controller="Login" asp-action="Login">INICIAR SESION</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            <div class="content">
+                <img src="/img/smalllogo.png" alt="Bootstrap" width="70" height="70">
+                <a asp-area ="" asp-controller="Home" asp-action="Index"></a>
+                
+                <div class="namelogo">
+                    <h1>Las Aguilas</h1>
+                    <p>Club</p>
+                </div>
+                
+            </div>
+            <div class="carousel">
+                @RenderBody()
+            </div>
+            
+        </div>
+        <main>
+ 
+        </main>
+   </section>
+
+   <footer class="bg-green footer navbar bg-body-tertiary">
+            <div class="bg-green container-fluid navbar navbar-expand-sm navbar-toggleable-sm navbar-light box-shadow mb-3">
+                <a class="navbar-brand" href="#">
+                    
+                </a>
+                <div class="text-center">
+                    <h1 class="navbar-brand text-white">Contáctanos</h1>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <ul class="navbar-nav flex-grow-1 navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#">
+                                <img src="/img/facebook.png" alt="Facebook" width="30" height="30">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#">
+                                <img src="/img/instagram.png" alt="Instagram" width="30" height="30">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#">
+                                <img src="/img/tiktok.png" alt="TikTok" width="30" height="30">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#">
+                                <img src="/img/whatsapp.png" alt="Whatsapp" width="30" height="30">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#">
+                                <img src="/img/youtube.png" alt="YouTube" width="30" height="30">
+                            </a>
+                        </li>
+                    </ul>
+                    &copy; 2023 - Web - <a class="text-center" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                </div>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Celular/Correo" aria-label="Celular/Correo">
+                    <button class="btn-border-color btn btn-outline-success text-white" type="submit">Enviar</button>
+                </form>
+            </div>
+    
+   </footer>
+
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        @await RenderSectionAsync("Scripts", false)
+</body>
+</html>
+
+@*<header>
     <nav class="bg-green navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="/img/logo.png" alt="Bootstrap" width="70" height="70">
+                    <img src="/img/logo.png" alt="Bootstrap" width="70" height="70">
             </a>
             <a class="navbar-brand text-white" asp-area="" asp-controller="Home" asp-action="Index">Club de Conquistadores "Las Águilas"</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -96,4 +202,4 @@
 <script src="~/js/site.js" asp-append-version="true"></script>
 @await RenderSectionAsync("Scripts", false)
 </body>
-</html>
+</html>*@

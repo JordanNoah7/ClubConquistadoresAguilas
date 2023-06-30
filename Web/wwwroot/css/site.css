@@ -1,11 +1,42 @@
-@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap');
 
-@media (min-width: 768px) {
-    html {
+.home {
+    width: 100%;
+    height: 100vh;
+    background-image: url(/img/imagen.jpg);
+    background-position: center center;
+    background-size: cover;
+}
+.cover {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0,0,0,.5);
+    
+    
+}
+    .cover nav ul li {
+        transition: all 300ms ease;
+        
+    }
+        .cover nav ul li:hover {
+            /*background: #00BF63;*/
+            text-decoration: underline solid #00BF63;
+            box-shadow: 20px;
+            color:greenyellow;
+            /*border-bottom-color: #00BF63;*/
+            /* border-radius: 5px;*/
+            transform: translateY(9px);
+        }
+
+
+
+/**/
+    @media (min-width: 768px) {
+        html {
         font-size: 16px;
     }
 }
-
+/*
 html {
     position: relative;
     min-height: 100%;
@@ -13,22 +44,79 @@ html {
 
 body {
     margin-bottom: 60px;
-}
+}*/
 
-.bg-green{
+/*.bg-green{
     background-color: #2B463C !important;
-}
+}*/
 
 .btn-border-color{
     border-color: #879D7E !important;
 }
 
-.footer{
+/*.footer{
     position:absolute !important;
     bottom:0;
     width: 100%;
-}
+}*/
 
 .text-red{
     color:red !important;
 }
+
+
+    .home nav{
+     float: right;
+    }
+
+.footer {
+    background-color: black;
+    position: absolute !important;
+    bottom: 0;
+    width: 100%;
+    
+}
+.content {
+    position: absolute;
+    bottom: 30vh;
+    text-align: center;
+    float: right;
+    margin-left: 100px;
+}
+    .content img {
+        float: left;
+        text-align: center;
+       
+        
+    }
+    .content .namelogo {
+       text-align: center;
+       float: right;
+     }
+
+    .content h1 {
+        color: #FCD24F;
+     }
+
+     .content p {
+        color: #F9A72B;   
+     }
+
+/*carrusel*/
+
+   /*.carousel .slider-container {
+        display: flex;
+        width: 100%;
+        height: 100vh;
+        overflow-x: scroll;*/
+        /* Vamos a añadir esto 👇 */
+        /*scroll-snap-type: x mandatory;
+    }
+
+    .carousel .slider-container img {
+        flex: 0 0 100%;
+        width: 100%;
+        object-fit: cover;*/
+        /* Vamos a añadir esto 👇 */
+        /*scroll-snap-align: center;
+    }*/

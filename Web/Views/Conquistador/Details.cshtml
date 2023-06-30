@@ -1,6 +1,6 @@
 ﻿@{
     //Layout = "_LayoutCrud";
-    ViewData["Vista"] = "CrudConquistador";
+    ViewData["Vista"] = "Details";
 }
 
 <link rel="stylesheet" href="~/css/CrudOrganizacion.css" asp-append-version="true" />
@@ -15,10 +15,8 @@
 <div class="recent-order">
     <h2>
         Conquistadores ***
-        <button type="submit" class="btn btn-outline-secondary" >
-            <a asp-action="Create">Nuevo</a>
-        </button>
-        
+        <button type="submit" class="btnCreate" onclick="location.href='@Url.Action("Create", "Conquistador")'">Ingresar</button>
+
     </h2>
 
     <table class="table table-hover">
@@ -26,7 +24,7 @@
             <tr name="columna">
                 <th scope="col" name="nro">Item</th>
                 @*<th>
-                    @Html.DisplayNameFor(model => model.Name)
+                @Html.DisplayNameFor(model => model.Name)
                 </th>*@
                 <th class="nombre" name="colNombre">Nombre</th>
                 <th class="apellido" name="colApellido">Apellido</th>
@@ -44,15 +42,13 @@
                 <td class="clase" name="rowClase">clase1</td>
                 <td class="unidad" name="rowUnidad">unidad1</td>
                 <td>
-                    <button type="button" id="delete" class="btn btn-default" >
-                        <a asp-action="Delete"></a>
+                    <button type="button" id="delete" class="btn btn-default" onclick="location.href='@Url.Action("Delete", "Conquistador")'">
                         <span class="material-symbols-outlined">delete</span>
-                        
                     </button>
-                    <button type="button" id="edit" class="btn btn-default">
-                        <a asp-action="Edit"></a>
+                    <button type="button" id="edit" class="btn btn-default" onclick="location.href='@Url.Action("Edit", "Conquistador")'">
                         <span class="material-symbols-outlined">edit_square</span>
                     </button>
+                    
 
                 </td>
             </tr>

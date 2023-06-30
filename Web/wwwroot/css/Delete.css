@@ -3,7 +3,7 @@ main .formCrud {
     box-sizing: border-box;
     font-family: 'Poppins',sans-serif;
     width: 94%;
-    overflow:hidden;
+    overflow: hidden;
 }
 
     main .formCrud .row {
@@ -11,6 +11,7 @@ main .formCrud {
         column-gap: 3rem;
         column-rule: 1px solid #2B463C; /*verde oscuro*/
     }
+
     main .formCrud label {
         color: #2B463C; /*verde oscuro*/
         float: left;
@@ -18,31 +19,32 @@ main .formCrud {
         padding-right: 24px;
     }
 
-    main .formCrud .form-control[type="date"]:checked{
+    main .formCrud .form-control[type="date"]:checked {
         color: #2B463C; /*verde oscuro*/
     }
 
-main .formCrud .row input,select {
-    border: 2px solid #2B463C; /*verde oscuro*/
-    border-radius: 10px;
-    height: 2rem;
-    column-span: all;
-    column-width: 140px;
-    float: left;
-    width: calc(100% - 10px);
-}
+    main .formCrud .row input, select {
+        border: 2px solid #2B463C; /*verde oscuro*/
+        border-radius: 10px;
+        height: 2rem;
+        column-span: all;
+        column-width: 140px;
+        float: left;
+        width: calc(100% - 10px);
+    }
 
     main .formCrud .row .form-group select {
         font-size: 12px;
         color: #7F7D7F;
         text-align: left;
     }
-    main .botones {
-        height: 2rem;
-        align-content: center;
-        justify-content: center;
-        text-align: center;
-    }
+
+main .botones {
+    height: 2rem;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+}
 
 main .row .col .btnGuardar {
     background-color: white;
@@ -52,16 +54,21 @@ main .row .col .btnGuardar {
     width: 50%;
     height: 2rem;
     margin: 15px 0px 0px 0px;
-    
 }
+
 main .delete button:hover {
     background-color: #EA2027; /*rojo*/
     color: white;
 }
 
-main .row .col button:hover {
-    background: #00BF63;
-    color: white;
+main .delete button {
+    background-color: white;
+    color: #EA2027; /*rojo*/
+    border: 2px solid #EA2027; /*rojo*/
+    border-radius: 10px;
+    width: 50%;
+    height: 2rem;
+    margin: 15px 0px 0px 0px;
 }
 
 
@@ -73,17 +80,15 @@ main .botones .btnCancelar {
     width: 40%;
     height: 2rem;
 }
-    main .botones button:hover {
-        background: #979497;
-        color: white;
-    }
+main .botones button:hover {
+    background: #979497;
+    color: white;
+}
 
-    main h1 span {
-        color: #EF9645; /*naranja*/
-    }
+main h1 span {
+    color: #EF9645; /*naranja*/
+}
 
-        main .formCrud h2 {
-            margin-bottom: 0.8rem;
-        }
-
-
+main .formCrud h2 {
+    margin-bottom: 0.8rem;
+}
