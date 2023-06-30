@@ -20,6 +20,6 @@ public class UserPersonRepository : IUserPersonRepository
 
     public Task<bool> Delete(int id1)
     {
-        throw new NotImplementedException();
+        throw new Exception();
     }
 }
