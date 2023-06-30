@@ -18,7 +18,7 @@ builder.Services.AddDbContext<ClubConquistadoresAguilasContext>(options =>
 builder.Services.AddScoped<IGenericRepository<User>, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
 //Person
-builder.Services.AddScoped<IGenericRepository<Person>, PersonRepository>();
+builder.Services.AddScoped<IPersonRepository, PersonRepository>();
 builder.Services.AddScoped<IPersonService, PersonService>();
 //Activity
 

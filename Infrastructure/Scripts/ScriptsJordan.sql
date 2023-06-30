@@ -73,8 +73,22 @@ AS
 BEGIN
     BEGIN TRAN
         BEGIN TRY
-            SELECT *
-            FROM People AS p
+            SELECT C.ID,
+                   C.firstName,
+                   C.fathersSurname,
+                   C.mothersSurname,
+                   C.birthDate,
+                   C.gender,
+                   C.address,
+                   C.phone,
+                   C.email,
+                   C2.name          AS club,
+                   P.firstName      AS fatherName,
+                   p.fathersSurname AS fatherSurname,
+                   p.mothersSurname AS fatherSurname2
+            FROM People AS C
+                     LEFT JOIN People P ON C.PersonID = P.ID
+                     JOIN Clubs C2 on C.ClubID = C2.ID
             WHERE p.ID = @PersonID
             COMMIT
         END TRY
@@ -83,7 +97,7 @@ BEGIN
         END CATCH
 END
 GO
-execute dbo.usp_GetPerson 1
+
 ---Procedimiento para insertar un padre
 CREATE PROCEDURE usp_InsertFather @firstName NVARCHAR(30),
                                   @fathersSurname NVARCHAR(15),
@@ -156,18 +170,18 @@ END
 GO
 
 ---Procedimiento para modificar conquistador
-CREATE PROCEDURE usp_UpdatePathfinder @PersonID INT,
-                                      @firstName NVARCHAR(30),
-                                      @fathersSurname NVARCHAR(15),
-                                      @mothersSurname NVARCHAR(15),
-                                      @birthDate DATE,
-                                      @gender CHAR(1),
-                                      @address NVARCHAR(30),
-                                      @phone nvarchar(15),
-                                      @email NVARCHAR(30),
-                                      @PersonUpID INT,
+CREATE PROCEDURE usp_UpdatePerson @PersonID INT,
+                                  @firstName NVARCHAR(30),
+                                  @fathersSurname NVARCHAR(15),
+                                  @mothersSurname NVARCHAR(15),
+                                  @birthDate DATE,
+                                  @gender CHAR(1),
+                                  @address NVARCHAR(30),
+                                  @phone nvarchar(15),
+                                  @email NVARCHAR(30),
+                                  @FatherID INT/*,
                                       @userName NVARCHAR(15),
-                                      @password NVARCHAR(15)
+                                      @password NVARCHAR(15)*/
 AS
 BEGIN
     BEGIN TRAN
@@ -181,13 +195,13 @@ BEGIN
                 address        = @address,
                 phone          = @phone,
                 email          = @email,
-                PersonID       = @PersonUpID
+                PersonID       = @FatherID
             WHERE ID = @PersonID
 
-            UPDATE Users
+            /*UPDATE Users
             SET userName = @userName,
                 password = @password
-            WHERE ID = @PersonID
+            WHERE ID = @PersonID*/
             COMMIT
         END TRY
         BEGIN CATCH
@@ -197,7 +211,7 @@ END
 GO
 
 ---Procedimiento para modificar padre
-CREATE PROCEDURE usp_UpdateFather @PersonID INT,
+/*CREATE PROCEDURE usp_UpdateFather @PersonID INT,
                                   @firstName NVARCHAR(30),
                                   @fathersSurname NVARCHAR(15),
                                   @mothersSurname NVARCHAR(15),
@@ -233,7 +247,7 @@ BEGIN
             ROLLBACK
         END CATCH
 END
-GO
+GO*/
 
 ---Procedimientno para eliminar una persona
 CREATE PROCEDURE usp_DeletePerson @PersonID INT
@@ -337,10 +351,9 @@ BEGIN
     BEGIN TRAN
         BEGIN TRY
             UPDATE Units
-            SET
-                name = @name,
-                motto = @motto,
-                battleCry = @battleCry,
+            SET name        = @name,
+                motto       = @motto,
+                battleCry   = @battleCry,
                 description = @description
             WHERE ID = @UnitID
             COMMIT

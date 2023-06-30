@@ -7,59 +7,44 @@ using Models;
 
 namespace DataAccess;
 
-public class PersonRepository : ContextRepository, IGenericRepository<Person>
+public class PersonRepository : ContextRepository, IPersonRepository
 {
     public PersonRepository(IConfiguration configuration) : base(configuration)
     {
     }
 
-    public async Task<bool> Insert(Person model)
-    {
-        throw new Exception();
-        /*try
-        {
-            _dbContext.People.Add(model);
-            await _dbContext.SaveChangesAsync();
-
-            return true;
-        }
-        catch (Exception e)
-        {
-            return false;
-        }*/
-    }
-
     public async Task<bool> Update(Person model)
     {
-        throw new Exception();
-        /*try
+        using (var connectionDb = Connection.GetConnection(Configuration))
         {
-            _dbContext.People.Update(model);
-            await _dbContext.SaveChangesAsync();
+            try
+            {
+                using (var cmd = new SqlCommand("usp_UpdatePerson", connectionDb))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@PersonID", model.Id);
+                    cmd.Parameters.AddWithValue("@firstName", model.FirstName);
+                    cmd.Parameters.AddWithValue("@fathersSurname", model.FathersSurname);
+                    cmd.Parameters.AddWithValue("@mothersSurname", model.MothersSurname);
+                    cmd.Parameters.AddWithValue("@birthDate", model.BirthDate);
+                    cmd.Parameters.AddWithValue("@gender", model.Gender);
+                    cmd.Parameters.AddWithValue("@address", model.Address);
+                    cmd.Parameters.AddWithValue("@phone", model.Phone);
+                    cmd.Parameters.AddWithValue("@email", model.Email);
+                    cmd.Parameters.AddWithValue("@FatherID", model.PersonId);
+                    Connection.OpenConnection();
+                    cmd.ExecuteNonQuery();
+                    Connection.CloseConnection();
+                }
 
-            return true;
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Connection.CloseConnection();
+                return false;
+            }
         }
-        catch (Exception e)
-        {
-            return false;
-        }*/
-    }
-
-    public async Task<bool> Delete(int id1, int id2 = 0)
-    {
-        throw new Exception();
-        /*try
-        {
-            var model = _dbContext.People.First(p => p.Id.Equals(id1));
-            _dbContext.People.Remove(model);
-            await _dbContext.SaveChangesAsync();
-
-            return true;
-        }
-        catch (Exception e)
-        {
-            return false;
-        }*/
     }
 
     public async Task<Person> Get(int id1, int id2 = 0)
@@ -87,11 +72,16 @@ public class PersonRepository : ContextRepository, IGenericRepository<Person>
                             model.Address = reader["address"].ToString();
                             model.Phone = reader["phone"].ToString();
                             model.Email = reader["email"].ToString();
-                            model.Club = new Club()
+                            model.Club = new Club
                             {
-                                Id = Convert.ToInt16(reader["ClubID"])
+                                Name = reader["club"].ToString()
                             };
-                            model.PersonId = Convert.ToInt32(reader["PersonID"]);
+                            model.PersonNavigation = new Person
+                            {
+                                FirstName = reader["fatherName"].ToString(),
+                                FathersSurname = reader["fatherSurname"].ToString(),
+                                MothersSurname = reader["fatherSurname2"].ToString()
+                            };
                         }
                     }
 
