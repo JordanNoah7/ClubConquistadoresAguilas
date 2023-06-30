@@ -17,12 +17,7 @@ public class PersonService : IPersonService
     {
         try
         {
-            await _personRepo.BeginTransaction();
             var result = await _personRepo.Insert(model);
-            if (result)
-                await _personRepo.Commit();
-            else
-                await _personRepo.Rollback();
             return result;
         }
         catch (Exception ex)
@@ -35,12 +30,7 @@ public class PersonService : IPersonService
     {
         try
         {
-            await _personRepo.BeginTransaction();
             var result = await _personRepo.Update(model);
-            if (result)
-                await _personRepo.Commit();
-            else
-                await _personRepo.Rollback();
             return result;
         }
         catch (Exception ex)
@@ -53,12 +43,7 @@ public class PersonService : IPersonService
     {
         try
         {
-            await _personRepo.BeginTransaction();
             var result = await _personRepo.Delete(id1);
-            if (result)
-                await _personRepo.Commit();
-            else
-                await _personRepo.Rollback();
             return result;
         }
         catch (Exception ex)
