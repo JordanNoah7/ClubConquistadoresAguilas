@@ -10,3 +10,7 @@ Infrastructure/obj/Debug/net6.0/Infrastructure.csproj.AssemblyReference.cache
 Models/obj/rider.project.restore.info
 Web/obj/rider.project.restore.info
 Web/obj/Debug/net6.0/Web.csproj.AssemblyReference.cache
+
+DataAccess.csproject.AssemblyReference.cache
+Domain.csproject.AssemblyReference.cache
+Web.csproject.AssemblyReference.cache
