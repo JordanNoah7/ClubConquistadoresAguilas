@@ -33,13 +33,9 @@ public class Connection
 
     public static void OpenConnection()
     {
-        if (_connection == null)
+        if (_connection != null)
         {
             _connection.Open();
-        }
-        else
-        {
-            _connection.Close();
         }
     }
 
