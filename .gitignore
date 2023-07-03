@@ -1,0 +1,12 @@
+.vs/ClubConquistadoresAguilas/v17/.suo
+Application/obj/rider.project.restore.info
+Application/obj/Debug/net6.0/Application.csproj.AssemblyReference.cache
+DataAccess/obj/rider.project.restore.info
+DataAccess/obj/Debug/net6.0/DataAccess.csproj.AssemblyReference.cache
+Domain/obj/rider.project.restore.info
+Domain/obj/Debug/net6.0/Domain.csproj.AssemblyReference.cache
+Infrastructure/obj/rider.project.restore.info
+Infrastructure/obj/Debug/net6.0/Infrastructure.csproj.AssemblyReference.cache
+Models/obj/rider.project.restore.info
+Web/obj/rider.project.restore.info
+Web/obj/Debug/net6.0/Web.csproj.AssemblyReference.cache
