@@ -1,6 +1,6 @@
 ﻿namespace Models;
 
-public class Person
+public partial class Person
 {
     public int Id { get; set; }
 
@@ -24,20 +24,21 @@ public class Person
 
     public int? PersonId { get; set; }
 
+    public object ConcurrencyPerson { get; set; } = null!;
+
+    public virtual ICollection<ClassPerson> ClassPeople { get; set; } = new List<ClassPerson>();
+
     public virtual Club Club { get; set; } = null!;
 
     public virtual ICollection<Person> InversePersonNavigation { get; set; } = new List<Person>();
 
     public virtual Person? PersonNavigation { get; set; }
 
-    public virtual ICollection<PositionPersonActivity> PositionPersonActivities { get; set; } =
-        new List<PositionPersonActivity>();
+    public virtual ICollection<PositionPersonActivity> PositionPersonActivities { get; set; } = new List<PositionPersonActivity>();
 
     public virtual ICollection<PositionPersonUnit> PositionPersonUnits { get; set; } = new List<PositionPersonUnit>();
 
+    public virtual ICollection<SpecialtyPerson> SpecialtyPeople { get; set; } = new List<SpecialtyPerson>();
+
     public virtual User? User { get; set; }
-
-    public virtual ICollection<Class> Classes { get; set; } = new List<Class>();
-
-    public virtual ICollection<Specialty> Specialties { get; set; } = new List<Specialty>();
 }

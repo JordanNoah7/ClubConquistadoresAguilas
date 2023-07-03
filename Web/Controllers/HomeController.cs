@@ -18,7 +18,7 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult DirectorConquistador()
+    /*public IActionResult DirectorConquistador()
     {
         return View();
     }
@@ -30,7 +30,7 @@ public class HomeController : Controller
     public IActionResult DirectorInstructor()
     {
         return View();
-    }
+    }*/
     public IActionResult Privacy()
     {
         return View();

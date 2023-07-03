@@ -3,19 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{5647B6DD-33D9-4750-86F7-6BCC12EB2BA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{5647B6DD-33D9-4750-86F7-6BCC12EB2BA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{613E8846-5456-49D1-973B-7BD06733FEEF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{613E8846-5456-49D1-973B-7BD06733FEEF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{5ABE5203-CBC2-458D-B270-83926FEA034A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{5ABE5203-CBC2-458D-B270-83926FEA034A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{8F351DB1-C886-4552-92DE-354E8E3781DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{8F351DB1-C886-4552-92DE-354E8E3781DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{B9B2772F-41AB-4349-8292-0001C16104CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{B9B2772F-41AB-4349-8292-0001C16104CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mobile", "Mobile\Mobile.csproj", "{DEB4E3E3-E24E-41E8-9FCD-7C5BB6CC8B34}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{97FBAACB-F6D8-4E78-93AB-04E1C1EE22DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web", "Web\Web.csproj", "{97FBAACB-F6D8-4E78-93AB-04E1C1EE22DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,12 +41,6 @@ Global
 		{B9B2772F-41AB-4349-8292-0001C16104CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9B2772F-41AB-4349-8292-0001C16104CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9B2772F-41AB-4349-8292-0001C16104CB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DEB4E3E3-E24E-41E8-9FCD-7C5BB6CC8B34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DEB4E3E3-E24E-41E8-9FCD-7C5BB6CC8B34}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DEB4E3E3-E24E-41E8-9FCD-7C5BB6CC8B34}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{DEB4E3E3-E24E-41E8-9FCD-7C5BB6CC8B34}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DEB4E3E3-E24E-41E8-9FCD-7C5BB6CC8B34}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DEB4E3E3-E24E-41E8-9FCD-7C5BB6CC8B34}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{97FBAACB-F6D8-4E78-93AB-04E1C1EE22DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{97FBAACB-F6D8-4E78-93AB-04E1C1EE22DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97FBAACB-F6D8-4E78-93AB-04E1C1EE22DE}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -1,5 +1,4 @@
-﻿using Microsoft.Data.SqlClient;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Models;
 
 namespace Infrastructure.Context;
@@ -21,6 +20,8 @@ public partial class ClubConquistadoresAguilasContext : DbContext
 
     public virtual DbSet<Class> Classes { get; set; }
 
+    public virtual DbSet<ClassPerson> ClassPeople { get; set; }
+
     public virtual DbSet<Club> Clubs { get; set; }
 
     public virtual DbSet<Permission> Permissions { get; set; }
@@ -33,18 +34,23 @@ public partial class ClubConquistadoresAguilasContext : DbContext
 
     public virtual DbSet<PositionPersonUnit> PositionPersonUnits { get; set; }
 
+    public virtual DbSet<RolPermission> RolPermissions { get; set; }
+
     public virtual DbSet<Role> Roles { get; set; }
 
     public virtual DbSet<Specialty> Specialties { get; set; }
+
+    public virtual DbSet<SpecialtyPerson> SpecialtyPeople { get; set; }
 
     public virtual DbSet<Unit> Units { get; set; }
 
     public virtual DbSet<User> Users { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-    }
+    public virtual DbSet<UserPermission> UserPermissions { get; set; }
 
+    public virtual DbSet<UserRol> UserRols { get; set; }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder){}
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -52,6 +58,10 @@ public partial class ClubConquistadoresAguilasContext : DbContext
         {
             entity.Property(e => e.Id).HasColumnName("ID");
             entity.Property(e => e.ClubId).HasColumnName("ClubID");
+            entity.Property(e => e.ConcurrencyActivity)
+                .IsRowVersion()
+                .IsConcurrencyToken()
+                .HasColumnName("concurrencyActivity");
             entity.Property(e => e.Description)
                 .HasMaxLength(250)
                 .HasColumnName("description");
@@ -82,6 +92,10 @@ public partial class ClubConquistadoresAguilasContext : DbContext
             entity.Property(e => e.Id)
                 .ValueGeneratedOnAdd()
                 .HasColumnName("ID");
+            entity.Property(e => e.ConcurrencyCategory)
+                .IsRowVersion()
+                .IsConcurrencyToken()
+                .HasColumnName("concurrencyCategory");
             entity.Property(e => e.Description)
                 .HasMaxLength(250)
                 .HasColumnName("description");
@@ -95,12 +109,40 @@ public partial class ClubConquistadoresAguilasContext : DbContext
             entity.Property(e => e.Id)
                 .ValueGeneratedOnAdd()
                 .HasColumnName("ID");
+            entity.Property(e => e.ConcurrencyClass)
+                .IsRowVersion()
+                .IsConcurrencyToken()
+                .HasColumnName("concurrencyClass");
             entity.Property(e => e.Description)
                 .HasMaxLength(250)
                 .HasColumnName("description");
             entity.Property(e => e.Name)
                 .HasMaxLength(15)
                 .HasColumnName("name");
+        });
+
+        modelBuilder.Entity<ClassPerson>(entity =>
+        {
+            entity.HasKey(e => new { e.PersonId, e.ClassId });
+
+            entity.ToTable("ClassPerson");
+
+            entity.Property(e => e.PersonId).HasColumnName("PersonID");
+            entity.Property(e => e.ClassId).HasColumnName("ClassID");
+            entity.Property(e => e.ConcurrencyCp)
+                .IsRowVersion()
+                .IsConcurrencyToken()
+                .HasColumnName("concurrencyCP");
+
+            entity.HasOne(d => d.Class).WithMany(p => p.ClassPeople)
+                .HasForeignKey(d => d.ClassId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_ClassPerson_Class");
+
+            entity.HasOne(d => d.Person).WithMany(p => p.ClassPeople)
+                .HasForeignKey(d => d.PersonId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_ClassPerson_Person");
         });
 
         modelBuilder.Entity<Club>(entity =>
@@ -112,6 +154,10 @@ public partial class ClubConquistadoresAguilasContext : DbContext
             entity.Property(e => e.City)
                 .HasMaxLength(20)
                 .HasColumnName("city");
+            entity.Property(e => e.ConcurrencyClub)
+                .IsRowVersion()
+                .IsConcurrencyToken()
+                .HasColumnName("concurrencyClub");
             entity.Property(e => e.Country)
                 .HasMaxLength(20)
                 .HasColumnName("country");
@@ -144,6 +190,10 @@ public partial class ClubConquistadoresAguilasContext : DbContext
             entity.Property(e => e.Id)
                 .ValueGeneratedOnAdd()
                 .HasColumnName("ID");
+            entity.Property(e => e.ConcurrencyPermission)
+                .IsRowVersion()
+                .IsConcurrencyToken()
+                .HasColumnName("concurrencyPermission");
             entity.Property(e => e.CreationDate)
                 .HasColumnType("date")
                 .HasColumnName("creationDate");
@@ -165,6 +215,10 @@ public partial class ClubConquistadoresAguilasContext : DbContext
                 .HasColumnType("date")
                 .HasColumnName("birthDate");
             entity.Property(e => e.ClubId).HasColumnName("ClubID");
+            entity.Property(e => e.ConcurrencyPerson)
+                .IsRowVersion()
+                .IsConcurrencyToken()
+                .HasColumnName("concurrencyPerson");
             entity.Property(e => e.Email)
                 .HasMaxLength(30)
                 .HasColumnName("email");
@@ -195,44 +249,6 @@ public partial class ClubConquistadoresAguilasContext : DbContext
             entity.HasOne(d => d.PersonNavigation).WithMany(p => p.InversePersonNavigation)
                 .HasForeignKey(d => d.PersonId)
                 .HasConstraintName("FK_Parent_Child");
-
-            entity.HasMany(d => d.Classes).WithMany(p => p.People)
-                .UsingEntity<Dictionary<string, object>>(
-                    "ClassPerson",
-                    r => r.HasOne<Class>().WithMany()
-                        .HasForeignKey("ClassId")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK_ClassPerson_Class"),
-                    l => l.HasOne<Person>().WithMany()
-                        .HasForeignKey("PersonId")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK_ClassPerson_Person"),
-                    j =>
-                    {
-                        j.HasKey("PersonId", "ClassId");
-                        j.ToTable("ClassPerson");
-                        j.IndexerProperty<int>("PersonId").HasColumnName("PersonID");
-                        j.IndexerProperty<byte>("ClassId").HasColumnName("ClassID");
-                    });
-
-            entity.HasMany(d => d.Specialties).WithMany(p => p.People)
-                .UsingEntity<Dictionary<string, object>>(
-                    "SpecialtyPerson",
-                    r => r.HasOne<Specialty>().WithMany()
-                        .HasForeignKey("SpecialtyId")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK_SpecialtyPerson_Specialty"),
-                    l => l.HasOne<Person>().WithMany()
-                        .HasForeignKey("PersonId")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK_SpecialtyPerson_Person"),
-                    j =>
-                    {
-                        j.HasKey("PersonId", "SpecialtyId");
-                        j.ToTable("SpecialtyPerson");
-                        j.IndexerProperty<int>("PersonId").HasColumnName("PersonID");
-                        j.IndexerProperty<short>("SpecialtyId").HasColumnName("SpecialtyID");
-                    });
         });
 
         modelBuilder.Entity<Position>(entity =>
@@ -240,6 +256,10 @@ public partial class ClubConquistadoresAguilasContext : DbContext
             entity.Property(e => e.Id)
                 .ValueGeneratedOnAdd()
                 .HasColumnName("ID");
+            entity.Property(e => e.ConcurrencyPosition)
+                .IsRowVersion()
+                .IsConcurrencyToken()
+                .HasColumnName("concurrencyPosition");
             entity.Property(e => e.Description)
                 .HasMaxLength(250)
                 .HasColumnName("description");
@@ -256,6 +276,10 @@ public partial class ClubConquistadoresAguilasContext : DbContext
 
             entity.Property(e => e.ActivityId).HasColumnName("ActivityID");
             entity.Property(e => e.PersonId).HasColumnName("PersonID");
+            entity.Property(e => e.ConcurrencyPpa)
+                .IsRowVersion()
+                .IsConcurrencyToken()
+                .HasColumnName("concurrencyPPA");
             entity.Property(e => e.PositionId).HasColumnName("PositionID");
 
             entity.HasOne(d => d.Activity).WithMany(p => p.PositionPersonActivities)
@@ -282,6 +306,10 @@ public partial class ClubConquistadoresAguilasContext : DbContext
 
             entity.Property(e => e.UnitId).HasColumnName("UnitID");
             entity.Property(e => e.PersonId).HasColumnName("PersonID");
+            entity.Property(e => e.ConcurrencyPpu)
+                .IsRowVersion()
+                .IsConcurrencyToken()
+                .HasColumnName("concurrencyPPU");
             entity.Property(e => e.PositionId).HasColumnName("PositionID");
 
             entity.HasOne(d => d.Person).WithMany(p => p.PositionPersonUnits)
@@ -300,11 +328,39 @@ public partial class ClubConquistadoresAguilasContext : DbContext
                 .HasConstraintName("FK_PositionPersonUnit_Unit");
         });
 
+        modelBuilder.Entity<RolPermission>(entity =>
+        {
+            entity.HasKey(e => new { e.RolId, e.PermissionId });
+
+            entity.ToTable("RolPermission");
+
+            entity.Property(e => e.RolId).HasColumnName("RolID");
+            entity.Property(e => e.PermissionId).HasColumnName("PermissionID");
+            entity.Property(e => e.ConcurrencyRp)
+                .IsRowVersion()
+                .IsConcurrencyToken()
+                .HasColumnName("concurrencyRP");
+
+            entity.HasOne(d => d.Permission).WithMany(p => p.RolPermissions)
+                .HasForeignKey(d => d.PermissionId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_RolPermission_Permission");
+
+            entity.HasOne(d => d.Rol).WithMany(p => p.RolPermissions)
+                .HasForeignKey(d => d.RolId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_RolPermission_Rol");
+        });
+
         modelBuilder.Entity<Role>(entity =>
         {
             entity.Property(e => e.Id)
                 .ValueGeneratedOnAdd()
                 .HasColumnName("ID");
+            entity.Property(e => e.ConcurrencyRole)
+                .IsRowVersion()
+                .IsConcurrencyToken()
+                .HasColumnName("concurrencyRole");
             entity.Property(e => e.CreationDate)
                 .HasColumnType("date")
                 .HasColumnName("creationDate");
@@ -314,31 +370,16 @@ public partial class ClubConquistadoresAguilasContext : DbContext
             entity.Property(e => e.Name)
                 .HasMaxLength(20)
                 .HasColumnName("name");
-
-            entity.HasMany(d => d.Permissions).WithMany(p => p.Rols)
-                .UsingEntity<Dictionary<string, object>>(
-                    "RolPermission",
-                    r => r.HasOne<Permission>().WithMany()
-                        .HasForeignKey("PermissionId")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK_RolPermission_Permission"),
-                    l => l.HasOne<Role>().WithMany()
-                        .HasForeignKey("RolId")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK_RolPermission_Rol"),
-                    j =>
-                    {
-                        j.HasKey("RolId", "PermissionId");
-                        j.ToTable("RolPermission");
-                        j.IndexerProperty<byte>("RolId").HasColumnName("RolID");
-                        j.IndexerProperty<byte>("PermissionId").HasColumnName("PermissionID");
-                    });
         });
 
         modelBuilder.Entity<Specialty>(entity =>
         {
             entity.Property(e => e.Id).HasColumnName("ID");
             entity.Property(e => e.CategoryId).HasColumnName("CategoryID");
+            entity.Property(e => e.ConcurrencySpecialty)
+                .IsRowVersion()
+                .IsConcurrencyToken()
+                .HasColumnName("concurrencySpecialty");
             entity.Property(e => e.Description)
                 .HasMaxLength(250)
                 .HasColumnName("description");
@@ -355,6 +396,30 @@ public partial class ClubConquistadoresAguilasContext : DbContext
                 .HasConstraintName("FK_Category_Specialties");
         });
 
+        modelBuilder.Entity<SpecialtyPerson>(entity =>
+        {
+            entity.HasKey(e => new { e.PersonId, e.SpecialtyId });
+
+            entity.ToTable("SpecialtyPerson");
+
+            entity.Property(e => e.PersonId).HasColumnName("PersonID");
+            entity.Property(e => e.SpecialtyId).HasColumnName("SpecialtyID");
+            entity.Property(e => e.ConcurrencySp)
+                .IsRowVersion()
+                .IsConcurrencyToken()
+                .HasColumnName("concurrencySP");
+
+            entity.HasOne(d => d.Person).WithMany(p => p.SpecialtyPeople)
+                .HasForeignKey(d => d.PersonId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_SpecialtyPerson_Person");
+
+            entity.HasOne(d => d.Specialty).WithMany(p => p.SpecialtyPeople)
+                .HasForeignKey(d => d.SpecialtyId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_SpecialtyPerson_Specialty");
+        });
+
         modelBuilder.Entity<Unit>(entity =>
         {
             entity.Property(e => e.Id)
@@ -364,6 +429,10 @@ public partial class ClubConquistadoresAguilasContext : DbContext
                 .HasMaxLength(250)
                 .HasColumnName("battleCry");
             entity.Property(e => e.ClubId).HasColumnName("ClubID");
+            entity.Property(e => e.ConcurrencyUnit)
+                .IsRowVersion()
+                .IsConcurrencyToken()
+                .HasColumnName("concurrencyUnit");
             entity.Property(e => e.Description)
                 .HasMaxLength(250)
                 .HasColumnName("description");
@@ -385,7 +454,12 @@ public partial class ClubConquistadoresAguilasContext : DbContext
             entity.Property(e => e.Id)
                 .ValueGeneratedNever()
                 .HasColumnName("ID");
+            entity.Property(e => e.ConcurrencyUser)
+                .IsRowVersion()
+                .IsConcurrencyToken()
+                .HasColumnName("concurrencyUser");
             entity.Property(e => e.CreationDate)
+                .HasDefaultValueSql("(getdate())")
                 .HasColumnType("date")
                 .HasColumnName("creationDate");
             entity.Property(e => e.Password)
@@ -399,53 +473,58 @@ public partial class ClubConquistadoresAguilasContext : DbContext
                 .HasForeignKey<User>(d => d.Id)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Person_User");
+        });
 
-            entity.HasMany(d => d.Permissions).WithMany(p => p.Users)
-                .UsingEntity<Dictionary<string, object>>(
-                    "UserPermission",
-                    r => r.HasOne<Permission>().WithMany()
-                        .HasForeignKey("PermissionId")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK_UserPermission_Permission"),
-                    l => l.HasOne<User>().WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK_UserPermission_User"),
-                    j =>
-                    {
-                        j.HasKey("UserId", "PermissionId");
-                        j.ToTable("UserPermission");
-                        j.IndexerProperty<int>("UserId").HasColumnName("UserID");
-                        j.IndexerProperty<byte>("PermissionId").HasColumnName("PermissionID");
-                    });
+        modelBuilder.Entity<UserPermission>(entity =>
+        {
+            entity.HasKey(e => new { e.UserId, e.PermissionId });
 
-            entity.HasMany(d => d.Rols).WithMany(p => p.Users)
-                .UsingEntity<Dictionary<string, object>>(
-                    "UserRol",
-                    r => r.HasOne<Role>().WithMany()
-                        .HasForeignKey("RolId")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK_UserRol_Rol"),
-                    l => l.HasOne<User>().WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK_UserRol_User"),
-                    j =>
-                    {
-                        j.HasKey("UserId", "RolId");
-                        j.ToTable("UserRol");
-                        j.IndexerProperty<int>("UserId").HasColumnName("UserID");
-                        j.IndexerProperty<byte>("RolId").HasColumnName("RolID");
-                    });
+            entity.ToTable("UserPermission");
+
+            entity.Property(e => e.UserId).HasColumnName("UserID");
+            entity.Property(e => e.PermissionId).HasColumnName("PermissionID");
+            entity.Property(e => e.ConcurrencyUp)
+                .IsRowVersion()
+                .IsConcurrencyToken()
+                .HasColumnName("concurrencyUP");
+
+            entity.HasOne(d => d.Permission).WithMany(p => p.UserPermissions)
+                .HasForeignKey(d => d.PermissionId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_UserPermission_Permission");
+
+            entity.HasOne(d => d.User).WithMany(p => p.UserPermissions)
+                .HasForeignKey(d => d.UserId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_UserPermission_User");
+        });
+
+        modelBuilder.Entity<UserRol>(entity =>
+        {
+            entity.HasKey(e => new { e.UserId, e.RolId });
+
+            entity.ToTable("UserRol");
+
+            entity.Property(e => e.UserId).HasColumnName("UserID");
+            entity.Property(e => e.RolId).HasColumnName("RolID");
+            entity.Property(e => e.ConcurrencyUr)
+                .IsRowVersion()
+                .IsConcurrencyToken()
+                .HasColumnName("concurrencyUR");
+
+            entity.HasOne(d => d.Rol).WithMany(p => p.UserRols)
+                .HasForeignKey(d => d.RolId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_UserRol_Rol");
+
+            entity.HasOne(d => d.User).WithMany(p => p.UserRols)
+                .HasForeignKey(d => d.UserId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_UserRol_User");
         });
 
         OnModelCreatingPartial(modelBuilder);
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
-
-    public IEnumerable<User> GetUsersByCriteria(string criteria)
-    {
-        return Set<User>().FromSqlRaw("EXEC YourStoredProcedure @criteria", new SqlParameter("@criteria", criteria));
-    }
 }
