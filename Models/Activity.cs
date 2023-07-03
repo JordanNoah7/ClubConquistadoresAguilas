@@ -1,6 +1,6 @@
 ﻿namespace Models;
 
-public class Activity
+public partial class Activity
 {
     public int Id { get; set; }
 
@@ -18,8 +18,9 @@ public class Activity
 
     public int ClubId { get; set; }
 
+    public object ConcurrencyActivity { get; set; } = null!;
+
     public virtual Club Club { get; set; } = null!;
 
-    public virtual ICollection<PositionPersonActivity> PositionPersonActivities { get; set; } =
-        new List<PositionPersonActivity>();
+    public virtual ICollection<PositionPersonActivity> PositionPersonActivities { get; set; } = new List<PositionPersonActivity>();
 }

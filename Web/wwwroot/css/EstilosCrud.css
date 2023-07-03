@@ -73,7 +73,7 @@ h5 {
 }
 
 .danger {
-    color: #FCD24F;
+    color: #ED1D25;
 }
 /*foto de contacto mensajes*/
 
@@ -135,6 +135,7 @@ aside .close{
         top: 50%;
         align-items: center;
         background: var(--color-background);
+       
     }
 
 
