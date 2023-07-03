@@ -1,3 +1,6 @@
+rider.project.restore.info
+*.csproject.AssemblyReference.cache
+
 .vs/ClubConquistadoresAguilas/v17/.suo
 Application/obj/rider.project.restore.info
 Application/obj/Debug/net6.0/Application.csproj.AssemblyReference.cache
