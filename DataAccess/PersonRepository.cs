@@ -1,79 +1,98 @@
-﻿using Domain;
+﻿using System.Data;
+using Domain;
 using Infrastructure.Context;
 using Microsoft.Data.SqlClient;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Models;
 
 namespace DataAccess;
 
-public class PersonRepository : ContextRepository, IGenericRepository<Person>
+public class PersonRepository : ContextRepository, IPersonRepository
 {
-    public PersonRepository(ClubConquistadoresAguilasContext context) : base(context)
+    public PersonRepository(IConfiguration configuration) : base(configuration)
     {
-    }
-
-    public async Task<bool> Insert(Person model)
-    {
-        try
-        {
-            _dbContext.People.Add(model);
-            await _dbContext.SaveChangesAsync();
-
-            return true;
-        }
-        catch (Exception e)
-        {
-            return false;
-        }
     }
 
     public async Task<bool> Update(Person model)
     {
-        try
+        using (var connectionDb = Connection.GetConnection(Configuration))
         {
-            _dbContext.People.Update(model);
-            await _dbContext.SaveChangesAsync();
+            try
+            {
+                using (var cmd = new SqlCommand("usp_UpdatePerson", connectionDb))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@PersonID", model.Id);
+                    cmd.Parameters.AddWithValue("@firstName", model.FirstName);
+                    cmd.Parameters.AddWithValue("@fathersSurname", model.FathersSurname);
+                    cmd.Parameters.AddWithValue("@mothersSurname", model.MothersSurname);
+                    cmd.Parameters.AddWithValue("@birthDate", model.BirthDate);
+                    cmd.Parameters.AddWithValue("@gender", model.Gender);
+                    cmd.Parameters.AddWithValue("@address", model.Address);
+                    cmd.Parameters.AddWithValue("@phone", model.Phone);
+                    cmd.Parameters.AddWithValue("@email", model.Email);
+                    cmd.Parameters.AddWithValue("@FatherID", model.PersonId);
+                    Connection.OpenConnection();
+                    cmd.ExecuteNonQuery();
+                    Connection.CloseConnection();
+                }
 
-            return true;
-        }
-        catch (Exception e)
-        {
-            return false;
-        }
-    }
-
-    public async Task<bool> Delete(int id1, int id2 = 0)
-    {
-        try
-        {
-            var model = _dbContext.People.First(p => p.Id.Equals(id1));
-            _dbContext.People.Remove(model);
-            await _dbContext.SaveChangesAsync();
-
-            return true;
-        }
-        catch (Exception e)
-        {
-            return false;
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Connection.CloseConnection();
+                return false;
+            }
         }
     }
 
     public async Task<Person> Get(int id1, int id2 = 0)
     {
-        using (var transaction = await _dbContext.Database.BeginTransactionAsync())
+        var model = new Person();
+        using (var connectionDb = Connection.GetConnection(Configuration))
         {
             try
             {
-                //return await _dbContext.People.FindAsync(id1);
-                var query = _dbContext.People
-                    .FromSqlRaw("EXECUTE usp_GetPerson @PersonID", new SqlParameter("@PersonID", id1)).AsEnumerable()
-                    .FirstOrDefault();
-                await transaction.CommitAsync();
-                return query;
+                using (var command = new SqlCommand("dbo.usp_GetPerson", connectionDb))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@PersonID", id1);
+                    Connection.OpenConnection();
+                    using (var reader = await command.ExecuteReaderAsync())
+                    {
+                        if (await reader.ReadAsync())
+                        {
+                            model.Id = id1;
+                            model.FirstName = reader["firstName"].ToString();
+                            model.FathersSurname = reader["fathersSurname"].ToString();
+                            model.MothersSurname = reader["mothersSurname"].ToString();
+                            model.BirthDate = Convert.ToDateTime(reader["birthDate"]);
+                            model.Gender = reader["gender"].ToString();
+                            model.Address = reader["address"].ToString();
+                            model.Phone = reader["phone"].ToString();
+                            model.Email = reader["email"].ToString();
+                            model.Club = new Club
+                            {
+                                Name = reader["club"].ToString()
+                            };
+                            model.PersonNavigation = new Person
+                            {
+                                FirstName = reader["fatherName"].ToString(),
+                                FathersSurname = reader["fatherSurname"].ToString(),
+                                MothersSurname = reader["fatherSurname2"].ToString()
+                            };
+                        }
+                    }
+
+                    Connection.CloseConnection();
+                }
+
+                return model;
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                await transaction.RollbackAsync();
+                Connection.CloseConnection();
                 return null;
             }
         }
@@ -81,7 +100,8 @@ public class PersonRepository : ContextRepository, IGenericRepository<Person>
 
     public async Task<IEnumerable<Person>> GetAll()
     {
-        try
+        throw new Exception();
+        /*try
         {
             IEnumerable<Person> queryPeopleSQL = _dbContext.People;
             return queryPeopleSQL;
@@ -89,6 +109,6 @@ public class PersonRepository : ContextRepository, IGenericRepository<Person>
         catch (Exception e)
         {
             return null;
-        }
+        }*/
     }
 }

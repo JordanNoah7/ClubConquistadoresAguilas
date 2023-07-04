@@ -7,21 +7,21 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Remove="Repositories\**"/>
+        <Compile Remove="Repositories\**" />
     </ItemGroup>
 
     <ItemGroup>
-        <EmbeddedResource Remove="Repositories\**"/>
+        <EmbeddedResource Remove="Repositories\**" />
     </ItemGroup>
 
     <ItemGroup>
-        <None Remove="Repositories\**"/>
+        <None Remove="Repositories\**" />
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Domain\Domain.csproj"/>
-        <ProjectReference Include="..\Infrastructure\Infrastructure.csproj"/>
-        <ProjectReference Include="..\Models\Models.csproj"/>
+        <ProjectReference Include="..\Domain\Domain.csproj" />
+        <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
+        <ProjectReference Include="..\Models\Models.csproj" />
     </ItemGroup>
 
 </Project>
