@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Models\\Models.csproj": {}
+    "C:\\Users\\Nancy\\Source\\Repos\\ClubConquistadoresAguilas\\Models\\Models.csproj": {}
   },
   "projects": {
-    "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Models\\Models.csproj": {
+    "C:\\Users\\Nancy\\Source\\Repos\\ClubConquistadoresAguilas\\Models\\Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Models\\Models.csproj",
+        "projectUniqueName": "C:\\Users\\Nancy\\Source\\Repos\\ClubConquistadoresAguilas\\Models\\Models.csproj",
         "projectName": "Models",
-        "projectPath": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Models\\Models.csproj",
-        "packagesPath": "C:\\Users\\FN\\.nuget\\packages\\",
-        "outputPath": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Models\\obj\\",
+        "projectPath": "C:\\Users\\Nancy\\Source\\Repos\\ClubConquistadoresAguilas\\Models\\Models.csproj",
+        "packagesPath": "C:\\Users\\Nancy\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Nancy\\Source\\Repos\\ClubConquistadoresAguilas\\Models\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\FN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Nancy\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

@@ -11129,24 +11129,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\dyfmeks\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Nancy\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Web\\Web.csproj",
+      "projectUniqueName": "C:\\Users\\Nancy\\Source\\Repos\\ClubConquistadoresAguilas\\Web\\Web.csproj",
       "projectName": "Web",
-      "projectPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Web\\Web.csproj",
-      "packagesPath": "C:\\Users\\dyfmeks\\.nuget\\packages\\",
-      "outputPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Web\\obj\\",
+      "projectPath": "C:\\Users\\Nancy\\Source\\Repos\\ClubConquistadoresAguilas\\Web\\Web.csproj",
+      "packagesPath": "C:\\Users\\Nancy\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Nancy\\Source\\Repos\\ClubConquistadoresAguilas\\Web\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\dyfmeks\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Nancy\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -11154,7 +11149,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "C:\\Program Files\\dotnet\\sdk\\7.0.304\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
@@ -11162,14 +11156,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Application\\Application.csproj": {
-              "projectPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Application\\Application.csproj"
+            "C:\\Users\\Nancy\\Source\\Repos\\ClubConquistadoresAguilas\\Application\\Application.csproj": {
+              "projectPath": "C:\\Users\\Nancy\\Source\\Repos\\ClubConquistadoresAguilas\\Application\\Application.csproj"
             },
-            "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\DataAccess\\DataAccess.csproj": {
-              "projectPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\DataAccess\\DataAccess.csproj"
+            "C:\\Users\\Nancy\\Source\\Repos\\ClubConquistadoresAguilas\\DataAccess\\DataAccess.csproj": {
+              "projectPath": "C:\\Users\\Nancy\\Source\\Repos\\ClubConquistadoresAguilas\\DataAccess\\DataAccess.csproj"
             },
-            "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj": {
-              "projectPath": "G:\\Programacion\\C#\\ClubConquistadoresAguilas\\Models\\Models.csproj"
+            "C:\\Users\\Nancy\\Source\\Repos\\ClubConquistadoresAguilas\\Models\\Models.csproj": {
+              "projectPath": "C:\\Users\\Nancy\\Source\\Repos\\ClubConquistadoresAguilas\\Models\\Models.csproj"
             }
           }
         }
