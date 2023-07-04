@@ -17,12 +17,7 @@ public class UserService : IUserService
     {
         try
         {
-            await _userRepo.BeginTransaction();
             var result = await _userRepo.Insert(model);
-            if (result)
-                await _userRepo.Commit();
-            else
-                await _userRepo.Rollback();
             return result;
         }
         catch (Exception ex)
@@ -35,12 +30,7 @@ public class UserService : IUserService
     {
         try
         {
-            await _userRepo.BeginTransaction();
             var result = await _userRepo.Update(model);
-            if (result)
-                await _userRepo.Commit();
-            else
-                await _userRepo.Rollback();
             return result;
         }
         catch (Exception ex)
@@ -53,12 +43,7 @@ public class UserService : IUserService
     {
         try
         {
-            await _userRepo.BeginTransaction();
             var result = await _userRepo.Delete(id1);
-            if (result)
-                await _userRepo.Commit();
-            else
-                await _userRepo.Rollback();
             return result;
         }
         catch (Exception ex)

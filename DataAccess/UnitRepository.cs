@@ -1,18 +1,20 @@
 ﻿using Domain;
 using Infrastructure.Context;
+using Microsoft.Extensions.Configuration;
 using Models;
 
 namespace DataAccess;
 
 public class UnitRepository : ContextRepository, IGenericRepository<Unit>
 {
-    public UnitRepository(ClubConquistadoresAguilasContext context) : base(context)
+    public UnitRepository(IConfiguration configuration) : base(configuration)
     {
     }
 
     public async Task<bool> Insert(Unit model)
     {
-        try
+        throw new Exception();
+        /*try
         {
             _dbContext.Units.Add(model);
             await _dbContext.SaveChangesAsync();
@@ -22,12 +24,13 @@ public class UnitRepository : ContextRepository, IGenericRepository<Unit>
         catch (Exception ex)
         {
             return false;
-        }
+        }*/
     }
 
     public async Task<bool> Update(Unit model)
     {
-        try
+        throw new Exception();
+        /*try
         {
             _dbContext.Units.Add(model);
             await _dbContext.SaveChangesAsync();
@@ -37,12 +40,13 @@ public class UnitRepository : ContextRepository, IGenericRepository<Unit>
         catch (Exception ex)
         {
             return false;
-        }
+        }*/
     }
 
     public async Task<bool> Delete(int id1, int id2 = 0)
     {
-        try
+        throw new Exception();
+        /*try
         {
             var model = _dbContext.Units.First(u => u.Id == id1);
             _dbContext.Units.Remove(model);
@@ -53,24 +57,26 @@ public class UnitRepository : ContextRepository, IGenericRepository<Unit>
         catch (Exception ex)
         {
             return false;
-        }
+        }*/
     }
 
     public async Task<Unit> Get(int id1, int id2 = 0)
     {
-        try
+        throw new Exception();
+        /*try
         {
             return await _dbContext.Units.FindAsync(id1);
         }
         catch (Exception ex)
         {
             return null;
-        }
+        }*/
     }
 
     public async Task<IEnumerable<Unit>> GetAll()
     {
-        try
+        throw new Exception();
+        /*try
         {
             IEnumerable<Unit> queryUnitsSQL = _dbContext.Units;
             return queryUnitsSQL;
@@ -78,6 +84,6 @@ public class UnitRepository : ContextRepository, IGenericRepository<Unit>
         catch (Exception ex)
         {
             return null;
-        }
+        }*/
     }
 }

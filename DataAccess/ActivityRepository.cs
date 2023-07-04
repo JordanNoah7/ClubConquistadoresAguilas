@@ -1,18 +1,20 @@
 ﻿using Domain;
 using Infrastructure.Context;
+using Microsoft.Extensions.Configuration;
 using Models;
 
 namespace DataAccess;
 
 public class ActivityRepository : ContextRepository, IGenericRepository<Activity>
 {
-    public ActivityRepository(ClubConquistadoresAguilasContext context) : base(context)
+    public ActivityRepository(IConfiguration configuration) : base(configuration)
     {
     }
 
     public async Task<bool> Insert(Activity model)
     {
-        try
+        throw new Exception();
+        /*try
         {
             _dbContext.Activities.Add(model);
             await _dbContext.SaveChangesAsync();
@@ -22,12 +24,13 @@ public class ActivityRepository : ContextRepository, IGenericRepository<Activity
         catch (Exception ex)
         {
             return false;
-        }
+        }*/
     }
 
     public async Task<bool> Update(Activity model)
     {
-        try
+        throw new Exception();
+        /*try
         {
             _dbContext.Activities.Update(model);
             await _dbContext.SaveChangesAsync();
@@ -37,12 +40,13 @@ public class ActivityRepository : ContextRepository, IGenericRepository<Activity
         catch (Exception ex)
         {
             return false;
-        }
+        }*/
     }
 
     public async Task<bool> Delete(int id1, int id2 = 0)
     {
-        try
+        throw new Exception();
+        /*try
         {
             var model = _dbContext.Activities.First(a => a.Id == id1);
             _dbContext.Activities.Remove(model);
@@ -53,24 +57,26 @@ public class ActivityRepository : ContextRepository, IGenericRepository<Activity
         catch (Exception ex)
         {
             return false;
-        }
+        }*/
     }
 
     public async Task<Activity> Get(int id1, int id2 = 0)
     {
-        try
+        throw new Exception();
+        /*try
         {
             return await _dbContext.Activities.FindAsync(id1);
         }
         catch (Exception ex)
         {
             return null;
-        }
+        }*/
     }
 
     public async Task<IEnumerable<Activity>> GetAll()
     {
-        try
+        throw new Exception();
+        /*try
         {
             IEnumerable<Activity> queryActivitiesSQL = _dbContext.Activities;
             return queryActivitiesSQL;
@@ -78,6 +84,6 @@ public class ActivityRepository : ContextRepository, IGenericRepository<Activity
         catch (Exception ex)
         {
             return null;
-        }
+        }*/
     }
 }
