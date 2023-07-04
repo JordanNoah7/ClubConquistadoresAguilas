@@ -5,10 +5,12 @@ INSERT INTO Clubs (name, address, stars, foundationDate, meetingDay, meetingHour
                    description)
 VALUES ('Las Aguilas', 'Ciudad Municipal', 3, '05/05/2014', 'Domingo', '09:00:00', 'Cerro Colorado', 'Arequipa',
         'Arequipa', N'Perú', 'Club de conquistadores Las Aguilas')
+
 ---Insertar a People
 INSERT INTO People (firstName, fathersSurname, mothersSurname, birthDate, gender, address, phone, email, ClubID)
 VALUES ('Jordan', 'Quispe', 'Supo', '09/07/1999', 'M', 'Ciudad Municipal', '914786862',
         'j.jordan.quispe.supo@gmail.com', 1);
+
 ---Insertar a Users
 INSERT INTO Users (ID, userName, password)
 VALUES (1, 'dyfmeks', '#Aa12345');
@@ -74,13 +76,25 @@ INSERT INTO Positions (name, description)
 VALUES ('Capellan', 'Capellan de la unidad');
 INSERT INTO Positions (name, description)
 VALUES ('Consejero', 'Consejero de la unidad');
+INSERT INTO Positions (name, description)
+VALUES ('Tesorero', 'Tesorero de la unidad');
 
 ---Insertar pruebas
 INSERT INTO ClassPerson (PersonID, ClassID)
 VALUES (1, 11);
 INSERT INTO PositionPersonUnit (UnitID, PersonID, PositionID)
 VALUES (1, 1, 4);
+INSERT INTO UserRol (UserID, RolID)
+VALUES (1, 2);
 
+INSERT INTO People (firstName, fathersSurname, mothersSurname, birthDate, gender, address, phone, email, ClubID, DNI)
+VALUES ('Elmer Leonel', 'Mercado', 'Llacho', '09/05/2007', 'M', 'Ciudad Municipal', '987654321', 'correo@gmail.com', 1,
+        90865341);
+INSERT INTO Users (ID, userName, password)
+VALUES (2, 'ellemell', '#Ee12345');
+INSERT INTO UserRol (UserID, RolID) VALUES (2, 5);
+INSERT INTO ClassPerson (PersonID, ClassID) VALUES (2, 11);
+INSERT INTO PositionPersonUnit (UnitID, PersonID, PositionID) VALUES (1, 2, 5);
 
 --Añadiendo campo para control de concurrencia a las tablas
 ALTER TABLE Clubs
@@ -190,19 +204,22 @@ GO
 CREATE PROCEDURE usp_GetPathfinders
 AS
 BEGIN
-    SELECT P.ID PeopleID,
+    SELECT P.ID    PeopleID,
            P.firstName,
            P.fathersSurname,
            P.mothersSurname,
-           CP.ClassID,
-           PPU.UnitID,
-           UR.RolID
+           C.name  class,
+           U.name  unit,
+           P2.name position
     FROM People P
              JOIN ClassPerson CP on P.ID = CP.PersonID
+             JOIN Classes C on C.ID = CP.ClassID
              JOIN PositionPersonUnit PPU on P.ID = PPU.PersonID
-             JOIN Users U on P.ID = U.ID
-             JOIN UserRol UR on U.ID = UR.UserID
-    WHERE UR.RolID != 6
+             JOIN Units U on U.ID = PPU.UnitID
+             JOIN Positions P2 on P2.ID = PPU.PositionID
+             JOIN Users U2 on P.ID = U2.ID
+             JOIN UserRol UR on U2.ID = UR.UserID
+    WHERE UR.RolID IN (1, 2, 3, 4, 5)
       AND YEAR(UR.insertionDate) = YEAR(GETDATE());
 END
 GO
