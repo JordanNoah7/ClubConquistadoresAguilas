@@ -18,9 +18,7 @@
             margin: 15px 10px 10px 10px;
         }
 
-        main .recent-order .btnCreate {
-            
-        }
+
 
         main .recent-order button a {
             color: #EF9645; /*naranja*/
@@ -120,3 +118,55 @@ main table tbody tr td .clase {
 }
 
 }
+
+/*notificaciones botones*/
+main .notification-group button {
+    background-color: white;
+    color: #EF9645; /*naranja*/
+    border: 2px solid #EF9645; /* plomo */
+    border-radius: 5px;
+    width: 30%;
+    height: 2rem;
+    margin: 15px 10px 10px 10px;
+}
+
+/*Consejero - tomar asistencia- botones encabezado y labels*/
+
+main .recent-order .right {
+    left: 50%;
+    /*right:50%;*/
+
+}
+    main .recent-order p{
+    float:right;
+    }
+main .bolded {
+    font-weight: bold;
+}
+
+main .recent-order button {
+    background-color: white;
+    color: #EF9645; /*naranja*/
+    border: 2px solid #EF9645; /* plomo */
+    border-radius: 5px;
+    width: 20%;
+    height: 2rem;
+    margin: 15px 10px 10px 20px;
+}
+
+main .recent-order table td select {
+    font-family: poppins, sans-serif;
+    font-size: 0.88rem;
+    height: 2.8rem;
+    border-bottom: 1px solid #979497; /*plomo*/
+    color: black;
+    background: #f6f6f9; /*#B5EBD1; verde palo*/
+    width: 100%;
+    padding: 0.8rem;
+    text-align: center;
+    border-radius: 3px;
+}
+
+    main .recent-order table td select:hover {
+        background: #B5EBD1;
+    }

@@ -34,6 +34,7 @@ body {
     background: var(--color-background);
     user-select: none;
     overflow-x: hidden;
+    color: #737373;
 }
 
 .container{
@@ -227,6 +228,9 @@ aside .sidebar a span{
     main{
         margin-top: 1.4rem;
     }
+        main h1 span {
+            color: #EF9645; /*naranja*/
+        }
 
 /*derecha -perfil*/
 .right {
@@ -286,9 +290,13 @@ aside .sidebar a span{
        grid-template-columns: 7rem auto 23rem;
    }
 
-  aside .logo h2{
-      display: none;
-  }
+    main .recent-order p {
+        width: 94%;
+        
+    }
+    aside .logo h2 {
+        display: none;
+    }
 
   aside .sidebar h3{
     display: none;

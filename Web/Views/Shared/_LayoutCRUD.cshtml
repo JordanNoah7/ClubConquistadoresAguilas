@@ -56,6 +56,10 @@
                                         <span class="material-symbols-outlined">sports_kabaddi</span>
                                         <h3>Instructor</h3>
                                     </a>
+                                    <a asp-area="" asp-controller="Padre" asp-action="Details">
+                                        <span class="material-symbols-outlined">breastfeeding</span>
+                                        <h3>Padre/Apoderado</h3>
+                                    </a>
                                 </li>
 
                             </ul>
@@ -70,10 +74,10 @@
                     <span class="material-symbols-outlined">nature_people</span>
                     <h3>Actividades</h3>
                 </a>
-                <a href="#">
+                <a asp-area="" asp-controller="Notificacion" asp-action="Index">
                     <span class="material-symbols-outlined">forum</span>
                     <h3>Notificar</h3>
-                    <span class="message-count">26</span>
+                    <span class="message-count">?</span>
                 </a>
                 <a href="#">
                     <span class="material-symbols-outlined">monetization_on</span>
@@ -83,16 +87,16 @@
                     <span class="material-symbols-outlined">savings</span>
                     <h3>Ahorro</h3>
                 </a>
-                <a href="#">
+                <a asp-area="" asp-controller="Consejero" asp-action="TomarLista">
                     <span class="material-symbols-outlined">contract_edit</span>
                     <h3>Tomar Lista</h3>
                 </a>
-                <a href="#">
+                <a asp-area="" asp-controller="Conquistador" asp-action="Edit">
                     <span class="material-symbols-outlined">school</span>
                     <h3>Asignar Clase</h3>
                 </a>
                 
-                <a href="#">
+                <a asp-area="" asp-controller="Home" asp-action="Index">
                     <span class="material-symbols-outlined">logout</span>
                     <h3>Cerrar Sesión</h3>
                 </a>
@@ -102,6 +106,10 @@
 
     <!--fin de aside-->
     <main>
+            <h1>
+                Hola, <b name="nombrePersona">Pedro</b> !
+                <span class="material-symbols-outlined">waving_hand</span>
+            </h1>
             @RenderBody()
     </main> 
     

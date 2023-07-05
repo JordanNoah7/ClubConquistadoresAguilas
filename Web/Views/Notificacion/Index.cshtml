@@ -1,0 +1,24 @@
+﻿@{
+    //Layout = "_LayoutCrud";
+    ViewData["Vista"] = "Details";
+}
+
+<link rel="stylesheet" href="~/css/CrudOrganizacion.css" asp-append-version="true" />
+
+<div class="recent-order">
+    <h2>
+        Notificar a Grupo ***
+
+    </h2>
+    <form asp-action="Index">
+
+        <div class="notification-group">
+            <label @*asp-for="Name" *@class="control-label"> Para:</label>
+            <br />
+            <button onclick="location.href='https://wa.me/966871384'" type="button">Junta Directiva</button>
+            <button onclick="location.href='https://chat.whatsapp.com/LMVECoqr0r94j0ZyhD5S73'" type="button">Conquistadores en General</button>
+        </div>
+
+    </form>
+
+</div>
