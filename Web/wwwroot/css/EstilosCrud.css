@@ -34,6 +34,7 @@ body {
     background: var(--color-background);
     user-select: none;
     overflow-x: hidden;
+    color: #737373;
 }
 
 .container{
@@ -73,7 +74,7 @@ h5 {
 }
 
 .danger {
-    color: #FCD24F;
+    color: #ED1D25;
 }
 /*foto de contacto mensajes*/
 
@@ -135,6 +136,7 @@ aside .close{
         top: 50%;
         align-items: center;
         background: var(--color-background);
+       
     }
 
 
@@ -226,6 +228,9 @@ aside .sidebar a span{
     main{
         margin-top: 1.4rem;
     }
+        main h1 span {
+            color: #EF9645; /*naranja*/
+        }
 
 /*derecha -perfil*/
 .right {
@@ -285,9 +290,13 @@ aside .sidebar a span{
        grid-template-columns: 7rem auto 23rem;
    }
 
-  aside .logo h2{
-      display: none;
-  }
+    main .recent-order p {
+        width: 94%;
+        
+    }
+    aside .logo h2 {
+        display: none;
+    }
 
   aside .sidebar h3{
     display: none;

@@ -1,30 +1,26 @@
 ﻿@{
     //Layout = "_LayoutCrud";
-    ViewData["Vista"] = "CrudConsejero";
+    ViewData["Vista"] = "Details";
 }
 
 <link rel="stylesheet" href="~/css/CrudOrganizacion.css" asp-append-version="true" />
 
 @*action="@Url.Action("Login", "Login")" method="post" autocomplete="off"*@
 
-<h1>
-    Hola, <b name="nombrePersona">Pedro</b> !
-    <span class="material-symbols-outlined">waving_hand</span>
-</h1>
-
 <div class="recent-order">
     <h2>
-        Coordinadores ***
-        <button type="button" class="btn btn-outline-secondary">Ingresar</button>
+        Conquistadores ***
+        <button type="submit" class="btnCreate" onclick="location.href='@Url.Action("Create", "Conquistador")'">Nuevo</button>
+
     </h2>
 
     <table class="table table-hover">
         <thead>
             <tr name="columna">
-                <th scope="col" name="nro">Item</th>
+                <th scope="col" name="nro">Numero</th>
                 <th class="nombre" name="colNombre">Nombre</th>
-                <th class="apellido" name="colApellido">Apellido</th>
-                <th class="telefono" name="colTelefono">Telefono</th>
+                <th class="apellido" name="colApellido">Apellidos</th>
+                <th class="cargo" name="colCargo">Cargo</th>
                 <th class="clase" name="colClase">Clase</th>
                 <th class="unidad" name="colUnidad">Unidad</th>
             </tr>
@@ -38,17 +34,21 @@
                 <td class="clase" name="rowClase">clase1</td>
                 <td class="unidad" name="rowUnidad">unidad1</td>
                 <td>
-                    <button type="button" id="delete" class="btn btn-default">
+                    <button type="button" id="delete" class="btn btn-default" onclick="location.href='@Url.Action("Delete", "Conquistador")'">
                         <span class="material-symbols-outlined">delete</span>
                     </button>
-                    <button type="button" id="edit" class="btn btn-default">
+                    <button type="button" id="edit" class="btn btn-default" onclick="location.href='@Url.Action("Edit", "Conquistador")'">
                         <span class="material-symbols-outlined">edit_square</span>
                     </button>
+                    
 
                 </td>
             </tr>
 
         </tbody>
     </table>
+
+
 </div>
+
 

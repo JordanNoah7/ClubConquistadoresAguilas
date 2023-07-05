@@ -3,49 +3,51 @@
     Layout = "_LayoutCrud";
 }
 
-<link rel="stylesheet" href="~/css/CrudOrganizacion.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/perfilconquistador.cs" asp-append-version="true" />
 
 @*action="@Url.Action("Login", "Login")" method="post" autocomplete="off"*@
 
-<h1>Hola, Pedro! 
-    <span class="material-symbols-outlined">waving_hand</span>
-</h1>
-
-<div class="recent-order">
-    <h2>Administracion de Personal ***    
-        <button type="button" class="btn btn-outline-secondary">Ingresar</button>
-    </h2>
-    
-    <table class="table table-hover">
-        <thead>
-            <tr name="columna">
-                <th scope="col" name="nro">Numero</th>
-                <th class="nombre" name="colNombre">Nombre</th>
-                <th class="apellido" name="colApellido">Apellido</th>
-                <th class="telefono" name="colTelefono">Telefono</th>
-                <th class="clase" name="colClase">Clase</th>
-                <th class="unidad" name="colUnidad">Unidad</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr name="fila">
-                <th scope="row" name="nro">1</th>
-                <td class="nombre" name="rowNombre">Mark</td>
-                <td class="apellido" name="rowApellido">Otto</td>
-                <td class="telefono" name="rowTelefono">44444</td>
-                <td class="clase" name="rowClase">clase1</td>
-                <td class="unidad" name="rowUnidad">unidad1</td>
-                <td>
-                    <button type="button" id="delete" class="btn btn-default">
-                        <span class="material-symbols-outlined">delete</span>
-                    </button>
-                    <button type="button" id="edit" class="btn btn-default">
-                        <span class="material-symbols-outlined">edit_square</span>
-                    </button>
-                    
-                </td>
-            </tr>
-            
-        </tbody>
-    </table>
+<div class="insights">
+    @*clase conquistador*@
+    <div class="sales">
+        <span class="material-symbols-outlined">category</span>
+        <div class="middle">
+            <div class="left">
+                <h3>Clase</h3>
+                <h1>Amigo</h1>
+                <div class="color">
+                    <circle cx="38" cy="38" r="36"></circle>
+                </div>
+            </div>
+            <small class="text-muted">Tu clase anual</small>
+        </div>
+    </div>
+    @*unidad conquistador*@
+    <div class="sales">
+        <span class="material-symbols-outlined">interests</span>
+        <div class="middle">
+            <div class="left">
+                <h3>Unidad</h3>
+                <h1>Alcones</h1>
+                <div class="color">
+                    <circle cx="38" cy="38" r="36"></circle>
+                </div>
+            </div>
+            <small class="text-muted">Fenix</small>
+        </div>
+    </div>
+    @*datos personales conquistador*@
+    <div class="sales">
+        <span class="material-symbols-outlined">lock_person</span>
+        <div class="middle">
+            <div class="left">
+                <h3>Información General</h3>
+                <h5>Fec_Nac: 03/10/99</h5>
+                <h5>Telefono: 123456789</h5>
+                <h5>Email: x@gmail.com</h5>
+                
+            <small class="text-muted">Tus datos personales</small>
+            </div>
+        </div>
+    </div>
 </div>
