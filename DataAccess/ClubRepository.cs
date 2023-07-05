@@ -1,18 +1,20 @@
 ﻿using Domain;
 using Infrastructure.Context;
+using Microsoft.Extensions.Configuration;
 using Models;
 
 namespace DataAccess;
 
 public class ClubRepository : ContextRepository, IGenericRepository<Club>
 {
-    public ClubRepository(ClubConquistadoresAguilasContext context) : base(context)
+    public ClubRepository(IConfiguration configuration) : base(configuration)
     {
     }
 
     public async Task<bool> Insert(Club model)
     {
-        try
+        throw new Exception();
+        /*try
         {
             _dbContext.Clubs.Add(model);
             await _dbContext.SaveChangesAsync();
@@ -22,12 +24,13 @@ public class ClubRepository : ContextRepository, IGenericRepository<Club>
         catch (Exception ex)
         {
             return false;
-        }
+        }*/
     }
 
     public async Task<bool> Update(Club model)
     {
-        try
+        throw new Exception();
+        /*try
         {
             _dbContext.Clubs.Update(model);
             await _dbContext.SaveChangesAsync();
@@ -37,12 +40,13 @@ public class ClubRepository : ContextRepository, IGenericRepository<Club>
         catch (Exception ex)
         {
             return false;
-        }
+        }*/
     }
 
     public async Task<bool> Delete(int id1, int id2 = 0)
     {
-        try
+        throw new Exception();
+        /*try
         {
             var model = _dbContext.Clubs.First(c => c.Id == id1);
             _dbContext.Clubs.Remove(model);
@@ -53,24 +57,26 @@ public class ClubRepository : ContextRepository, IGenericRepository<Club>
         catch (Exception e)
         {
             return false;
-        }
+        }*/
     }
 
     public async Task<Club> Get(int id1, int id2 = 0)
     {
-        try
+        throw new Exception();
+        /*try
         {
             return await _dbContext.Clubs.FindAsync(id1);
         }
         catch (Exception ex)
         {
             return null;
-        }
+        }*/
     }
 
     public async Task<IEnumerable<Club>> GetAll()
     {
-        try
+        throw new Exception();
+        /*try
         {
             IEnumerable<Club> queryClubsSQL = _dbContext.Clubs;
             return queryClubsSQL;
@@ -78,6 +84,6 @@ public class ClubRepository : ContextRepository, IGenericRepository<Club>
         catch (Exception e)
         {
             return null;
-        }
+        }*/
     }
 }
