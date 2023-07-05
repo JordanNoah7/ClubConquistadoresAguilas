@@ -30,42 +30,34 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label">Fecha Inicial : *</label>
+                    <label class="control-label">Fecha de Inicio : *</label>
                     <input type="date" aria-label="fecIni" id="fecIni" class="form-control" required>
                     <span class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label class="control-label">Fecha Final : *</label>
+                    <label class="control-label">Fecha de Fin : *</label>
                     <input type="date" aria-label="Fechafin" id="id="fecfin"class="form-control" required>
                     <span class="text-danger"></span>
                 </div>
+
                 <div class="form-group">
-                    <label class="control-label">Sexo: *</label>
-                    <select name="Sexo" id="Sexo">
-                        <option value=""></option>
-                        <option value="M">Masculino</option>
-                        <option value="F">Femenino</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="control-label">Nombre(s) : *</label>
-                    <input type="text" aria-label="Nombre" class="form-control" required>
+                    <label class="control-label">Lugar: *</label>
+                    <input type="text" aria-label="lugar" class="form-control" required>
                     <span class="text-danger"></span>
                 </div>
                 
                 <div class="form-group">
-                    <label for="clase">Clase</label>
-                    <select name="clase" id="clase">
-                        <option value=""></option>
-                        <option value="r">Rojo</option>
-                        <option value="a">Azul</option>
-                        <option value="v">Verde</option>
-                    </select>
-                </div>
-                <div class="form-group">
                     <label class="control-label">Encargado(s) : *</label>
                     <input type="text" aria-label="encargado" class="form-control" required>
                     <span class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Participantes : *</label>
+                 
+                        <input type="text" aria-label="participantes" class="form-control" required>
+                        <span onclick="location.href='@Url.Action("Participantes", "Actividades")'" class="material-symbols-outlined">add_circle</span>
+                    
+                    
                 </div>
 
                 <br />
@@ -77,14 +69,6 @@
         </div>
 
     </div>
-
-    @* @section Scripts {
-    @{
-    await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
-    }
-    *@
-
 </div>
 <br />
 <br />

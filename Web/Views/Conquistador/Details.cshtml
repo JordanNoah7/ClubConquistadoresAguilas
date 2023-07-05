@@ -15,20 +15,17 @@
 <div class="recent-order">
     <h2>
         Conquistadores ***
-        <button type="submit" class="btnCreate" onclick="location.href='@Url.Action("Create", "Conquistador")'">Ingresar</button>
+        <button type="submit" class="btnCreate" onclick="location.href='@Url.Action("Create", "Conquistador")'">Nuevo</button>
 
     </h2>
 
     <table class="table table-hover">
         <thead>
             <tr name="columna">
-                <th scope="col" name="nro">Item</th>
-                @*<th>
-                @Html.DisplayNameFor(model => model.Name)
-                </th>*@
+                <th scope="col" name="nro">Numero</th>
                 <th class="nombre" name="colNombre">Nombre</th>
-                <th class="apellido" name="colApellido">Apellido</th>
-                <th class="telefono" name="colTelefono">Telefono</th>
+                <th class="apellido" name="colApellido">Apellidos</th>
+                <th class="cargo" name="colCargo">Cargo</th>
                 <th class="clase" name="colClase">Clase</th>
                 <th class="unidad" name="colUnidad">Unidad</th>
             </tr>

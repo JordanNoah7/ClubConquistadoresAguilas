@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "Zuk8qDDdELWHMyWxvF/rVWjSfbevL3USAa8E4m7/VA/TztCq7EBge+yMtyO9qqgbJ5GloDVOwlfTBklo8/pNxA==",
+  "success": false,
+  "projectFilePath": "C:\\Nancy - Isur6toSemestre\\Distribuidas\\PaginaConquistadores\\RepositorioConquis\\Mobile\\Mobile.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1012",
+      "level": "Error",
+      "message": "La versión de la plataforma no está presente para una o varias plataformas de destino, aunque se haya especificado una plataforma: net6.0-android, net6.0-ios, net6.0-maccatalyst"
+    }
+  ]
+}
