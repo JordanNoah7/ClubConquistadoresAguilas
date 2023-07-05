@@ -6,14 +6,19 @@ namespace Application.Service;
 
 public class UserService : IUserService
 {
-    private readonly IGenericRepository<User> _userRepo;
+    private readonly IUserRepository _userRepo;
 
-    public UserService(IGenericRepository<User> userRepo)
+    public UserService(IUserRepository userRepo)
     {
         _userRepo = userRepo;
     }
 
-    public async Task<bool> Insert(User model)
+    public async Task<User> GetUserRolByUsername(string username)
+    {
+        return await _userRepo.GetUserRolByUsername(username);
+    }
+
+    /*public async Task<bool> Insert(User model)
     {
         try
         {
@@ -67,5 +72,5 @@ public class UserService : IUserService
         var queryUserSql = await _userRepo.GetAll();
         var user = queryUserSql.Where(u => u.UserName == username).FirstOrDefault();
         return user;
-    }
+    }*/
 }

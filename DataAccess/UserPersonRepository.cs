@@ -9,7 +9,6 @@ public class UserPersonRepository : IUserPersonRepository
     {
         try
         {
-            
             return true;
         }
         catch (Exception ex)

@@ -1,6 +1,6 @@
 ﻿namespace Models;
 
-public partial class RolPermission
+public class RolPermission
 {
     public byte RolId { get; set; }
 

@@ -1,121 +1,124 @@
 ﻿
-    main h1 span {
-        color: #EF9645; /*naranja*/
-    }
+main h1 span {
+    color: #EF9645; /*naranja*/
+}
 
-    main .recent-order{
+main .recent-order {
     margin-top: 2rem;
-    }
+}
 
 
-        main .recent-order button {
-            background-color: white;
-            color: #EF9645; /*naranja*/
-            border: 2px solid #EF9645; /* plomo */
-            border-radius: 5px;
-            width: 10%;
-            height: 2rem;
-            margin: 15px 10px 10px 10px;
-        }
+main .recent-order button {
+    background-color: white;
+    color: #EF9645; /*naranja*/
+    border: 2px solid #EF9645; /* plomo */
+    border-radius: 5px;
+    width: 10%;
+    height: 2rem;
+    margin: 15px 10px 10px 10px;
+}
 
 
+main .recent-order button a {
+    color: #EF9645; /*naranja*/
+}
 
-        main .recent-order button a {
-            color: #EF9645; /*naranja*/
-        }
+main .recent-order button:hover {
+    background-color: #EF9645;
+    color: white;
 
-   main .recent-order button:hover{
-            background-color: #EF9645;
-            color: white;
-            
-   }
+}
 
-   main .recent-order button a:hover{
-       color: white;
-   }
-   main .recent-order td #delete {
-            background: white;
-            color: #EA2027; /*rojo*/
-            padding-right:25px;
-            border-radius: 10px;
-            border: none;
-        }
+main .recent-order button a:hover {
+    color: white;
+}
 
-   main .recent-order td #delete:hover {
-                background: #EA2027; /*rojo*/
-                color: white;
-            }
+main .recent-order td #delete {
+    background: white;
+    color: #EA2027; /*rojo*/
+    padding-right: 25px;
+    border-radius: 10px;
+    border: none;
+}
 
-        main .recent-order td #edit {
-            background: white;
-            color: #00BF63; /*verde*/
-            
-            padding-right: 25px;
-            border: none;
-        }
+main .recent-order td #delete:hover {
+    background: #EA2027; /*rojo*/
+    color: white;
+}
 
-   main .recent-order td #edit:hover {
-                background: #00BF63; /*verde*/
-                color: white;
-            }
- 
+main .recent-order td #edit {
+    background: white;
+    color: #00BF63; /*verde*/
 
- main .recent-order h2 {
-      margin-bottom: 0.8rem;
- }
- main .recent-order table {
-      background: #f6f6f9; /*#B5EBD1; verde palo*/
-      width: 100%;
-      border-radius: 2rem;
-      padding: 1.8rem;
-      text-align: center;
-      box-shadow: 0 2rem 3rem;
-      transition: all 300ms ease;
- }
+    padding-right: 25px;
+    border: none;
+}
 
- main .recent-order table:hover{
-     box-shadow: none;
- }
+main .recent-order td #edit:hover {
+    background: #00BF63; /*verde*/
+    color: white;
+}
+
+
+main .recent-order h2 {
+    margin-bottom: 0.8rem;
+}
+
+main .recent-order table {
+    background: #f6f6f9; /*#B5EBD1; verde palo*/
+    width: 100%;
+    border-radius: 2rem;
+    padding: 1.8rem;
+    text-align: center;
+    box-shadow: 0 2rem 3rem;
+    transition: all 300ms ease;
+}
+
+main .recent-order table:hover {
+    box-shadow: none;
+}
 
 main table tbody td {
     height: 2.8rem;
-    border-bottom: 1px solid #979497;/*plomo*/
+    border-bottom: 1px solid #979497; /*plomo*/
     color: black;
 }
 
- main table tbody tr:last-child td{
-     border:none;
- }
+main table tbody tr:last-child td {
+    border: none;
+}
 
- main .recent-order a{
-     text-align: center;
-     display: block;
-     margin: 1rem auto;
-     color: black;
- }
+main .recent-order a {
+    text-align: center;
+    display: block;
+    margin: 1rem auto;
+    color: black;
+}
 
 /*responsive tabla*/
-@media screen and (max-width:1200px ) {
+@media screen and (max-width: 1200px ) {
 
-main .recent-order{
-    width: 94%;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    margin:2rem 0 0 8.8rem;
-}
-main .recent-order table{
-    width: 83vw;
-}
+    main .recent-order {
+        width: 94%;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 2rem 0 0 8.8rem;
+    }
 
-main table thead tr th .telefono,
-main table thead tr th .clase {
+    main .recent-order table {
+        width: 83vw;
+    }
+
+    main table thead tr th .telefono,
+    main table thead tr th .clase {
         display: none;
-}
-main table tbody tr td .telefono, 
-main table tbody tr td .clase {
+    }
+
+    main table tbody tr td .telefono,
+    main table tbody tr td .clase {
         display: none;
-}
+    }
 
 }
 
@@ -137,9 +140,11 @@ main .recent-order .right {
     /*right:50%;*/
 
 }
-    main .recent-order p{
-    float:right;
-    }
+
+main .recent-order p {
+    float: right;
+}
+
 main .bolded {
     font-weight: bold;
 }
@@ -167,6 +172,6 @@ main .recent-order table td select {
     border-radius: 3px;
 }
 
-    main .recent-order table td select:hover {
-        background: #B5EBD1;
-    }
+main .recent-order table td select:hover {
+    background: #B5EBD1;
+}

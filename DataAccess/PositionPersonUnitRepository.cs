@@ -1,19 +1,18 @@
 ﻿using Domain;
-using Infrastructure.Context;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Models;
 
 namespace DataAccess;
 
-public class PositionPersonUnitRepository : ContextRepository, IGenericRepository<PositionPersonUnit>
+public class PositionPersonUnitRepository : ConnectionRepository, IGenericRepository<PositionPersonUnit>
 {
     public PositionPersonUnitRepository(IConfiguration configuration) : base(configuration)
     {
     }
 
     public async Task<bool> Insert(PositionPersonUnit model)
-    {throw new Exception();
+    {
+        throw new Exception();
         /*try
         {
             _dbContext.PositionPersonUnits.Add(model);

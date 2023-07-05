@@ -1,11 +1,11 @@
 ﻿@*@model ClubConquistadoresAguilas.Models.VMPerson*@
-﻿@*edicion de prueba para hacer merge con Jhon*@
+@*edicion de prueba para hacer merge con Jhon*@
 @{
     //Layout = "_LayoutCrud";
     ViewData["Vista"] = "Edit";
 }
 
-<link rel="stylesheet" href="~/css/Create.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/Create.css" asp-append-version="true"/>
 
 @*action="@Url.Action("Login", "Login")" method="post" autocomplete="off"*@
 
@@ -119,8 +119,8 @@
                         <option value="unidadH-2">Hombres 14-15</option>
                     </select>
                 </div>
-                <br />
-                <br />
+                <br/>
+                <br/>
                 @*<input type="submit" value="Guardar" class="btn btn-primary" />*@
                 <button type="submit" class="btnGuardar" value="guardar">Guardar</button>
             </form>
@@ -129,10 +129,9 @@
 
     </div>
 </div>
-<br />
-<br />
+<br/>
+<br/>
 <div class="botones">
 
     <button type="submit" class="btnCancelar" value="cancelar" onclick="location.href='@Url.Action("Details", "Consejero")'">Cancelar</button>
 </div>
-

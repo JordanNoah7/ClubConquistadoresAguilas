@@ -1,6 +1,6 @@
 ﻿namespace Models;
 
-public partial class Position
+public class Position
 {
     public byte Id { get; set; }
 
@@ -10,7 +10,8 @@ public partial class Position
 
     public object ConcurrencyPosition { get; set; } = null!;
 
-    public virtual ICollection<PositionPersonActivity> PositionPersonActivities { get; set; } = new List<PositionPersonActivity>();
+    public virtual ICollection<PositionPersonActivity> PositionPersonActivities { get; set; } =
+        new List<PositionPersonActivity>();
 
     public virtual ICollection<PositionPersonUnit> PositionPersonUnits { get; set; } = new List<PositionPersonUnit>();
 }

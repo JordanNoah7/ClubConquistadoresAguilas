@@ -1,11 +1,11 @@
 ﻿@*@model ClubConquistadoresAguilas.Models.VMPerson*@
-﻿@*edicion de prueba para hacer merge con Jhon*@
+@*edicion de prueba para hacer merge con Jhon*@
 @{
     //Layout = "_LayoutCrud";
     ViewData["Vista"] = "Create";
 }
 
-<link rel="stylesheet" href="~/css/Create.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/Create.css" asp-append-version="true"/>
 
 @*action="@Url.Action("Login", "Login")" method="post" autocomplete="off"*@
 
@@ -41,7 +41,7 @@
                     <input type="text" aria-label="lugar" class="form-control" required>
                     <span class="text-danger"></span>
                 </div>
-                
+
                 <div class="form-group">
                     <label class="control-label">Encargado(s) : *</label>
                     <input type="text" aria-label="encargado" class="form-control" required>
@@ -49,15 +49,15 @@
                 </div>
                 <div class="form-group">
                     <label class="control-label">Participantes : *</label>
-                 
-                        <input type="text" aria-label="participantes" class="form-control" required>
-                        <span onclick="location.href='@Url.Action("Participantes", "Actividades")'" class="material-symbols-outlined">add_circle</span>
-                    
-                    
+
+                    <input type="text" aria-label="participantes" class="form-control" required>
+                    <span onclick="location.href='@Url.Action("Participantes", "Actividades")'" class="material-symbols-outlined">add_circle</span>
+
+
                 </div>
 
-                <br />
-                <br />
+                <br/>
+                <br/>
                 @*<input type="submit" value="Guardar" class="btn btn-primary" />*@
                 <button type="submit" class="btnGuardar" value="guardar">Guardar</button>
             </form>
@@ -66,8 +66,8 @@
 
     </div>
 </div>
-<br />
-<br />
+<br/>
+<br/>
 <div class="botones">
 
     <button type="submit" class="btnCancelar" value="cancelar" onclick="location.href='@Url.Action("Details", "Actividades")'">Cancelar</button>

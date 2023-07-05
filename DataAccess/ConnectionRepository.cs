@@ -2,11 +2,11 @@
 
 namespace DataAccess;
 
-public class ContextRepository
+public class ConnectionRepository
 {
     protected IConfiguration Configuration;
 
-    public ContextRepository(IConfiguration configuration)
+    public ConnectionRepository(IConfiguration configuration)
     {
         Configuration = configuration;
     }

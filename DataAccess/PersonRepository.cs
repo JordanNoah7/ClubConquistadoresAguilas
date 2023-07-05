@@ -7,7 +7,7 @@ using Models;
 
 namespace DataAccess;
 
-public class PersonRepository : ContextRepository, IPersonRepository
+public class PersonRepository : ConnectionRepository, IPersonRepository
 {
     public PersonRepository(IConfiguration configuration) : base(configuration)
     {
@@ -110,5 +110,45 @@ public class PersonRepository : ContextRepository, IPersonRepository
         {
             return null;
         }*/
+    }
+
+    public async Task<Person> GetPersonClassById(int id)
+    {
+        var person = new Person();
+        using (var connectionDb = Connection.GetConnection(Configuration))
+        {
+            try
+            {
+                using (var cmd = new SqlCommand("usp_GetPersonClassByID", connectionDb))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@PersonID", id);
+                    Connection.OpenConnection();
+                    using (var dr = await cmd.ExecuteReaderAsync())
+                    {
+                        if (await dr.ReadAsync())
+                        {
+                            person.FirstName = dr["firstname"].ToString();
+                            person.FathersSurname = dr["fathersSurname"].ToString();
+                            person.MothersSurname = dr["mothersSurname"].ToString();
+                            person.ClassPeople = new List<ClassPerson>
+                            {
+                                new()
+                                {
+                                    ClassId = Convert.ToByte(dr["ClassID"])
+                                }
+                            };
+                        }
+                    }
+                }
+
+                return person;
+            }
+            catch (Exception ex)
+            {
+                Connection.CloseConnection();
+                return null;
+            }
+        }
     }
 }

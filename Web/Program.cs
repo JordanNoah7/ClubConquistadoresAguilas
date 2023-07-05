@@ -4,7 +4,6 @@ using DataAccess;
 using Domain;
 using Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
-using Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,11 +14,11 @@ builder.Services.AddDbContext<ClubConquistadoresAguilasContext>(options =>
 
 //Inyeccion de dependencias
 //User
-builder.Services.AddScoped<IGenericRepository<User>, UserRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
 //Person
-//builder.Services.AddScoped<IPersonRepository, PersonRepository>();
-//builder.Services.AddScoped<IPersonService, PersonService>();
+builder.Services.AddScoped<IPersonRepository, PersonRepository>();
+builder.Services.AddScoped<IPersonService, PersonService>();
 //Activity
 
 //Club

@@ -23,7 +23,7 @@ public class LoginController : Controller
     [HttpPost]
     public async Task<IActionResult> Login(string username, string password)
     {
-        var user = await _userService.GetByUsername(username);
+        var user = await _userService.GetUserRolByUsername(username);
         if (user == null)
         {
             ViewBag.ErrorMessage = "Nombre de usuario o contraseña incorrectos";
@@ -32,7 +32,9 @@ public class LoginController : Controller
 
         if (user.Password.Equals(password))
         {
-            var person = await _personService.Get(user.Id);
+            var person = await _personService.GetPersonClassById(user.Id);
+            var classId = person.ClassPeople.FirstOrDefault().ClassId;
+            Console.WriteLine(classId.ToString());
             return RedirectToAction("Index", "Home");
         }
 

@@ -1,11 +1,10 @@
 ﻿using Domain;
-using Infrastructure.Context;
 using Microsoft.Extensions.Configuration;
 using Models;
 
 namespace DataAccess;
 
-public class ClubRepository : ContextRepository, IGenericRepository<Club>
+public class ClubRepository : ConnectionRepository, IGenericRepository<Club>
 {
     public ClubRepository(IConfiguration configuration) : base(configuration)
     {

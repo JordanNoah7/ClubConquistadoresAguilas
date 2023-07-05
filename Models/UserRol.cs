@@ -1,6 +1,6 @@
 ﻿namespace Models;
 
-public partial class UserRol
+public class UserRol
 {
     public int UserId { get; set; }
 

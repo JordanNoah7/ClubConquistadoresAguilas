@@ -6,14 +6,19 @@ namespace Application.Service;
 
 public class PersonService : IPersonService
 {
-    private readonly IGenericRepository<Person> _personRepo;
+    private readonly IPersonRepository _personRepo;
 
-    public PersonService(IGenericRepository<Person> personRepo)
+    public PersonService(IPersonRepository personRepo)
     {
         _personRepo = personRepo;
     }
 
-    public async Task<bool> Insert(Person model)
+    public async Task<Person> GetPersonClassById(int id)
+    {
+        return await _personRepo.GetPersonClassById(id);
+    }
+
+    /*public async Task<bool> Insert(Person model)
     {
         try
         {
@@ -60,5 +65,5 @@ public class PersonService : IPersonService
     public async Task<IEnumerable<Person>> GetAll()
     {
         return await _personRepo.GetAll();
-    }
+    }*/
 }
