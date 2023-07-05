@@ -1,21 +1,26 @@
 ﻿USE ClubConquistadoresAguilas;
 --Insertar registros para pruebas
 ---Insertar a Club
+DBCC CHECKIDENT ( Clubs, RESEED, 0);
 INSERT INTO Clubs (name, address, stars, foundationDate, meetingDay, meetingHour, district, city, region, country,
                    description)
 VALUES ('Las Aguilas', 'Ciudad Municipal', 3, '05/05/2014', 'Domingo', '09:00:00', 'Cerro Colorado', 'Arequipa',
         'Arequipa', N'Perú', 'Club de conquistadores Las Aguilas')
 
 ---Insertar a People
-INSERT INTO People (firstName, fathersSurname, mothersSurname, birthDate, gender, address, phone, email, ClubID)
+ALTER TABLE People ADD DNI INT NULL;
+DBCC CHECKIDENT ( People, RESEED, 0);
+INSERT INTO People (firstName, fathersSurname, mothersSurname, birthDate, gender, address, phone, email, ClubID, DNI)
 VALUES ('Jordan', 'Quispe', 'Supo', '09/07/1999', 'M', 'Ciudad Municipal', '914786862',
-        'j.jordan.quispe.supo@gmail.com', 1);
+        'j.jordan.quispe.supo@gmail.com', 1, 70685341);
 
 ---Insertar a Users
 INSERT INTO Users (ID, userName, password)
 VALUES (1, 'dyfmeks', '#Aa12345');
 
 ---Insertar roles
+delete from Roles where id >= 0
+DBCC CHECKIDENT ( Roles, RESEED, 0);
 INSERT INTO Roles (name, description)
 VALUES ('Conquistador', 'Solo son conquistadores, no tienen ningun cargo');
 INSERT INTO Roles (name, description)
@@ -30,12 +35,15 @@ INSERT INTO Roles (name, description)
 VALUES ('Apoderado', 'Padre o apoderado del conquistador');
 
 ---Insertar unidades
+DBCC CHECKIDENT ( Units, RESEED, 0);
 INSERT INTO Units (name, motto, battleCry, description, ClubID)
 VALUES ('Halcones', 'por definir', 'por definir', 'Unidad de varos del club las aguilas', 1);
 INSERT INTO Units (name, motto, battleCry, description, ClubID)
 VALUES ('Fenix', 'por definir', 'por definir', 'Unidad de mujeres del club las aguilas', 1);
 
 ---Insertar clases de conquistadores
+ALTER TABLE Classes ALTER COLUMN name NVARCHAR(35) NOT NULL;
+DBCC CHECKIDENT ( Classes, RESEED, 0);
 INSERT INTO Classes (name, description)
 VALUES ('Amigo', N'Clase regular para conquistadores de 10 años');
 INSERT INTO Classes (name, description)
@@ -59,7 +67,7 @@ VALUES ('Excursionista en el bosque', N'Clase avanzada para conquistadores de 14
 INSERT INTO Classes (name, description)
 VALUES (N'Guía', N'Clase regular para conquistadores de 15 años');
 INSERT INTO Classes (name, description)
-VALUES (N'Guía de exploració', N'Clase avanzada para conquistadores de 15 años');
+VALUES (N'Guía de exploración', N'Clase avanzada para conquistadores de 15 años');
 INSERT INTO Classes (name, description)
 VALUES (N'Guía Mayor', N'Conquistadores de 18 años');
 INSERT INTO Classes (name, description)
@@ -68,6 +76,7 @@ INSERT INTO Classes (name, description)
 VALUES (N'Guía Mayor Master Avanzado', N'Conquistadores que completaron la clase GMMA');
 
 ---Insertar posiciones
+DBCC CHECKIDENT ( Positions, RESEED, 0);
 INSERT INTO Positions (name, description)
 VALUES ('Capitan', 'Capitan de la unidad');
 INSERT INTO Positions (name, description)
