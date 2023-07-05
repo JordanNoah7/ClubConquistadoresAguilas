@@ -1,6 +1,4 @@
-﻿**/bin
+.**/bin
 **/obj
 **/.vs
 *.suo
-
-.vs
