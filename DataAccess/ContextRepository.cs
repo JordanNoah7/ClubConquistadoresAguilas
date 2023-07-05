@@ -1,30 +1,13 @@
-﻿using Infrastructure.Context;
-using Microsoft.EntityFrameworkCore.Storage;
+﻿using Microsoft.Extensions.Configuration;
 
 namespace DataAccess;
 
 public class ContextRepository
 {
-    protected readonly ClubConquistadoresAguilasContext _dbContext;
-    protected IDbContextTransaction _currentTransaction;
+    protected IConfiguration Configuration;
 
-    public ContextRepository(ClubConquistadoresAguilasContext context)
+    public ContextRepository(IConfiguration configuration)
     {
-        _dbContext = context;
-    }
-
-    public async Task BeginTransaction()
-    {
-        _currentTransaction = await _dbContext.Database.BeginTransactionAsync();
-    }
-
-    public async Task Commit()
-    {
-        await _currentTransaction.CommitAsync();
-    }
-
-    public async Task Rollback()
-    {
-        await _currentTransaction.RollbackAsync();
+        Configuration = configuration;
     }
 }

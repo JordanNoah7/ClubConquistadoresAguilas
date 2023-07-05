@@ -9,113 +9,125 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Web
 build_property.RootNamespace = Web
-build_property.ProjectDir = G:\Programacion\C#\ClubConquistadoresAguilas\Web\
+build_property.ProjectDir = C:\Nancy - Isur6toSemestre\Distribuidas\PaginaConquistadores\RepositorioConquis\Web\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = G:\Programacion\C#\ClubConquistadoresAguilas\Web
+build_property.MSBuildProjectDirectory = C:\Nancy - Isur6toSemestre\Distribuidas\PaginaConquistadores\RepositorioConquis\Web
 build_property._RazorSourceGeneratorDebug = 
 
-[G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/Actividades/Create.cshtml]
+[C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Actividades/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0aXZpZGFkZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/Actividades/Delete.cshtml]
+[C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Actividades/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0aXZpZGFkZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/Actividades/Details.cshtml]
+[C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Actividades/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0aXZpZGFkZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/Actividades/Edit.cshtml]
+[C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Actividades/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0aXZpZGFkZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/Conquistador/Create.cshtml]
+[C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Actividades/Participantes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0aXZpZGFkZXNcUGFydGljaXBhbnRlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Conquistador/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29ucXVpc3RhZG9yXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/Conquistador/Delete.cshtml]
+[C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Conquistador/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29ucXVpc3RhZG9yXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/Conquistador/Details.cshtml]
+[C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Conquistador/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29ucXVpc3RhZG9yXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/Conquistador/Edit.cshtml]
+[C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Conquistador/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29ucXVpc3RhZG9yXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/Consejero/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uc2VqZXJvXENyZWF0ZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/Consejero/Delete.cshtml]
+[C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Consejero/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uc2VqZXJvXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/Consejero/Details.cshtml]
+[C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Consejero/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uc2VqZXJvXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/Consejero/Edit.cshtml]
+[C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Consejero/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uc2VqZXJvXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/Crud/Inicio.cshtml]
+[C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Crud/Inicio.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3J1ZFxJbmljaW8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/Home/Index.cshtml]
+[C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/Home/Privacy.cshtml]
+[C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/Instructor/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdHJ1Y3RvclxDcmVhdGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/Instructor/Delete.cshtml]
+[C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Instructor/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdHJ1Y3RvclxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/Instructor/Details.cshtml]
+[C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Instructor/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdHJ1Y3RvclxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/Instructor/Edit.cshtml]
+[C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Instructor/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdHJ1Y3RvclxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/Login/Login.cshtml]
+[C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Login/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/Shared/Error.cshtml]
+[C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Padre/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFkcmVcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Padre/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFkcmVcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Padre/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFkcmVcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Padre/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFkcmVcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/_ViewImports.cshtml]
+[C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/_ViewStart.cshtml]
+[C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/Shared/_Layout.cshtml]
+[C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-lzldzk1rll
 
-[G:/Programacion/C\#/ClubConquistadoresAguilas/Web/Views/Shared/_LayoutCRUD.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRDUlVELmNzaHRtbA==
+[C:/Nancy - Isur6toSemestre/Distribuidas/PaginaConquistadores/RepositorioConquis/Web/Views/Shared/_LayoutCrud.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRDcnVkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = b-u9i9dgf1xd

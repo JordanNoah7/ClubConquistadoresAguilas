@@ -11,6 +11,12 @@ namespace Web.Controllers
             return View();
         }
 
+        //actividades - participantes
+        public ActionResult Participantes()
+        {
+            return View();
+        }
+
         // GET: ActividadesController/Details/5
         public ActionResult Details(int id)
         {
