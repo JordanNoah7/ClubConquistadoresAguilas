@@ -11134,9 +11134,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Nancy\\Source\\Repos\\ClubConquistadoresAguilas\\Web\\Web.csproj",
+      "projectUniqueName": "C:\\Users\\Nancy\\source\\repos\\ClubConquistadoresAguilas\\Web\\Web.csproj",
       "projectName": "Web",
-      "projectPath": "C:\\Users\\Nancy\\Source\\Repos\\ClubConquistadoresAguilas\\Web\\Web.csproj",
+      "projectPath": "C:\\Users\\Nancy\\source\\repos\\ClubConquistadoresAguilas\\Web\\Web.csproj",
       "packagesPath": "C:\\Users\\Nancy\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Nancy\\Source\\Repos\\ClubConquistadoresAguilas\\Web\\obj\\",
       "projectStyle": "PackageReference",
@@ -11156,14 +11156,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Nancy\\Source\\Repos\\ClubConquistadoresAguilas\\Application\\Application.csproj": {
-              "projectPath": "C:\\Users\\Nancy\\Source\\Repos\\ClubConquistadoresAguilas\\Application\\Application.csproj"
+            "C:\\Users\\Nancy\\source\\repos\\ClubConquistadoresAguilas\\Application\\Application.csproj": {
+              "projectPath": "C:\\Users\\Nancy\\source\\repos\\ClubConquistadoresAguilas\\Application\\Application.csproj"
             },
-            "C:\\Users\\Nancy\\Source\\Repos\\ClubConquistadoresAguilas\\DataAccess\\DataAccess.csproj": {
-              "projectPath": "C:\\Users\\Nancy\\Source\\Repos\\ClubConquistadoresAguilas\\DataAccess\\DataAccess.csproj"
+            "C:\\Users\\Nancy\\source\\repos\\ClubConquistadoresAguilas\\DataAccess\\DataAccess.csproj": {
+              "projectPath": "C:\\Users\\Nancy\\source\\repos\\ClubConquistadoresAguilas\\DataAccess\\DataAccess.csproj"
             },
-            "C:\\Users\\Nancy\\Source\\Repos\\ClubConquistadoresAguilas\\Models\\Models.csproj": {
-              "projectPath": "C:\\Users\\Nancy\\Source\\Repos\\ClubConquistadoresAguilas\\Models\\Models.csproj"
+            "C:\\Users\\Nancy\\source\\repos\\ClubConquistadoresAguilas\\Models\\Models.csproj": {
+              "projectPath": "C:\\Users\\Nancy\\source\\repos\\ClubConquistadoresAguilas\\Models\\Models.csproj"
             }
           }
         }
