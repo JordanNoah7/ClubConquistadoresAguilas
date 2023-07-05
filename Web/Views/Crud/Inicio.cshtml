@@ -3,41 +3,49 @@
     Layout = "_LayoutCrud";
 }
 
-<link rel="stylesheet" href="~/css/perfilconquistador.cs" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/perfilconquistador.css" asp-append-version="true" />
 
 @*action="@Url.Action("Login", "Login")" method="post" autocomplete="off"*@
 
 <div class="insights">
     @*clase conquistador*@
-    <div class="sales">
+    <div class="clase">
         <span class="material-symbols-outlined">category</span>
         <div class="middle">
             <div class="left">
                 <h3>Clase</h3>
                 <h1>Amigo</h1>
-                <div class="color">
-                    <circle cx="38" cy="38" r="36"></circle>
-                </div>
+               
             </div>
+                <div class="color">
+                    <svg>
+                        <circle cx="38" cy="38" r="36"></circle>
+                    </svg>
+                    
+                </div>
+
             <small class="text-muted">Tu clase anual</small>
         </div>
     </div>
     @*unidad conquistador*@
-    <div class="sales">
+    <div class="unidad">
         <span class="material-symbols-outlined">interests</span>
         <div class="middle">
             <div class="left">
                 <h3>Unidad</h3>
                 <h1>Alcones</h1>
-                <div class="color">
-                    <circle cx="38" cy="38" r="36"></circle>
-                </div>
             </div>
+            <div class="color">
+               <svg>
+                  <circle cx="38" cy="38" r="36"></circle>
+               </svg>
+            </div>
+            
             <small class="text-muted">Fenix</small>
         </div>
     </div>
     @*datos personales conquistador*@
-    <div class="sales">
+    <div class="info">
         <span class="material-symbols-outlined">lock_person</span>
         <div class="middle">
             <div class="left">
@@ -45,9 +53,9 @@
                 <h5>Fec_Nac: 03/10/99</h5>
                 <h5>Telefono: 123456789</h5>
                 <h5>Email: x@gmail.com</h5>
-                
-            <small class="text-muted">Tus datos personales</small>
             </div>
+            <small class="text-muted">Tus datos personales</small>
+            
         </div>
     </div>
 </div>
