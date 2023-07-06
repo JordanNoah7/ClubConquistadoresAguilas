@@ -174,22 +174,22 @@ ALTER TABLE UserRol
 CREATE PROCEDURE usp_GetUserRolByUsername @username VARCHAR(15)
 AS
 BEGIN
-    BEGIN TRAN
-        BEGIN TRY
-            SELECT U.ID User_ID,
-                   U.password,
-                   U.concurrencyUser,
-                   R.ID Rol_ID,
-                   R.name
-            FROM Users U
-                     JOIN UserRol UR on U.ID = UR.UserID
-                     JOIN Roles R on R.ID = UR.RolID
-            WHERE U.userName = @username
-            COMMIT
-        END TRY
-        BEGIN CATCH
-            ROLLBACK
-        END CATCH
+    BEGIN TRAN;
+    BEGIN TRY
+        SELECT U.ID User_ID,
+               U.password,
+               U.concurrencyUser,
+               R.ID Rol_ID,
+               R.name
+        FROM Users U
+                 JOIN UserRol UR on U.ID = UR.UserID
+                 JOIN Roles R on R.ID = UR.RolID
+        WHERE U.userName = @username
+        COMMIT TRAN;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRAN;
+    END CATCH
 END
 GO
 
@@ -197,21 +197,21 @@ GO
 CREATE PROCEDURE usp_GetPersonClassByID @PersonID INT
 AS
 BEGIN
-    BEGIN TRAN
-        BEGIN TRY
-            SELECT C.firstName,
-                   C.fathersSurname,
-                   C.mothersSurname,
-                   CP.ClassID
-            FROM People AS C
-                     JOIN ClassPerson CP on C.ID = CP.PersonID
-            WHERE C.ID = @PersonID
-              AND YEAR(CP.year) = YEAR(getdate())
-            COMMIT
-        END TRY
-        BEGIN CATCH
-            ROLLBACK
-        END CATCH
+    BEGIN TRAN;
+    BEGIN TRY
+        SELECT C.firstName,
+               C.fathersSurname,
+               C.mothersSurname,
+               CP.ClassID
+        FROM People AS C
+                 JOIN ClassPerson CP on C.ID = CP.PersonID
+        WHERE C.ID = @PersonID
+          AND YEAR(CP.year) = YEAR(getdate())
+        COMMIT TRAN;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRAN;
+    END CATCH
 END
 GO
 
@@ -220,27 +220,34 @@ GO
 CREATE PROCEDURE usp_GetPathfinders
 AS
 BEGIN
-    SELECT P.ID    PeopleID,
-           P.firstName,
-           P.fathersSurname,
-           P.mothersSurname,
-           C.name  class,
-           U.name  unit,
-           P2.name position
-    FROM People P
-             JOIN ClassPerson CP on P.ID = CP.PersonID
-             JOIN Classes C on C.ID = CP.ClassID
-             JOIN PositionPersonUnit PPU on P.ID = PPU.PersonID
-             JOIN Units U on U.ID = PPU.UnitID
-             JOIN Positions P2 on P2.ID = PPU.PositionID
-             JOIN Users U2 on P.ID = U2.ID
-             JOIN UserRol UR on U2.ID = UR.UserID
-    WHERE UR.RolID IN (1, 2, 3, 4, 5)
-      AND YEAR(UR.insertionDate) = YEAR(GETDATE());
+    BEGIN TRAN;
+    BEGIN TRY
+        SELECT P.ID    PeopleID,
+               P.firstName,
+               P.fathersSurname,
+               P.mothersSurname,
+               C.name  class,
+               U.name  unit,
+               P2.name position
+        FROM People P
+                 JOIN ClassPerson CP on P.ID = CP.PersonID
+                 JOIN Classes C on C.ID = CP.ClassID
+                 JOIN PositionPersonUnit PPU on P.ID = PPU.PersonID
+                 JOIN Units U on U.ID = PPU.UnitID
+                 JOIN Positions P2 on P2.ID = PPU.PositionID
+                 JOIN Users U2 on P.ID = U2.ID
+                 JOIN UserRol UR on U2.ID = UR.UserID
+        WHERE UR.RolID IN (1, 2, 3, 4, 5)
+          AND YEAR(UR.insertionDate) = YEAR(GETDATE());
+        COMMIT TRAN;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRAN;
+    END CATCH
 END
 GO
 
----Procedimiento para insertar un padre
+---Procedimiento para insertar persona
 CREATE PROCEDURE usp_InsertPerson @DNI INT,
                                   @firstName NVARCHAR(30),
                                   @fathersSurname NVARCHAR(15),
@@ -260,69 +267,123 @@ CREATE PROCEDURE usp_InsertPerson @DNI INT,
                                   @RoleID INT
 AS
 BEGIN
-    BEGIN TRAN
-        BEGIN TRY
-            DECLARE @PersonID int;
+    BEGIN TRAN;
+    BEGIN TRY
+        DECLARE @PersonID int;
 
-            INSERT INTO People (firstName, fathersSurname, mothersSurname, birthDate, gender, address, phone, email,
-                                ClubID, PersonID, DNI)
-            VALUES (@firstName, @fathersSurname, @mothersSurname, @birthDate, @gender, @address, @phone, @email,
-                    @ClubID, @FatherID, @DNI);
+        INSERT INTO People (firstName, fathersSurname, mothersSurname, birthDate, gender, address, phone, email,
+                            ClubID, PersonID, DNI)
+        VALUES (@firstName, @fathersSurname, @mothersSurname, @birthDate, @gender, @address, @phone, @email,
+                @ClubID, @FatherID, @DNI);
 
-            SET @PersonID = SCOPE_IDENTITY();
+        SET @PersonID = SCOPE_IDENTITY();
 
-            INSERT INTO Users (ID, userName, password)
-            VALUES (@PersonID, @userName, @password);
+        INSERT INTO Users (ID, userName, password)
+        VALUES (@PersonID, @userName, @password);
 
-            INSERT INTO UserRol (UserID, RolID)
-            VALUES (@PersonID, @RoleID);
+        INSERT INTO UserRol (UserID, RolID)
+        VALUES (@PersonID, @RoleID);
 
-            INSERT INTO ClassPerson (PersonID, ClassID)
-            VALUES (@PersonID, @ClassID);
+        INSERT INTO ClassPerson (PersonID, ClassID)
+        VALUES (@PersonID, @ClassID);
 
-            INSERT INTO PositionPersonUnit (UnitID, PersonID, PositionID)
-            VALUES (@UnitID, @PersonID, @PositionID);
-            COMMIT
-        END TRY
-        BEGIN CATCH
-            ROLLBACK
-        END CATCH
+        INSERT INTO PositionPersonUnit (UnitID, PersonID, PositionID)
+        VALUES (@UnitID, @PersonID, @PositionID);
+        COMMIT TRAN;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRAN;
+    END CATCH
 END
 GO
 
----Procedimiento para insertar un conquistador
-CREATE PROCEDURE usp_InsertPathfinder @firstName NVARCHAR(30),
-                                      @fathersSurname NVARCHAR(15),
-                                      @mothersSurname NVARCHAR(15),
-                                      @birthDate DATE,
-                                      @gender CHAR(1),
-                                      @address NVARCHAR(30),
-                                      @phone nvarchar(15),
-                                      @email NVARCHAR(30),
-                                      @ClubID INT,
-                                      @PersonUpID INT,
-                                      @userName NVARCHAR(15),
-                                      @password NVARCHAR(15)
+---Procedimiento para obtener una lista de roles
+CREATE PROCEDURE usp_GetRoles
 AS
 BEGIN
-    BEGIN TRAN
-        BEGIN TRY
-            DECLARE @PersonID int;
+    BEGIN TRAN;
+    BEGIN TRY
+        SELECT R.ID,
+               R.name
+        FROM Roles R;
+        COMMIT TRAN;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRAN;
+    END CATCH
+END
+GO
 
-            INSERT INTO People (firstName, fathersSurname, mothersSurname, birthDate, gender, address, phone, email,
-                                ClubID, PersonID)
-            VALUES (@firstName, @fathersSurname, @mothersSurname, @birthDate, @gender, @address, @phone, @email,
-                    @ClubID, @PersonUpID);
+---Procedimiento para obtener lista posiciones
+CREATE PROCEDURE usp_GetPositions
+AS
+BEGIN
+    BEGIN TRAN;
+    BEGIN TRY
+        SELECT P.ID,
+               P.name
+        FROM Positions P;
+        COMMIT TRAN;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRAN;
+    END CATCH
+END
+GO
 
-            SET @PersonID = SCOPE_IDENTITY();
+---Procedimiento para obtener lista unidades
+CREATE PROCEDURE usp_GetUnits
+AS
+BEGIN
+    BEGIN TRAN;
+    BEGIN TRY
+        SELECT U.ID,
+               U.name
+        FROM Units U;
+        COMMIT TRAN;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRAN;
+    END CATCH
+END
+GO
 
-            INSERT INTO Users (ID, userName, password)
-            VALUES (@PersonID, @userName, @password);
-            COMMIT
-        END TRY
-        BEGIN CATCH
-            ROLLBACK
-        END CATCH
+---Procedimiento para obtener lista unidades
+CREATE PROCEDURE usp_GetClasses
+AS
+BEGIN
+    BEGIN TRAN;
+    BEGIN TRY
+        SELECT C.ID,
+               C.name
+        FROM Classes C;
+        COMMIT TRAN;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRAN;
+    END CATCH
+END
+GO
+
+---Procedimiento para obtener una lista de conquistadores por like
+CREATE PROCEDURE usp_GetFathersByLike @like NVARCHAR(15)
+AS
+BEGIN
+    BEGIN TRAN;
+    BEGIN TRY
+        SELECT P.ID,
+               P.firstName,
+               P.fathersSurname,
+               P.mothersSurname
+        FROM People P
+        WHERE P.firstName LIKE '%' + @like + '%'
+           OR P.fathersSurname LIKE '%' + @like + '%'
+           OR P.mothersSurname LIKE '%' + @like + '%';
+        COMMIT TRAN;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRAN;
+    END CATCH
 END
 GO
 
@@ -366,45 +427,6 @@ BEGIN
         END CATCH
 END
 GO
-
----Procedimiento para modificar padre
-/*CREATE PROCEDURE usp_UpdateFather @PersonID INT,
-                                  @firstName NVARCHAR(30),
-                                  @fathersSurname NVARCHAR(15),
-                                  @mothersSurname NVARCHAR(15),
-                                  @birthDate DATE,
-                                  @gender CHAR(1),
-                                  @address NVARCHAR(30),
-                                  @phone nvarchar(15),
-                                  @email NVARCHAR(30),
-                                  @userName NVARCHAR(15),
-                                  @password NVARCHAR(15)
-AS
-BEGIN
-    BEGIN TRAN
-        BEGIN TRY
-            UPDATE People
-            SET firstName      = @firstName,
-                fathersSurname = @fathersSurname,
-                mothersSurname = @mothersSurname,
-                birthDate      = @birthDate,
-                gender         = @gender,
-                address        = @address,
-                phone          = @phone,
-                email          = @email
-            WHERE ID = @PersonID
-
-            UPDATE Users
-            SET userName = @userName,
-                password = @password
-            WHERE ID = @PersonID
-            COMMIT
-        END TRY
-        BEGIN CATCH
-            ROLLBACK
-        END CATCH
-END
-GO*/
 
 ---Procedimientno para eliminar una persona
 CREATE PROCEDURE usp_DeletePerson @PersonID INT
