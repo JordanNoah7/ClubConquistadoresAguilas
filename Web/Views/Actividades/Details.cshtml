@@ -3,7 +3,7 @@
     ViewData["Vista"] = "Details";
 }
 
-<link rel="stylesheet" href="~/css/CrudOrganizacion.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/CrudOrganizacion.css" asp-append-version="true"/>
 
 @*action="@Url.Action("Login", "Login")" method="post" autocomplete="off"*@
 
@@ -17,37 +17,37 @@
 
     <table class="table table-hover">
         <thead>
-            <tr name="columna">
-                <th scope="col" name="nro">Item</th>
-                @*<th>
+        <tr name="columna">
+            <th scope="col" name="nro">Item</th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.Name)
                 </th>*@
-                <th class="nombre" name="colNombre">Nombre</th>
-                <th class="fechainicio" name="colFecIni">Fecha de Inicio</th>
-                <th class="fechafin" name="colFecFin">Fecha de Fin</th>
-                <th class="encargado" name="colEncargado">Encargado</th>
-                <th class="lugar" name="colLugar">Lugar</th>
-            </tr>
+            <th class="nombre" name="colNombre">Nombre</th>
+            <th class="fechainicio" name="colFecIni">Fecha de Inicio</th>
+            <th class="fechafin" name="colFecFin">Fecha de Fin</th>
+            <th class="encargado" name="colEncargado">Encargado</th>
+            <th class="lugar" name="colLugar">Lugar</th>
+        </tr>
         </thead>
         <tbody>
-            <tr name="fila">
-                <th scope="row" name="nro">1</th>
-                <td class="nombre" name="colNombre">Campamento</td>
-                <td class="fechainicio" name="colFecIni">02/06/23</td>
-                <td class="fechafin" name="colFecFin">02/09/23</td>
-                <td class="encargado" name="colEncargado">Joel Gonzales</td>
-                <td class="lugar" name="rowLugar">Av. Pioneros 115</td>
-                <td>
-                    <button type="button" id="delete" class="btn btn-default" onclick="location.href='@Url.Action("Delete", "Actividades")'">
-                        <span class="material-symbols-outlined">delete</span>
-                    </button>
-                    <button type="button" id="edit" class="btn btn-default" onclick="location.href='@Url.Action("Edit", "Actividades")'">
-                        <span class="material-symbols-outlined">edit_square</span>
-                    </button>
+        <tr name="fila">
+            <th scope="row" name="nro">1</th>
+            <td class="nombre" name="colNombre">Campamento</td>
+            <td class="fechainicio" name="colFecIni">02/06/23</td>
+            <td class="fechafin" name="colFecFin">02/09/23</td>
+            <td class="encargado" name="colEncargado">Joel Gonzales</td>
+            <td class="lugar" name="rowLugar">Av. Pioneros 115</td>
+            <td>
+                <button type="button" id="delete" class="btn btn-default" onclick="location.href='@Url.Action("Delete", "Actividades")'">
+                    <span class="material-symbols-outlined">delete</span>
+                </button>
+                <button type="button" id="edit" class="btn btn-default" onclick="location.href='@Url.Action("Edit", "Actividades")'">
+                    <span class="material-symbols-outlined">edit_square</span>
+                </button>
 
 
-                </td>
-            </tr>
+            </td>
+        </tr>
 
         </tbody>
     </table>

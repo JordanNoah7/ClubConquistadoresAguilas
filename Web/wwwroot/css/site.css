@@ -7,35 +7,38 @@
     background-position: center center;
     background-size: cover;
 }
+
 .cover {
     width: 100%;
     height: 100vh;
-    background-color: rgba(0,0,0,.5);
-    
-    
-}
-    .cover nav ul li {
-        transition: all 300ms ease;
-        
-    }
-        .cover nav ul li:hover {
-            /*background: #00BF63;*/
-            text-decoration: underline solid #00BF63;
-            box-shadow: 20px;
-            color:greenyellow;
-            /*border-bottom-color: #00BF63;*/
-            /* border-radius: 5px;*/
-            transform: translateY(9px);
-        }
+    background-color: rgba(0, 0, 0, .5);
 
+
+}
+
+.cover nav ul li {
+    transition: all 300ms ease;
+
+}
+
+.cover nav ul li:hover {
+    /*background: #00BF63;*/
+    text-decoration: underline solid #00BF63;
+    box-shadow: 20px;
+    color: greenyellow;
+    /*border-bottom-color: #00BF63;*/
+    /* border-radius: 5px;*/
+    transform: translateY(9px);
+}
 
 
 /**/
-    @media (min-width: 768px) {
-        html {
+@media (min-width: 768px) {
+    html {
         font-size: 16px;
     }
 }
+
 /*
 html {
     position: relative;
@@ -50,7 +53,7 @@ body {
     background-color: #2B463C !important;
 }*/
 
-.btn-border-color{
+.btn-border-color {
     border-color: #879D7E !important;
 }
 
@@ -60,22 +63,23 @@ body {
     width: 100%;
 }*/
 
-.text-red{
-    color:red !important;
+.text-red {
+    color: red !important;
 }
 
 
-    .home nav{
-     float: right;
-    }
+.home nav {
+    float: right;
+}
 
 .footer {
     background-color: black;
     position: absolute !important;
     bottom: 0;
     width: 100%;
-    
+
 }
+
 .content {
     position: absolute;
     bottom: 30vh;
@@ -83,40 +87,42 @@ body {
     float: right;
     margin-left: 100px;
 }
-    .content img {
-        float: left;
-        text-align: center;
-       
-        
-    }
-    .content .namelogo {
-       text-align: center;
-       float: right;
-     }
 
-    .content h1 {
-        color: #FCD24F;
-     }
+.content img {
+    float: left;
+    text-align: center;
 
-     .content p {
-        color: #F9A72B;   
-     }
+
+}
+
+.content .namelogo {
+    text-align: center;
+    float: right;
+}
+
+.content h1 {
+    color: #FCD24F;
+}
+
+.content p {
+    color: #F9A72B;
+}
 
 /*carrusel*/
 
-   /*.carousel .slider-container {
-        display: flex;
-        width: 100%;
-        height: 100vh;
-        overflow-x: scroll;*/
-        /* Vamos a añadir esto 👇 */
-        /*scroll-snap-type: x mandatory;
-    }
+/*.carousel .slider-container {
+     display: flex;
+     width: 100%;
+     height: 100vh;
+     overflow-x: scroll;*/
+/* Vamos a añadir esto 👇 */
+/*scroll-snap-type: x mandatory;
+}
 
-    .carousel .slider-container img {
-        flex: 0 0 100%;
-        width: 100%;
-        object-fit: cover;*/
-        /* Vamos a añadir esto 👇 */
-        /*scroll-snap-align: center;
-    }*/
+.carousel .slider-container img {
+flex: 0 0 100%;
+width: 100%;
+object-fit: cover;*/
+/* Vamos a añadir esto 👇 */
+/*scroll-snap-align: center;
+}*/

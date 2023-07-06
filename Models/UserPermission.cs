@@ -1,6 +1,6 @@
 ﻿namespace Models;
 
-public partial class UserPermission
+public class UserPermission
 {
     public int UserId { get; set; }
 

@@ -1,6 +1,6 @@
 ﻿namespace Models;
 
-public partial class Class
+public class Class
 {
     public byte Id { get; set; }
 

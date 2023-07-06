@@ -3,89 +3,88 @@
     ViewData["Vista"] = "TomarLista";
 }
 
-<link rel="stylesheet" href="~/css/CrudOrganizacion.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/CrudOrganizacion.css" asp-append-version="true"/>
 
 @*action="@Url.Action("Login", "Login")" method="post" autocomplete="off"*@
 
 <div class="recent-order">
-        <h2>
-            Tomar Lista *** 
-        </h2>
+    <h2>
+        Tomar Lista ***
+    </h2>
     <p class="bolded">Unidad : <b>Mujeres 12 -13 </b></p>
-        <br />
+    <br/>
     <p class="bolded">Fecha : <b> 03/07/23</b></p>
 
-        <div class="right">
-            <button type="submit" class="btnGuardar">Guardar</button>
-            <button type="submit" class="btnCancelar" onclick="location.href='@Url.Action("TomarLista", "Consejero")'">Cancelar</button>
-        </div>
-   
-         
+    <div class="right">
+        <button type="submit" class="btnGuardar">Guardar</button>
+        <button type="submit" class="btnCancelar" onclick="location.href='@Url.Action("TomarLista", "Consejero")'">Cancelar</button>
+    </div>
+
 
     <table class="table table-hover">
 
         <thead>
-            <tr name="columna">
-                <th scope="col" name="nro">Item</th>
-                <th class="nombre" name="colNombre">Nombre(s)</th>
-                <th class="apellido" name="colApellido">Apellido Completo</th>
-                <th class="asistencia" name="colasistencia">Asistencia</th>
-                <th class="devocion" name="coldevocion">Devoción</th>
-                <th class="cuota" name="colcuota">Cuota</th>
-                <th class="disciplina" name="coldisciplina">Disciplina</th>
-                <th class="aniobiblico" name="colaniobiblico">Año Bíblico</th>
-                <th class="requerimientodeclase" name="colrequerimientodeclase">Requerimiento de Clase</th>
+        <tr name="columna">
+            <th scope="col" name="nro">Item</th>
+            <th class="nombre" name="colNombre">Nombre(s)</th>
+            <th class="apellido" name="colApellido">Apellido Completo</th>
+            <th class="asistencia" name="colasistencia">Asistencia</th>
+            <th class="devocion" name="coldevocion">Devoción</th>
+            <th class="cuota" name="colcuota">Cuota</th>
+            <th class="disciplina" name="coldisciplina">Disciplina</th>
+            <th class="aniobiblico" name="colaniobiblico">Año Bíblico</th>
+            <th class="requerimientodeclase" name="colrequerimientodeclase">Requerimiento de Clase</th>
 
-            </tr>
+        </tr>
         </thead>
         <tbody>
-            <tr name="fila">
-                <th scope="row" name="nro">1</th>
-                <td class="nombre" name="rowNombre">Mark</td>
-                <td class="apellido" name="rowApellido">Otto Suarez</td>
-                <td class="asistencia" name="rowasistencia">
-                    <select name="Sexo" id="Sexo">
-                        <option value="0">0</option>
-                        <option value="20">20</option>
-                        <option value="40">40</option>
-                    </select>
-                </td>
-                <td class="devocion" name="rowdevocion">
-                    <select name="Sexo" id="Sexo">
-                        <option value="0">0</option>
-                        <option value="20">20</option>
-                        <option value="40">40</option>
-                    </select>
-                </td>
-                <td class="cuota" name="rowcolcuota">
-                    <select name="Sexo" id="Sexo">
-                        <option value="0">0</option>
-                        <option value="20">20</option>
-                        <option value="40">40</option>
-                    </select>
-                </td>
-                <td class="disciplina" name="rowdisciplina">
-                    <select name="Sexo" id="Sexo">
-                        <option value="0">0</option>
-                        <option value="20">20</option>
-                        <option value="40">40</option>
-                    </select>
-                </td>
-                <td class="aniobiblico" name="rowaniobiblico">
-                    <select name="Sexo" id="Sexo">
-                        <option value="0">0</option>
-                        <option value="20">20</option>
-                        <option value="40">40</option>
-                    </select>
-                </td>
-                <td class="requerimientodeclase" name="rowrequerimientodeclase">
-                    <select name="Sexo" id="Sexo">
-                        <option value="0">0</option>
-                        <option value="20">20</option>
-                        <option value="40">40</option>
-                    </select>
-                </td>
-            </tr>
+        <tr name="fila">
+            <th scope="row" name="nro">1</th>
+            <td class="nombre" name="rowNombre">Mark</td>
+            <td class="apellido" name="rowApellido">Otto Suarez</td>
+            <td class="asistencia" name="rowasistencia">
+                <select name="Sexo" id="Sexo">
+                    <option value="0">0</option>
+                    <option value="20">20</option>
+                    <option value="40">40</option>
+                </select>
+            </td>
+            <td class="devocion" name="rowdevocion">
+                <select name="Sexo" id="Sexo">
+                    <option value="0">0</option>
+                    <option value="20">20</option>
+                    <option value="40">40</option>
+                </select>
+            </td>
+            <td class="cuota" name="rowcolcuota">
+                <select name="Sexo" id="Sexo">
+                    <option value="0">0</option>
+                    <option value="20">20</option>
+                    <option value="40">40</option>
+                </select>
+            </td>
+            <td class="disciplina" name="rowdisciplina">
+                <select name="Sexo" id="Sexo">
+                    <option value="0">0</option>
+                    <option value="20">20</option>
+                    <option value="40">40</option>
+                </select>
+            </td>
+            <td class="aniobiblico" name="rowaniobiblico">
+                <select name="Sexo" id="Sexo">
+                    <option value="0">0</option>
+                    <option value="20">20</option>
+                    <option value="40">40</option>
+                </select>
+            </td>
+            <td class="requerimientodeclase" name="rowrequerimientodeclase">
+                <select name="Sexo" id="Sexo">
+                    <option value="0">0</option>
+                    <option value="20">20</option>
+                    <option value="40">40</option>
+                </select>
+            </td>
+        </tr>
 
         </tbody>
     </table>
