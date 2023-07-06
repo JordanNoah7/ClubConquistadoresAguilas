@@ -246,7 +246,7 @@ BEGIN
     END CATCH
 END
 GO
-
+------------------------------------------------------------------------------------------------------------------------
 ---Procedimiento para insertar persona
 CREATE PROCEDURE usp_InsertPerson @DNI INT,
                                   @firstName NVARCHAR(30),
@@ -386,7 +386,7 @@ BEGIN
     END CATCH
 END
 GO
-
+------------------------------------------------------------------------------------------------------------------------
 ---Procedimiento para modificar conquistador
 CREATE PROCEDURE usp_UpdatePerson @PersonID INT,
                                   @firstName NVARCHAR(30),

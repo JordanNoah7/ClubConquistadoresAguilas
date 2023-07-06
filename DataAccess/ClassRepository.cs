@@ -1,88 +1,51 @@
-﻿using Domain;
+﻿using System.Data;
+using Domain;
+using Infrastructure.Context;
+using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using Models;
 
 namespace DataAccess;
 
-public class ClassRepository : ConnectionRepository, IGenericRepository<Class>
+public class ClassRepository : ConnectionRepository, IClassRepository
 {
     public ClassRepository(IConfiguration configuration) : base(configuration)
     {
     }
-
-    public async Task<bool> Insert(Class model)
+    
+    public async Task<IEnumerable<Class>> GetClasses()
     {
-        throw new Exception();
-        /*try
+        var classList = new List<Class>();
+        using (var cnDb=Connection.GetConnection(Configuration))
         {
-            _dbContext.Classes.Add(model);
-            await _dbContext.SaveChangesAsync();
+            try
+            {
+                using (var cmd = new SqlCommand("usp_GetClasses", cnDb))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Clear();
+                    Connection.OpenConnection();
+                    using (var dr = await cmd.ExecuteReaderAsync())
+                    {
+                        while (await dr.ReadAsync())
+                        {
+                            classList.Add(new Class()
+                            {
+                                Id = Convert.ToByte(dr["ID"].ToString()),
+                                Name = dr["name"].ToString()
+                            });
+                        }
+                    }
+                    Connection.CloseConnection();
+                }
 
-            return true;
+                return classList;
+            }
+            catch (Exception ex)
+            {
+                Connection.CloseConnection();
+                return null;
+            }
         }
-        catch (Exception ex)
-        {
-            return false;
-        }*/
-    }
-
-    public async Task<bool> Update(Class model)
-    {
-        throw new Exception();
-        /*try
-        {
-            _dbContext.Classes.Update(model);
-            await _dbContext.SaveChangesAsync();
-
-            return true;
-        }
-        catch (Exception ex)
-        {
-            return false;
-        }*/
-    }
-
-    public async Task<bool> Delete(int id1, int id2 = 0)
-    {
-        throw new Exception();
-        /*try
-        {
-            var model = _dbContext.Classes.First(c => c.Id == id1);
-            _dbContext.Classes.Remove(model);
-            await _dbContext.SaveChangesAsync();
-
-            return true;
-        }
-        catch (Exception ex)
-        {
-            return false;
-        }*/
-    }
-
-    public async Task<Class> Get(int id1, int id2 = 0)
-    {
-        throw new Exception();
-        /*try
-        {
-            return await _dbContext.Classes.FindAsync(id1);
-        }
-        catch (Exception ex)
-        {
-            return null;
-        }*/
-    }
-
-    public async Task<IEnumerable<Class>> GetAll()
-    {
-        throw new Exception();
-        /*try
-        {
-            IEnumerable<Class> queryClassesSQL = _dbContext.Classes;
-            return queryClassesSQL;
-        }
-        catch (Exception ex)
-        {
-            return null;
-        }*/
     }
 }
