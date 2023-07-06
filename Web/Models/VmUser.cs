@@ -1,6 +1,6 @@
 ﻿namespace Web.Models;
 
-public class VMUser
+public class VmUser
 {
     public int Id { get; set; }
 

@@ -15,10 +15,29 @@ public class PersonService : IPersonService
 
     public async Task<Person> GetPersonClassById(int id)
     {
-        return await _personRepo.GetPersonClassById(id);
+        try
+        {
+            return await _personRepo.GetPersonClassById(id);
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
     }
 
-    /*public async Task<bool> Insert(Person model)
+    public async Task<IEnumerable<Person>> GetPathfinders()
+    {
+        try
+        {
+            return await _personRepo.GetPathfinders();
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
+
+    public async Task<bool> Insert(Person model)
     {
         try
         {
@@ -31,7 +50,7 @@ public class PersonService : IPersonService
         }
     }
 
-    public async Task<bool> Update(Person model)
+    /*public async Task<bool> Update(Person model)
     {
         try
         {

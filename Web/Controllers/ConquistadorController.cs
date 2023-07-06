@@ -1,9 +1,18 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Application.IService;
+using Microsoft.AspNetCore.Mvc;
+using Web.Models;
 
 namespace Web.Controllers;
 
 public class ConquistadorController : Controller
 {
+    private readonly IPersonService _personService;
+
+    public ConquistadorController(IPersonService personService)
+    {
+        _personService = personService;
+    }
+
     // GET: ConquistadorController
     public ActionResult Index()
     {
@@ -11,9 +20,27 @@ public class ConquistadorController : Controller
     }
 
     // GET: ConquistadorController/Details/5
-    public ActionResult Details(int id)
+    public async Task<ActionResult> Details()
     {
-        return View();
+        var vmPathfinders = new List<VmPerson>();
+        var pathfinders = await _personService.GetPathfinders();
+        var enumerable = pathfinders.ToList();
+        foreach (var it in enumerable) Console.WriteLine(it.Id.ToString());
+        foreach (var item in enumerable)
+            vmPathfinders.Add(new VmPerson
+            {
+                Id = item.Id,
+                FirstName = item.FirstName,
+                FullSurname = item.FathersSurname + " " + item.MothersSurname,
+                Class = item.ClassPeople.FirstOrDefault().Class.Name,
+                Unit = item.PositionPersonUnits.FirstOrDefault().Unit.Name,
+                Position = item.PositionPersonUnits.FirstOrDefault().Position.Name
+            });
+        var vmPerson = new VmPerson
+        {
+            PersonList = vmPathfinders
+        };
+        return View(vmPerson);
     }
 
     // GET: ConquistadorController/Create

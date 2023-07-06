@@ -28,14 +28,14 @@ public class Connection
 
     public static void OpenConnection()
     {
-        if (_connection != null) _connection.OpenAsync();
+        if (_connection != null) _connection.Open();
     }
 
     public static void CloseConnection()
     {
         if (_connection != null)
         {
-            _connection.CloseAsync();
+            _connection.Close();
             _connection.Dispose();
             _connection = null;
         }

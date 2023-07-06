@@ -241,7 +241,8 @@ END
 GO
 
 ---Procedimiento para insertar un padre
-CREATE PROCEDURE usp_InsertFather @firstName NVARCHAR(30),
+CREATE PROCEDURE usp_InsertPerson @DNI INT,
+                                  @firstName NVARCHAR(30),
                                   @fathersSurname NVARCHAR(15),
                                   @mothersSurname NVARCHAR(15),
                                   @birthDate DATE,
@@ -251,7 +252,12 @@ CREATE PROCEDURE usp_InsertFather @firstName NVARCHAR(30),
                                   @email NVARCHAR(30),
                                   @ClubID INT,
                                   @userName NVARCHAR(15),
-                                  @password NVARCHAR(15)
+                                  @password NVARCHAR(15),
+                                  @FatherID INT = NULL,
+                                  @ClassID INT,
+                                  @UnitID INT,
+                                  @PositionID INT,
+                                  @RoleID INT
 AS
 BEGIN
     BEGIN TRAN
@@ -259,14 +265,23 @@ BEGIN
             DECLARE @PersonID int;
 
             INSERT INTO People (firstName, fathersSurname, mothersSurname, birthDate, gender, address, phone, email,
-                                ClubID)
+                                ClubID, PersonID, DNI)
             VALUES (@firstName, @fathersSurname, @mothersSurname, @birthDate, @gender, @address, @phone, @email,
-                    @ClubID);
+                    @ClubID, @FatherID, @DNI);
 
             SET @PersonID = SCOPE_IDENTITY();
 
             INSERT INTO Users (ID, userName, password)
             VALUES (@PersonID, @userName, @password);
+
+            INSERT INTO UserRol (UserID, RolID)
+            VALUES (@PersonID, @RoleID);
+
+            INSERT INTO ClassPerson (PersonID, ClassID)
+            VALUES (@PersonID, @ClassID);
+
+            INSERT INTO PositionPersonUnit (UnitID, PersonID, PositionID)
+            VALUES (@UnitID, @PersonID, @PositionID);
             COMMIT
         END TRY
         BEGIN CATCH

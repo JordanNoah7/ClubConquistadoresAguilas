@@ -1,6 +1,6 @@
 ﻿namespace Web.Models;
 
-public class VMActivity
+public class VmActivity
 {
     public int Id { get; set; }
 

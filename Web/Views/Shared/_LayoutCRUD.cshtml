@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using System.Security.Claims
+<!DOCTYPE html>
 
 <html lang="es">
 <head>
@@ -107,7 +108,15 @@
     <!--fin de aside-->
     <main>
         <h1>
-            Hola, <b name="nombrePersona">Pedro</b> !
+            @{
+                var vmPerson = new VmPerson();
+                vmPerson.FirstName = User.FindFirstValue(ClaimTypes.Name);
+                vmPerson.FullSurname = User.FindFirstValue(ClaimTypes.Surname);
+                var fullname = vmPerson.FirstName + " " + vmPerson.FullSurname;
+                var vmRole = new VmRole();
+                vmRole.Name = User.FindFirstValue(ClaimTypes.Role);
+            }
+            Hola, <b name="nombrePersona"> @vmPerson.FirstName </b> !
             <span class="material-symbols-outlined">waving_hand</span>
         </h1>
         @RenderBody()
@@ -124,9 +133,9 @@
             </div>
             <div class="profile">
                 <div class="info">
-                    <p>Soy, <b name="fullnameUsuario">Pedro Perez</b></p>
+                    <p>Soy, <b name="fullnameUsuario">@fullname</b></p>
                     <small class="text-muted">
-                        <b name="RolUsuario">Director</b>
+                        <b name="RolUsuario">@vmRole.Name</b>
                     </small>
                 </div>
                 <div class="profile-photo">

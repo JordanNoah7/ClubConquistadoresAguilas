@@ -1,4 +1,7 @@
-﻿using Application.IService;
+﻿using System.Security.Claims;
+using Application.IService;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Web.Controllers;
@@ -33,9 +36,39 @@ public class LoginController : Controller
         if (user.Password.Equals(password))
         {
             var person = await _personService.GetPersonClassById(user.Id);
-            var classId = person.ClassPeople.FirstOrDefault().ClassId;
-            Console.WriteLine(classId.ToString());
-            return RedirectToAction("Index", "Home");
+
+            var claims = new List<Claim>
+            {
+                new(ClaimTypes.Name, person.FirstName),
+                new(ClaimTypes.Surname, person.FathersSurname + " " + person.MothersSurname),
+                new(ClaimTypes.Role, user.UserRols.FirstOrDefault().Rol.Name),
+                new(ClaimTypes.Actor, person.ClassPeople.FirstOrDefault().ClassId.ToString())
+            };
+
+            var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+            var authProperties = new AuthenticationProperties
+            {
+                IsPersistent = true
+            };
+
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
+                new ClaimsPrincipal(claimsIdentity), authProperties);
+
+            switch (user.UserRols.FirstOrDefault().Rol.Id)
+            {
+                case 1:
+                    return RedirectToAction("Index", "Conquistador");
+                case 2:
+                    return RedirectToAction("Index", "Consejero");
+                case 3:
+                    return RedirectToAction("Index", "Instructor");
+                case 4:
+                    return RedirectToAction("Index", "Home");
+                case 5:
+                    return RedirectToAction("Details", "Conquistador");
+                case 6:
+                    return RedirectToAction("Index", "Padre");
+            }
         }
 
         ViewBag.ErrorMessage = "Nombre de usuario o contraseña incorrectos";
