@@ -71,25 +71,8 @@
                     <span class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label for="cargo">Cargo</label>
-                    <select name="cargo" id="cargo">
-                        <option value="conquistador">Conquistador</option>
-                        <option value="instructor">Instructor</option>
-                        <option value="consejero">Consejero</option>
-                        <option value="padre">Padre</option>
-                        <option value="director">Director</option>
-                        <option value="tesorero">Tesorero</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label class="control-label">Usuario:</label>
-                    <input type="text" aria-label="usuario" class="form-control" required>
-                    <span class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label class="control-label">Contraseña:</label>
-                    <input type="text" aria-label="pasword" class="form-control" required>
+                    <label class="control-label">Padre/Apoderado:*</label>
+                    <input type="search" aria-label="padre" id="padre" class="form-control" required>
                     <span class="text-danger"></span>
                 </div>
                 <div class="form-group">
@@ -119,8 +102,45 @@
                         <option value="unidadH-2">Hombres 14-15</option>
                     </select>
                 </div>
-                <br/>
-                <br/>
+                <br />
+                <br />
+                <div class="form-group">
+                    <label for="cargo">Cargo</label>
+                    <select name="cargo" id="cargo">
+                        <option value="conquistador">Conquistador</option>
+                        <option value="instructor">Instructor</option>
+                        <option value="consejero">Consejero</option>
+                        <option value="padre">Padre</option>
+                        <option value="director">Director</option>
+                        <option value="tesorero">Tesorero</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="cargo">Rol</label>
+                    <select name="rol" id="rol">
+                        <option value="rol1">Rol1</option>
+                        <option value="rol2">Rol2</option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Usuario:</label>
+                    <input type="text" aria-label="usuario" class="form-control" required>
+                    <span class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Contraseña:</label>
+                    <input type="text" aria-label="pasword" class="form-control" required>
+                    <span class="text-danger"></span>
+                </div>
+                
+=======
+                <br />
+                <br />
+>>>>>>> parent of 2b6f1e4 (perfil general del conquistador)
                 @*<input type="submit" value="Guardar" class="btn btn-primary" />*@
                 <button type="submit" class="btnGuardar" value="guardar">Guardar</button>
             </form>
