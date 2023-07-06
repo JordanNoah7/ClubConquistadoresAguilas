@@ -1,28 +1,29 @@
 ﻿
 main .formCrud {
     box-sizing: border-box;
-    font-family: 'Poppins',sans-serif;
+    font-family: 'Poppins', sans-serif;
     width: 94%;
-    overflow:hidden;
+    overflow: hidden;
 }
 
-    main .formCrud .row {
-        column-count: 2;
-        column-gap: 3rem;
-        column-rule: 1px solid #2B463C; /*verde oscuro*/
-    }
-    main .formCrud label {
-        color: #2B463C; /*verde oscuro*/
-        float: left;
-        width: 200px;
-        padding-right: 24px;
-    }
+main .formCrud .row {
+    column-count: 2;
+    column-gap: 3rem;
+    column-rule: 1px solid #2B463C; /*verde oscuro*/
+}
 
-    main .formCrud .form-control[type="date"]:checked{
-        color: #2B463C; /*verde oscuro*/
-    }
+main .formCrud label {
+    color: #2B463C; /*verde oscuro*/
+    float: left;
+    width: 200px;
+    padding-right: 24px;
+}
 
-main .formCrud .row input,select {
+main .formCrud .form-control[type="date"]:checked {
+    color: #2B463C; /*verde oscuro*/
+}
+
+main .formCrud .row input, select {
     border: 2px solid #2B463C; /*verde oscuro*/
     border-radius: 10px;
     height: 2rem;
@@ -32,17 +33,18 @@ main .formCrud .row input,select {
     width: calc(100% - 10px);
 }
 
-    main .formCrud .row .form-group select {
-        font-size: 12px;
-        color: #7F7D7F;
-        text-align: left;
-    }
-    main .botones {
-        height: 2rem;
-        align-content: center;
-        justify-content: center;
-        text-align: center;
-    }
+main .formCrud .row .form-group select {
+    font-size: 12px;
+    color: #7F7D7F;
+    text-align: left;
+}
+
+main .botones {
+    height: 2rem;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+}
 
 main .row .col .btnGuardar {
     background-color: white;
@@ -52,8 +54,9 @@ main .row .col .btnGuardar {
     width: 50%;
     height: 2rem;
     margin: 15px 0px 0px 0px;
-    
+
 }
+
 main .delete button:hover {
     background-color: #EA2027; /*rojo*/
     color: white;
@@ -73,17 +76,18 @@ main .botones .btnCancelar {
     width: 40%;
     height: 2rem;
 }
-    main .botones button:hover {
-        background: #979497;
-        color: white;
-    }
 
-    main h1 span {
-        color: #EF9645; /*naranja*/
-    }
+main .botones button:hover {
+    background: #979497;
+    color: white;
+}
 
-        main .formCrud h2 {
-            margin-bottom: 0.8rem;
-        }
+main h1 span {
+    color: #EF9645; /*naranja*/
+}
+
+main .formCrud h2 {
+    margin-bottom: 0.8rem;
+}
 
 

@@ -1,6 +1,6 @@
 ﻿namespace Models;
 
-public partial class Club
+public class Club
 {
     public int Id { get; set; }
 

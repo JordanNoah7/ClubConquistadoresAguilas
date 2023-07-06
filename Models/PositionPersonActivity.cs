@@ -1,6 +1,6 @@
 ﻿namespace Models;
 
-public partial class PositionPersonActivity
+public class PositionPersonActivity
 {
     public int ActivityId { get; set; }
 

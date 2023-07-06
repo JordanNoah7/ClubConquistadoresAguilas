@@ -1,80 +1,52 @@
-﻿
-@{
+﻿@{
     Layout = "_LayoutCrud";
 }
 
-<link rel="stylesheet" href="~/css/perfilconquistador.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/perfilconquistador.cs" asp-append-version="true"/>
 
 @*action="@Url.Action("Login", "Login")" method="post" autocomplete="off"*@
 
 <div class="insights">
     @*clase conquistador*@
-    <div class="clase">
+    <div class="sales">
         <span class="material-symbols-outlined">category</span>
         <div class="middle">
             <div class="left">
                 <h3>Clase</h3>
                 <h1>Amigo</h1>
-               
-            </div>
                 <div class="color">
-                    <svg>
-                        <circle cx="38" cy="38" r="36"></circle>
-                    </svg>
-                    
+                    <circle cx="38" cy="38" r="36"></circle>
                 </div>
+            </div>
+            <small class="text-muted">Tu clase anual</small>
         </div>
     </div>
     @*unidad conquistador*@
-    <div class="unidad">
+    <div class="sales">
         <span class="material-symbols-outlined">interests</span>
         <div class="middle">
             <div class="left">
                 <h3>Unidad</h3>
                 <h1>Alcones</h1>
+                <div class="color">
+                    <circle cx="38" cy="38" r="36"></circle>
+                </div>
             </div>
-            <div class="color">
-               <svg>
-                  <circle cx="38" cy="38" r="36"></circle>
-               </svg>
-            </div>
-            
-            
+            <small class="text-muted">Fenix</small>
         </div>
     </div>
     @*datos personales conquistador*@
-    <div class="info">
+    <div class="sales">
         <span class="material-symbols-outlined">lock_person</span>
         <div class="middle">
             <div class="left">
-                <h1>Información General</h1>
-                <h3>Fec_Nac: 03/10/99</h3>
-                <h3>Telefono: 123456789</h3>
-                <h3>Email: x@gmail.com</h3>
+                <h3>Información General</h3>
+                <h5>Fec_Nac: 03/10/99</h5>
+                <h5>Telefono: 123456789</h5>
+                <h5>Email: x@gmail.com</h5>
+
+                <small class="text-muted">Tus datos personales</small>
             </div>
-            
-            
         </div>
-    </div>
-</div>
-<div class="recent-order">
-    <div class="left">
-        <h3>Disfrutar de una excursión por la montaña o el campo es una de las mejores actividades 
-            para hacer al aire libre. Sin embargo, siempre debes ir acompañado de tu grupo,
-            si no conoces bien la zona y 
-            el camino no está señalizado puedes perderte y no encontrar la manera de regresar a casa.
-        </h3>
-        <h3>
-            Para contactarse con su grupo de Conquistadores,
-            por favor presione el siguiente boton, lo redigira a su grupo de whatsap
-        </h3>
-    </div>
-    <div class="rigth">
-        <div class="boton">
-            <button onclick="location.href='https://wa.me/966871384'" type="button">Whatsapp</button>
-            <img src="/img/whatsapp.png"/>
-        </div>
-       
-        <img src="/img/conquistador.png" />
     </div>
 </div>

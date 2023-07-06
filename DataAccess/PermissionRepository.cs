@@ -1,11 +1,10 @@
 ﻿using Domain;
-using Infrastructure.Context;
 using Microsoft.Extensions.Configuration;
 using Models;
 
 namespace DataAccess;
 
-public class PermissionRepository : ContextRepository, IGenericRepository<Permission>
+public class PermissionRepository : ConnectionRepository, IGenericRepository<Permission>
 {
     public PermissionRepository(IConfiguration configuration) : base(configuration)
     {

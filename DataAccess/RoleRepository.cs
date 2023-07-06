@@ -1,11 +1,10 @@
 ﻿using Domain;
-using Infrastructure.Context;
 using Microsoft.Extensions.Configuration;
 using Models;
 
 namespace DataAccess;
 
-public class RoleRepository : ContextRepository, IGenericRepository<Role>
+public class RoleRepository : ConnectionRepository, IGenericRepository<Role>
 {
     public RoleRepository(IConfiguration configuration) : base(configuration)
     {

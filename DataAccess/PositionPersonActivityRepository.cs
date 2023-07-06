@@ -1,12 +1,10 @@
 ﻿using Domain;
-using Infrastructure.Context;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Models;
 
 namespace DataAccess;
 
-public class PositionPersonActivityRepository : ContextRepository, IGenericRepository<PositionPersonActivity>
+public class PositionPersonActivityRepository : ConnectionRepository, IGenericRepository<PositionPersonActivity>
 {
     public PositionPersonActivityRepository(IConfiguration configuration) : base(configuration)
     {

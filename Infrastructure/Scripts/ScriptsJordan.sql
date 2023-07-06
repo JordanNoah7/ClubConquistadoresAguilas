@@ -8,7 +8,8 @@ VALUES ('Las Aguilas', 'Ciudad Municipal', 3, '05/05/2014', 'Domingo', '09:00:00
         'Arequipa', N'Perú', 'Club de conquistadores Las Aguilas')
 
 ---Insertar a People
-ALTER TABLE People ADD DNI INT NULL;
+ALTER TABLE People
+    ADD DNI INT NULL;
 DBCC CHECKIDENT ( People, RESEED, 0);
 INSERT INTO People (firstName, fathersSurname, mothersSurname, birthDate, gender, address, phone, email, ClubID, DNI)
 VALUES ('Jordan', 'Quispe', 'Supo', '09/07/1999', 'M', 'Ciudad Municipal', '914786862',
@@ -19,7 +20,9 @@ INSERT INTO Users (ID, userName, password)
 VALUES (1, 'dyfmeks', '#Aa12345');
 
 ---Insertar roles
-delete from Roles where id >= 0
+delete
+from Roles
+where id >= 0
 DBCC CHECKIDENT ( Roles, RESEED, 0);
 INSERT INTO Roles (name, description)
 VALUES ('Conquistador', 'Solo son conquistadores, no tienen ningun cargo');
@@ -42,7 +45,8 @@ INSERT INTO Units (name, motto, battleCry, description, ClubID)
 VALUES ('Fenix', 'por definir', 'por definir', 'Unidad de mujeres del club las aguilas', 1);
 
 ---Insertar clases de conquistadores
-ALTER TABLE Classes ALTER COLUMN name NVARCHAR(35) NOT NULL;
+ALTER TABLE Classes
+    ALTER COLUMN name NVARCHAR(35) NOT NULL;
 DBCC CHECKIDENT ( Classes, RESEED, 0);
 INSERT INTO Classes (name, description)
 VALUES ('Amigo', N'Clase regular para conquistadores de 10 años');
@@ -101,9 +105,12 @@ VALUES ('Elmer Leonel', 'Mercado', 'Llacho', '09/05/2007', 'M', 'Ciudad Municipa
         90865341);
 INSERT INTO Users (ID, userName, password)
 VALUES (2, 'ellemell', '#Ee12345');
-INSERT INTO UserRol (UserID, RolID) VALUES (2, 5);
-INSERT INTO ClassPerson (PersonID, ClassID) VALUES (2, 11);
-INSERT INTO PositionPersonUnit (UnitID, PersonID, PositionID) VALUES (1, 2, 5);
+INSERT INTO UserRol (UserID, RolID)
+VALUES (2, 5);
+INSERT INTO ClassPerson (PersonID, ClassID)
+VALUES (2, 11);
+INSERT INTO PositionPersonUnit (UnitID, PersonID, PositionID)
+VALUES (1, 2, 5);
 
 --Añadiendo campo para control de concurrencia a las tablas
 ALTER TABLE Clubs
@@ -199,7 +206,7 @@ BEGIN
             FROM People AS C
                      JOIN ClassPerson CP on C.ID = CP.PersonID
             WHERE C.ID = @PersonID
-              AND CP.year = YEAR(getdate())
+              AND YEAR(CP.year) = YEAR(getdate())
             COMMIT
         END TRY
         BEGIN CATCH
@@ -234,7 +241,8 @@ END
 GO
 
 ---Procedimiento para insertar un padre
-CREATE PROCEDURE usp_InsertFather @firstName NVARCHAR(30),
+CREATE PROCEDURE usp_InsertPerson @DNI INT,
+                                  @firstName NVARCHAR(30),
                                   @fathersSurname NVARCHAR(15),
                                   @mothersSurname NVARCHAR(15),
                                   @birthDate DATE,
@@ -244,7 +252,12 @@ CREATE PROCEDURE usp_InsertFather @firstName NVARCHAR(30),
                                   @email NVARCHAR(30),
                                   @ClubID INT,
                                   @userName NVARCHAR(15),
-                                  @password NVARCHAR(15)
+                                  @password NVARCHAR(15),
+                                  @FatherID INT = NULL,
+                                  @ClassID INT,
+                                  @UnitID INT,
+                                  @PositionID INT,
+                                  @RoleID INT
 AS
 BEGIN
     BEGIN TRAN
@@ -252,14 +265,23 @@ BEGIN
             DECLARE @PersonID int;
 
             INSERT INTO People (firstName, fathersSurname, mothersSurname, birthDate, gender, address, phone, email,
-                                ClubID)
+                                ClubID, PersonID, DNI)
             VALUES (@firstName, @fathersSurname, @mothersSurname, @birthDate, @gender, @address, @phone, @email,
-                    @ClubID);
+                    @ClubID, @FatherID, @DNI);
 
             SET @PersonID = SCOPE_IDENTITY();
 
             INSERT INTO Users (ID, userName, password)
             VALUES (@PersonID, @userName, @password);
+
+            INSERT INTO UserRol (UserID, RolID)
+            VALUES (@PersonID, @RoleID);
+
+            INSERT INTO ClassPerson (PersonID, ClassID)
+            VALUES (@PersonID, @ClassID);
+
+            INSERT INTO PositionPersonUnit (UnitID, PersonID, PositionID)
+            VALUES (@UnitID, @PersonID, @PositionID);
             COMMIT
         END TRY
         BEGIN CATCH

@@ -50,7 +50,9 @@ public partial class ClubConquistadoresAguilasContext : DbContext
 
     public virtual DbSet<UserRol> UserRols { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder){}
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

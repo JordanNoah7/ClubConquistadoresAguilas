@@ -1,11 +1,10 @@
 ﻿using Domain;
-using Infrastructure.Context;
 using Microsoft.Extensions.Configuration;
 using Models;
 
 namespace DataAccess;
 
-public class SpecialtyRepository : ContextRepository, IGenericRepository<Specialty>
+public class SpecialtyRepository : ConnectionRepository, IGenericRepository<Specialty>
 {
     public SpecialtyRepository(IConfiguration configuration) : base(configuration)
     {

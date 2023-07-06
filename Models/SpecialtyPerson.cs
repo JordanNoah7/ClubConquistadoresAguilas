@@ -1,6 +1,6 @@
 ﻿namespace Models;
 
-public partial class SpecialtyPerson
+public class SpecialtyPerson
 {
     public int PersonId { get; set; }
 
