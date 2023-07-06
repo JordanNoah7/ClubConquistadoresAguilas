@@ -54,13 +54,8 @@ main .insights h3{
         width: 7rem;
         height: 7rem;
     }
-    main .insights .clase svg circle {
-        fill: red; /*color del circulo*/
+    main .insights .color circle{
+        background:red;
     }
-    main .insights .unidad svg circle{
-        fill:yellow; /*color del circulo*/
-    }
-
-
 
 
