@@ -24,15 +24,18 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between" id="lista">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">INICIO</a>
+                            <a class="nav-link text-white" href="@Url.Action("Index", "Home")">INICIO</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Privacy">¿QUIENES SOMOS?</a>
+                            <a class="nav-link text-white" href="@Url.Action("AboutUs", "Home")">¿QUIENES SOMOS?</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">CONTÁCTANOS</a>
+                            <a class="nav-link text-white" href="@Url.Action("Ideals", "Home")">IDEALES</a>
                         </li>
-                        <li class="nav-iniciarsesion">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="@Url.Action("Contact", "Home")">CONTÁCTANOS</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link text-white" href="@Url.Action("Login", "Login")">INICIAR SESION</a>
                         </li>
                     </ul>
@@ -54,10 +57,10 @@
         </div>
 
     </div>
-    <main>
-
-    </main>
 </section>
+
+<main>
+</main>
 
 <footer class="bg-green footer navbar bg-body-tertiary">
     <div class="bg-green container-fluid navbar navbar-expand-sm navbar-toggleable-sm navbar-light box-shadow mb-3">
