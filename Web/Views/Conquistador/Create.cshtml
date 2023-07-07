@@ -21,7 +21,7 @@
                 @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
                 <div class="form-group">
                     <label class="control-label">DNI: *</label>
-                    <input type="text" name="Dni" aria-label="Dni: " class="form-control" required>
+                    <input type="number" name="Dni" aria-label="Dni: " class="form-control" required>
                     <span class="text-danger"></span>
                 </div>
 
@@ -71,23 +71,39 @@
                     <span class="text-danger"></span>
                 </div>
                 <div class="form-group">
+
                     <label class="control-label">Padre/Apoderado:*</label>
-                    <input type="search" aria-label="padre" id="padre" class="form-control" required>
-                    <span class="text-danger"></span>
+                   @* <input type="text" aria-label="buscador" id="buscador" class="form-control" placeholder="buscar ..." required>
+                   *@
+                   @* <ul class="listaPadres" id="listaPadres">
+                        <li>padre 1</li>
+                        <li>padre 2</li>
+                        <li>padre 3</li>
+                    </ul>
+*@
+                    <select class="apoderado" name="Attorney" id="listaPadres">
+                        <option value="">Pablito Suarez</option>
+                        <option value="M">Hugo Bonito</option>
+                        <option value="F">Mateo Cueva</option>
+                        <option value="M">Martín Ocaña Palacios</option>
+                        <option value="M">Manuel Armando Rascacielos</option>
+                    </select>
+
                 </div>
+               
                 <div class="form-group">
                     <label for="clase">Clase</label>
                     <select name="clase" id="clase">
-                        <option value=""></option>
-                        <option value="amigo">Amigo</option>
-                        <option value="compañero">Compañero</option>
-                        <option value="explorador">Explorador</option>
-                        <option value="pionero">Pionero</option>
-                        <option value="excursionista">Excursionista</option>
-                        <option value="club">Club</option>
-                        <option value="guia_mayor">Guia Mayor</option>
-                        <option value="guia_mayor_master">Guia Mayor Máster</option>
-                        <option value="guia_mayor_master_avanzado">Gui Mayor Master Avanzado</option>
+                        <option class="clase" value=""></option>
+                        <option class="clase" value="amigo">Amigo</option>
+                        <option class="clase" value="compañero">Compañero</option>
+                        <option class="clase" value="explorador">Explorador</option>
+                        <option class="clase" value="pionero">Pionero</option>
+                        <option class="clase" value="excursionista">Excursionista</option>
+                        <option class="clase" value="club">Club</option>
+                        <option class="clase" value="guia_mayor">Guia Mayor</option>
+                        <option class="clase" value="guia_mayor_master">Guia Mayor Máster</option>
+                        <option class="clase" value="guia_mayor_master_avanzado">Guia Mayor Master Avanzado</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -102,8 +118,7 @@
                         <option value="unidadH-2">Hombres 14-15</option>
                     </select>
                 </div>
-                <br />
-                <br />
+                
                 <div class="form-group">
                     <label for="cargo">Cargo</label>
                     <select name="cargo" id="cargo">
@@ -126,6 +141,8 @@
                         <option value=""></option>
                     </select>
                 </div>
+                <br />
+                <br />
                 <div class="form-group">
                     <label class="control-label">Usuario:</label>
                     <input type="text" aria-label="usuario" class="form-control" required>
@@ -136,22 +153,24 @@
                     <input type="text" aria-label="pasword" class="form-control" required>
                     <span class="text-danger"></span>
                 </div>
-                
-=======
-                <br />
-                <br />
->>>>>>> parent of 2b6f1e4 (perfil general del conquistador)
-                @*<input type="submit" value="Guardar" class="btn btn-primary" />*@
-                <button type="submit" class="btnGuardar" value="guardar">Guardar</button>
-            </form>
 
+                <br />
+                <br />
+              
+                <button type="submit" class="btnGuardar" value="guardar">Guardar</button>
+                <div class="botones">
+
+                <button type="submit" class="btnCancelar" value="cancelar" onclick="location.href='@Url.Action("Details", "Conquistador")'">Cancelar</button>
+                </div>
+                
+            </form>
+            <script src="~/js/script.js" asp-append-version="true"></script>
+            <script src="~/js/suggestions.js" asp-append-version="true"></script>
         </div>
 
     </div>
 </div>
 <br/>
 <br/>
-<div class="botones">
 
-    <button type="submit" class="btnCancelar" value="cancelar" onclick="location.href='@Url.Action("Details", "Conquistador")'">Cancelar</button>
-</div>
+

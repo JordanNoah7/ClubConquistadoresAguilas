@@ -4,3 +4,20 @@
 *.suo
 
 .vs
+
+/Application/bin/
+/Application/obj/
+/DataAccess/bin/
+/DataAccess/obj/
+/Domain/bin/
+/Domain/obj/
+/Infrastructure/bin/
+/Infrastructure/obj/
+/Models/bin/
+/Models/obj/
+/Web/bin/
+/Web/obj/
+/.vs/
+.vs/
+**/bin/
+**/obj/

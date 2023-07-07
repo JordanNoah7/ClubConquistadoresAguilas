@@ -55,10 +55,60 @@ main .insights h3{
         height: 7rem;
     }
     main .insights .clase svg circle {
-        fill: red; /*color del circulo*/
+        fill: cornflowerblue; /*color del circulo*/
     }
 
     main .insights .unidad svg circle {
-        fill: yellow; /*color del circulo*/
+        fill: blueviolet; /*color del circulo*/
     }
 
+    /*auxilio*/
+
+main .auxilio {
+    margin-top: 2rem;
+    /*#B5EBD1; verde palo*/
+    width: 100%;
+    border-radius: 1.5rem;
+
+    padding: 1.8rem;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 1.6rem;
+}
+    main .auxilio .left {
+        position: relative;
+        left: 2%;
+        text-justify: inter-word;
+        justify-content: space-between;
+        text-align:justify;
+    }
+    main .auxilio .rigth {
+        
+        display: inline-block;
+        align-items: center;
+        width:30%;
+        height: 92px;
+    }
+
+
+        main .auxilio .rigth img {
+            position: relative;
+            height: auto;
+            width: 100%;
+            object-fit:contain;
+        }
+
+    main .auxilio button {
+        background-color: white;
+        color: #31E981; /*verde*/
+        border: 2px solid #31E981; /* verde */
+        border-radius: 5px;
+        width: 50%;
+        height: 3rem;
+        margin: 15px 10px 10px 10px;
+    }
+
+main .auxilio button:hover {
+    background-color: #31E981;
+    color: white;
+}
