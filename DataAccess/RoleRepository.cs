@@ -1,88 +1,50 @@
-﻿using Domain;
+﻿using System.Data;
+using Domain;
+using Infrastructure.Context;
+using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using Models;
 
 namespace DataAccess;
 
-public class RoleRepository : ConnectionRepository, IGenericRepository<Role>
+public class RoleRepository : ConnectionRepository, IRoleRepository
 {
     public RoleRepository(IConfiguration configuration) : base(configuration)
     {
     }
-
-    public async Task<bool> Insert(Role model)
+    
+    public async Task<IEnumerable<Role>> GetRoles()
     {
-        throw new Exception();
-        /*try
+        var roleList = new List<Role>();
+        using (var cnDb = Connection.GetConnection(Configuration))
         {
-            _dbContext.Roles.Add(model);
-            await _dbContext.SaveChangesAsync();
-
-            return true;
+            try
+            {
+                using (var cmd = new SqlCommand("usp_GetRoles", cnDb))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Clear();
+                    Connection.OpenConnection();
+                    using (var dr = await cmd.ExecuteReaderAsync())
+                    {
+                        while (await dr.ReadAsync())
+                        {
+                            roleList.Add(new Role()
+                            {
+                                Id = Convert.ToByte(dr["ID"].ToString()),
+                                Name = dr["name"].ToString()
+                            });
+                        }
+                    }
+                    Connection.CloseConnection();
+                }
+                return roleList;
+            }
+            catch (Exception ex)
+            {
+                Connection.CloseConnection();
+                return null;
+            }
         }
-        catch (Exception ex)
-        {
-            return false;
-        }*/
-    }
-
-    public async Task<bool> Update(Role model)
-    {
-        throw new Exception();
-        /*try
-        {
-            _dbContext.Roles.Update(model);
-            await _dbContext.SaveChangesAsync();
-
-            return true;
-        }
-        catch (Exception ex)
-        {
-            return false;
-        }*/
-    }
-
-    public async Task<bool> Delete(int id1, int id2 = 0)
-    {
-        throw new Exception();
-        /*try
-        {
-            var model = _dbContext.Roles.First(c => c.Id == id1);
-            _dbContext.Roles.Remove(model);
-            await _dbContext.SaveChangesAsync();
-
-            return true;
-        }
-        catch (Exception ex)
-        {
-            return false;
-        }*/
-    }
-
-    public async Task<Role> Get(int id1, int id2 = 0)
-    {
-        throw new Exception();
-        /*try
-        {
-            return await _dbContext.Roles.FindAsync(id1);
-        }
-        catch (Exception ex)
-        {
-            return null;
-        }*/
-    }
-
-    public async Task<IEnumerable<Role>> GetAll()
-    {
-        throw new Exception();
-        /*try
-        {
-            IEnumerable<Role> queryRolesSQL = _dbContext.Roles;
-            return queryRolesSQL;
-        }
-        catch (Exception ex)
-        {
-            return null;
-        }*/
     }
 }

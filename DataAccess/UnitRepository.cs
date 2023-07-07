@@ -1,88 +1,51 @@
-﻿using Domain;
+﻿using System.Data;
+using Domain;
+using Infrastructure.Context;
+using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using Models;
 
 namespace DataAccess;
 
-public class UnitRepository : ConnectionRepository, IGenericRepository<Unit>
+public class UnitRepository : ConnectionRepository, IUnitRepository
 {
     public UnitRepository(IConfiguration configuration) : base(configuration)
     {
     }
-
-    public async Task<bool> Insert(Unit model)
+    
+    public async Task<IEnumerable<Unit>> GetUnits()
     {
-        throw new Exception();
-        /*try
+        var unitList = new List<Unit>();
+        using (var cnDb = Connection.GetConnection(Configuration))
         {
-            _dbContext.Units.Add(model);
-            await _dbContext.SaveChangesAsync();
+            try
+            {
+                using (var cmd = new SqlCommand("usp_GetUnits", cnDb))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Clear();
+                    Connection.OpenConnection();
+                    using (var dr = await cmd.ExecuteReaderAsync())
+                    {
+                        while (await dr.ReadAsync())
+                        {
+                            unitList.Add(new Unit()
+                            {
+                                Id = Convert.ToByte(dr["ID"].ToString()),
+                                Name = dr["name"].ToString()
+                            });
+                        }
+                    }
+                    Connection.CloseConnection();
+                }
 
-            return true;
+                return unitList;
+            }
+            catch (Exception ex)
+            {
+                Connection.CloseConnection();
+                return null;
+            }
         }
-        catch (Exception ex)
-        {
-            return false;
-        }*/
-    }
-
-    public async Task<bool> Update(Unit model)
-    {
-        throw new Exception();
-        /*try
-        {
-            _dbContext.Units.Add(model);
-            await _dbContext.SaveChangesAsync();
-
-            return true;
-        }
-        catch (Exception ex)
-        {
-            return false;
-        }*/
-    }
-
-    public async Task<bool> Delete(int id1, int id2 = 0)
-    {
-        throw new Exception();
-        /*try
-        {
-            var model = _dbContext.Units.First(u => u.Id == id1);
-            _dbContext.Units.Remove(model);
-            await _dbContext.SaveChangesAsync();
-
-            return true;
-        }
-        catch (Exception ex)
-        {
-            return false;
-        }*/
-    }
-
-    public async Task<Unit> Get(int id1, int id2 = 0)
-    {
-        throw new Exception();
-        /*try
-        {
-            return await _dbContext.Units.FindAsync(id1);
-        }
-        catch (Exception ex)
-        {
-            return null;
-        }*/
-    }
-
-    public async Task<IEnumerable<Unit>> GetAll()
-    {
-        throw new Exception();
-        /*try
-        {
-            IEnumerable<Unit> queryUnitsSQL = _dbContext.Units;
-            return queryUnitsSQL;
-        }
-        catch (Exception ex)
-        {
-            return null;
-        }*/
     }
 }
