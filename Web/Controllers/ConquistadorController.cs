@@ -96,7 +96,7 @@ public class ConquistadorController : Controller
     {
         try
         {
-            Person person = new Person()
+            var person = new Person
             {
                 Dni = Convert.ToInt32(Dni),
                 FirstName = FirstName,
@@ -107,37 +107,40 @@ public class ConquistadorController : Controller
                 Phone = Phone,
                 Email = Email,
                 Address = Address,
-                ClassPeople = new List<ClassPerson>()
-                { new ClassPerson()
+                ClassPeople = new List<ClassPerson>
+                {
+                    new()
                     {
-                        ClassId = Convert.ToByte(Class),
+                        ClassId = Convert.ToByte(Class)
                     }
                 },
-                PositionPersonUnits = new List<PositionPersonUnit>()
+                PositionPersonUnits = new List<PositionPersonUnit>
                 {
-                    new PositionPersonUnit()
+                    new()
                     {
                         PositionId = Convert.ToByte(Position),
                         UnitId = Convert.ToByte(Unit)
                     }
                 },
-                User = new User()
+                User = new User
                 {
                     UserName = Username,
                     Password = Password,
-                    UserRols = new List<UserRol>()
+                    UserRols = new List<UserRol>
                     {
-                        new UserRol()
+                        new()
                         {
                             RolId = Convert.ToByte(Role)
                         }
                     }
                 },
-                PersonId = Convert.ToInt32(Attorney)
+                PersonId = Convert.ToInt32(Attorney),
+                ClubId = 1
             };
+            Console.WriteLine(person.PersonId);
 
             await _personService.Insert(person);
-            
+
             return RedirectToAction("Details", "Conquistador");
         }
         catch

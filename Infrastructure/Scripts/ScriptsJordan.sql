@@ -289,14 +289,14 @@ BEGIN
 
         INSERT INTO PositionPersonUnit (UnitID, PersonID, PositionID)
         VALUES (@UnitID, @PersonID, @PositionID);
-        COMMIT TRAN;
+    COMMIT TRAN;
     END TRY
     BEGIN CATCH
-        ROLLBACK TRAN;
+       ROLLBACK TRAN;
     END CATCH
 END
 GO
-
+exec usp_InsertPerson @DNI = 76154178, @firstName =  'Luz', @fathersSurname = 'Mamani', @mothersSurname = 'Mamani', @birthDate = '09/09/1965', @gender = 'F', @address = 'sucasa', @phone = '976543217', @email = 'sucorreo@conquis.com', @ClubID = 1, @userName = 'lumama', @password = '#Ll12345', @FatherID = null, @ClassID = 13, @UnitID = 2, @PositionID = 2, @RoleID = 2
 ---Procedimiento para obtener una lista de roles
 CREATE PROCEDURE usp_GetRoles
 AS
