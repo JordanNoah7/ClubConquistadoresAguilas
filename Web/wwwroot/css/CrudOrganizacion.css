@@ -123,23 +123,25 @@ main .recent-order a {
 }
 
 /*notificaciones botones*/
-main .notification-group button {
+main form .notification-group button {
     background-color: white;
-    color: #EF9645; /*naranja*/
-    border: 2px solid #EF9645; /* plomo */
+    color: #31E981; /*verde whatsap*/
+    border: 2px solid #31E981; /*verde whatsap*/
     border-radius: 5px;
     width: 30%;
-    height: 2rem;
+    height: 3rem;
     margin: 15px 10px 10px 10px;
 }
 
-/*Consejero - tomar asistencia- botones encabezado y labels*/
-
-main .recent-order .right {
-    left: 50%;
-    /*right:50%;*/
-
-}
+    main form .notification-group button:hover {
+        background-color: #31E981;
+        color: white; 
+    }
+    /*Consejero - tomar asistencia- botones encabezado y labels*/
+    main .recent-order .right {
+        left: 50%;
+        /*right:50%;*/
+    }
 
 main .recent-order p {
     float: right;

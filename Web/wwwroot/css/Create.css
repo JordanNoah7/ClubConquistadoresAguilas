@@ -3,47 +3,71 @@ main .formCrud {
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     width: 94%;
-    overflow: hidden;
+    
 }
+
+    main .formCrud .form-group {
+        padding: 2px 3px 3px 2px;
+        overflow: hidden;
+        
+    }
 
 main .formCrud .row {
     column-count: 2;
-    column-gap: 3rem;
-    column-rule: 1px solid #2B463C; /*verde oscuro*/
+    column-gap: 4rem;
+    column-rule: 2px solid #2B463C; /*verde oscuro*/
 }
 
 main .formCrud label {
     color: #2B463C; /*verde oscuro*/
     float: left;
     width: 200px;
-    padding-right: 24px;
+   
 }
 
 main .formCrud .form-control[type="date"]:checked {
     color: #2B463C; /*verde oscuro*/
 }
 
-main .formCrud .row input, select {
-    border: 2px solid #2B463C; /*verde oscuro*/
-    border-radius: 10px;
-    height: 2rem;
-    column-span: all;
-    column-width: 140px;
-    float: left;
-    width: calc(100% - 10px);
-}
+    main .formCrud .row input, select {
+        border: 2px solid #2B463C; /*verde oscuro*/
+        border-radius: 10px;
+        height: 2.5rem;
+        column-span: all;
+        column-width: 140px;
+        float: left;
+        width: calc(100% - 10px);
+        text-align: justify-all;
+        justify-content: flex-end;
+        text-indent: 4px;
+    }
 
-main .formCrud .row .form-group select {
-    font-size: 12px;
-    color: #7F7D7F;
-    text-align: left;
-}
+    main .formCrud .row .form-group select {
+        font-size: 12px;
+        color: #7F7D7F;
+        left: 2%;
+        text-indent: 4px;
+    }
 
-main .botones {
-    height: 2rem;
-    align-content: center;
-    justify-content: center;
-    text-align: center;
+
+    main .formCrud .row .form-group select,option{
+        padding-left: 7px;
+        
+    }
+
+        main .formCrud > button {
+            height: 2rem;
+            align-content: center;
+            justify-content: center;
+            text-align: center;
+            margin: 5px 2px 2px 5px;
+        }
+
+
+main .row .col button:hover {
+    background-color: #EA2027; /*rojo*/
+    color: white;
+    border: 2px solid #EA2027;
 }
 
 main .row .col .btnGuardar {
@@ -51,36 +75,27 @@ main .row .col .btnGuardar {
     color: #00BF63; /*verde fosforescente*/
     border: 2px solid #00BF63; /* plomo */
     border-radius: 10px;
-    width: 50%;
+    width: 40%;
     height: 2rem;
-    margin: 15px 0px 0px 0px;
-
+    margin: 5px 2px 2px 5px;
+    float: left;
 }
 
-main .delete button:hover {
-    background-color: #EA2027; /*rojo*/
-    color: white;
-}
-
-main .row .col button:hover {
-    background: #00BF63;
-    color: white;
-}
-
-
-main .botones .btnCancelar {
+main .row .col .btnCancelar {
     background-color: white;
     color: #979497; /* plomo */
     border: 2px solid #979497; /* plomo */
     border-radius: 10px;
     width: 40%;
     height: 2rem;
+    margin: 5px 2px 2px 5px;
+    float: right;
 }
 
-main .botones button:hover {
-    background: #979497;
-    color: white;
-}
+main .row .col .btnCancelar button:hover {
+        background: #979497;
+        color: white;
+    }
 
 main h1 span {
     color: #EF9645; /*naranja*/
@@ -90,4 +105,47 @@ main .formCrud h2 {
     margin-bottom: 0.8rem;
 }
 
+
+
+/*buscar padre*/
+
+main .buscar input {
+    width: 50vh;
+    padding: 0px 6px 0px 6px;
+    outline: none;
+    border: 5px solid red;
+    font-weight: 300;
+   
+    
+}
+
+.listaPadres {
+    max-height:280px;
+    opacity:0;
+    pointer-events:none;
+    padding:0;
+    overflow-y:auto;
+
+}
+
+.buscar.active .listaPadres {
+    opacity: 1;
+    pointer-events: auto;
+    padding: 10px 8px;
+}
+
+    .buscar.active .listaPadres li{
+        display:block;
+    }
+
+    .listaPadres li {
+        /*list-style: none;*/
+        width: 100%;
+        padding: 8px 12px;
+        border-radius: 5px;
+        display: none;
+    }
+        .listaPadres li:hover {
+            background-color: #EF9645;
+        }
 

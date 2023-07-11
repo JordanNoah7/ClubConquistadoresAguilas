@@ -18,7 +18,7 @@
     <div class="row">
         <div class="col">
             <form action="@Url.Action("Create", "Conquistador")" method="post" autocomplete="off">
-                @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
+                
                 <div class="form-group">
                     <label class="control-label">DNI: *</label>
                     <input type="number" name="Dni" aria-label="Dni: " class="form-control" required>
@@ -72,7 +72,13 @@
                 <div class="form-group">
                     <label class="control-label">Padre/Apoderado:</label>
                     <input type="search" aria-label="padre" id="padre" class="form-control" name="Attorney">
-                    <span class="text-danger"></span>
+                    <select class="apoderado" name="Attorney" id="listaPadres">
+                        <option value="">Pablito Suarez</option>
+                        <option value="M">Hugo Bonito</option>
+                        <option value="F">Mateo Cueva</option>
+                        <option value="M">Martín Ocaña Palacios</option>
+                        <option value="M">Manuel Armando Rascacielos</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="clase">Clase</label>
@@ -141,6 +147,8 @@
                         <option value=""></option>*@
                     </select>
                 </div>
+                <br />
+                <br />
                 <div class="form-group">
                     <label class="control-label">Usuario:</label>
                     <input type="text" aria-label="usuario" class="form-control" name="Username" required>
@@ -154,15 +162,14 @@
                 <br />
                 <br />
                 <button type="submit" class="btnGuardar" value="guardar">Guardar</button>
+
+                <button type="submit" class="btnCancelar" value="cancelar" onclick="location.href='@Url.Action("Details", "Conquistador")'">Cancelar</button>
+        
             </form>
 
         </div>
 
     </div>
 </div>
-<br/>
-<br/>
-<div class="botones">
 
-    <button type="submit" class="btnCancelar" value="cancelar" onclick="location.href='@Url.Action("Details", "Conquistador")'">Cancelar</button>
-</div>
+
