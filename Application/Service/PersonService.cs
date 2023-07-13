@@ -13,6 +13,18 @@ public class PersonService : IPersonService
         _personRepo = personRepo;
     }
 
+    public async Task<bool> Update(Person model)
+    {
+        try
+        {
+            return await _personRepo.Update(model);
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
+    }
+
     public async Task<IEnumerable<Person>> GetFathers()
     {
         try

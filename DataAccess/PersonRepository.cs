@@ -58,6 +58,7 @@ public class PersonRepository : ConnectionRepository, IPersonRepository
 
     public async Task<bool> Update(Person model)
     {
+        Console.WriteLine("prueba");
         using (var connectionDb = Connection.GetConnection(Configuration))
         {
             try
@@ -67,6 +68,7 @@ public class PersonRepository : ConnectionRepository, IPersonRepository
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@PersonID", model.Id);
+                    cmd.Parameters.AddWithValue("@DNI", model.Dni);
                     cmd.Parameters.AddWithValue("@firstName", model.FirstName);
                     cmd.Parameters.AddWithValue("@fathersSurname", model.FathersSurname);
                     cmd.Parameters.AddWithValue("@mothersSurname", model.MothersSurname);
@@ -75,13 +77,39 @@ public class PersonRepository : ConnectionRepository, IPersonRepository
                     cmd.Parameters.AddWithValue("@address", model.Address);
                     cmd.Parameters.AddWithValue("@phone", model.Phone);
                     cmd.Parameters.AddWithValue("@email", model.Email);
-                    cmd.Parameters.AddWithValue("@FatherID", model.PersonId);
+                    cmd.Parameters.AddWithValue("@ClubID", model.ClubId);
+                    cmd.Parameters.AddWithValue("@userName", model.User.UserName);
+                    cmd.Parameters.AddWithValue("@password", model.User.Password);
+                    cmd.Parameters.AddWithValue("@FatherID", model.PersonId.Equals(0) ? null : model.PersonId);
+                    cmd.Parameters.AddWithValue("@ClassID", model.ClassPeople.FirstOrDefault().ClassId);
+                    cmd.Parameters.AddWithValue("@UnitID", model.PositionPersonUnits.FirstOrDefault().UnitId);
+                    cmd.Parameters.AddWithValue("@PositionID", model.PositionPersonUnits.FirstOrDefault().PositionId);
+                    cmd.Parameters.AddWithValue("@RoleID", model.User.UserRols.FirstOrDefault().RolId);
                     Connection.OpenConnection();
+                    Console.WriteLine(model.Id);
+                    Console.WriteLine(model.Dni);
+                    Console.WriteLine(model.FirstName);
+                    Console.WriteLine(model.FathersSurname);
+                    Console.WriteLine(model.MothersSurname);
+                    Console.WriteLine(model.BirthDate);
+                    Console.WriteLine(model.Gender);
+                    Console.WriteLine(model.Address);
+                    Console.WriteLine(model.Phone);
+                    Console.WriteLine(model.Email);
+                    Console.WriteLine(model.ClubId);
+                    Console.WriteLine(model.User.UserName);
+                    Console.WriteLine(model.User.Password);
+                    Console.WriteLine(model.PersonId);
+                    Console.WriteLine(model.ClassPeople.FirstOrDefault().ClassId);
+                    Console.WriteLine(model.PositionPersonUnits.FirstOrDefault().UnitId);
+                    Console.WriteLine(model.PositionPersonUnits.FirstOrDefault().PositionId);
+                    Console.WriteLine(model.User.UserRols.FirstOrDefault().RolId);
                     await cmd.ExecuteNonQueryAsync();
                     Connection.CloseConnection();
                 }
-
+                Console.WriteLine("prueba");
                 return true;
+                
             }
             catch (Exception ex)
             {

@@ -191,7 +191,9 @@
     </div>
 </div>
 
-
-<script>
-console.log(@ViewBag.ID)
-</script>
+@*@if (!string.IsNullOrEmpty(ViewBag.Message))
+{
+    <script>
+    alert(@ViewBag.Message);
+    </script>
+}*@

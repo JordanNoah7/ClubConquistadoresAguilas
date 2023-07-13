@@ -37,11 +37,11 @@ public class ConquistadorController : Controller
     public async Task<ActionResult> Details()
     {
         var vmPathfinders = new List<VmPerson>();
-        
+
         var pathfinders = await _personService.GetPathfinders();
-        
+
         var enumerable = pathfinders.ToList();
-        
+
         foreach (var item in enumerable)
             vmPathfinders.Add(new VmPerson
             {
@@ -52,12 +52,12 @@ public class ConquistadorController : Controller
                 Unit = item.PositionPersonUnits.FirstOrDefault().Unit.Name,
                 Position = item.PositionPersonUnits.FirstOrDefault().Position.Name
             });
-        
+
         var vmPerson = new VmPerson
         {
             PersonList = vmPathfinders
         };
-        
+
         return View(vmPerson);
     }
 
@@ -75,19 +75,19 @@ public class ConquistadorController : Controller
             Value = c.Id,
             Text = c.Name
         }).ToList();
-        
+
         ViewBag.Positions = positions.Select(p => new
         {
             Value = p.Id,
             Text = p.Name
         }).ToList();
-        
+
         ViewBag.Roles = roles.Select(r => new
         {
             Value = r.Id,
             Text = r.Name
         }).ToList();
-        
+
         ViewBag.Units = units.Select(u => new
         {
             Value = u.Id,
@@ -163,7 +163,7 @@ public class ConquistadorController : Controller
             return RedirectToAction("Details", "Conquistador");
         }
     }
-    
+
     public async Task<ActionResult> Edit(int nro)
     {
         var classes = await _classService.GetClasses();
@@ -177,19 +177,19 @@ public class ConquistadorController : Controller
             Value = c.Id,
             Text = c.Name
         }).ToList();
-        
+
         ViewBag.Positions = positions.Select(p => new
         {
             Value = p.Id,
             Text = p.Name
         }).ToList();
-        
+
         ViewBag.Roles = roles.Select(r => new
         {
             Value = r.Id,
             Text = r.Name
         }).ToList();
-        
+
         ViewBag.Units = units.Select(u => new
         {
             Value = u.Id,
@@ -203,8 +203,8 @@ public class ConquistadorController : Controller
         }).ToList();
 
         concurrency = null;
-        
-        Person person = await _personService.GetPathfinderById(nro);
+
+        var person = await _personService.GetPathfinderById(nro);
         var vmPerson = new VmPerson();
         vmPerson.Id = nro;
         vmPerson.Dni = person.Dni;
@@ -216,7 +216,7 @@ public class ConquistadorController : Controller
         vmPerson.Phone = person.Phone;
         vmPerson.Email = person.Email;
         vmPerson.Address = person.Address;
-        vmPerson.PersonId = person.PersonId == null?0:person.PersonId;
+        vmPerson.PersonId = person.PersonId == null ? 0 : person.PersonId;
         concurrency = person.ConcurrencyPerson;
         vmPerson.ClassId = person.ClassPeople.FirstOrDefault().ClassId;
         vmPerson.UnitId = person.PositionPersonUnits.FirstOrDefault().UnitId;
@@ -230,22 +230,74 @@ public class ConquistadorController : Controller
                 Id = person.User.UserRols.FirstOrDefault().RolId
             }
         };
-    
+
         return View(vmPerson);
     }
 
     // POST: ConquistadorController/Edit/5
     [HttpPost]
-    [ValidateAntiForgeryToken]
-    public ActionResult Edit(int id, IFormCollection collection)
+    public async Task<ActionResult> Edit(int id, int Dni, string FirstName, string FatherSurname, string MotherSurname,
+        DateTime Birthday, string Sex, int Phone, string Email, string Address, int Class, int Unit,
+        int Position, int Role, string Username, string Password, string Attorney = null)
     {
         try
         {
-            return RedirectToAction(nameof(Details));
+            Person person = new Person()
+            {
+                Id = id,
+                Dni = Dni,
+                FirstName = FirstName,
+                FathersSurname = FatherSurname,
+                MothersSurname = MotherSurname,
+                BirthDate = Birthday,
+                Gender = Sex,
+                Phone = Phone.ToString(),
+                Email = Email,
+                Address = Address,
+                ClubId = 1,
+                PersonId = Convert.ToInt32(Attorney),
+                    ClassPeople = new List<ClassPerson>()
+                {
+                    new ClassPerson()
+                    {
+                        ClassId = Convert.ToByte(Class)
+                    }
+                },
+                PositionPersonUnits = new List<PositionPersonUnit>()
+                {
+                    new PositionPersonUnit()
+                    {
+                        PositionId = Convert.ToByte(Position),
+                        UnitId = Convert.ToByte(Unit)
+                    }
+                },
+                User = new User()
+                {
+                    UserName = Username,
+                    Password = Password,
+                    UserRols = new List<UserRol>()
+                    {
+                        new UserRol()
+                        {
+                            RolId = Convert.ToByte(Role)
+                        }
+                    }
+                }
+            };
+            
+            if(await _personService.Update(person))
+            {
+                //ViewBag.Message("Conquistador actualizado exitosamente");
+                return RedirectToAction("Details", "Conquistador");
+            }
+            else
+            {
+                return RedirectToAction("Details", "Conquistador");
+            }
         }
         catch
         {
-            return View();
+            return RedirectToAction("Details", "Conquistador");
         }
     }
 

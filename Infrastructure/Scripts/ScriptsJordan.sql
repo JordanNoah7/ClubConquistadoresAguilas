@@ -437,9 +437,9 @@ BEGIN
 END
 GO
 ---------------------------------------------------------------------------------------------Listo
-
 ---Procedimiento para modificar conquistador
 CREATE PROCEDURE usp_UpdatePerson @PersonID INT,
+                                  @DNI INT,
                                   @firstName NVARCHAR(30),
                                   @fathersSurname NVARCHAR(15),
                                   @mothersSurname NVARCHAR(15),
@@ -448,37 +448,60 @@ CREATE PROCEDURE usp_UpdatePerson @PersonID INT,
                                   @address NVARCHAR(30),
                                   @phone nvarchar(15),
                                   @email NVARCHAR(30),
-                                  @FatherID INT/*,
-                                      @userName NVARCHAR(15),
-                                      @password NVARCHAR(15)*/
+                                  @ClubID INT,
+                                  @userName NVARCHAR(15),
+                                  @password NVARCHAR(15),
+                                  @FatherID INT = NULL,
+                                  @ClassID INT,
+                                  @UnitID INT,
+                                  @PositionID INT,
+                                  @RoleID INT
 AS
 BEGIN
-    BEGIN TRAN
-        BEGIN TRY
-            UPDATE People
-            SET firstName      = @firstName,
-                fathersSurname = @fathersSurname,
-                mothersSurname = @mothersSurname,
-                birthDate      = @birthDate,
-                gender         = @gender,
-                address        = @address,
-                phone          = @phone,
-                email          = @email,
-                PersonID       = @FatherID
-            WHERE ID = @PersonID
+    BEGIN TRAN;
+    BEGIN TRY
 
-            /*UPDATE Users
-            SET userName = @userName,
-                password = @password
-            WHERE ID = @PersonID*/
-            COMMIT
-        END TRY
-        BEGIN CATCH
-            ROLLBACK
-        END CATCH
+        UPDATE People
+        SET DNI            = @DNI,
+            firstName      = @firstName,
+            fathersSurname = @fathersSurname,
+            mothersSurname = @mothersSurname,
+            birthDate      = @birthDate,
+            gender         = @gender,
+            address        = @address,
+            phone          = @phone,
+            email          = @email,
+            PersonID       = @FatherID,
+            ClubID         = @ClubID
+        WHERE ID = @PersonID;
+
+        UPDATE Users
+        SET userName = @userName,
+            password = @password
+        WHERE ID = @PersonID;
+
+        UPDATE UserRol
+        SET RolID = @RoleID
+        WHERE UserID = @PersonID;
+
+        UPDATE ClassPerson
+        SET ClassID = @ClassID
+        WHERE PersonID = @PersonID;
+
+        UPDATE PositionPersonUnit
+        SET UnitID     = @UnitID,
+            PositionID = @PositionID
+        WHERE PersonID = @PersonID;
+
+        COMMIT TRAN;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRAN;
+    END CATCH
 END
 GO
-
+---------------------------------------------------------------------------------------------Listo
+exec usp_GetPathfinderById 2
 ---Procedimientno para eliminar una persona
 CREATE PROCEDURE usp_DeletePerson @PersonID INT
 AS
