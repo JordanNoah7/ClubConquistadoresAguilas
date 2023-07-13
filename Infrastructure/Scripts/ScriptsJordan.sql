@@ -501,7 +501,6 @@ BEGIN
 END
 GO
 ---------------------------------------------------------------------------------------------Listo
-exec usp_GetPathfinderById 2
 ---Procedimientno para eliminar una persona
 CREATE PROCEDURE usp_DeletePerson @PersonID INT
 AS
