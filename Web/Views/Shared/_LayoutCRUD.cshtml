@@ -1,6 +1,15 @@
 ﻿@using System.Security.Claims
 <!DOCTYPE html>
 
+@{
+                var vmPerson = new VmPerson();
+                vmPerson.FirstName = User.FindFirstValue(ClaimTypes.Name);
+                vmPerson.FullSurname = User.FindFirstValue(ClaimTypes.Surname);
+                var fullname = vmPerson.FirstName + " " + vmPerson.FullSurname;
+                var vmRole = new VmRole();
+                vmRole.Name = User.FindFirstValue(ClaimTypes.Role);
+            }
+
 <html lang="es">
 <head>
     <meta charset="utf-8"/>
@@ -27,48 +36,65 @@
    
         <div class="sidebar">
             <a class="active" asp-area="" asp-controller="Crud" asp-action="Inicio">
-                <span class="material-symbols-outlined">dashboard</span>
-                <h3>Inicio</h3>
-            </a>
-            <div class="categorias">
-                <ul>
-
-                    <li>
-                        <a>
-                            <span class="material-symbols-outlined">tenancy</span>
-                            <h3>Organización</h3>
+                            <span class="material-symbols-outlined">dashboard</span>
+                            <h3>Inicio</h3>
                         </a>
-
+            @switch (vmRole.Name)
+            {
+                case "Director":
+                    <div class="categorias">
                         <ul>
+
                             <li>
-                                <a asp-area="" asp-controller="Conquistador" asp-action="Details">
-                                    <span class="material-symbols-outlined"> child_care</span>
-                                    <h3>Conquistador</h3>
+                                <a>
+                                    <span class="material-symbols-outlined">tenancy</span>
+                                    <h3>Organización</h3>
                                 </a>
 
+                                <ul>
+                                    <li>
+                                        <a asp-area="" asp-controller="Conquistador" asp-action="Details">
+                                            <span class="material-symbols-outlined"> child_care</span>
+                                            <h3>Conquistador</h3>
+                                        </a>
 
-                                <a asp-area="" asp-controller="Consejero" asp-action="Details">
-                                    <span class="material-symbols-outlined">diversity_3</span>
-                                    <h3>Consejero</h3>
-                                </a>
+
+                                        <a asp-area="" asp-controller="Consejero" asp-action="Details">
+                                            <span class="material-symbols-outlined">diversity_3</span>
+                                            <h3>Consejero</h3>
+                                        </a>
 
 
-                                <a asp-area="" asp-controller="Instructor" asp-action="Details">
-                                    <span class="material-symbols-outlined">sports_kabaddi</span>
-                                    <h3>Instructor</h3>
-                                </a>
-                                <a asp-area="" asp-controller="Padre" asp-action="Details">
-                                    <span class="material-symbols-outlined">breastfeeding</span>
-                                    <h3>Padre/Apoderado</h3>
-                                </a>
+                                        <a asp-area="" asp-controller="Instructor" asp-action="Details">
+                                            <span class="material-symbols-outlined">sports_kabaddi</span>
+                                            <h3>Instructor</h3>
+                                        </a>
+                                        <a asp-area="" asp-controller="Padre" asp-action="Details">
+                                            <span class="material-symbols-outlined">breastfeeding</span>
+                                            <h3>Padre/Apoderado</h3>
+                                        </a>
+                                    </li>
+
+                                </ul>
                             </li>
 
                         </ul>
-                    </li>
 
-                </ul>
+                    </div>
+                    break;
+                    case "Consejero":
+                        <a asp-area="" asp-controller="Consejero" asp-action="TomarLista">
+                            <span class="material-symbols-outlined">contract_edit</span>
+                            <h3>Tomar Lista</h3>
+                        </a>
+                        <a asp-area="" asp-controller="Conquistador" asp-action="Edit">
+                            <span class="material-symbols-outlined">school</span>
+                            <h3>Asignar Clase</h3>
+                        </a>
+                        break;
+            }
 
-            </div>
+            
 
 
             <a asp-area="" asp-controller="Actividades" asp-action="Details">
@@ -78,7 +104,7 @@
             <a asp-area="" asp-controller="Notificacion" asp-action="Index">
                 <span class="material-symbols-outlined">forum</span>
                 <h3>Notificar</h3>
-                    <span class="message-count">✆</span>
+                <span class="message-count">✆</span>
             </a>
             <a href="#">
                 <span class="material-symbols-outlined">monetization_on</span>
@@ -88,14 +114,7 @@
                 <span class="material-symbols-outlined">savings</span>
                 <h3>Ahorro</h3>
             </a>
-            <a asp-area="" asp-controller="Consejero" asp-action="TomarLista">
-                <span class="material-symbols-outlined">contract_edit</span>
-                <h3>Tomar Lista</h3>
-            </a>
-            <a asp-area="" asp-controller="Conquistador" asp-action="Edit">
-                <span class="material-symbols-outlined">school</span>
-                <h3>Asignar Clase</h3>
-            </a>
+            
 
             <a asp-area="" asp-controller="Home" asp-action="Index">
                 <span class="material-symbols-outlined">logout</span>
@@ -108,14 +127,7 @@
     <!--fin de aside-->
     <main>
         <h1>
-            @{
-                var vmPerson = new VmPerson();
-                vmPerson.FirstName = User.FindFirstValue(ClaimTypes.Name);
-                vmPerson.FullSurname = User.FindFirstValue(ClaimTypes.Surname);
-                var fullname = vmPerson.FirstName + " " + vmPerson.FullSurname;
-                var vmRole = new VmRole();
-                vmRole.Name = User.FindFirstValue(ClaimTypes.Role);
-            }
+            
             Hola, <b name="nombrePersona"> @vmPerson.FirstName </b> !
             <span class="material-symbols-outlined">waving_hand</span>
         </h1>

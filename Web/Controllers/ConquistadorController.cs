@@ -287,7 +287,6 @@ public class ConquistadorController : Controller
             
             if(await _personService.Update(person))
             {
-                //ViewBag.Message("Conquistador actualizado exitosamente");
                 return RedirectToAction("Details", "Conquistador");
             }
             else
