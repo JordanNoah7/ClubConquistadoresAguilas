@@ -1,4 +1,5 @@
-﻿@{
+﻿@model VmPerson
+@{
     //Layout = "_LayoutCrud";
     ViewData["Vista"] = "Details";
 }
@@ -28,24 +29,32 @@
         </tr>
         </thead>
         <tbody>
-        <tr name="fila">
-            <th scope="row" name="nro">1</th>
-            <td class="nombre" name="rowNombre">Mark</td>
-            <td class="apellido" name="rowApellido">Otto</td>
-            <td class="clase" name="rowClase">clase1</td>
-            <td class="unidad" name="rowUnidad">unidad1</td>
-            <td>
-                <button type="button" id="delete" class="btn btn-default" onclick="location.href='@Url.Action("Delete", "Consejero")'">
-                    <span class="material-symbols-outlined">delete</span>
-                </button>
-                <button type="button" id="edit" class="btn btn-default" onclick="location.href='@Url.Action("Edit", "Consejero")'">
-                    <span class="material-symbols-outlined">edit_square</span>
-                </button>
-
-
-            </td>
-        </tr>
-
+        @foreach (var item in Model.PersonList)
+        {
+            <tr name="fila">
+                <th scope="row" name="nro" style="display: none !important;">@item.Id</th>
+                <td class="nombre" name="rowNombre">@item.FirstName</td>
+                <td class="apellido" name="rowApellido">@item.FullSurname</td>
+                <td class="clase" name="rowClase">@item.Class</td>
+                <td class="unidad" name="rowUnidad">@item.Unit</td>
+                <td>
+                    <form action="@Url.Action("Edit", "Conquistador")" method="get">
+                        <input type="hidden" name="nro" value="@item.Id"/>
+                        <button type="submit" id="edit" class="btn btn-default">
+                            <span class="material-symbols-outlined">edit_square</span>
+                        </button>
+                    </form>
+                </td>
+                <td>
+                    <form action="@Url.Action("Delete", "Conquistador")" method="get">
+                        <input type="hidden" name="nro" value="@item.Id"/>
+                        <button type="submit" id="delete" class="btn btn-default">
+                            <span class="material-symbols-outlined">delete</span>
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
         </tbody>
     </table>
 

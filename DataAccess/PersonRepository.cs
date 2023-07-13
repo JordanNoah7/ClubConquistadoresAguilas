@@ -289,6 +289,64 @@ public class PersonRepository : ConnectionRepository, IPersonRepository
         }
     }
 
+    public async Task<IEnumerable<Person>> GetCounselors()
+    {
+        var counselorList = new List<Person>();
+        using (var cnDb = Connection.GetConnection(Configuration))
+        {
+            try
+            {
+                using (var cmd = new SqlCommand("usp_GetCounselors", cnDb))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Clear();
+                    Connection.OpenConnection();
+                    using (var dr = await cmd.ExecuteReaderAsync())
+                    {
+                        while (await dr.ReadAsync())
+                        {
+                            counselorList.Add(new Person()
+                            {
+                                Id = Convert.ToInt32(dr["PeopleID"].ToString()),
+                                FirstName = dr["firstName"].ToString(),
+                                FathersSurname = dr["fathersSurname"].ToString(),
+                                MothersSurname = dr["mothersSurname"].ToString(),
+                                ClassPeople = new List<ClassPerson>
+                                {
+                                    new()
+                                    {
+                                        Class = new Class
+                                        {
+                                            Name = dr["class"].ToString()
+                                        }
+                                    }
+                                },
+                                PositionPersonUnits = new List<PositionPersonUnit>
+                                {
+                                    new()
+                                    {
+                                        Unit = new Unit
+                                        {
+                                            Name = dr["unit"].ToString()
+                                        }
+                                    }
+                                }
+                            });
+                        }
+                    }
+                    Connection.CloseConnection();
+                }
+
+                return counselorList;
+            }
+            catch (SqlException e)
+            {
+                Connection.CloseConnection();
+                return null;
+            }
+        }
+    }
+
     public async Task<IEnumerable<Person>> GetPathfinders()
     {
         var pathfinderList = new List<Person>();

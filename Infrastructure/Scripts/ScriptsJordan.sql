@@ -384,7 +384,7 @@ BEGIN
 END
 GO
 ---------------------------------------------------------------------------------------------Listo
----Procedimiento para obtener una lista de conquistadores por like
+---Procedimiento para obtener una lista de padres
 ALTER PROCEDURE usp_GetFathers
 AS
 BEGIN
@@ -556,6 +556,37 @@ BEGIN
     END CATCH
 END
 GO
+---------------------------------------------------------------------------------------------Listo
+---Procedimiento para obtener a los consejeros
+CREATE PROCEDURE usp_GetCounselors
+AS
+BEGIN
+    BEGIN TRAN;
+    BEGIN TRY
+        SELECT P.ID   PeopleID,
+               P.firstName,
+               P.fathersSurname,
+               P.mothersSurname,
+               C.name class,
+               U.name unit
+        FROM People P
+                 JOIN ClassPerson CP on P.ID = CP.PersonID
+                 JOIN Classes C on C.ID = CP.ClassID
+                 JOIN PositionPersonUnit PPU on P.ID = PPU.PersonID
+                 JOIN Units U on U.ID = PPU.UnitID
+                 JOIN Users U2 on P.ID = U2.ID
+                 JOIN UserRol UR on U2.ID = UR.UserID
+        WHERE (UR.RolID = 2 OR PPU.PositionID = 4)
+          AND YEAR(UR.insertionDate) = YEAR(GETDATE())
+        COMMIT TRAN;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRAN;
+        RAISERROR ('Consejeros no encontrados', 16, 1);
+    END CATCH
+END
+GO
+---------------------------------------------------------------------------------------------Listo
 ---Procedimiento para obtener el club
 CREATE PROCEDURE usp_GetClub @ClubID INT
 AS
