@@ -587,6 +587,33 @@ BEGIN
 END
 GO
 ---------------------------------------------------------------------------------------------Listo
+---Procedimiento para obtener a los instructores
+CREATE PROCEDURE usp_GetInstructors
+AS
+BEGIN
+    BEGIN TRAN;
+    BEGIN TRY
+        SELECT P.ID   PeopleID,
+               P.firstName,
+               P.fathersSurname,
+               P.mothersSurname,
+               C.name class
+        FROM People P
+                 JOIN ClassPerson CP on P.ID = CP.PersonID
+                 JOIN Classes C on C.ID = CP.ClassID
+                 JOIN Users U2 on P.ID = U2.ID
+                 JOIN UserRol UR on U2.ID = UR.UserID
+        WHERE UR.RolID = 3
+          AND YEAR(UR.insertionDate) = YEAR(GETDATE())
+        COMMIT TRAN;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRAN;
+        RAISERROR ('Consejeros no encontrados', 16, 1);
+    END CATCH
+END
+GO
+---------------------------------------------------------------------------------------------Listo
 ---Procedimiento para obtener el club
 CREATE PROCEDURE usp_GetClub @ClubID INT
 AS
