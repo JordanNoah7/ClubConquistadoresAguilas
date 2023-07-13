@@ -48,7 +48,7 @@ public class PersonRepository : ConnectionRepository, IPersonRepository
 
                 return true;
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
                 Connection.CloseConnection();
                 return false;
@@ -111,7 +111,7 @@ public class PersonRepository : ConnectionRepository, IPersonRepository
                 return true;
                 
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
                 Connection.CloseConnection();
                 return false;
@@ -173,7 +173,7 @@ public class PersonRepository : ConnectionRepository, IPersonRepository
 
                 return person;
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
                 Connection.CloseConnection();
                 return null;
@@ -243,7 +243,7 @@ public class PersonRepository : ConnectionRepository, IPersonRepository
                 }
                 return person;
             }
-            catch (Exception e)
+            catch (SqlException e)
             {
                 Connection.CloseConnection();
                 return null;
@@ -281,7 +281,7 @@ public class PersonRepository : ConnectionRepository, IPersonRepository
 
                 return fatherList;
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
                 Connection.CloseConnection();
                 return null;
@@ -342,7 +342,7 @@ public class PersonRepository : ConnectionRepository, IPersonRepository
 
                 return pathfinderList;
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
                 Connection.CloseConnection();
                 return null;

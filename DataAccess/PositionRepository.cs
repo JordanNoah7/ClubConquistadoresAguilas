@@ -42,7 +42,7 @@ public class PositionRepository : ConnectionRepository, IPositionRepository
 
                 return positionList;
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
                 Connection.CloseConnection();
                 return null;

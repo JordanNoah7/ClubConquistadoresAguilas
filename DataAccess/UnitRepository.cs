@@ -41,7 +41,7 @@ public class UnitRepository : ConnectionRepository, IUnitRepository
 
                 return unitList;
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
                 Connection.CloseConnection();
                 return null;

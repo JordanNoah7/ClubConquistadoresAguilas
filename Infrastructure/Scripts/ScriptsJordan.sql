@@ -171,7 +171,7 @@ ALTER TABLE UserRol
 
 --Procedimientos almacenados
 ---Procedimiento para obtener el usuario
-CREATE PROCEDURE usp_GetUserRolByUsername @username VARCHAR(15)
+ALTER PROCEDURE usp_GetUserRolByUsername @username VARCHAR(15)
 AS
 BEGIN
     BEGIN TRAN;
@@ -189,6 +189,7 @@ BEGIN
     END TRY
     BEGIN CATCH
         ROLLBACK TRAN;
+        RAISERROR ('Usuario no encontrado', 16, 1);
     END CATCH
 END
 GO
@@ -221,13 +222,14 @@ BEGIN
     END TRY
     BEGIN CATCH
         ROLLBACK TRAN;
+        RAISERROR ('Persona no encontrado', 16, 1);
     END CATCH
 END
 GO
 ---------------------------------------------------------------------------------------------Listo
 ---------------------------------------------------------------------------------------------
 ---Procedimiento para obtener una lista de conquistadores
-CREATE PROCEDURE usp_GetPathfinders
+ALTER PROCEDURE usp_GetPathfinders
 AS
 BEGIN
     BEGIN TRAN;
@@ -253,29 +255,30 @@ BEGIN
     END TRY
     BEGIN CATCH
         ROLLBACK TRAN;
+        RAISERROR ('Conquistadores no encontrados', 16, 1);
     END CATCH
 END
 GO
 ---------------------------------------------------------------------------------------------Listo
 ------------------------------------------------------------------------------------------------------------------------
 ---Procedimiento para insertar persona
-CREATE PROCEDURE usp_InsertPerson @DNI INT,
-                                  @firstName NVARCHAR(30),
-                                  @fathersSurname NVARCHAR(15),
-                                  @mothersSurname NVARCHAR(15),
-                                  @birthDate DATE,
-                                  @gender CHAR(1),
-                                  @address NVARCHAR(30),
-                                  @phone nvarchar(15),
-                                  @email NVARCHAR(30),
-                                  @ClubID INT,
-                                  @userName NVARCHAR(15),
-                                  @password NVARCHAR(15),
-                                  @FatherID INT = NULL,
-                                  @ClassID INT,
-                                  @UnitID INT,
-                                  @PositionID INT,
-                                  @RoleID INT
+ALTER PROCEDURE usp_InsertPerson @DNI INT,
+                                 @firstName NVARCHAR(30),
+                                 @fathersSurname NVARCHAR(15),
+                                 @mothersSurname NVARCHAR(15),
+                                 @birthDate DATE,
+                                 @gender CHAR(1),
+                                 @address NVARCHAR(30),
+                                 @phone nvarchar(15),
+                                 @email NVARCHAR(30),
+                                 @ClubID INT,
+                                 @userName NVARCHAR(15),
+                                 @password NVARCHAR(15),
+                                 @FatherID INT = NULL,
+                                 @ClassID INT,
+                                 @UnitID INT,
+                                 @PositionID INT,
+                                 @RoleID INT
 AS
 BEGIN
     BEGIN TRAN;
@@ -304,12 +307,13 @@ BEGIN
     END TRY
     BEGIN CATCH
         ROLLBACK TRAN;
+        RAISERROR ('Error al insertar persona', 16, 1);
     END CATCH
 END
 GO
 ---------------------------------------------------------------------------------------------Listo
 ---Procedimiento para obtener una lista de roles
-CREATE PROCEDURE usp_GetRoles
+ALTER PROCEDURE usp_GetRoles
 AS
 BEGIN
     BEGIN TRAN;
@@ -321,12 +325,13 @@ BEGIN
     END TRY
     BEGIN CATCH
         ROLLBACK TRAN;
+        RAISERROR ('Roles no encontrados', 16, 1);
     END CATCH
 END
 GO
 ---------------------------------------------------------------------------------------------Listo
 ---Procedimiento para obtener lista posiciones
-CREATE PROCEDURE usp_GetPositions
+ALTER PROCEDURE usp_GetPositions
 AS
 BEGIN
     BEGIN TRAN;
@@ -338,12 +343,13 @@ BEGIN
     END TRY
     BEGIN CATCH
         ROLLBACK TRAN;
+        RAISERROR ('Cargos no encontrados', 16, 1);
     END CATCH
 END
 GO
 ---------------------------------------------------------------------------------------------Listo
 ---Procedimiento para obtener lista unidades
-CREATE PROCEDURE usp_GetUnits
+ALTER PROCEDURE usp_GetUnits
 AS
 BEGIN
     BEGIN TRAN;
@@ -355,12 +361,13 @@ BEGIN
     END TRY
     BEGIN CATCH
         ROLLBACK TRAN;
+        RAISERROR ('Unidades no encontradas', 16, 1);
     END CATCH
 END
 GO
 ---------------------------------------------------------------------------------------------Listo
 ---Procedimiento para obtener lista unidades
-CREATE PROCEDURE usp_GetClasses
+ALTER PROCEDURE usp_GetClasses
 AS
 BEGIN
     BEGIN TRAN;
@@ -372,12 +379,13 @@ BEGIN
     END TRY
     BEGIN CATCH
         ROLLBACK TRAN;
+        RAISERROR ('Clases no encontradas', 16, 1);
     END CATCH
 END
 GO
 ---------------------------------------------------------------------------------------------Listo
 ---Procedimiento para obtener una lista de conquistadores por like
-CREATE PROCEDURE usp_GetFathers
+ALTER PROCEDURE usp_GetFathers
 AS
 BEGIN
     BEGIN TRAN;
@@ -394,6 +402,7 @@ BEGIN
     END TRY
     BEGIN CATCH
         ROLLBACK TRAN;
+        RAISERROR ('Padres no encontrados', 16, 1);
     END CATCH
 END
 GO
@@ -433,95 +442,120 @@ BEGIN
     END TRY
     BEGIN CATCH
         ROLLBACK TRAN;
+        RAISERROR ('Conquistador no encontrado', 16, 1);
     END CATCH
 END
 GO
 ---------------------------------------------------------------------------------------------Listo
 ---Procedimiento para modificar conquistador
-CREATE PROCEDURE usp_UpdatePerson @PersonID INT,
-                                  @DNI INT,
-                                  @firstName NVARCHAR(30),
-                                  @fathersSurname NVARCHAR(15),
-                                  @mothersSurname NVARCHAR(15),
-                                  @birthDate DATE,
-                                  @gender CHAR(1),
-                                  @address NVARCHAR(30),
-                                  @phone nvarchar(15),
-                                  @email NVARCHAR(30),
-                                  @ClubID INT,
-                                  @userName NVARCHAR(15),
-                                  @password NVARCHAR(15),
-                                  @FatherID INT = NULL,
-                                  @ClassID INT,
-                                  @UnitID INT,
-                                  @PositionID INT,
-                                  @RoleID INT
+ALTER PROCEDURE usp_UpdatePerson @PersonID INT,
+                                 @DNI INT,
+                                 @firstName NVARCHAR(30),
+                                 @fathersSurname NVARCHAR(15),
+                                 @mothersSurname NVARCHAR(15),
+                                 @birthDate DATE,
+                                 @gender CHAR(1),
+                                 @address NVARCHAR(30),
+                                 @phone nvarchar(15),
+                                 @email NVARCHAR(30),
+                                 @ClubID INT,
+                                 @userName NVARCHAR(15),
+                                 @password NVARCHAR(15),
+                                 @FatherID INT = NULL,
+                                 @ClassID INT,
+                                 @UnitID INT,
+                                 @PositionID INT,
+                                 @RoleID INT,
+                                 @concurrency TIMESTAMP
+AS
+BEGIN
+    IF @concurrency = (SELECT concurrencyPerson
+                       FROM People
+                       WHERE ID = @PersonID)
+        BEGIN
+            BEGIN TRAN;
+            BEGIN TRY
+
+                UPDATE People
+                SET DNI            = @DNI,
+                    firstName      = @firstName,
+                    fathersSurname = @fathersSurname,
+                    mothersSurname = @mothersSurname,
+                    birthDate      = @birthDate,
+                    gender         = @gender,
+                    address        = @address,
+                    phone          = @phone,
+                    email          = @email,
+                    PersonID       = @FatherID,
+                    ClubID         = @ClubID
+                WHERE ID = @PersonID;
+
+                UPDATE Users
+                SET userName = @userName,
+                    password = @password
+                WHERE ID = @PersonID;
+
+                UPDATE UserRol
+                SET RolID = @RoleID
+                WHERE UserID = @PersonID;
+
+                UPDATE ClassPerson
+                SET ClassID = @ClassID
+                WHERE PersonID = @PersonID;
+
+                UPDATE PositionPersonUnit
+                SET UnitID     = @UnitID,
+                    PositionID = @PositionID
+                WHERE PersonID = @PersonID;
+
+                COMMIT TRAN;
+            END TRY
+            BEGIN CATCH
+                ROLLBACK TRAN;
+                RAISERROR ('Error al actualizar persona.', 16, 1);
+            END CATCH
+        END
+    ELSE
+        BEGIN
+            RAISERROR ('Error al actualizar persona, debido a que el archivo fue modificado antes.', 16, 1);
+        END
+END
+GO
+---------------------------------------------------------------------------------------------Listo
+---Procedimientno para eliminar una persona
+ALTER PROCEDURE usp_DeletePerson @PersonID INT
 AS
 BEGIN
     BEGIN TRAN;
     BEGIN TRY
+        DELETE UR
+        FROM UserRol AS UR
+        WHERE UR.UserID = @PersonID;
 
-        UPDATE People
-        SET DNI            = @DNI,
-            firstName      = @firstName,
-            fathersSurname = @fathersSurname,
-            mothersSurname = @mothersSurname,
-            birthDate      = @birthDate,
-            gender         = @gender,
-            address        = @address,
-            phone          = @phone,
-            email          = @email,
-            PersonID       = @FatherID,
-            ClubID         = @ClubID
-        WHERE ID = @PersonID;
+        DELETE CP
+        FROM ClassPerson AS CP
+        WHERE CP.PersonID = @PersonID;
 
-        UPDATE Users
-        SET userName = @userName,
-            password = @password
-        WHERE ID = @PersonID;
+        DELETE PPU
+        FROM PositionPersonUnit AS PPU
+        WHERE PPU.PersonID = @PersonID;
 
-        UPDATE UserRol
-        SET RolID = @RoleID
-        WHERE UserID = @PersonID;
+        DELETE U
+        FROM Users AS U
+        WHERE U.ID = @PersonID;
 
-        UPDATE ClassPerson
-        SET ClassID = @ClassID
-        WHERE PersonID = @PersonID;
-
-        UPDATE PositionPersonUnit
-        SET UnitID     = @UnitID,
-            PositionID = @PositionID
-        WHERE PersonID = @PersonID;
+        DELETE P
+        FROM People AS P
+        WHERE P.ID = @PersonID;
 
         COMMIT TRAN;
     END TRY
     BEGIN CATCH
         ROLLBACK TRAN;
+        RAISERROR ('Error al eliminar persona', 16, 1);
     END CATCH
 END
 GO
----------------------------------------------------------------------------------------------Listo
----Procedimientno para eliminar una persona
-CREATE PROCEDURE usp_DeletePerson @PersonID INT
-AS
-BEGIN
-    BEGIN TRAN
-        BEGIN TRY
-            DELETE P
-            FROM People AS P
-            WHERE P.ID = @PersonID
-
-            DELETE U
-            FROM Users AS U
-            WHERE U.ID = @PersonID
-            COMMIT
-        END TRY
-        BEGIN CATCH
-            ROLLBACK
-        END CATCH
-END
-GO
-
 ---Procedimiento para obtener el club
 CREATE PROCEDURE usp_GetClub @ClubID INT
 AS

@@ -41,7 +41,7 @@ public class ClassRepository : ConnectionRepository, IClassRepository
 
                 return classList;
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
                 Connection.CloseConnection();
                 return null;
