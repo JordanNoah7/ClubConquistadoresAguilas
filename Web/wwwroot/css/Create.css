@@ -1,4 +1,7 @@
-﻿
+﻿.filtro{
+    display: none !important;
+}
+
 main .formCrud {
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;

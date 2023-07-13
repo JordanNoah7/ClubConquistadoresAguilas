@@ -192,20 +192,30 @@ BEGIN
     END CATCH
 END
 GO
-
+---------------------------------------------------------------------------------------------Listo
 ---Procedimiento para obtener una persona
-CREATE PROCEDURE usp_GetPersonClassByID @PersonID INT
+ALTER PROCEDURE usp_GetPersonClassByID @PersonID INT
 AS
 BEGIN
     BEGIN TRAN;
     BEGIN TRY
-        SELECT C.firstName,
-               C.fathersSurname,
-               C.mothersSurname,
-               CP.ClassID
-        FROM People AS C
-                 JOIN ClassPerson CP on C.ID = CP.PersonID
-        WHERE C.ID = @PersonID
+        SELECT P.ID,
+               P.firstName,
+               P.fathersSurname,
+               P.mothersSurname,
+               P.birthDate,
+               P.phone,
+               P.email,
+               CP.ClassID,
+               C.name class,
+               PPU.UnitID,
+               U.name unit
+        FROM People AS P
+                 JOIN ClassPerson CP on P.ID = CP.PersonID
+                 JOIN Classes C on C.ID = CP.ClassID
+                 JOIN PositionPersonUnit PPU on P.ID = PPU.PersonID
+                 JOIN Units U on U.ID = PPU.UnitID
+        WHERE P.ID = @PersonID
           AND YEAR(CP.year) = YEAR(getdate())
         COMMIT TRAN;
     END TRY
@@ -214,7 +224,7 @@ BEGIN
     END CATCH
 END
 GO
-
+---------------------------------------------------------------------------------------------Listo
 ---------------------------------------------------------------------------------------------
 ---Procedimiento para obtener una lista de conquistadores
 CREATE PROCEDURE usp_GetPathfinders
@@ -246,6 +256,7 @@ BEGIN
     END CATCH
 END
 GO
+---------------------------------------------------------------------------------------------Listo
 ------------------------------------------------------------------------------------------------------------------------
 ---Procedimiento para insertar persona
 CREATE PROCEDURE usp_InsertPerson @DNI INT,
@@ -289,14 +300,14 @@ BEGIN
 
         INSERT INTO PositionPersonUnit (UnitID, PersonID, PositionID)
         VALUES (@UnitID, @PersonID, @PositionID);
-    COMMIT TRAN;
+        COMMIT TRAN;
     END TRY
     BEGIN CATCH
-       ROLLBACK TRAN;
+        ROLLBACK TRAN;
     END CATCH
 END
 GO
-exec usp_InsertPerson @DNI = 76154178, @firstName =  'Luz', @fathersSurname = 'Mamani', @mothersSurname = 'Mamani', @birthDate = '09/09/1965', @gender = 'F', @address = 'sucasa', @phone = '976543217', @email = 'sucorreo@conquis.com', @ClubID = 1, @userName = 'lumama', @password = '#Ll12345', @FatherID = null, @ClassID = 13, @UnitID = 2, @PositionID = 2, @RoleID = 2
+---------------------------------------------------------------------------------------------Listo
 ---Procedimiento para obtener una lista de roles
 CREATE PROCEDURE usp_GetRoles
 AS
@@ -313,7 +324,7 @@ BEGIN
     END CATCH
 END
 GO
-
+---------------------------------------------------------------------------------------------Listo
 ---Procedimiento para obtener lista posiciones
 CREATE PROCEDURE usp_GetPositions
 AS
@@ -330,7 +341,7 @@ BEGIN
     END CATCH
 END
 GO
-
+---------------------------------------------------------------------------------------------Listo
 ---Procedimiento para obtener lista unidades
 CREATE PROCEDURE usp_GetUnits
 AS
@@ -347,7 +358,7 @@ BEGIN
     END CATCH
 END
 GO
-
+---------------------------------------------------------------------------------------------Listo
 ---Procedimiento para obtener lista unidades
 CREATE PROCEDURE usp_GetClasses
 AS
@@ -364,9 +375,9 @@ BEGIN
     END CATCH
 END
 GO
-
+---------------------------------------------------------------------------------------------Listo
 ---Procedimiento para obtener una lista de conquistadores por like
-CREATE PROCEDURE usp_GetFathersByLike @like NVARCHAR(15)
+CREATE PROCEDURE usp_GetFathers
 AS
 BEGIN
     BEGIN TRAN;
@@ -376,9 +387,9 @@ BEGIN
                P.fathersSurname,
                P.mothersSurname
         FROM People P
-        WHERE P.firstName LIKE '%' + @like + '%'
-           OR P.fathersSurname LIKE '%' + @like + '%'
-           OR P.mothersSurname LIKE '%' + @like + '%';
+                 JOIN Users U on P.ID = U.ID
+                 JOIN UserRol UR on U.ID = UR.UserID
+        WHERE UR.RolID = 6
         COMMIT TRAN;
     END TRY
     BEGIN CATCH
@@ -386,7 +397,47 @@ BEGIN
     END CATCH
 END
 GO
+---------------------------------------------------------------------------------------------Listo
 ------------------------------------------------------------------------------------------------------------------------
+---Procedimiento para obtener una persona
+ALTER PROCEDURE usp_GetPathfinderById @Id INT
+AS
+BEGIN
+    BEGIN TRAN;
+    BEGIN TRY
+        SELECT P.ID,
+               P.DNI,
+               P.firstName,
+               P.fathersSurname,
+               P.mothersSurname,
+               P.birthDate,
+               P.gender,
+               P.phone,
+               P.email,
+               P.address,
+               P.PersonID,
+               P.concurrencyPerson,
+               CP.ClassID,
+               PPU.UnitID,
+               PPU.PositionID,
+               UR.RolID,
+               U.userName,
+               U.password
+        FROM People P
+                 JOIN ClassPerson CP on P.ID = CP.PersonID
+                 JOIN PositionPersonUnit PPU on P.ID = PPU.PersonID
+                 JOIN Users U on P.ID = U.ID
+                 JOIN UserRol UR on U.ID = UR.UserID
+        WHERE P.ID = @Id
+        COMMIT TRAN;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRAN;
+    END CATCH
+END
+GO
+---------------------------------------------------------------------------------------------Listo
+
 ---Procedimiento para modificar conquistador
 CREATE PROCEDURE usp_UpdatePerson @PersonID INT,
                                   @firstName NVARCHAR(30),

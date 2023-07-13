@@ -18,7 +18,7 @@
     <div class="row">
         <div class="col">
             <form action="@Url.Action("Create", "Conquistador")" method="post" autocomplete="off">
-                
+
                 <div class="form-group">
                     <label class="control-label">DNI: *</label>
                     <input type="number" name="Dni" aria-label="Dni: " class="form-control" required>
@@ -27,7 +27,7 @@
 
                 <div class="form-group">
                     <label class="control-label">Nombre(s) : *</label>
-                    <input type="text" aria-label="Nombre"  class="form-control" name="FirstName" required>
+                    <input type="text" aria-label="Nombre" class="form-control" name="FirstName" required>
                     <span class="text-danger"></span>
                 </div>
 
@@ -71,84 +71,55 @@
                 </div>
                 <div class="form-group">
                     <label class="control-label">Padre/Apoderado:</label>
-                    <input type="search" aria-label="padre" id="padre" class="form-control" name="Attorney">
+                    <input type="search" aria-label="padre" id="padre" class="form-control">
                     <select class="apoderado" name="Attorney" id="listaPadres">
-                        <option value="">Pablito Suarez</option>
-                        <option value="M">Hugo Bonito</option>
-                        <option value="F">Mateo Cueva</option>
-                        <option value="M">Martín Ocaña Palacios</option>
-                        <option value="M">Manuel Armando Rascacielos</option>
+                        <option value="" class="father">Seleccionar padre/apoderado</option>
+                        @foreach (var father in ViewBag.Fathers)
+                        {
+                            <option value="@father.Value" class="father">@father.Text</option>
+                        }
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="clase">Clase</label>
                     <select name="Class" id="clase">
-                        @foreach(var classes in ViewBag.Classes)
-                {
-                    <option value="@classes.Value">@classes.Text</option>
-                }
-                        @*<option value=""></option>
-                        <option value="amigo">Amigo</option>
-                        <option value="compañero">Compañero</option>
-                        <option value="explorador">Explorador</option>
-                        <option value="pionero">Pionero</option>
-                        <option value="excursionista">Excursionista</option>
-                        <option value="club">Club</option>
-                        <option value="guia_mayor">Guia Mayor</option>
-                        <option value="guia_mayor_master">Guia Mayor Máster</option>
-                        <option value="guia_mayor_master_avanzado">Gui Mayor Master Avanzado</option>*@
+                        @foreach (var classes in ViewBag.Classes)
+                        {
+                            <option value="@classes.Value">@classes.Text</option>
+                        }
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="unidad">Unidad</label>
                     <select name="Unit" id="unidad">
-                               @foreach(var units in ViewBag.Units)
-                                        {
-                                            <option value="@units.Value">@units.Text</option>
-                                        }
-                        @*<option value=""></option>
-                        <option value="unidadM-1">Mujeres 10-11</option>
-                        <option value="unidadM-2">Mujeres 12-13</option>
-                        <option value="unidadM-2">Mujeres 14-15</option>
-                        <option value="unidadH-1">Hombres 10-11</option>
-                        <option value="unidadH-2">Hombres 12-13</option>
-                        <option value="unidadH-2">Hombres 14-15</option>*@
+                        @foreach (var units in ViewBag.Units)
+                        {
+                            <option value="@units.Value">@units.Text</option>
+                        }
                     </select>
                 </div>
-                <br />
-                <br />
+                <br/>
+                <br/>
                 <div class="form-group">
                     <label for="cargo">Cargo</label>
                     <select name="Position" id="cargo">
-                               @foreach(var positions in ViewBag.Positions)
-                                        {
-                                            <option value="@positions.Value">@positions.Text</option>
-                                        }
-                        @*<option value="conquistador">Conquistador</option>
-                        <option value="instructor">Instructor</option>
-                        <option value="consejero">Consejero</option>
-                        <option value="padre">Padre</option>
-                        <option value="director">Director</option>
-                        <option value="tesorero">Tesorero</option>*@
+                        @foreach (var positions in ViewBag.Positions)
+                        {
+                            <option value="@positions.Value">@positions.Text</option>
+                        }
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="cargo">Rol</label>
                     <select name="Role" id="rol">
-                               @foreach(var roles in ViewBag.Roles)
-                                        {
-                                            <option value="@roles.Value">@roles.Text</option>
-                                        }
-                        @*<option value="rol1">Rol1</option>
-                        <option value="rol2">Rol2</option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>*@
+                        @foreach (var roles in ViewBag.Roles)
+                        {
+                            <option value="@roles.Value">@roles.Text</option>
+                        }
                     </select>
                 </div>
-                <br />
-                <br />
+                <br/>
+                <br/>
                 <div class="form-group">
                     <label class="control-label">Usuario:</label>
                     <input type="text" aria-label="usuario" class="form-control" name="Username" required>
@@ -159,12 +130,12 @@
                     <input type="text" aria-label="pasword" class="form-control" name="Password" required>
                     <span class="text-danger"></span>
                 </div>
-                <br />
-                <br />
+                <br/>
+                <br/>
                 <button type="submit" class="btnGuardar" value="guardar">Guardar</button>
 
                 <button type="submit" class="btnCancelar" value="cancelar" onclick="location.href='@Url.Action("Details", "Conquistador")'">Cancelar</button>
-        
+
             </form>
 
         </div>
@@ -173,3 +144,16 @@
 </div>
 
 
+<script>
+document.addEventListener("keyup", e =>{
+    e.target.matches("#padre")
+    console.log(e.target.value)
+    
+    if (e.target.matches("#padre")){
+        if (e.key==="Escape")e.target.value = ""
+        document.querySelectorAll(".father").forEach(father=>{
+            father.textContent.toLowerCase().includes(e.target.value.toLowerCase()) ? father.classList.remove("filtro") : father.classList.add("filtro")
+        })
+    }
+})
+</script>

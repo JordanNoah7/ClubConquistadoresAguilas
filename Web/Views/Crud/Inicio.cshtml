@@ -1,8 +1,18 @@
-﻿@{
+﻿@using System.Security.Claims
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using System.Globalization
+@{
     Layout = "_LayoutCrud";
 }
-
-<link rel="stylesheet" href="~/css/perfilconquistador.css" asp-append-version="true" />
+@{
+    var vmPerson = new VmPerson();
+    vmPerson.BirthDate = User.FindFirstValue(ClaimTypes.DateOfBirth);
+    vmPerson.Phone = User.FindFirstValue(ClaimTypes.MobilePhone);
+    vmPerson.Email = User.FindFirstValue(ClaimTypes.Email);
+    vmPerson.Class = User.FindFirstValue(ClaimTypes.Actor);
+    vmPerson.Unit = User.FindFirstValue(ClaimTypes.Authentication);
+}
+<link rel="stylesheet" href="~/css/perfilconquistador.css" asp-append-version="true"/>
 @*action="@Url.Action("Login", "Login")" method="post" autocomplete="off"*@
 <div class="insights">
     @*clase conquistador*@
@@ -11,25 +21,73 @@
         <div class="middle">
             <div class="left">
                 <h3>Clase</h3>
-                <h1>Amigo</h1>
+                <h1>@vmPerson.Class</h1>
 
             </div>
             <div class="color">
-                <svg>
+                @switch (@vmPerson.Class)
+                {
+                    case "Amigo":
+                        <img src="/img/amigo.png" alt="Amigo" width="100">
+                        break;
+                    case "Amigo de la naturaleza":
+                        <img src="/img/amigo.png" alt="Amigo de la naturaleza" width="100">
+                        break;
+                    case "Compañero":
+                        <img src="/img/companero.png" alt="Compañero" width="100">
+                        break;
+                    case "Compañero de excursionismo":
+                        <img src="/img/companero.png" alt="Compañero de excursionismo" width="100">
+                        break;
+                    case "Explorador":
+                        <img src="/img/explorador.png" alt="Explorador" width="100">
+                        break;
+                    case "Explorador de campo y de bosques":
+                        <img src="/img/explorador.png" alt="Explorador de campo y de bosques" width="100">
+                        break;
+                    case "Pionero":
+                        <img src="/img/pionero.png" alt="Pionero" width="100">
+                        break;
+                    case "Pionero de nuevas fronteras":
+                        <img src="/img/pionero.png" alt="Pionero de nuevas fronteras" width="100">
+                        break;
+                    case "Excursionista":
+                        <img src="/img/excursionista.png" alt="Excursionista" width="100">
+                        break;
+                    case "Excursionista en el bosque":
+                        <img src="/img/excursionista.png" alt="Excursionista en el bosque" width="100">
+                        break;
+                    case "Guía":
+                        <img src="/img/guia.png" alt="Guía" width="100">
+                        break;
+                    case "Guía de exploración":
+                        <img src="/img/guia.png" alt="Guía de exploración" width="100">
+                        break;
+                    case "Guía Mayor":
+                        <img src="/img/gm.png" alt="Guía Mayor" width="100">
+                        break;
+                    case "Guía Mayor Master":
+                        <img src="/img/gmm.png" alt="Guía Mayor Master" width="100">
+                        break;
+                    case "Guía Mayor Master Avanzado":
+                        <img src="/img/gmma.png" alt="Guía Mayor Master Avanzado" width="100">
+                        break;
+                }
+                @*<svg>
                     <circle cx="38" cy="38" r="36"></circle>
-                </svg>
+                </svg>*@
 
             </div>
         </div>
     </div>
- 
+
     @*unidad conquistador*@
     <div class="unidad">
         <span class="material-symbols-outlined">interests</span>
         <div class="middle">
             <div class="left">
                 <h3>Unidad</h3>
-                <h1>Alcones</h1>
+                <h1>@vmPerson.Unit</h1>
             </div>
             <div class="color">
                 <svg>
@@ -40,18 +98,18 @@
 
         </div>
     </div>
-@*datos personales conquistador*@
+    @*datos personales conquistador*@
     <div class="info">
-    <span class="material-symbols-outlined">lock_person</span>
-    <div class="middle">
-        <div class="left">
-            <h3>Información General</h3>
-            <h5>Fec_Nac: 03/10/99</h5>
-            <h5>Telefono: 123456789</h5>
-            <h5>Email: x@gmail.com</h5>
-        </div>
+        <span class="material-symbols-outlined">lock_person</span>
+        <div class="middle">
+            <div class="left">
+                <h3><b>Información General</b></h3>
+                <h5><b>Fecha de nacimiento:</b> @vmPerson.BirthDate</h5>
+                <h5><b>Telefono:</b> @vmPerson.Phone</h5>
+                <h5><b>Email:</b> @vmPerson.Email</h5>
+            </div>
 
-    </div>
+        </div>
     </div>
 </div>
 
@@ -63,8 +121,8 @@
             para hacer al aire libre. Sin embargo, siempre debes ir acompañado de tu grupo,
             si no conoces bien la zona y
             el camino no está señalizado puedes perderte y no encontrar la manera de regresar a casa.
-        </h3> 
-        <br />
+        </h3>
+        <br/>
         <p>
             Para contactarse con su grupo de Conquistadores,
             por favor presione el siguiente boton, lo redigira a su grupo de whatsap
@@ -72,7 +130,7 @@
         <button onclick="location.href='https://wa.me/966871384'" type="button">Grupo de Conquistadores</button>
     </div>
     <div class="rigth">
-            
-            <img src="/img/conquistador1.png" />
+
+        <img src="/img/conquistador1.png"/>
     </div>
 </div>

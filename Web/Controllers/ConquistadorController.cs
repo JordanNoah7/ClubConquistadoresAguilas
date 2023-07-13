@@ -13,6 +13,8 @@ public class ConquistadorController : Controller
     private readonly IRoleService _roleService;
     private readonly IUnitService _unitService;
 
+    private object concurrency;
+
     public ConquistadorController(IPersonService personService, IClassService classService,
         IPositionService positionService,
         IRoleService roleService,
@@ -35,8 +37,11 @@ public class ConquistadorController : Controller
     public async Task<ActionResult> Details()
     {
         var vmPathfinders = new List<VmPerson>();
+        
         var pathfinders = await _personService.GetPathfinders();
+        
         var enumerable = pathfinders.ToList();
+        
         foreach (var item in enumerable)
             vmPathfinders.Add(new VmPerson
             {
@@ -47,10 +52,12 @@ public class ConquistadorController : Controller
                 Unit = item.PositionPersonUnits.FirstOrDefault().Unit.Name,
                 Position = item.PositionPersonUnits.FirstOrDefault().Position.Name
             });
+        
         var vmPerson = new VmPerson
         {
             PersonList = vmPathfinders
         };
+        
         return View(vmPerson);
     }
 
@@ -61,28 +68,36 @@ public class ConquistadorController : Controller
         var positions = await _positionService.GetPositions();
         var roles = await _roleService.GetRoles();
         var units = await _unitService.GetUnits();
+        var fathers = await _personService.GetFathers();
 
         ViewBag.Classes = classes.Select(c => new
         {
             Value = c.Id,
             Text = c.Name
         }).ToList();
-
-        //ViewBag.Classes = new SelectList(classes.ToList(), "Id", "Nombre");
+        
         ViewBag.Positions = positions.Select(p => new
         {
             Value = p.Id,
             Text = p.Name
         }).ToList();
+        
         ViewBag.Roles = roles.Select(r => new
         {
             Value = r.Id,
             Text = r.Name
         }).ToList();
+        
         ViewBag.Units = units.Select(u => new
         {
             Value = u.Id,
             Text = u.Name
+        }).ToList();
+
+        ViewBag.Fathers = fathers.Select(f => new
+        {
+            Value = f.Id,
+            Text = f.FirstName + " " + f.FathersSurname + " " + f.MothersSurname
         }).ToList();
 
         return View();
@@ -148,11 +163,75 @@ public class ConquistadorController : Controller
             return RedirectToAction("Details", "Conquistador");
         }
     }
-
-    // GET: ConquistadorController/Edit/5
-    public ActionResult Edit(int id)
+    
+    public async Task<ActionResult> Edit(int nro)
     {
-        return View();
+        var classes = await _classService.GetClasses();
+        var positions = await _positionService.GetPositions();
+        var roles = await _roleService.GetRoles();
+        var units = await _unitService.GetUnits();
+        var fathers = await _personService.GetFathers();
+
+        ViewBag.Classes = classes.Select(c => new
+        {
+            Value = c.Id,
+            Text = c.Name
+        }).ToList();
+        
+        ViewBag.Positions = positions.Select(p => new
+        {
+            Value = p.Id,
+            Text = p.Name
+        }).ToList();
+        
+        ViewBag.Roles = roles.Select(r => new
+        {
+            Value = r.Id,
+            Text = r.Name
+        }).ToList();
+        
+        ViewBag.Units = units.Select(u => new
+        {
+            Value = u.Id,
+            Text = u.Name
+        }).ToList();
+
+        ViewBag.Fathers = fathers.Select(f => new
+        {
+            Value = f.Id,
+            Text = f.FirstName + " " + f.FathersSurname + " " + f.MothersSurname
+        }).ToList();
+
+        concurrency = null;
+        
+        Person person = await _personService.GetPathfinderById(nro);
+        var vmPerson = new VmPerson();
+        vmPerson.Id = nro;
+        vmPerson.Dni = person.Dni;
+        vmPerson.FirstName = person.FirstName;
+        vmPerson.FathersSurname = person.FathersSurname;
+        vmPerson.MothersSurname = person.MothersSurname;
+        vmPerson.BirthDate = person.BirthDate.ToString("yyyy-MM-dd");
+        vmPerson.Gender = person.Gender;
+        vmPerson.Phone = person.Phone;
+        vmPerson.Email = person.Email;
+        vmPerson.Address = person.Address;
+        vmPerson.PersonId = person.PersonId == null?0:person.PersonId;
+        concurrency = person.ConcurrencyPerson;
+        vmPerson.ClassId = person.ClassPeople.FirstOrDefault().ClassId;
+        vmPerson.UnitId = person.PositionPersonUnits.FirstOrDefault().UnitId;
+        vmPerson.PositionId = person.PositionPersonUnits.FirstOrDefault().PositionId;
+        vmPerson.User = new VmUser
+        {
+            UserName = person.User.UserName,
+            Password = person.User.Password,
+            Role = new VmRole
+            {
+                Id = person.User.UserRols.FirstOrDefault().RolId
+            }
+        };
+    
+        return View(vmPerson);
     }
 
     // POST: ConquistadorController/Edit/5

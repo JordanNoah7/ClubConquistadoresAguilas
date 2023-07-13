@@ -3,6 +3,8 @@
 public class VmPerson
 {
     public int Id { get; set; }
+    
+    public int Dni { get; set; }
 
     public string FirstName { get; set; } = null!;
 
@@ -23,14 +25,24 @@ public class VmPerson
     public string Email { get; set; } = null!;
 
     public string Class { get; set; } = null!;
+    
+    public int ClassId { get; set; }
 
     public string Unit { get; set; } = null!;
+    
+    public int UnitId { get; set; }
 
     public string Position { get; set; } = null!;
+    
+    public int PositionId { get; set; }
+    
+    public int RoleId { get; set; }
 
     public int ClubId { get; set; }
 
-    public int PersonId { get; set; }
+    public int? PersonId { get; set; }
+    
+    public VmUser User { get; set; }
 
     public IEnumerable<VmPerson> PersonList { get; set; } = new List<VmPerson>();
 }

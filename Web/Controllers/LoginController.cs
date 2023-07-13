@@ -1,8 +1,10 @@
-﻿using System.Security.Claims;
+﻿using System.Globalization;
+using System.Security.Claims;
 using Application.IService;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
+using Models;
 
 namespace Web.Controllers;
 
@@ -35,14 +37,18 @@ public class LoginController : Controller
 
         if (user.Password.Equals(password))
         {
-            var person = await _personService.GetPersonClassById(user.Id);
+            Person person = await _personService.GetPersonClassById(user.Id);
 
             var claims = new List<Claim>
             {
                 new(ClaimTypes.Name, person.FirstName),
                 new(ClaimTypes.Surname, person.FathersSurname + " " + person.MothersSurname),
                 new(ClaimTypes.Role, user.UserRols.FirstOrDefault().Rol.Name),
-                new(ClaimTypes.Actor, person.ClassPeople.FirstOrDefault().ClassId.ToString())
+                new(ClaimTypes.Actor, person.ClassPeople.FirstOrDefault().Class.Name),
+                new(ClaimTypes.Authentication, person.PositionPersonUnits.FirstOrDefault().Unit.Name),
+                new(ClaimTypes.DateOfBirth, person.BirthDate.ToString("dd/MM/yyyy")),
+                new(ClaimTypes.MobilePhone, person.Phone),
+                new(ClaimTypes.Email, person.Email)
             };
 
             var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
@@ -65,7 +71,7 @@ public class LoginController : Controller
                 case 4:
                     return RedirectToAction("Index", "Home");
                 case 5:
-                    return RedirectToAction("Details", "Conquistador");
+                    return RedirectToAction("Inicio", "Crud");
                 case 6:
                     return RedirectToAction("Index", "Padre");
             }

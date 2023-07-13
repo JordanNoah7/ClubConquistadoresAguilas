@@ -13,6 +13,30 @@ public class PersonService : IPersonService
         _personRepo = personRepo;
     }
 
+    public async Task<IEnumerable<Person>> GetFathers()
+    {
+        try
+        {
+            return await _personRepo.GetFathers();
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
+
+    public async Task<Person> GetPathfinderById(int id)
+    {
+        try
+        {
+            return await _personRepo.GetPathfinderById(id);
+        }
+        catch (Exception e)
+        {
+            return null;
+        }
+    }
+
     public async Task<Person> GetPersonClassById(int id)
     {
         try
@@ -49,40 +73,4 @@ public class PersonService : IPersonService
             return false;
         }
     }
-
-    /*public async Task<bool> Update(Person model)
-    {
-        try
-        {
-            var result = await _personRepo.Update(model);
-            return result;
-        }
-        catch (Exception ex)
-        {
-            return false;
-        }
-    }
-
-    public async Task<bool> Delete(int id1, int id2 = 0)
-    {
-        try
-        {
-            var result = await _personRepo.Delete(id1);
-            return result;
-        }
-        catch (Exception ex)
-        {
-            return false;
-        }
-    }
-
-    public async Task<Person> Get(int id1, int id2 = 0)
-    {
-        return await _personRepo.Get(id1);
-    }
-
-    public async Task<IEnumerable<Person>> GetAll()
-    {
-        return await _personRepo.GetAll();
-    }*/
 }

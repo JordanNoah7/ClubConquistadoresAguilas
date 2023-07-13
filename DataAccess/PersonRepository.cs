@@ -2,6 +2,7 @@
 using Domain;
 using Infrastructure.Context;
 using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Models;
 
@@ -90,71 +91,6 @@ public class PersonRepository : ConnectionRepository, IPersonRepository
         }
     }
 
-    /*public async Task<Person> Get(int id1, int id2 = 0)
-    {
-        var model = new Person();
-        using (var connectionDb = Connection.GetConnection(Configuration))
-        {
-            try
-            {
-                using (var command = new SqlCommand("dbo.usp_GetPerson", connectionDb))
-                {
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@PersonID", id1);
-                    Connection.OpenConnection();
-                    using (var reader = await command.ExecuteReaderAsync())
-                    {
-                        if (await reader.ReadAsync())
-                        {
-                            model.Id = id1;
-                            model.FirstName = reader["firstName"].ToString();
-                            model.FathersSurname = reader["fathersSurname"].ToString();
-                            model.MothersSurname = reader["mothersSurname"].ToString();
-                            model.BirthDate = Convert.ToDateTime(reader["birthDate"]);
-                            model.Gender = reader["gender"].ToString();
-                            model.Address = reader["address"].ToString();
-                            model.Phone = reader["phone"].ToString();
-                            model.Email = reader["email"].ToString();
-                            model.Club = new Club
-                            {
-                                Name = reader["club"].ToString()
-                            };
-                            model.PersonNavigation = new Person
-                            {
-                                FirstName = reader["fatherName"].ToString(),
-                                FathersSurname = reader["fatherSurname"].ToString(),
-                                MothersSurname = reader["fatherSurname2"].ToString()
-                            };
-                        }
-                    }
-
-                    Connection.CloseConnection();
-                }
-
-                return model;
-            }
-            catch (Exception ex)
-            {
-                Connection.CloseConnection();
-                return null;
-            }
-        }
-    }*/
-
-    /*public async Task<IEnumerable<Person>> GetAll()
-    {
-        throw new Exception();
-        /*try
-        {
-            IEnumerable<Person> queryPeopleSQL = _dbContext.People;
-            return queryPeopleSQL;
-        }
-        catch (Exception e)
-        {
-            return null;
-        }#1#
-    }*/
-
     public async Task<Person> GetPersonClassById(int id)
     {
         var person = new Person();
@@ -172,14 +108,33 @@ public class PersonRepository : ConnectionRepository, IPersonRepository
                     {
                         if (await dr.ReadAsync())
                         {
+                            person.Id = Convert.ToInt32(dr["ID"].ToString());
                             person.FirstName = dr["firstname"].ToString();
                             person.FathersSurname = dr["fathersSurname"].ToString();
                             person.MothersSurname = dr["mothersSurname"].ToString();
+                            person.BirthDate = Convert.ToDateTime(dr["birthDate"].ToString());
+                            person.Phone = dr["phone"].ToString();
+                            person.Email = dr["email"].ToString();
                             person.ClassPeople = new List<ClassPerson>
                             {
                                 new()
                                 {
-                                    ClassId = Convert.ToByte(dr["ClassID"])
+                                    Class = new Class()
+                                    {
+                                        Id = Convert.ToByte(dr["ClassID"].ToString()),
+                                        Name = dr["class"].ToString()
+                                    }
+                                }
+                            };
+                            person.PositionPersonUnits = new List<PositionPersonUnit>
+                            {
+                                new()
+                                {
+                                    Unit = new Unit()
+                                    {
+                                        Id = Convert.ToByte(dr["UnitID"].ToString()),
+                                        Name = Convert.ToString(dr["unit"])
+                                    }
                                 }
                             };
                         }
@@ -189,6 +144,114 @@ public class PersonRepository : ConnectionRepository, IPersonRepository
                 }
 
                 return person;
+            }
+            catch (Exception ex)
+            {
+                Connection.CloseConnection();
+                return null;
+            }
+        }
+    }
+
+    public async Task<Person> GetPathfinderById(int id)
+    {
+        Person person = new Person();
+        using (var cnDb = Connection.GetConnection(Configuration))
+        {
+            try
+            {
+                using (var cmd = new SqlCommand("usp_GetPathfinderById", cnDb))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.AddWithValue("@Id", id);
+                    Connection.OpenConnection();
+                    using (var dr = await cmd.ExecuteReaderAsync())
+                    {
+                        if (await dr.ReadAsync())
+                        {
+                            person.Id = Convert.ToInt32(dr["ID"]);
+                            person.Dni = Convert.ToInt32(dr["DNI"]);
+                            person.FirstName = dr["firstname"].ToString();
+                            person.FathersSurname = dr["fathersSurname"].ToString();
+                            person.MothersSurname = dr["mothersSurname"].ToString();
+                            person.BirthDate = Convert.ToDateTime(dr["birthDate"].ToString());
+                            person.Gender = dr["gender"].ToString();
+                            person.Phone = dr["phone"].ToString();
+                            person.Email = dr["email"].ToString();
+                            person.Address = dr["address"].ToString();
+                            person.PersonId = dr["PersonID"].ToString() == "" ? 0 : Convert.ToInt32(dr["PersonID"]);
+                            person.ConcurrencyPerson = dr["concurrencyPerson"];
+                            person.ClassPeople = new List<ClassPerson>
+                            {
+                                new()
+                                {
+                                    ClassId = Convert.ToByte(dr["ClassID"].ToString())
+                                }
+                            };
+                            person.PositionPersonUnits = new List<PositionPersonUnit>
+                            {
+                                new()
+                                {
+                                    PositionId = Convert.ToByte(dr["PositionID"].ToString()),
+                                    UnitId = Convert.ToByte(dr["UnitID"].ToString())
+                                }
+                            };
+                            person.User = new User()
+                            {
+                                UserName = dr["userName"].ToString(),
+                                Password = dr["password"].ToString(),
+                                UserRols = new List<UserRol>
+                                {
+                                    new()
+                                    {
+                                        RolId = Convert.ToByte(dr["RolID"].ToString())
+                                    }
+                                }
+                            };
+                        }
+                    }
+                    Connection.CloseConnection();
+                }
+                return person;
+            }
+            catch (Exception e)
+            {
+                Connection.CloseConnection();
+                return null;
+            }
+        }
+    }
+
+    public async Task<IEnumerable<Person>> GetFathers()
+    {
+        var fatherList = new List<Person>();
+        using (var cnDb = Connection.GetConnection(Configuration))
+        {
+            try
+            {
+                using (var cmd = new SqlCommand("usp_GetFathers", cnDb))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Clear();
+                    Connection.OpenConnection();
+                    using (SqlDataReader dr = await cmd.ExecuteReaderAsync())
+                    {
+                        while (await dr.ReadAsync())
+                        {
+                            fatherList.Add(new Person
+                            {
+                                Id = Convert.ToInt32(dr["ID"]),
+                                FirstName = dr["firstName"].ToString(),
+                                FathersSurname = dr["fathersSurname"].ToString(),
+                                MothersSurname = dr["mothersSurname"].ToString()
+                            });
+                        }
+                    }
+                    Connection.CloseConnection();
+                }
+
+                return fatherList;
             }
             catch (Exception ex)
             {
