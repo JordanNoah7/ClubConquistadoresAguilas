@@ -262,7 +262,7 @@ GO
 ---------------------------------------------------------------------------------------------Listo
 ------------------------------------------------------------------------------------------------------------------------
 ---Procedimiento para insertar persona
-ALTER PROCEDURE usp_InsertPerson @DNI INT,
+ALTER PROCEDURE usp_InsertPerson @DNI VARCHAR(8),
                                  @firstName NVARCHAR(30),
                                  @fathersSurname NVARCHAR(15),
                                  @mothersSurname NVARCHAR(15),
@@ -449,7 +449,7 @@ GO
 ---------------------------------------------------------------------------------------------Listo
 ---Procedimiento para modificar conquistador
 ALTER PROCEDURE usp_UpdatePerson @PersonID INT,
-                                 @DNI INT,
+                                 @DNI VARCHAR(8),
                                  @firstName NVARCHAR(30),
                                  @fathersSurname NVARCHAR(15),
                                  @mothersSurname NVARCHAR(15),
@@ -465,60 +465,60 @@ ALTER PROCEDURE usp_UpdatePerson @PersonID INT,
                                  @ClassID INT,
                                  @UnitID INT,
                                  @PositionID INT,
-                                 @RoleID INT,
-                                 @concurrency TIMESTAMP
+                                 @RoleID INT
+    --@concurrency TIMESTAMP
 AS
 BEGIN
-    IF @concurrency = (SELECT concurrencyPerson
-                       FROM People
-                       WHERE ID = @PersonID)
-        BEGIN
-            BEGIN TRAN;
-            BEGIN TRY
+    --IF @concurrency = (SELECT concurrencyPerson
+    --                 FROM People
+    --               WHERE ID = @PersonID)
+    --BEGIN
+    BEGIN TRAN;
+    BEGIN TRY
 
-                UPDATE People
-                SET DNI            = @DNI,
-                    firstName      = @firstName,
-                    fathersSurname = @fathersSurname,
-                    mothersSurname = @mothersSurname,
-                    birthDate      = @birthDate,
-                    gender         = @gender,
-                    address        = @address,
-                    phone          = @phone,
-                    email          = @email,
-                    PersonID       = @FatherID,
-                    ClubID         = @ClubID
-                WHERE ID = @PersonID;
+        UPDATE People
+        SET DNI            = @DNI,
+            firstName      = @firstName,
+            fathersSurname = @fathersSurname,
+            mothersSurname = @mothersSurname,
+            birthDate      = @birthDate,
+            gender         = @gender,
+            address        = @address,
+            phone          = @phone,
+            email          = @email,
+            PersonID       = @FatherID,
+            ClubID         = @ClubID
+        WHERE ID = @PersonID;
 
-                UPDATE Users
-                SET userName = @userName,
-                    password = @password
-                WHERE ID = @PersonID;
+        UPDATE Users
+        SET userName = @userName,
+            password = @password
+        WHERE ID = @PersonID;
 
-                UPDATE UserRol
-                SET RolID = @RoleID
-                WHERE UserID = @PersonID;
+        UPDATE UserRol
+        SET RolID = @RoleID
+        WHERE UserID = @PersonID;
 
-                UPDATE ClassPerson
-                SET ClassID = @ClassID
-                WHERE PersonID = @PersonID;
+        UPDATE ClassPerson
+        SET ClassID = @ClassID
+        WHERE PersonID = @PersonID;
 
-                UPDATE PositionPersonUnit
-                SET UnitID     = @UnitID,
-                    PositionID = @PositionID
-                WHERE PersonID = @PersonID;
+        UPDATE PositionPersonUnit
+        SET UnitID     = @UnitID,
+            PositionID = @PositionID
+        WHERE PersonID = @PersonID;
 
-                COMMIT TRAN;
-            END TRY
-            BEGIN CATCH
-                ROLLBACK TRAN;
-                RAISERROR ('Error al actualizar persona.', 16, 1);
-            END CATCH
-        END
-    ELSE
-        BEGIN
-            RAISERROR ('Error al actualizar persona, debido a que el archivo fue modificado antes.', 16, 1);
-        END
+        COMMIT TRAN;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRAN;
+        RAISERROR ('Error al actualizar persona.', 16, 1);
+    END CATCH
+    -- END
+    --ELSE
+    --  BEGIN
+    --    RAISERROR ('Error al actualizar persona, debido a que el archivo fue modificado antes.', 16, 1);
+    --END
 END
 GO
 ---------------------------------------------------------------------------------------------Listo
@@ -620,7 +620,7 @@ AS
 BEGIN
     BEGIN TRAN;
     BEGIN TRY
-        SELECT P.ID   PeopleID,
+        SELECT P.ID PeopleID,
                P.DNI,
                P.firstName,
                P.fathersSurname,
@@ -640,96 +640,138 @@ BEGIN
 END
 GO
 ---------------------------------------------------------------------------------------------Listo
----Procedimiento para obtener el club
-CREATE PROCEDURE usp_GetClub @ClubID INT
+---Procedimiento para insertar padre
+ALTER PROCEDURE usp_InsertParent @DNI VARCHAR(8),
+                                 @firstName NVARCHAR(30),
+                                 @fathersSurname NVARCHAR(15),
+                                 @mothersSurname NVARCHAR(15),
+                                 @birthDate DATE,
+                                 @gender CHAR(1),
+                                 @address NVARCHAR(30),
+                                 @phone nvarchar(15),
+                                 @email NVARCHAR(30),
+                                 @ClubID INT,
+                                 @userName NVARCHAR(15),
+                                 @password NVARCHAR(15),
+                                 @RoleID INT
 AS
 BEGIN
-    BEGIN TRAN
-        BEGIN TRY
-            SELECT *
-            FROM Clubs
-            WHERE ID = @ClubID
-            COMMIT
-        END TRY
-        BEGIN CATCH
-            ROLLBACK
-        END CATCH
-END
-GO
+    BEGIN TRAN;
+    BEGIN TRY
+        DECLARE @PersonID int;
 
----Procedimiento para obtener una unidad
-CREATE PROCEDURE usp_GetUnit @UnitID INT
-AS
-BEGIN
-    BEGIN TRAN
-        BEGIN TRY
-            SELECT *
-            FROM Units
-            WHERE ID = @UnitID
-            COMMIT
-        END TRY
-        BEGIN CATCH
-            ROLLBACK
-        END CATCH
-END
-GO
+        INSERT INTO People (DNI, firstName, fathersSurname, mothersSurname, birthDate, gender, address, phone, email,
+                            ClubID)
+        VALUES (@DNI, @firstName, @fathersSurname, @mothersSurname, @birthDate, @gender, @address, @phone, @email,
+                @ClubID);
 
----Procedimiento para obtener unidades
-CREATE PROCEDURE usp_GetUnits
-AS
-BEGIN
-    BEGIN TRAN
-        BEGIN TRY
-            SELECT *
-            FROM Units
-            COMMIT
-        END TRY
-        BEGIN CATCH
-            ROLLBACK
-        END CATCH
-END
-GO
+        SET @PersonID = SCOPE_IDENTITY();
 
----Procedimiento para insertar unidad
-CREATE PROCEDURE usp_InsertUnit @name NVARCHAR(15),
-                                @motto NVARCHAR(100),
-                                @battleCry NVARCHAR(250),
-                                @description NVARCHAR(250),
-                                @ClubID INT
-AS
-BEGIN
-    BEGIN TRAN
-        BEGIN TRY
-            INSERT INTO Units (name, motto, battleCry, description, ClubID)
-            VALUES (@name, @motto, @battleCry, @description, @ClubID);
-            COMMIT
-        END TRY
-        BEGIN CATCH
-            ROLLBACK
-        END CATCH
-END
-GO
+        INSERT INTO Users (ID, userName, password)
+        VALUES (@PersonID, @userName, @password);
 
----Procedimiento para actualizar unidad
-CREATE PROCEDURE usp_UpdateUnit @UnitID TINYINT,
-                                @name NVARCHAR(15),
-                                @motto NVARCHAR(100),
-                                @battleCry NVARCHAR(250),
-                                @description NVARCHAR(250)
-AS
-BEGIN
-    BEGIN TRAN
-        BEGIN TRY
-            UPDATE Units
-            SET name        = @name,
-                motto       = @motto,
-                battleCry   = @battleCry,
-                description = @description
-            WHERE ID = @UnitID
-            COMMIT
-        END TRY
-        BEGIN CATCH
-            ROLLBACK
-        END CATCH
+        INSERT INTO UserRol (UserID, RolID)
+        VALUES (@PersonID, @RoleID);
+        COMMIT TRAN;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRAN;
+        RAISERROR ('Error al insertar padre', 16, 1);
+    END CATCH
 END
 GO
+---------------------------------------------------------------------------------------------Listo
+---Procedimiento para actualizar padre
+ALTER PROCEDURE usp_UpdateParent @PersonID INT,
+                                 @DNI VARCHAR(8),
+                                 @firstName NVARCHAR(30),
+                                 @fathersSurname NVARCHAR(15),
+                                 @mothersSurname NVARCHAR(15),
+                                 @birthDate DATE,
+                                 @gender CHAR(1),
+                                 @address NVARCHAR(30),
+                                 @phone nvarchar(15),
+                                 @email NVARCHAR(30),
+                                 @ClubID INT,
+                                 @userName NVARCHAR(15),
+                                 @password NVARCHAR(15),
+                                 @RoleID INT
+    --@concurrency TIMESTAMP
+AS
+BEGIN
+    --IF @concurrency = (SELECT concurrencyPerson
+    --                 FROM People
+    --               WHERE ID = @PersonID)
+    --BEGIN
+    BEGIN TRAN;
+    BEGIN TRY
+
+        UPDATE People
+        SET DNI            = @DNI,
+            firstName      = @firstName,
+            fathersSurname = @fathersSurname,
+            mothersSurname = @mothersSurname,
+            birthDate      = @birthDate,
+            gender         = @gender,
+            address        = @address,
+            phone          = @phone,
+            email          = @email,
+            ClubID         = @ClubID
+        WHERE ID = @PersonID;
+
+        UPDATE Users
+        SET userName = @userName,
+            password = @password
+        WHERE ID = @PersonID;
+
+        UPDATE UserRol
+        SET RolID = @RoleID
+        WHERE UserID = @PersonID;
+
+        COMMIT TRAN;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRAN;
+        RAISERROR ('Error al actualizar padre.', 16, 1);
+    END CATCH
+    --END
+    --ELSE
+    --  BEGIN
+    --    RAISERROR ('Error al actualizar padre, debido a que el registro fue modificado antes.', 16, 1);
+    --END
+END
+GO
+---------------------------------------------------------------------------------------------Listo
+---Procedimiento para obtener una persona
+ALTER PROCEDURE usp_GetParentById @Id INT
+AS
+BEGIN
+    BEGIN TRAN;
+    BEGIN TRY
+        SELECT P.ID,
+               P.DNI,
+               P.firstName,
+               P.fathersSurname,
+               P.mothersSurname,
+               P.birthDate,
+               P.gender,
+               P.phone,
+               P.email,
+               P.address,
+               P.concurrencyPerson,
+               UR.RolID,
+               U.userName,
+               U.password
+        FROM People P
+                 JOIN Users U on P.ID = U.ID
+                 JOIN UserRol UR on U.ID = UR.UserID
+        WHERE P.ID = @Id
+        COMMIT TRAN;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRAN;
+        RAISERROR ('Padre no encontrado', 16, 1);
+    END CATCH
+END
+GO
+---------------------------------------------------------------------------------------------Listo

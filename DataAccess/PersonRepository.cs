@@ -55,9 +55,46 @@ public class PersonRepository : ConnectionRepository, IPersonRepository
         }
     }
 
+    public async Task<bool> InsertParent(Person model)
+    {
+        using (var connectionDb = Connection.GetConnection(Configuration))
+        {
+            try
+            {
+                using (var cmd = new SqlCommand("usp_InsertParent", connectionDb))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.AddWithValue("@DNI", model.Dni);
+                    cmd.Parameters.AddWithValue("@firstName", model.FirstName);
+                    cmd.Parameters.AddWithValue("@fathersSurname", model.FathersSurname);
+                    cmd.Parameters.AddWithValue("@mothersSurname", model.MothersSurname);
+                    cmd.Parameters.AddWithValue("@birthDate", model.BirthDate);
+                    cmd.Parameters.AddWithValue("@gender", model.Gender);
+                    cmd.Parameters.AddWithValue("@address", model.Address);
+                    cmd.Parameters.AddWithValue("@phone", model.Phone);
+                    cmd.Parameters.AddWithValue("@email", model.Email);
+                    cmd.Parameters.AddWithValue("@ClubID", model.ClubId);
+                    cmd.Parameters.AddWithValue("@userName", model.User.UserName);
+                    cmd.Parameters.AddWithValue("@password", model.User.Password);
+                    cmd.Parameters.AddWithValue("@RoleID", model.User.UserRols.FirstOrDefault().RolId);
+                    Connection.OpenConnection();
+                    await cmd.ExecuteNonQueryAsync();
+                    Connection.CloseConnection();
+                }
+
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                Connection.CloseConnection();
+                return false;
+            }
+        }
+    }
+
     public async Task<bool> Update(Person model)
     {
-        Console.WriteLine("prueba");
         using (var connectionDb = Connection.GetConnection(Configuration))
         {
             try
@@ -84,29 +121,51 @@ public class PersonRepository : ConnectionRepository, IPersonRepository
                     cmd.Parameters.AddWithValue("@UnitID", model.PositionPersonUnits.FirstOrDefault().UnitId);
                     cmd.Parameters.AddWithValue("@PositionID", model.PositionPersonUnits.FirstOrDefault().PositionId);
                     cmd.Parameters.AddWithValue("@RoleID", model.User.UserRols.FirstOrDefault().RolId);
+                    //cmd.Parameters.AddWithValue("@concurrency", model.ConcurrencyPerson);
                     Connection.OpenConnection();
-                    Console.WriteLine(model.Id);
-                    Console.WriteLine(model.Dni);
-                    Console.WriteLine(model.FirstName);
-                    Console.WriteLine(model.FathersSurname);
-                    Console.WriteLine(model.MothersSurname);
-                    Console.WriteLine(model.BirthDate);
-                    Console.WriteLine(model.Gender);
-                    Console.WriteLine(model.Address);
-                    Console.WriteLine(model.Phone);
-                    Console.WriteLine(model.Email);
-                    Console.WriteLine(model.ClubId);
-                    Console.WriteLine(model.User.UserName);
-                    Console.WriteLine(model.User.Password);
-                    Console.WriteLine(model.PersonId);
-                    Console.WriteLine(model.ClassPeople.FirstOrDefault().ClassId);
-                    Console.WriteLine(model.PositionPersonUnits.FirstOrDefault().UnitId);
-                    Console.WriteLine(model.PositionPersonUnits.FirstOrDefault().PositionId);
-                    Console.WriteLine(model.User.UserRols.FirstOrDefault().RolId);
                     await cmd.ExecuteNonQueryAsync();
                     Connection.CloseConnection();
                 }
-                Console.WriteLine("prueba");
+                return true;
+                
+            }
+            catch (SqlException ex)
+            {
+                Connection.CloseConnection();
+                return false;
+            }
+        }
+    }
+
+    public async Task<bool> UpdateParent(Person model)
+    {
+        using (var connectionDb = Connection.GetConnection(Configuration))
+        {
+            try
+            {
+                using (var cmd = new SqlCommand("usp_UpdateParent", connectionDb))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.AddWithValue("@PersonID", model.Id);
+                    cmd.Parameters.AddWithValue("@DNI", model.Dni);
+                    cmd.Parameters.AddWithValue("@firstName", model.FirstName);
+                    cmd.Parameters.AddWithValue("@fathersSurname", model.FathersSurname);
+                    cmd.Parameters.AddWithValue("@mothersSurname", model.MothersSurname);
+                    cmd.Parameters.AddWithValue("@birthDate", model.BirthDate);
+                    cmd.Parameters.AddWithValue("@gender", model.Gender);
+                    cmd.Parameters.AddWithValue("@address", model.Address);
+                    cmd.Parameters.AddWithValue("@phone", model.Phone);
+                    cmd.Parameters.AddWithValue("@email", model.Email);
+                    cmd.Parameters.AddWithValue("@ClubID", model.ClubId);
+                    cmd.Parameters.AddWithValue("@userName", model.User.UserName);
+                    cmd.Parameters.AddWithValue("@password", model.User.Password);
+                    cmd.Parameters.AddWithValue("@RoleID", model.User.UserRols.FirstOrDefault().RolId);
+                    //cmd.Parameters.AddWithValue("@concurrency", model.ConcurrencyPerson);
+                    Connection.OpenConnection();
+                    await cmd.ExecuteNonQueryAsync();
+                    Connection.CloseConnection();
+                }
                 return true;
                 
             }
@@ -198,7 +257,7 @@ public class PersonRepository : ConnectionRepository, IPersonRepository
                         if (await dr.ReadAsync())
                         {
                             person.Id = Convert.ToInt32(dr["ID"]);
-                            person.Dni = Convert.ToInt32(dr["DNI"]);
+                            person.Dni = dr["DNI"].ToString();
                             person.FirstName = dr["firstname"].ToString();
                             person.FathersSurname = dr["fathersSurname"].ToString();
                             person.MothersSurname = dr["mothersSurname"].ToString();
@@ -208,7 +267,7 @@ public class PersonRepository : ConnectionRepository, IPersonRepository
                             person.Email = dr["email"].ToString();
                             person.Address = dr["address"].ToString();
                             person.PersonId = dr["PersonID"].ToString() == "" ? 0 : Convert.ToInt32(dr["PersonID"]);
-                            person.ConcurrencyPerson = dr["concurrencyPerson"];
+                            person.ConcurrencyPerson = (byte[])dr["concurrencyPerson"];
                             person.ClassPeople = new List<ClassPerson>
                             {
                                 new()
@@ -236,6 +295,60 @@ public class PersonRepository : ConnectionRepository, IPersonRepository
                                     }
                                 }
                             };
+                        }
+                    }
+                    Connection.CloseConnection();
+                }
+                return person;
+            }
+            catch (SqlException e)
+            {
+                Connection.CloseConnection();
+                return null;
+            }
+        }
+    }
+
+    public async Task<Person> GetParentById(int id)
+    {
+        Person person = new Person();
+        using (var cnDb = Connection.GetConnection(Configuration))
+        {
+            try
+            {
+                using (var cmd = new SqlCommand("usp_GetParentById", cnDb))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.AddWithValue("@Id", id);
+                    Connection.OpenConnection();
+                    using (var dr = await cmd.ExecuteReaderAsync())
+                    {
+                        if (await dr.ReadAsync())
+                        {
+                            person.Id = Convert.ToInt32(dr["ID"]);
+                            person.Dni = dr["DNI"].ToString();
+                            person.FirstName = dr["firstname"].ToString();
+                            person.FathersSurname = dr["fathersSurname"].ToString();
+                            person.MothersSurname = dr["mothersSurname"].ToString();
+                            person.BirthDate = Convert.ToDateTime(dr["birthDate"].ToString());
+                            person.Gender = dr["gender"].ToString();
+                            person.Phone = dr["phone"].ToString();
+                            person.Email = dr["email"].ToString();
+                            person.Address = dr["address"].ToString();
+                            person.User = new User()
+                            {
+                                UserName = dr["userName"].ToString(),
+                                Password = dr["password"].ToString(),
+                                UserRols = new List<UserRol>
+                                {
+                                    new()
+                                    {
+                                        RolId = Convert.ToByte(dr["RolID"].ToString())
+                                    }
+                                }
+                            };
+                            person.ConcurrencyPerson = (byte[])dr["concurrencyPerson"];
                         }
                     }
                     Connection.CloseConnection();
@@ -413,7 +526,7 @@ public class PersonRepository : ConnectionRepository, IPersonRepository
                             parentList.Add(new Person()
                             {
                                 Id = Convert.ToInt32(dr["PeopleID"].ToString()),
-                                Dni = Convert.ToInt32(dr["DNI"].ToString()),
+                                Dni = dr["DNI"].ToString(),
                                 FirstName = dr["firstName"].ToString(),
                                 FathersSurname = dr["fathersSurname"].ToString(),
                                 MothersSurname = dr["mothersSurname"].ToString(),

@@ -1,6 +1,4 @@
-﻿@*@model ClubConquistadoresAguilas.Models.VmPerson*@
-@*edicion de prueba para hacer merge con Jhon*@
-@model VmPerson
+﻿@model VmPerson
 @{
     //Layout = "_LayoutCrud";
     ViewData["Vista"] = "Edit";
@@ -53,7 +51,7 @@
                 <div class="form-group">
                     <label class="control-label">Sexo: *</label>
                     <select name="Sex" id="Sexo">
-                        @switch (@Model.Gender)
+                        @switch (Model.Gender)
                         {
                             case "M":
                                 <option value="M" selected>Masculino</option>

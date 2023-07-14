@@ -113,7 +113,7 @@ public class ConquistadorController : Controller
             
             var person = new Person
             {
-                Dni = Convert.ToInt32(Dni),
+                Dni = Dni,
                 FirstName = FirstName,
                 FathersSurname = FatherSurname,
                 MothersSurname = MotherSurname,
@@ -152,7 +152,6 @@ public class ConquistadorController : Controller
                 PersonId = Convert.ToInt32(Attorney),
                 ClubId = 1
             };
-            Console.WriteLine(person.PersonId);
 
             await _personService.Insert(person);
 
@@ -236,7 +235,7 @@ public class ConquistadorController : Controller
 
     // POST: ConquistadorController/Edit/5
     [HttpPost]
-    public async Task<ActionResult> Edit(int id, int Dni, string FirstName, string FatherSurname, string MotherSurname,
+    public async Task<ActionResult> Edit(int id, string Dni, string FirstName, string FatherSurname, string MotherSurname,
         DateTime Birthday, string Sex, int Phone, string Email, string Address, int Class, int Unit,
         int Position, int Role, string Username, string Password, string Attorney = null)
     {

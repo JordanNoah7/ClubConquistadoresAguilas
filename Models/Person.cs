@@ -4,7 +4,7 @@ public class Person
 {
     public int Id { get; set; }
 
-    public int Dni { get; set; }
+    public string Dni { get; set; }
 
     public string FirstName { get; set; } = null!;
 
@@ -26,7 +26,7 @@ public class Person
 
     public int? PersonId { get; set; }
 
-    public object ConcurrencyPerson { get; set; } = null!;
+    public byte[] ConcurrencyPerson { get; set; } = null!;
 
     public virtual ICollection<ClassPerson> ClassPeople { get; set; } = new List<ClassPerson>();
 

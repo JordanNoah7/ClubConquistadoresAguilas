@@ -13,6 +13,18 @@ public class PersonService : IPersonService
         _personRepo = personRepo;
     }
 
+    public async Task<bool> InsertParent(Person model)
+    {
+        try
+        {
+            return await _personRepo.InsertParent(model);
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
+    }
+
     public async Task<bool> Update(Person model)
     {
         try
@@ -22,6 +34,30 @@ public class PersonService : IPersonService
         catch (Exception e)
         {
             return false;
+        }
+    }
+
+    public async Task<bool> UpdateParent(Person model)
+    {
+        try
+        {
+            return await _personRepo.UpdateParent(model);
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
+    }
+
+    public async Task<Person> GetParentById(int id)
+    {
+        try
+        {
+            return await _personRepo.GetParentById(id);
+        }
+        catch (Exception e)
+        {
+            return null;
         }
     }
 

@@ -17,39 +17,37 @@
 
     <div class="row">
         <div class="col">
-            <form asp-action="Create">
-                @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
+            <form action="@Url.Action("Create", "Padre")" method="post" autocomplete="off">
                 <div class="form-group">
                     <label class="control-label">DNI: *</label>
-                    <input type="text" aria-label="Dni: " class="form-control" required>
+                    <input type="number" name="Dni" aria-label="Dni: " class="form-control" required>
                     <span class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label @*asp-for="Name" *@class="control-label">Nombre(s) : *</label>
-                    <input type="text" aria-label="Nombre" @*asp-for="Name"*@ class="form-control">
-                    <span @*asp-validation-for="Name"*@ class="text-danger"></span>
+                    <label class="control-label">Nombre(s) : *</label>
+                    <input type="text" aria-label="Nombre" class="form-control" name="FirstName" required>
+                    <span class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Apellido Paterno : *</label>
-                    <input type="text" aria-label="Apellidos" class="form-control" required>
+                    <input type="text" aria-label="Apellidos" class="form-control" name="FatherSurname" required>
                     <span class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label class="control-label">Apellido Materno : *</label>
-                    <input type="text" aria-label="Apellidos" class="form-control" required>
+                    <input type="text" aria-label="Apellidos" class="form-control" name="MotherSurname" required>
                     <span class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label class="control-label">Fecha Nacimiento : *</label>
-                    <input type="date" aria-label="FechaNac" class="form-control" required>
+                    <input type="date" aria-label="FechaNac" class="form-control" name="Birthday" required>
                     <span class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label class="control-label">Sexo: *</label>
-                    <select name="Sexo" id="Sexo">
-                        <option value=""></option>
+                    <select name="Sex" id="Sexo">
                         <option value="M">Masculino</option>
                         <option value="F">Femenino</option>
                     </select>
@@ -57,79 +55,47 @@
 
                 <div class="form-group">
                     <label class="control-label">Telefono:*</label>
-                    <input type="text" aria-label="telefono" class="form-control" required>
+                    <input type="number" aria-label="telefono" class="form-control" name="Phone" required>
                     <span class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label class="control-label">Correo:*</label>
-                    <input type="email" placeholder="email@gmail.com" aria-label="email" class="form-control" required>
+                    <input type="email" placeholder="email@gmail.com" aria-label="email" class="form-control" name="Email" required>
                     <span class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label class="control-label">Direccion:*</label>
-                    <input type="text" aria-label="direccion" class="form-control" required>
+                    <input type="text" aria-label="direccion" class="form-control" name="Address" required>
                     <span class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label for="cargo">Cargo</label>
-                    <select name="cargo" id="cargo">
-                        <option value="conquistador">Conquistador</option>
-                        <option value="instructor">Instructor</option>
-                        <option value="consejero">Consejero</option>
-                        <option value="padre">Padre</option>
-                        <option value="director">Director</option>
-                        <option value="tesorero">Tesorero</option>
+                    <label for="cargo">Rol</label>
+                    <select name="Role" id="rol">
+                        @foreach (var roles in ViewBag.Roles)
+                        {
+                            <option value="@roles.Value">@roles.Text</option>
+                        }
                     </select>
                 </div>
-
+                <br/>
+                <br/>
                 <div class="form-group">
                     <label class="control-label">Usuario:</label>
-                    <input type="text" aria-label="usuario" class="form-control" required>
+                    <input type="text" aria-label="usuario" class="form-control" name="Username" required>
                     <span class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label class="control-label">Contraseña:</label>
-                    <input type="text" aria-label="pasword" class="form-control" required>
+                    <input type="text" aria-label="pasword" class="form-control" name="Password" required>
                     <span class="text-danger"></span>
                 </div>
-                <div class="form-group">
-                    <label for="clase">Clase</label>
-                    <select name="clase" id="clase">
-                        <option value="">Null</option>
-                        <option value="amigo">Amigo</option>
-                        <option value="compañero">Compañero</option>
-                        <option value="explorador">Explorador</option>
-                        <option value="pionero">Pionero</option>
-                        <option value="excursionista">Excursionista</option>
-                        <option value="club">Club</option>
-                        <option value="guia_mayor">Guia Mayor</option>
-                        <option value="guia_mayor_master">Guia Mayor Máster</option>
-                        <option value="guia_mayor_master_avanzado">Gui Mayor Master Avanzado</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="unidad">Unidad</label>
-                    <select name="unidad" id="unidad">
-                        <option value="">Null</option>
-                        <option value="unidadM-1">Mujeres 10-11</option>
-                        <option value="unidadM-2">Mujeres 12-13</option>
-                        <option value="unidadM-2">Mujeres 14-15</option>
-                        <option value="unidadH-1">Hombres 10-11</option>
-                        <option value="unidadH-2">Hombres 12-13</option>
-                        <option value="unidadH-2">Hombres 14-15</option>
-                    </select>
-                </div>
                 <br/>
                 <br/>
-                @*<input type="submit" value="Guardar" class="btn btn-primary" />*@
                 <button type="submit" class="btnGuardar" value="guardar">Guardar</button>
-
-                <button type="submit" class="btnCancelar" value="cancelar" onclick="location.href='@Url.Action("Details", "Padre")'">Cancelar</button>
-
+                 <button type="submit" class="btnCancelar" value="cancelar" onclick="location.href='@Url.Action("Details", "Padre")'">Cancelar</button>
             </form>
 
         </div>
 
     </div>
 </div>
-

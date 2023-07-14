@@ -4,7 +4,7 @@ public class VmPerson
 {
     public int Id { get; set; }
     
-    public int Dni { get; set; }
+    public string Dni { get; set; }
 
     public string FirstName { get; set; } = null!;
 
@@ -41,6 +41,8 @@ public class VmPerson
     public int ClubId { get; set; }
 
     public int? PersonId { get; set; }
+    
+    public object ConcurrencyPerson { get; set; } = null!;
     
     public VmUser User { get; set; }
 
