@@ -111,6 +111,8 @@ public class ConquistadorController : Controller
     {
         try
         {
+            
+            
             var person = new Person
             {
                 Dni = Convert.ToInt32(Dni),

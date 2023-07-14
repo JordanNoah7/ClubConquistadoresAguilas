@@ -2,7 +2,6 @@
 using Domain;
 using Infrastructure.Context;
 using Microsoft.Data.SqlClient;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Models;
 
