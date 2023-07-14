@@ -1,9 +1,8 @@
 ﻿@{
-    //Layout = "_LayoutCrud";
     ViewData["Vista"] = "Create";
 }
 
-<link rel="stylesheet" href="~/css/Create.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/Create.css" asp-append-version="true"/>
 
 @*action="@Url.Action("Login", "Login")" method="post" autocomplete="off"*@
 
@@ -68,17 +67,6 @@
                     <span class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label class="control-label">Padre/Apoderado:</label>
-                    <input type="search" aria-label="padre" id="padre" class="form-control">
-                    <select class="apoderado" name="Attorney" id="listaPadres">
-                        <option value="" class="father">Seleccionar padre/apoderado</option>
-                        @foreach (var father in ViewBag.Fathers)
-                        {
-                            <option value="@father.Value" class="father">@father.Text</option>
-                        }
-                    </select>
-                </div>
-                <div class="form-group">
                     <label for="clase">Clase</label>
                     <select name="Class" id="clase">
                         @foreach (var classes in ViewBag.Classes)
@@ -96,8 +84,7 @@
                         }
                     </select>
                 </div>
-                <br />
-                <br />
+                
                 <div class="form-group">
                     <label for="cargo">Cargo</label>
                     <select name="Position" id="cargo">
@@ -107,17 +94,23 @@
                         }
                     </select>
                 </div>
+                <br/>
+                                <br/>
                 <div class="form-group">
                     <label for="cargo">Rol</label>
                     <select name="Role" id="rol">
                         @foreach (var roles in ViewBag.Roles)
                         {
+                            if (roles.Value==2)
+                            {
+                                <option value="@roles.Value" selected>@roles.Text</option>
+                            }
                             <option value="@roles.Value">@roles.Text</option>
                         }
                     </select>
                 </div>
-                <br />
-                <br />
+                <br/>
+                <br/>
                 <div class="form-group">
                     <label class="control-label">Usuario:</label>
                     <input type="text" aria-label="usuario" class="form-control" name="Username" required>
@@ -128,8 +121,8 @@
                     <input type="text" aria-label="pasword" class="form-control" name="Password" required>
                     <span class="text-danger"></span>
                 </div>
-                <br />
-                <br />
+                <br/>
+                <br/>
                 <button type="submit" class="btnGuardar" value="guardar">Guardar</button>
 
                 <button type="submit" class="btnCancelar" value="cancelar" onclick="location.href='@Url.Action("Details", "Consejero")'">Cancelar</button>

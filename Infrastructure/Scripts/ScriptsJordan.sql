@@ -249,7 +249,7 @@ BEGIN
                  JOIN Positions P2 on P2.ID = PPU.PositionID
                  JOIN Users U2 on P.ID = U2.ID
                  JOIN UserRol UR on U2.ID = UR.UserID
-        WHERE UR.RolID IN (1, 2, 3, 4, 5)
+        WHERE UR.RolID IN (1, 2, 4, 5)
           AND YEAR(UR.insertionDate) = YEAR(GETDATE());
         COMMIT TRAN;
     END TRY
