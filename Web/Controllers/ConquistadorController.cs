@@ -40,9 +40,7 @@ public class ConquistadorController : Controller
 
         var pathfinders = await _personService.GetPathfinders();
 
-        var enumerable = pathfinders.ToList();
-
-        foreach (var item in enumerable)
+        foreach (var item in pathfinders.ToList())
             vmPathfinders.Add(new VmPerson
             {
                 Id = item.Id,

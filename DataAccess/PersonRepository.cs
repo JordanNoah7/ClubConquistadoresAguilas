@@ -346,6 +346,94 @@ public class PersonRepository : ConnectionRepository, IPersonRepository
         }
     }
 
+    public async Task<IEnumerable<Person>> GetInstructors()
+    {
+        var instructorList = new List<Person>();
+        using (var cnDb = Connection.GetConnection(Configuration))
+        {
+            try
+            {
+                using (var cmd = new SqlCommand("usp_GetInstructors", cnDb))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Clear();
+                    Connection.OpenConnection();
+                    using (var dr = await cmd.ExecuteReaderAsync())
+                    {
+                        while (await dr.ReadAsync())
+                        {
+                            instructorList.Add(new Person()
+                            {
+                                Id = Convert.ToInt32(dr["PeopleID"].ToString()),
+                                FirstName = dr["firstName"].ToString(),
+                                FathersSurname = dr["fathersSurname"].ToString(),
+                                MothersSurname = dr["mothersSurname"].ToString(),
+                                ClassPeople = new List<ClassPerson>
+                                {
+                                    new()
+                                    {
+                                        Class = new Class
+                                        {
+                                            Name = dr["class"].ToString()
+                                        }
+                                    }
+                                }
+                            });
+                        }
+                    }
+                    Connection.CloseConnection();
+                }
+
+                return instructorList;
+            }
+            catch (SqlException e)
+            {
+                Connection.CloseConnection();
+                return null;
+            }
+        }
+    }
+
+    public async Task<IEnumerable<Person>> GetParents()
+    {
+        var parentList = new List<Person>();
+        using (var cnDb = Connection.GetConnection(Configuration))
+        {
+            try
+            {
+                using (var cmd = new SqlCommand("usp_GetParents", cnDb))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Clear();
+                    Connection.OpenConnection();
+                    using (var dr = await cmd.ExecuteReaderAsync())
+                    {
+                        while (await dr.ReadAsync())
+                        {
+                            parentList.Add(new Person()
+                            {
+                                Id = Convert.ToInt32(dr["PeopleID"].ToString()),
+                                Dni = Convert.ToInt32(dr["DNI"].ToString()),
+                                FirstName = dr["firstName"].ToString(),
+                                FathersSurname = dr["fathersSurname"].ToString(),
+                                MothersSurname = dr["mothersSurname"].ToString(),
+                                Phone = dr["phone"].ToString()
+                            });
+                        }
+                    }
+                    Connection.CloseConnection();
+                }
+
+                return parentList;
+            }
+            catch (SqlException e)
+            {
+                Connection.CloseConnection();
+                return null;
+            }
+        }
+    }
+
     public async Task<IEnumerable<Person>> GetPathfinders()
     {
         var pathfinderList = new List<Person>();

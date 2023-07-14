@@ -609,6 +609,32 @@ BEGIN
     END TRY
     BEGIN CATCH
         ROLLBACK TRAN;
+        RAISERROR ('Instructores no encontrados', 16, 1);
+    END CATCH
+END
+GO
+---------------------------------------------------------------------------------------------Listo
+---Procedimiento para obtener a los padres
+CREATE PROCEDURE usp_GetParents
+AS
+BEGIN
+    BEGIN TRAN;
+    BEGIN TRY
+        SELECT P.ID   PeopleID,
+               P.DNI,
+               P.firstName,
+               P.fathersSurname,
+               P.mothersSurname,
+               P.phone
+        FROM People P
+                 JOIN Users U on P.ID = U.ID
+                 JOIN UserRol UR on U.ID = UR.UserID
+        WHERE UR.RolID = 6
+          AND YEAR(UR.insertionDate) = YEAR(GETDATE())
+        COMMIT TRAN;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRAN;
         RAISERROR ('Consejeros no encontrados', 16, 1);
     END CATCH
 END

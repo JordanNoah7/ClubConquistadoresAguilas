@@ -1,4 +1,5 @@
-﻿@{
+﻿@model VmPerson
+@{
     //Layout = "_LayoutCrud";
     ViewData["Vista"] = "Details";
 }
@@ -17,35 +18,40 @@
     <table class="table table-hover">
         <thead>
         <tr name="columna">
-            <th scope="col" name="nro">Item</th>
             <th class="dni" name="colDni">DNI</th>
             <th class="nombre" name="colNombre">Nombre</th>
             <th class="apellido" name="colApellidoPat">Apellido Paterno</th>
             <th class="apellido" name="colApellidoMat">Apellido Materno</th>
             <th class="telefono" name="colTelefono">Telefono</th>
-
         </tr>
         </thead>
         <tbody>
-        <tr name="fila">
-            <th scope="row" name="nro">1</th>
-            <td class="dni" name="rowDni">12345678</td>
-            <td class="nombre" name="rowNombre">Mark</td>
-            <td class="apellido" name="rowApellidoPat">Otto</td>
-            <td class="apellido" name="rowApellidoMat">Otto</td>
-            <td class="telefono" name="rowTelefono">44444</td>
-            <td>
-                <button type="button" id="delete" class="btn btn-default" onclick="location.href='@Url.Action("Delete", "Padre")'">
-                    <span class="material-symbols-outlined">delete</span>
-                </button>
-                <button type="button" id="edit" class="btn btn-default" onclick="location.href='@Url.Action("Edit", "Padre")'">
-                    <span class="material-symbols-outlined">edit_square</span>
-                </button>
-
-
-            </td>
-        </tr>
-
+        @foreach (var item in Model.PersonList)
+        {
+            <tr name="fila">
+                <td class="dni" name="rowDni">@item.Dni</td>
+                <td class="nombre" name="rowNombre">@item.FirstName</td>
+                <td class="apellido" name="rowApellidoPat">@item.FathersSurname</td>
+                <td class="apellido" name="rowApellidoMat">@item.MothersSurname</td>
+                <td class="telefono" name="rowTelefono">@item.Phone</td>
+                <td>
+                                        <form action="@Url.Action("Edit", "Padre")" method="get">
+                                            <input type="hidden" name="nro" value="@item.Id" />
+                                            <button type="submit" id="edit" class="btn btn-default">
+                                                <span class="material-symbols-outlined">edit_square</span>
+                                            </button>
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <form action="@Url.Action("Delete", "Padre")" method="get">
+                                            <input type="hidden" name="nro" value="@item.Id" />
+                                            <button type="submit" id="delete" class="btn btn-default">
+                                                <span class="material-symbols-outlined">delete</span>
+                                            </button>
+                                        </form>
+                                    </td>
+            </tr>
+        }
         </tbody>
     </table>
 

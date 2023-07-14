@@ -36,7 +36,7 @@ public class ConsejeroController : Controller
     }
 
     // GET: ConsejeroController/Details/5
-    public async Task<ActionResult> Details(int id)
+    public async Task<ActionResult> Details()
     {
         var vmCounselors = new List<VmPerson>();
         var counselors = await _personService.GetCounselors();

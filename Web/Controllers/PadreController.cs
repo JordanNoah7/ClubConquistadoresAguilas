@@ -1,9 +1,18 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Application.IService;
+using Microsoft.AspNetCore.Mvc;
+using Web.Models;
 
 namespace Web.Controllers;
 
 public class PadreController : Controller
 {
+    private readonly IPersonService _personService;
+
+    public PadreController(IPersonService personService)
+    {
+        _personService = personService;
+    }
+    
     // GET: PadreController
     public ActionResult Index()
     {
@@ -11,9 +20,29 @@ public class PadreController : Controller
     }
 
     // GET: PadreController/Details/5
-    public ActionResult Details(int id)
+    public async Task<ActionResult> Details()
     {
-        return View();
+        var vmParents = new List<VmPerson>();
+        var parents = await _personService.GetParents();
+        foreach (var item in parents.ToList())
+        {
+            vmParents.Add(new VmPerson()
+            {
+                Id = item.Id,
+                Dni = item.Dni,
+                FirstName = item.FirstName,
+                FathersSurname = item.FathersSurname,
+                MothersSurname = item.MothersSurname,
+                Phone = item.Phone
+            });
+        }
+
+        var vmPerson = new VmPerson()
+        {
+            PersonList = vmParents
+        };
+        
+        return View(vmPerson);
     }
 
     // GET: PadreController/Create

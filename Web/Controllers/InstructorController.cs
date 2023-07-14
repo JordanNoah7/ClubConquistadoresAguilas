@@ -1,9 +1,18 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Application.IService;
+using Microsoft.AspNetCore.Mvc;
+using Web.Models;
 
 namespace Web.Controllers;
 
 public class InstructorController : Controller
 {
+    private readonly IPersonService _personService;
+
+    public InstructorController(IPersonService personService)
+    {
+        _personService = personService;
+    }
+    
     // GET: InstructorController
     public ActionResult Index()
     {
@@ -11,9 +20,27 @@ public class InstructorController : Controller
     }
 
     // GET: InstructorController/Details/5
-    public ActionResult Details(int id)
+    public async Task<ActionResult> Details()
     {
-        return View();
+        var vmInstructors = new List<VmPerson>();
+        var instructors = await _personService.GetInstructors();
+        foreach (var item in instructors.ToList())
+        {
+            vmInstructors.Add(new VmPerson()
+            {
+                Id = item.Id,
+                FirstName = item.FirstName,
+                FullSurname = item.FathersSurname + " " + item.MothersSurname,
+                Class = item.ClassPeople.FirstOrDefault().Class.Name
+            });
+        }
+
+        var vmPerson = new VmPerson()
+        {
+            PersonList = vmInstructors
+        };
+        
+        return View(vmPerson);
     }
 
     // GET: InstructorController/Create

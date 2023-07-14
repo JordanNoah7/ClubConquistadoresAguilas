@@ -22,265 +22,253 @@
 </head>
 <body>
 <div class="container">
-    <aside>
+<aside>
 
-        <div class="top">
-            <div class="logo">
-                <img src="/img/logo.png"/>
-                <h2>Las<span class="danger">Agui</span>las</h2>
-            </div>
-            <div class="close" id="close-btn">
-                <span class="material-symbols-outlined">close</span>
-            </div>
+    <div class="top">
+        <div class="logo">
+            <img src="/img/logo.png"/>
+            <h2>Las<span class="danger">Agui</span>las</h2>
         </div>
-
-        <div class="sidebar">
-            <a class="active" asp-area="" asp-controller="Crud" asp-action="Inicio">
-                <span class="material-symbols-outlined">dashboard</span>
-                <h3>Inicio</h3>
-            </a>
-            @switch (vmRole.Name)
-            {
-                case "Director":
-                    <div class="categorias">
-                        <ul>
-
-                            <li>
-                                <a>
-                                    <span class="material-symbols-outlined">tenancy</span>
-                                    <h3>Organización</h3>
-                                </a>
-                                <ul>
-                                    <li>
-                                        <a asp-area="" asp-controller="Conquistador" asp-action="Details">
-                                            <span class="material-symbols-outlined"> child_care</span>
-                                            <h3>Conquistador</h3>
-                                        </a>
-                                        <a asp-area="" asp-controller="Consejero" asp-action="Details">
-                                            <span class="material-symbols-outlined">diversity_3</span>
-                                            <h3>Consejero</h3>
-                                        </a>
-                                        <a asp-area="" asp-controller="Padre" asp-action="Details">
-                                            <span class="material-symbols-outlined">breastfeeding</span>
-                                            <h3>Padre/Apoderado</h3>
-                                        </a>
-                                        <a asp-area="" asp-controller="Instructor" asp-action="Details">
-                                            <span class="material-symbols-outlined">sports_kabaddi</span>
-                                            <h3>Instructor</h3>
-                                        </a>
-                                    </li>
-
-
-                                            <a asp-area="" asp-controller="Instructor" asp-action="Details">
-                                                <span class="material-symbols-outlined">sports_kabaddi</span>
-                                                <h3>Instructor</h3>
-                                            </a>
-                                            <a asp-area="" asp-controller="Padre" asp-action="Details">
-                                                <span class="material-symbols-outlined">breastfeeding</span>
-                                                <h3>Padre/Apoderado</h3>
-                                            </a>
-                                            <a name="campo vacio necesario"></a>
-                                        </li>
-
-                                    </ul>
-                                   
-                                    
-                                </li>
-                               
-                            </ul>
-                                <a asp-area="" asp-controller="Actividades" asp-action="Details">
-                                    <span class="material-symbols-outlined">nature_people</span>
-                                    <h3>Actividades</h3>
-                                </a>
-                                <a asp-area="" asp-controller="Notificacion" asp-action="Index">
-                                    <span class="material-symbols-outlined">forum</span>
-                                    <h3>Notificar</h3>
-                                    <span class="message-count">✆</span>
-                                </a>
-                            
-                                <a href="#" name="campo vacio necesario">
-                                
-                                </a>
-
-                        </div>
-                    break;
-
-                    case "Consejero":
-                        
-                            <a asp-area="" asp-controller="Consejero" asp-action="TomarLista">
-                                <span class="material-symbols-outlined">contract_edit</span>
-                                <h3>Tomar Lista</h3>
-                            </a>
-                            <a asp-area="" asp-controller="Consejero" asp-action="AsignarClase">
-                                <span class="material-symbols-outlined">school</span>
-                                <h3>Asignar Clase</h3>
-                            </a>
-                            <a name="campo vacio necesario">
-
-                            </a>
-                        
-                    break;
-
-                    case "Instructor":
-                        
-                            <a asp-area="" asp-controller="Instructor" asp-action="Registrar_Notas">
-                                <span class="material-symbols-outlined">spellcheck</span>
-                                <h3>Registrar Notas</h3>
-                            </a>
-                        
-                        <a href="#" name="campo vacio necesario">
-
-                            </a>
-                            
-                       
-                    break;
-                    case "Tesorero":
-                        
-                            <a href="#">
-                                <span class="material-symbols-outlined">monetization_on</span>
-                                <h3>Inscripciones</h3>
-                            </a>
-                            <a href="#">
-                                <span class="material-symbols-outlined">savings</span>
-                                <h3>Ahorro</h3>
-                            </a>
-                                <a href="#">
-
-                                </a>
-                      
-                    break;
-            }
-                <a asp-area="" asp-controller="Home" asp-action="Index">
-                    <span class="material-symbols-outlined">logout</span>
-                    <h3>Cerrar Sesión</h3>
-                </a>
+        <div class="close" id="close-btn">
+            <span class="material-symbols-outlined">close</span>
         </div>
-    </aside>
-
-
-    <!--fin de aside-->
-    <main>
-        <h1>
-
-            Hola, <b name="nombrePersona"> @vmPerson.FirstName </b> !
-            <span class="material-symbols-outlined">waving_hand</span>
-        </h1>
-        @RenderBody()
-    </main>
-
-    <div class="right">
-        <div class="top">
-            <button id="menu-btn">
-                <span class="material-symbols-outlined">menu</span>
-            </button>
-            <div class="theme-toggler">
-                <span class="material-symbols-outlined active">light_mode</span>
-                <span class="material-symbols-outlined">dark_mode</span>
-            </div>
-            <div class="profile">
-                <div class="info">
-                    <p>Soy, <b name="fullnameUsuario">@fullname</b></p>
-                    <small class="text-muted">
-                        <b name="RolUsuario">@vmRole.Name</b>
-                    </small>
-                </div>
-                <div class="profile-photo">
-                    <img src="~/img/perfilconquis_mujer.jpg"/>
-                </div>
-            </div>
-        </div>
-        @*fin top*@
-        <div class="seccion-updates">
-            <h2>Ideales :</h2>
-            <div class="updates">
-                <div class="update">
-                    <div class="profile-photo">
-                        <img src="~/img/lema.jpg"/>
-                    </div>
-                    <div class="message">
-                            <p>
-                                <b>Voto : </b>Por la gracia de Dios seré puro, bondadoso
-                                y leal, guardaré la ley del conquistador.
-                            </p>
-                            <small class="text-muted">
-                                Seré siervo de Dios y amigo de todos.
-                            </small>
-
-                    </div>
-                </div>
-                <div class="update">
-                    <div class="profile-photo">
-                        <img src="~/img/2conquis.jpg"/>
-                    </div>
-                    <div class="message">
-                            <p>
-                                <b>Mi propósito es : </b>Los jóvenes por los jóvenes, los jóvenes
-                                por la iglesia y los jóvenes por sus semejantes.
-                            </p>
-                            <small class="text-muted">
-                                Lema: El amor de Cristo me motiva.
-                            </small>
-
-                    </div>
-                </div>
-                    <div class="update">
-                        <div class="profile-photo">
-                            <img src="~/img/1escudo.jpg" />
-                        </div>
-                        <div class="message">
-                            <p>
-                                <b>Himno : </b>Conquistadores somos,
-                                Los siervos del buen Señor;
-                                Adelante vamos ya,
-                                Luchando bien con gran valor.
-                                Salgamos a proclamar las nuevas de salvación:
-                                Jesús va a llevarnos pronto
-                                A su real mansión.
-                            </p>
-                            
-
-                        </div>
-                    </div>
-
-            </div>
-        </div>
-
-        @*fin de seccion-updates*@
-            @*inicio detalles-perfil*@
-
-            <div class="detalles-perfil">
-                <h2>Detalles: </h2>
-                <div class="item notas">
-                    <div class="icon">
-                        <span class="material-symbols-outlined">spellcheck</span>
-                    </div>
-                    <div class="rigth">
-                        <div class="info">
-                            <h3>PUNTAJE</h3>
-                            <small class="text-muted">Hasta la fecha</small>
-                          
-                        </div>
-                        <h5 class="success">00</h5>
-                    </div>
-                </div>
-                <div class="item ahorro">
-                    <div class="icon">
-                        <span class="material-symbols-outlined">savings</span>
-                    </div>
-                    <div class="rigth">
-                        <div class="info">
-                            <h3>AHORRO</h3>
-                            <small class="text-muted">Hasta la fecha</small>
-                           
-                        </div>
-                        <h5 class="danger">00</h5>
-                    </div>
-                </div>
-            </div>
-           
-
     </div>
+
+    <div class="sidebar">
+        <a class="active" asp-area="" asp-controller="Crud" asp-action="Inicio">
+            <span class="material-symbols-outlined">dashboard</span>
+            <h3>Inicio</h3>
+        </a>
+        @switch (vmRole.Name)
+        {
+            case "Director":
+                <div class="categorias">
+                    <ul>
+
+                        <li>
+                            <a>
+                                <span class="material-symbols-outlined">tenancy</span>
+                                <h3>Organización</h3>
+                            </a>
+                            <ul>
+                                <li>
+                                    <a asp-area="" asp-controller="Conquistador" asp-action="Details">
+                                        <span class="material-symbols-outlined"> child_care</span>
+                                        <h3>Conquistador</h3>
+                                    </a>
+                                    <a asp-area="" asp-controller="Consejero" asp-action="Details">
+                                        <span class="material-symbols-outlined">diversity_3</span>
+                                        <h3>Consejero</h3>
+                                    </a>
+                                    <a asp-area="" asp-controller="Instructor" asp-action="Details">
+                                        <span class="material-symbols-outlined">sports_kabaddi</span>
+                                        <h3>Instructor</h3>
+                                    </a>
+                                    <a asp-area="" asp-controller="Padre" asp-action="Details">
+                                        <span class="material-symbols-outlined">breastfeeding</span>
+                                        <h3>Padre/Apoderado</h3>
+                                    </a>
+                                </li>
+
+                            </ul>
+
+
+                        </li>
+
+                    </ul>
+                    <a asp-area="" asp-controller="Actividades" asp-action="Details">
+                        <span class="material-symbols-outlined">nature_people</span>
+                        <h3>Actividades</h3>
+                    </a>
+                    <a asp-area="" asp-controller="Notificacion" asp-action="Index">
+                        <span class="material-symbols-outlined">forum</span>
+                        <h3>Notificar</h3>
+                        <span class="message-count">✆</span>
+                    </a>
+
+                    <a href="#" name="campo vacio necesario">
+
+                    </a>
+
+                </div>
+                break;
+
+            case "Consejero":
+
+                <a asp-area="" asp-controller="Consejero" asp-action="TomarLista">
+                    <span class="material-symbols-outlined">contract_edit</span>
+                    <h3>Tomar Lista</h3>
+                </a>
+                <a asp-area="" asp-controller="Consejero" asp-action="AsignarClase">
+                    <span class="material-symbols-outlined">school</span>
+                    <h3>Asignar Clase</h3>
+                </a>
+                <a name="campo vacio necesario">
+
+                </a>
+
+                break;
+
+            case "Instructor":
+
+                <a asp-area="" asp-controller="Instructor" asp-action="Registrar_Notas">
+                    <span class="material-symbols-outlined">spellcheck</span>
+                    <h3>Registrar Notas</h3>
+                </a>
+
+                <a href="#" name="campo vacio necesario">
+
+                </a>
+
+
+                break;
+            case "Tesorero":
+
+                <a href="#">
+                    <span class="material-symbols-outlined">monetization_on</span>
+                    <h3>Inscripciones</h3>
+                </a>
+                <a href="#">
+                    <span class="material-symbols-outlined">savings</span>
+                    <h3>Ahorro</h3>
+                </a>
+                <a href="#">
+
+                </a>
+
+                break;
+        }
+        <a asp-area="" asp-controller="Home" asp-action="Index">
+            <span class="material-symbols-outlined">logout</span>
+            <h3>Cerrar Sesión</h3>
+        </a>
+    </div>
+</aside>
+
+
+<!--fin de aside-->
+<main>
+    <h1>
+
+        Hola, <b name="nombrePersona"> @vmPerson.FirstName </b> !
+        <span class="material-symbols-outlined">waving_hand</span>
+    </h1>
+    @RenderBody()
+</main>
+
+<div class="right">
+    <div class="top">
+        <button id="menu-btn">
+            <span class="material-symbols-outlined">menu</span>
+        </button>
+        <div class="theme-toggler">
+            <span class="material-symbols-outlined active">light_mode</span>
+            <span class="material-symbols-outlined">dark_mode</span>
+        </div>
+        <div class="profile">
+            <div class="info">
+                <p>Soy, <b name="fullnameUsuario">@fullname</b></p>
+                <small class="text-muted">
+                    <b name="RolUsuario">@vmRole.Name</b>
+                </small>
+            </div>
+            <div class="profile-photo">
+                <img src="~/img/perfilconquis_mujer.jpg"/>
+            </div>
+        </div>
+    </div>
+    @*fin top*@
+    <div class="seccion-updates">
+        <h2>Ideales :</h2>
+        <div class="updates">
+            <div class="update">
+                <div class="profile-photo">
+                    <img src="~/img/lema.jpg"/>
+                </div>
+                <div class="message">
+                    <p>
+                        <b>Voto : </b>Por la gracia de Dios seré puro, bondadoso
+                        y leal, guardaré la ley del conquistador.
+                    </p>
+                    <small class="text-muted">
+                        Seré siervo de Dios y amigo de todos.
+                    </small>
+
+                </div>
+            </div>
+            <div class="update">
+                <div class="profile-photo">
+                    <img src="~/img/2conquis.jpg"/>
+                </div>
+                <div class="message">
+                    <p>
+                        <b>Mi propósito es : </b>Los jóvenes por los jóvenes, los jóvenes
+                        por la iglesia y los jóvenes por sus semejantes.
+                    </p>
+                    <small class="text-muted">
+                        Lema: El amor de Cristo me motiva.
+                    </small>
+
+                </div>
+            </div>
+            <div class="update">
+                <div class="profile-photo">
+                    <img src="~/img/1escudo.jpg"/>
+                </div>
+                <div class="message">
+                    <p>
+                        <b>Himno : </b>Conquistadores somos,
+                        Los siervos del buen Señor;
+                        Adelante vamos ya,
+                        Luchando bien con gran valor.
+                        Salgamos a proclamar las nuevas de salvación:
+                        Jesús va a llevarnos pronto
+                        A su real mansión.
+                    </p>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    @*fin de seccion-updates*@
+    @*inicio detalles-perfil*@
+
+    <div class="detalles-perfil">
+        <h2>Detalles: </h2>
+        <div class="item notas">
+            <div class="icon">
+                <span class="material-symbols-outlined">spellcheck</span>
+            </div>
+            <div class="rigth">
+                <div class="info">
+                    <h3>PUNTAJE</h3>
+                    <small class="text-muted">Hasta la fecha</small>
+
+                </div>
+                <h5 class="success">00</h5>
+            </div>
+        </div>
+        <div class="item ahorro">
+            <div class="icon">
+                <span class="material-symbols-outlined">savings</span>
+            </div>
+            <div class="rigth">
+                <div class="info">
+                    <h3>AHORRO</h3>
+                    <small class="text-muted">Hasta la fecha</small>
+
+                </div>
+                <h5 class="danger">00</h5>
+            </div>
+        </div>
+    </div>
+
+
 </div>
-   <script src="~/js/layoutCrud.js"></script>
+</div>
+<script src="~/js/layoutCrud.js"></script>
 </body>
 </html>

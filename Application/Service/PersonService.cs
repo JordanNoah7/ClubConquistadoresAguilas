@@ -37,6 +37,18 @@ public class PersonService : IPersonService
         }
     }
 
+    public async Task<IEnumerable<Person>> GetInstructors()
+    {
+        try
+        {
+            return await _personRepo.GetInstructors();
+        }
+        catch (Exception e)
+        {
+            return null;
+        }
+    }
+
     public async Task<IEnumerable<Person>> GetFathers()
     {
         try
@@ -80,6 +92,18 @@ public class PersonService : IPersonService
             return await _personRepo.GetPathfinders();
         }
         catch (Exception ex)
+        {
+            return null;
+        }
+    }
+
+    public async Task<IEnumerable<Person>> GetParents()
+    {
+        try
+        {
+            return await _personRepo.GetParents();
+        }
+        catch (Exception e)
         {
             return null;
         }
