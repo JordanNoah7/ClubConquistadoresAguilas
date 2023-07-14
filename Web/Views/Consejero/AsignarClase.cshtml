@@ -1,7 +1,7 @@
 ﻿@model VmPerson
 @{
     //Layout = "_LayoutCrud";
-    ViewData["Vista"] = "Edit";
+    ViewData["Vista"] = "AsignarClase";
 }
 
 <link rel="stylesheet" href="~/css/Create.css" asp-append-version="true" />
@@ -10,42 +10,42 @@
 
 <div class="formCrud">
     <h2>
-        MODIFICAR CONSEJERO***
+        Asignar Clase a Conquistador***
 
     </h2>
 
     <div class="row">
         <div class="col">
-            <form action="@Url.Action("Edit", "Consejero")" method="post" autocomplete="off">
+            <form action="@Url.Action("AsignarClase", "Consejero")" method="post" autocomplete="off">
                 <div class="form-group" style="display: none !important;">
                     <input type="number" name="id" class="form-control" required value="@Model.Id">
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">DNI: *</label>
-                    <input type="number" name="Dni" aria-label="Dni: " class="form-control" required value="@Model.Dni">
+                    <input type="number" name="Dni" aria-label="Dni: " class="text-muted" required value="@Model.Dni">
                     <span class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Nombre(s) : *</label>
-                    <input type="text" aria-label="Nombre" class="form-control" name="FirstName" required value="@Model.FirstName">
+                    <input type="text" aria-label="Nombre" class="text-muted" name="FirstName" required value="@Model.FirstName">
                     <span class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Apellido Paterno : *</label>
-                    <input type="text" aria-label="Apellidos" class="form-control" name="FatherSurname" required value="@Model.FathersSurname">
+                    <input type="text" aria-label="Apellidos" class="text-muted" name="FatherSurname" required value="@Model.FathersSurname">
                     <span class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label class="control-label">Apellido Materno : *</label>
-                    <input type="text" aria-label="Apellidos" class="form-control" name="MotherSurname" required value="@Model.MothersSurname">
+                    <input type="text" aria-label="Apellidos" class="text-muted" name="MotherSurname" required value="@Model.MothersSurname">
                     <span class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label class="control-label">Fecha Nacimiento : *</label>
-                    <input type="date" aria-label="FechaNac" class="form-control" name="Birthday" required value="@Model.BirthDate">
+                    <input type="date" aria-label="FechaNac" class="text-muted" name="Birthday" required value="@Model.BirthDate">
                     <span class="text-danger"></span>
                 </div>
                 <div class="form-group">
@@ -77,10 +77,10 @@
                 </div>
                 <div class="form-group">
                     <label class="control-label">Direccion:*</label>
-                    <input type="text" aria-label="direccion" class="form-control" name="Address" required value="@Model.Address">
+                    <input type="text" aria-label="direccion" class="text-muted" name="Address" required value="@Model.Address">
                     <span class="text-danger"></span>
                 </div>
-                
+
                 <div class="form-group">
                     <label for="clase">Clase</label>
                     <select name="Class" id="clase">
@@ -97,40 +97,23 @@
                         }
                     </select>
                 </div>
-
-                <div class="form-group">
-                    <label for="cargo">Rol</label>
-                    <select name="Role" id="rol">
-                        @foreach (var roles in ViewBag.Roles)
-                        {
-                            if (roles.Value == Model.User.Role.Id)
-                            {
-                                <option value="@roles.Value" selected>@roles.Text</option>
-                            }
-                            else
-                            {
-                                <option value="@roles.Value">@roles.Text</option>
-                            }
-                        }
-                    </select>
-                </div>
                 <br />
                 <br />
                 <div class="form-group">
                     <label class="control-label">Usuario:</label>
-                    <input type="text" aria-label="usuario" class="form-control" name="Username" required value="@Model.User.UserName">
+                    <input type="text" aria-label="usuario" class="text-muted" name="Username" required value="@Model.User.UserName">
                     <span class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label class="control-label">Contraseña:</label>
-                    <input type="text" aria-label="pasword" class="form-control" name="Password" required value="@Model.User.Password">
+                    <input type="password" aria-label="pasword" class="form-control" name="Password" required value="@Model.User.Password">
                     <span class="text-danger"></span>
                 </div>
                 <br />
                 <br />
                 <button type="submit" class="btnGuardar" value="guardar">Guardar</button>
 
-                <button type="submit" class="btnCancelar" value="cancelar" onclick="location.href='@Url.Action("Details", "Consejero")'">Cancelar</button>
+                <button type="submit" class="btnCancelar" value="cancelar" onclick="location.href='@Url.Action("UnidadConsejero", "Consejero")'">Cancelar</button>
 
             </form>
 

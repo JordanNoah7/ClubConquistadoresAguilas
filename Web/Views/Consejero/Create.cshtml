@@ -1,16 +1,157 @@
 ﻿@{
-    Layout = null;
+    //Layout = "_LayoutCrud";
+    ViewData["Vista"] = "Create";
 }
 
-<!DOCTYPE html>
+<link rel="stylesheet" href="~/css/Create.css" asp-append-version="true" />
 
-<html>
-<head>
-    <title>title</title>
-</head>
-<body>
-<div>
+@*action="@Url.Action("Login", "Login")" method="post" autocomplete="off"*@
 
+<div class="formCrud">
+    <h2>
+        AGREGAR CONSEJERO***
+
+    </h2>
+
+    <div class="row">
+        <div class="col">
+            <form action="@Url.Action("Create", "Consejero")" method="post" autocomplete="off">
+
+                <div class="form-group">
+                    <label class="control-label">DNI: *</label>
+                    <input type="number" name="Dni" aria-label="Dni: " class="form-control" required>
+                    <span class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Nombre(s) : *</label>
+                    <input type="text" aria-label="Nombre" class="form-control" name="FirstName" required>
+                    <span class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Apellido Paterno : *</label>
+                    <input type="text" aria-label="Apellidos" class="form-control" name="FatherSurname" required>
+                    <span class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Apellido Materno : *</label>
+                    <input type="text" aria-label="Apellidos" class="form-control" name="MotherSurname" required>
+                    <span class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Fecha Nacimiento : *</label>
+                    <input type="date" aria-label="FechaNac" class="form-control" name="Birthday" required>
+                    <span class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Sexo: *</label>
+                    <select name="Sex" id="Sexo">
+                        <option value="M">Masculino</option>
+                        <option value="F">Femenino</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Telefono:*</label>
+                    <input type="number" aria-label="telefono" class="form-control" name="Phone" required>
+                    <span class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Correo:*</label>
+                    <input type="email" placeholder="email@gmail.com" aria-label="email" class="form-control" name="Email" required>
+                    <span class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Direccion:*</label>
+                    <input type="text" aria-label="direccion" class="form-control" name="Address" required>
+                    <span class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Padre/Apoderado:</label>
+                    <input type="search" aria-label="padre" id="padre" class="form-control">
+                    <select class="apoderado" name="Attorney" id="listaPadres">
+                        <option value="" class="father">Seleccionar padre/apoderado</option>
+                        @foreach (var father in ViewBag.Fathers)
+                        {
+                            <option value="@father.Value" class="father">@father.Text</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="clase">Clase</label>
+                    <select name="Class" id="clase">
+                        @foreach (var classes in ViewBag.Classes)
+                        {
+                            <option value="@classes.Value">@classes.Text</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="unidad">Unidad</label>
+                    <select name="Unit" id="unidad">
+                        @foreach (var units in ViewBag.Units)
+                        {
+                            <option value="@units.Value">@units.Text</option>
+                        }
+                    </select>
+                </div>
+                <br />
+                <br />
+                <div class="form-group">
+                    <label for="cargo">Cargo</label>
+                    <select name="Position" id="cargo">
+                        @foreach (var positions in ViewBag.Positions)
+                        {
+                            <option value="@positions.Value">@positions.Text</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="cargo">Rol</label>
+                    <select name="Role" id="rol">
+                        @foreach (var roles in ViewBag.Roles)
+                        {
+                            <option value="@roles.Value">@roles.Text</option>
+                        }
+                    </select>
+                </div>
+                <br />
+                <br />
+                <div class="form-group">
+                    <label class="control-label">Usuario:</label>
+                    <input type="text" aria-label="usuario" class="form-control" name="Username" required>
+                    <span class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Contraseña:</label>
+                    <input type="text" aria-label="pasword" class="form-control" name="Password" required>
+                    <span class="text-danger"></span>
+                </div>
+                <br />
+                <br />
+                <button type="submit" class="btnGuardar" value="guardar">Guardar</button>
+
+                <button type="submit" class="btnCancelar" value="cancelar" onclick="location.href='@Url.Action("Details", "Consejero")'">Cancelar</button>
+
+            </form>
+
+        </div>
+
+    </div>
 </div>
-</body>
-</html>
+
+
+<script>
+    document.addEventListener("keyup", e => {
+        e.target.matches("#padre")
+        console.log(e.target.value)
+
+        if (e.target.matches("#padre")) {
+            if (e.key === "Escape") e.target.value = ""
+            document.querySelectorAll(".father").forEach(father => {
+                father.textContent.toLowerCase().includes(e.target.value.toLowerCase()) ? father.classList.remove("filtro") : father.classList.add("filtro")
+            })
+        }
+    })
+</script>

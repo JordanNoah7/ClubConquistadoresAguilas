@@ -22,6 +22,12 @@ public class InstructorController : Controller
         return View();
     }
 
+    // GET: InstructorController/Registrar_Notas
+    public ActionResult Registrar_Notas()
+    {
+        return View();
+    }
+
     // POST: InstructorController/Create
     [HttpPost]
     [ValidateAntiForgeryToken]

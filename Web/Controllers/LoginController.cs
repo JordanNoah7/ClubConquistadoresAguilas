@@ -63,13 +63,13 @@ public class LoginController : Controller
             switch (user.UserRols.FirstOrDefault().Rol.Id)
             {
                 case 1:
-                    return RedirectToAction("Index", "Conquistador");
+                    return RedirectToAction("Inicio", "Crud");
                 case 2:
-                    return RedirectToAction("Index", "Consejero");
+                    return RedirectToAction("Inicio", "Crud");
                 case 3:
-                    return RedirectToAction("Index", "Instructor");
+                    return RedirectToAction("Inicio", "Crud");
                 case 4:
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Inicio", "Crud");
                 case 5:
                     return RedirectToAction("Inicio", "Crud");
                 case 6:
