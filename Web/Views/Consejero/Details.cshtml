@@ -1,17 +1,17 @@
-﻿@model VmPerson
+@model VmPerson
 @{
     //Layout = "_LayoutCrud";
     ViewData["Vista"] = "Details";
 }
 
-<link rel="stylesheet" href="~/css/CrudOrganizacion.css" asp-append-version="true"/>
+<link rel="stylesheet" href="~/css/CrudOrganizacion.css" asp-append-version="true" />
 
 @*action="@Url.Action("Login", "Login")" method="post" autocomplete="off"*@
 
 <div class="recent-order">
     <h2>
         Consejeros ***
-        <button type="submit" class="btnCreate" onclick="location.href='@Url.Action("Create", "Conquistador")'">Ingresar</button>
+        <button type="submit" class="btnCreate" onclick="location.href='@Url.Action("Create", "Consejero")'">Nuevo</button>
 
     </h2>
 

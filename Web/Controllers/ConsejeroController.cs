@@ -24,6 +24,16 @@ public class ConsejeroController : Controller
     {
         return View();
     }
+    // GET: ConsejeroController/Lista de conquistadores por unidad
+    public ActionResult UnidadConsejero()
+    {
+        return View();
+    }
+    // GET: ConsejeroController/Asignar Clase a Conquistador
+    public ActionResult AsignarClase()
+    {
+        return View();
+    }
 
     // GET: ConsejeroController/Details/5
     public async Task<ActionResult> Details(int id)
