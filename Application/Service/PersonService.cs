@@ -25,6 +25,18 @@ public class PersonService : IPersonService
         }
     }
 
+    public async Task<IEnumerable<Person>> GetCounselors()
+    {
+        try
+        {
+            return await _personRepo.GetCounselors();
+        }
+        catch (Exception e)
+        {
+            return null;
+        }
+    }
+
     public async Task<IEnumerable<Person>> GetFathers()
     {
         try

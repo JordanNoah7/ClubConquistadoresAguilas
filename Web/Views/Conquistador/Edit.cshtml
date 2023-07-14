@@ -191,9 +191,16 @@
     </div>
 </div>
 
-@if (!string.IsNullOrEmpty(ViewBag.Message))
-{
-    <script>
-    alert(@ViewBag.Message);
-    </script>
-}
+<script>
+document.addEventListener("keyup", e =>{
+    e.target.matches("#padre")
+    console.log(e.target.value)
+    
+    if (e.target.matches("#padre")){
+        if (e.key==="Escape")e.target.value = ""
+        document.querySelectorAll(".father").forEach(father=>{
+            father.textContent.toLowerCase().includes(e.target.value.toLowerCase()) ? father.classList.remove("filtro") : father.classList.add("filtro")
+        })
+    }
+})
+</script>

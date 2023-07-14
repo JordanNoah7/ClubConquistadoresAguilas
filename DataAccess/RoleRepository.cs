@@ -40,7 +40,7 @@ public class RoleRepository : ConnectionRepository, IRoleRepository
                 }
                 return roleList;
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
                 Connection.CloseConnection();
                 return null;

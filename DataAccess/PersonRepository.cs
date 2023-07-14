@@ -2,7 +2,6 @@
 using Domain;
 using Infrastructure.Context;
 using Microsoft.Data.SqlClient;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Models;
 
@@ -48,7 +47,7 @@ public class PersonRepository : ConnectionRepository, IPersonRepository
 
                 return true;
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
                 Connection.CloseConnection();
                 return false;
@@ -111,7 +110,7 @@ public class PersonRepository : ConnectionRepository, IPersonRepository
                 return true;
                 
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
                 Connection.CloseConnection();
                 return false;
@@ -173,7 +172,7 @@ public class PersonRepository : ConnectionRepository, IPersonRepository
 
                 return person;
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
                 Connection.CloseConnection();
                 return null;
@@ -243,7 +242,7 @@ public class PersonRepository : ConnectionRepository, IPersonRepository
                 }
                 return person;
             }
-            catch (Exception e)
+            catch (SqlException e)
             {
                 Connection.CloseConnection();
                 return null;
@@ -281,7 +280,65 @@ public class PersonRepository : ConnectionRepository, IPersonRepository
 
                 return fatherList;
             }
-            catch (Exception ex)
+            catch (SqlException ex)
+            {
+                Connection.CloseConnection();
+                return null;
+            }
+        }
+    }
+
+    public async Task<IEnumerable<Person>> GetCounselors()
+    {
+        var counselorList = new List<Person>();
+        using (var cnDb = Connection.GetConnection(Configuration))
+        {
+            try
+            {
+                using (var cmd = new SqlCommand("usp_GetCounselors", cnDb))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Clear();
+                    Connection.OpenConnection();
+                    using (var dr = await cmd.ExecuteReaderAsync())
+                    {
+                        while (await dr.ReadAsync())
+                        {
+                            counselorList.Add(new Person()
+                            {
+                                Id = Convert.ToInt32(dr["PeopleID"].ToString()),
+                                FirstName = dr["firstName"].ToString(),
+                                FathersSurname = dr["fathersSurname"].ToString(),
+                                MothersSurname = dr["mothersSurname"].ToString(),
+                                ClassPeople = new List<ClassPerson>
+                                {
+                                    new()
+                                    {
+                                        Class = new Class
+                                        {
+                                            Name = dr["class"].ToString()
+                                        }
+                                    }
+                                },
+                                PositionPersonUnits = new List<PositionPersonUnit>
+                                {
+                                    new()
+                                    {
+                                        Unit = new Unit
+                                        {
+                                            Name = dr["unit"].ToString()
+                                        }
+                                    }
+                                }
+                            });
+                        }
+                    }
+                    Connection.CloseConnection();
+                }
+
+                return counselorList;
+            }
+            catch (SqlException e)
             {
                 Connection.CloseConnection();
                 return null;
@@ -342,7 +399,7 @@ public class PersonRepository : ConnectionRepository, IPersonRepository
 
                 return pathfinderList;
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
                 Connection.CloseConnection();
                 return null;

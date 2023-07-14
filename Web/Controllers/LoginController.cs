@@ -80,4 +80,10 @@ public class LoginController : Controller
         ViewBag.ErrorMessage = "Nombre de usuario o contraseña incorrectos";
         return View();
     }
+
+    public async Task<IActionResult> LogOut()
+    {
+        await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+        return RedirectToAction("Index", "Home");
+    }
 }
