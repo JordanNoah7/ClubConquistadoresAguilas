@@ -36,6 +36,7 @@ public class PersonRepository : ConnectionRepository, IPersonRepository
                     cmd.Parameters.AddWithValue("@userName", model.User.UserName);
                     cmd.Parameters.AddWithValue("@password", model.User.Password);
                     cmd.Parameters.AddWithValue("@FatherID", model.PersonId.Equals(0)?null:model.PersonId);
+                    
                     cmd.Parameters.AddWithValue("@ClassID", model.ClassPeople.FirstOrDefault().ClassId);
                     cmd.Parameters.AddWithValue("@UnitID", model.PositionPersonUnits.FirstOrDefault().UnitId);
                     cmd.Parameters.AddWithValue("@PositionID", model.PositionPersonUnits.FirstOrDefault().PositionId);

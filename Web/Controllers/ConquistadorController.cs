@@ -13,7 +13,7 @@ public class ConquistadorController : Controller
     private readonly IRoleService _roleService;
     private readonly IUnitService _unitService;
 
-    private object concurrency;
+    private byte[] concurrency = new byte[8];
 
     public ConquistadorController(IPersonService personService, IClassService classService,
         IPositionService positionService,
@@ -281,7 +281,9 @@ public class ConquistadorController : Controller
                             RolId = Convert.ToByte(Role)
                         }
                     }
-                }
+                },
+                ConcurrencyPerson = concurrency
+                
             };
             
             if(await _personService.Update(person))
