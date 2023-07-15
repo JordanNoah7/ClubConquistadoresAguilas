@@ -1,13 +1,24 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Web.Controllers;
 
+  /*  [Authorize]*/
 public class CrudController : Controller
 {
     // GET: CrudController
     public ActionResult Inicio()
     {
-        return View();
+        if (Request.Cookies["Login.Cookie"] == null || string.IsNullOrEmpty(Request.Cookies["Login.Cookie"]))
+        {
+            
+            return RedirectToAction("Index", "Home");
+        }
+        else
+        {
+          
+            return View();
+        }
     }
 
     /*public ActionResult CrudConquistador()
