@@ -122,7 +122,7 @@ public class PersonRepository : ConnectionRepository, IPersonRepository
                     cmd.Parameters.AddWithValue("@UnitID", model.PositionPersonUnits.FirstOrDefault().UnitId);
                     cmd.Parameters.AddWithValue("@PositionID", model.PositionPersonUnits.FirstOrDefault().PositionId);
                     cmd.Parameters.AddWithValue("@RoleID", model.User.UserRols.FirstOrDefault().RolId);
-                    //cmd.Parameters.AddWithValue("@concurrency", model.ConcurrencyPerson);
+                    cmd.Parameters.AddWithValue("@concurrency", model.ConcurrencyPerson);
                     Connection.OpenConnection();
                     await cmd.ExecuteNonQueryAsync();
                     Connection.CloseConnection();
@@ -162,7 +162,7 @@ public class PersonRepository : ConnectionRepository, IPersonRepository
                     cmd.Parameters.AddWithValue("@userName", model.User.UserName);
                     cmd.Parameters.AddWithValue("@password", model.User.Password);
                     cmd.Parameters.AddWithValue("@RoleID", model.User.UserRols.FirstOrDefault().RolId);
-                    //cmd.Parameters.AddWithValue("@concurrency", model.ConcurrencyPerson);
+                    cmd.Parameters.AddWithValue("@concurrency", model.ConcurrencyPerson);
                     Connection.OpenConnection();
                     await cmd.ExecuteNonQueryAsync();
                     Connection.CloseConnection();
@@ -268,7 +268,7 @@ public class PersonRepository : ConnectionRepository, IPersonRepository
                             person.Email = dr["email"].ToString();
                             person.Address = dr["address"].ToString();
                             person.PersonId = dr["PersonID"].ToString() == "" ? 0 : Convert.ToInt32(dr["PersonID"]);
-                            person.ConcurrencyPerson = (byte[])dr["concurrencyPerson"];
+                            Array.Copy((byte[])dr["concurrencyPerson"], person.ConcurrencyPerson, 8);
                             person.ClassPeople = new List<ClassPerson>
                             {
                                 new()

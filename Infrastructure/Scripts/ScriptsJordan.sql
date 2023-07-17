@@ -384,7 +384,7 @@ BEGIN
 END
 GO
 ---------------------------------------------------------------------------------------------Listo
----Procedimiento para obtener una lista de padres
+---Procedimiento para obtener una lista de padres para llenar el combobox
 ALTER PROCEDURE usp_GetFathers
 AS
 BEGIN
@@ -614,7 +614,7 @@ BEGIN
 END
 GO
 ---------------------------------------------------------------------------------------------Listo
----Procedimiento para obtener a los padres
+---Procedimiento para obtener a los padres para llenar la lista de Padres/Apoderados
 CREATE PROCEDURE usp_GetParents
 AS
 BEGIN

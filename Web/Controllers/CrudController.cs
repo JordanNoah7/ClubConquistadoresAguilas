@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Web.Controllers;
@@ -11,7 +12,6 @@ public class CrudController : Controller
     {
         if (Request.Cookies["Login.Cookie"] == null || string.IsNullOrEmpty(Request.Cookies["Login.Cookie"]))
         {
-            
             return RedirectToAction("Index", "Home");
         }
         else

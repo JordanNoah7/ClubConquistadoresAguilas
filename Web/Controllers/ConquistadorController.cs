@@ -216,7 +216,8 @@ public class ConquistadorController : Controller
         vmPerson.Email = person.Email;
         vmPerson.Address = person.Address;
         vmPerson.PersonId = person.PersonId == null ? 0 : person.PersonId;
-        concurrency = person.ConcurrencyPerson;
+        concurrency = new byte[8];
+        Array.Copy(person.ConcurrencyPerson, concurrency, 8);
         vmPerson.ClassId = person.ClassPeople.FirstOrDefault().ClassId;
         vmPerson.UnitId = person.PositionPersonUnits.FirstOrDefault().UnitId;
         vmPerson.PositionId = person.PositionPersonUnits.FirstOrDefault().PositionId;
@@ -282,10 +283,8 @@ public class ConquistadorController : Controller
                         }
                     }
                 },
-                ConcurrencyPerson = concurrency
-                
             };
-            
+            Array.Copy(concurrency, person.ConcurrencyPerson, 8);
             if(await _personService.Update(person))
             {
                 return RedirectToAction("Details", "Conquistador");

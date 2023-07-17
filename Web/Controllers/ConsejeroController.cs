@@ -12,6 +12,7 @@ public class ConsejeroController : Controller
     private readonly IPositionService _positionService;
     private readonly IRoleService _roleService;
     private readonly IUnitService _unitService;
+    private byte[] concurrency = new byte[8];
 
     public ConsejeroController(IPersonService personService, IClassService classService,
         IPositionService positionService,
@@ -197,8 +198,6 @@ public class ConsejeroController : Controller
             Text = u.Name
         }).ToList();
 
-//        concurrency = null;
-
         var person = await _personService.GetPathfinderById(nro);
         var vmPerson = new VmPerson();
         vmPerson.Id = nro;
@@ -212,7 +211,8 @@ public class ConsejeroController : Controller
         vmPerson.Email = person.Email;
         vmPerson.Address = person.Address;
         vmPerson.PersonId = person.PersonId == null ? 0 : person.PersonId;
-        //concurrency = person.ConcurrencyPerson;
+        concurrency = new byte[8];
+        Array.Copy(person.ConcurrencyPerson, concurrency, 8);
         vmPerson.ClassId = person.ClassPeople.FirstOrDefault().ClassId;
         vmPerson.UnitId = person.PositionPersonUnits.FirstOrDefault().UnitId;
         vmPerson.PositionId = person.PositionPersonUnits.FirstOrDefault().PositionId;
@@ -233,7 +233,7 @@ public class ConsejeroController : Controller
     [HttpPost]
     public async Task<ActionResult> Edit(int id, string Dni, string FirstName, string FatherSurname, string MotherSurname,
         DateTime Birthday, string Sex, int Phone, string Email, string Address, int Class, int Unit,
-        int Position, int Role, string Username, string Password)
+        int Position, int Role, string Username, string Password, string Attorney = null)
     {
         try
         {
@@ -250,6 +250,7 @@ public class ConsejeroController : Controller
                 Email = Email,
                 Address = Address,
                 ClubId = 1,
+                PersonId = Convert.ToInt32(Attorney),
                 ClassPeople = new List<ClassPerson>()
                 {
                     new ClassPerson()
@@ -276,15 +277,15 @@ public class ConsejeroController : Controller
                             RolId = Convert.ToByte(Role)
                         }
                     }
-                }
+                },
             };
+            Array.Copy(concurrency, person.ConcurrencyPerson, 8);
             if(await _personService.Update(person))
             {
                 return RedirectToAction("Details", "Consejero");
             }
             else
             {
-                
                 return RedirectToAction("Details", "Consejero");
             }
         }

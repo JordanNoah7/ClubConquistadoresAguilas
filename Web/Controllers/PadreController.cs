@@ -10,7 +10,7 @@ public class PadreController : Controller
     private readonly IPersonService _personService;
     private readonly IRoleService _roleService;
 
-    private byte[] concurrency;
+    private byte[] concurrency = new byte[8];
 
     public PadreController(IPersonService personService, IRoleService roleService)
     {
@@ -130,7 +130,8 @@ public class PadreController : Controller
         vmPerson.Phone = person.Phone;
         vmPerson.Email = person.Email;
         vmPerson.Address = person.Address;
-        concurrency = person.ConcurrencyPerson;
+        concurrency = new byte[8];
+        Array.Copy(person.ConcurrencyPerson, concurrency, 8);
         vmPerson.User = new VmUser
         {
             UserName = person.User.UserName,
@@ -177,9 +178,8 @@ public class PadreController : Controller
                         }
                     }
                 },
-                //ConcurrencyPerson = concurrency,
             };
-
+            Array.Copy(concurrency, person.ConcurrencyPerson, 8);
             if (await _personService.UpdateParent(person))
                 return RedirectToAction("Details", "Padre");
             return RedirectToAction("Details", "Padre");

@@ -26,7 +26,7 @@ public class Person
 
     public int? PersonId { get; set; }
 
-    public byte[] ConcurrencyPerson { get; set; } = null!;
+    public byte[] ConcurrencyPerson { get; set; } = new byte[8];
 
     public virtual ICollection<ClassPerson> ClassPeople { get; set; } = new List<ClassPerson>();
 
