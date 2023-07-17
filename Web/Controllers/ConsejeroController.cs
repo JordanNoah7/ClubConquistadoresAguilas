@@ -213,6 +213,7 @@ public class ConsejeroController : Controller
         vmPerson.PersonId = person.PersonId == null ? 0 : person.PersonId;
         concurrency = new byte[8];
         Array.Copy(person.ConcurrencyPerson, concurrency, 8);
+        HttpContext.Session.Set("Concurrency", person.ConcurrencyPerson);
         vmPerson.ClassId = person.ClassPeople.FirstOrDefault().ClassId;
         vmPerson.UnitId = person.PositionPersonUnits.FirstOrDefault().UnitId;
         vmPerson.PositionId = person.PositionPersonUnits.FirstOrDefault().PositionId;
@@ -279,8 +280,8 @@ public class ConsejeroController : Controller
                     }
                 },
             };
-            Array.Copy(concurrency, person.ConcurrencyPerson, 8);
-            if(await _personService.Update(person))
+            Array.Copy(HttpContext.Session.Get("Concurrency"), person.ConcurrencyPerson, 8);
+            if (await _personService.Update(person)) 
             {
                 return RedirectToAction("Details", "Consejero");
             }

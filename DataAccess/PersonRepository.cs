@@ -132,6 +132,7 @@ public class PersonRepository : ConnectionRepository, IPersonRepository
             }
             catch (SqlException ex)
             {
+                Console.WriteLine(ex.ToString());
                 Connection.CloseConnection();
                 return false;
             }

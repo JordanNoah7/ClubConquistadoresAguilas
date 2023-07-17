@@ -97,7 +97,38 @@
                         }
                     </select>
                 </div>
-
+                <div class="form-group">
+                    <label for="unidad">Unidad</label>
+                    <select name="Unit" id="unidad">
+                        @foreach (var units in ViewBag.Units)
+                        {
+                            if (units.Value == Model.UnitId)
+                            {
+                                <option value="@units.Value" selected>@units.Text</option>
+                            }
+                            else
+                            {
+                                <option value="@units.Value">@units.Text</option>
+                            }
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="cargo">Cargo</label>
+                    <select name="Position" id="cargo">
+                        @foreach (var positions in ViewBag.Positions)
+                        {
+                            if (positions.Value == Model.PositionId)
+                            {
+                                <option value="@positions.Value" selected>@positions.Text</option>
+                            }
+                            else
+                            {
+                                <option value="@positions.Value">@positions.Text</option>
+                            }
+                        }
+                    </select>
+                </div>
                 <div class="form-group">
                     <label for="cargo">Rol</label>
                     <select name="Role" id="rol">

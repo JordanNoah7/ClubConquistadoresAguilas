@@ -465,60 +465,60 @@ ALTER PROCEDURE usp_UpdatePerson @PersonID INT,
                                  @ClassID INT,
                                  @UnitID INT,
                                  @PositionID INT,
-                                 @RoleID INT
-    --@concurrency TIMESTAMP
+                                 @RoleID INT,
+                                 @concurrency TIMESTAMP
 AS
 BEGIN
-    --IF @concurrency = (SELECT concurrencyPerson
-    --                 FROM People
-    --               WHERE ID = @PersonID)
-    --BEGIN
-    BEGIN TRAN;
-    BEGIN TRY
+    IF @concurrency = (SELECT concurrencyPerson
+                       FROM People
+                       WHERE ID = @PersonID)
+        BEGIN
+            BEGIN TRAN;
+            BEGIN TRY
 
-        UPDATE People
-        SET DNI            = @DNI,
-            firstName      = @firstName,
-            fathersSurname = @fathersSurname,
-            mothersSurname = @mothersSurname,
-            birthDate      = @birthDate,
-            gender         = @gender,
-            address        = @address,
-            phone          = @phone,
-            email          = @email,
-            PersonID       = @FatherID,
-            ClubID         = @ClubID
-        WHERE ID = @PersonID;
+                UPDATE People
+                SET DNI            = @DNI,
+                    firstName      = @firstName,
+                    fathersSurname = @fathersSurname,
+                    mothersSurname = @mothersSurname,
+                    birthDate      = @birthDate,
+                    gender         = @gender,
+                    address        = @address,
+                    phone          = @phone,
+                    email          = @email,
+                    PersonID       = @FatherID,
+                    ClubID         = @ClubID
+                WHERE ID = @PersonID;
 
-        UPDATE Users
-        SET userName = @userName,
-            password = @password
-        WHERE ID = @PersonID;
+                UPDATE Users
+                SET userName = @userName,
+                    password = @password
+                WHERE ID = @PersonID;
 
-        UPDATE UserRol
-        SET RolID = @RoleID
-        WHERE UserID = @PersonID;
+                UPDATE UserRol
+                SET RolID = @RoleID
+                WHERE UserID = @PersonID;
 
-        UPDATE ClassPerson
-        SET ClassID = @ClassID
-        WHERE PersonID = @PersonID;
+                UPDATE ClassPerson
+                SET ClassID = @ClassID
+                WHERE PersonID = @PersonID;
 
-        UPDATE PositionPersonUnit
-        SET UnitID     = @UnitID,
-            PositionID = @PositionID
-        WHERE PersonID = @PersonID;
+                UPDATE PositionPersonUnit
+                SET UnitID     = @UnitID,
+                    PositionID = @PositionID
+                WHERE PersonID = @PersonID;
 
-        COMMIT TRAN;
-    END TRY
-    BEGIN CATCH
-        ROLLBACK TRAN;
-        RAISERROR ('Error al actualizar persona.', 16, 1);
-    END CATCH
-    -- END
-    --ELSE
-    --  BEGIN
-    --    RAISERROR ('Error al actualizar persona, debido a que el archivo fue modificado antes.', 16, 1);
-    --END
+                COMMIT TRAN;
+            END TRY
+            BEGIN CATCH
+                ROLLBACK TRAN;
+                RAISERROR ('Error al actualizar persona.', 16, 1);
+            END CATCH
+        END
+    ELSE
+        BEGIN
+            RAISERROR ('Error al actualizar persona, debido a que el archivo fue modificado antes.', 16, 1);
+        END
 END
 GO
 ---------------------------------------------------------------------------------------------Listo
@@ -695,50 +695,50 @@ ALTER PROCEDURE usp_UpdateParent @PersonID INT,
                                  @ClubID INT,
                                  @userName NVARCHAR(15),
                                  @password NVARCHAR(15),
-                                 @RoleID INT
-    --@concurrency TIMESTAMP
+                                 @RoleID INT,
+                                 @concurrency TIMESTAMP
 AS
 BEGIN
-    --IF @concurrency = (SELECT concurrencyPerson
-    --                 FROM People
-    --               WHERE ID = @PersonID)
-    --BEGIN
-    BEGIN TRAN;
-    BEGIN TRY
+    IF @concurrency = (SELECT concurrencyPerson
+                       FROM People
+                       WHERE ID = @PersonID)
+        BEGIN
+            BEGIN TRAN;
+            BEGIN TRY
 
-        UPDATE People
-        SET DNI            = @DNI,
-            firstName      = @firstName,
-            fathersSurname = @fathersSurname,
-            mothersSurname = @mothersSurname,
-            birthDate      = @birthDate,
-            gender         = @gender,
-            address        = @address,
-            phone          = @phone,
-            email          = @email,
-            ClubID         = @ClubID
-        WHERE ID = @PersonID;
+                UPDATE People
+                SET DNI            = @DNI,
+                    firstName      = @firstName,
+                    fathersSurname = @fathersSurname,
+                    mothersSurname = @mothersSurname,
+                    birthDate      = @birthDate,
+                    gender         = @gender,
+                    address        = @address,
+                    phone          = @phone,
+                    email          = @email,
+                    ClubID         = @ClubID
+                WHERE ID = @PersonID;
 
-        UPDATE Users
-        SET userName = @userName,
-            password = @password
-        WHERE ID = @PersonID;
+                UPDATE Users
+                SET userName = @userName,
+                    password = @password
+                WHERE ID = @PersonID;
 
-        UPDATE UserRol
-        SET RolID = @RoleID
-        WHERE UserID = @PersonID;
+                UPDATE UserRol
+                SET RolID = @RoleID
+                WHERE UserID = @PersonID;
 
-        COMMIT TRAN;
-    END TRY
-    BEGIN CATCH
-        ROLLBACK TRAN;
-        RAISERROR ('Error al actualizar padre.', 16, 1);
-    END CATCH
-    --END
-    --ELSE
-    --  BEGIN
-    --    RAISERROR ('Error al actualizar padre, debido a que el registro fue modificado antes.', 16, 1);
-    --END
+                COMMIT TRAN;
+            END TRY
+            BEGIN CATCH
+                ROLLBACK TRAN;
+                RAISERROR ('Error al actualizar padre.', 16, 1);
+            END CATCH
+        END
+    ELSE
+        BEGIN
+            RAISERROR ('Error al actualizar padre, debido a que el registro fue modificado antes.', 16, 1);
+        END
 END
 GO
 ---------------------------------------------------------------------------------------------Listo
