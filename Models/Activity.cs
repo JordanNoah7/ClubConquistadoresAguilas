@@ -22,6 +22,8 @@ public class Activity
 
     public virtual Club Club { get; set; } = null!;
 
+    public Person Manager { get; set; } = null;
+
     public virtual ICollection<PositionPersonActivity> PositionPersonActivities { get; set; } =
         new List<PositionPersonActivity>();
 }

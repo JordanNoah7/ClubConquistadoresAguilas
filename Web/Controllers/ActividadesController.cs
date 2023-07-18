@@ -1,9 +1,22 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Application.IService;
+using Application.Service;
+using Microsoft.AspNetCore.Mvc;
+using Models;
+using Web.Models;
 
 namespace Web.Controllers;
 
 public class ActividadesController : Controller
 {
+    private readonly IActivityService _activityService;
+    private readonly IPersonService _personService;
+
+    public ActividadesController(IActivityService activityService, IPersonService personService)
+    {
+        _activityService = activityService;
+        _personService = personService;
+    }
+
     // GET: ActividadesController
     public ActionResult Index()
     {
@@ -17,29 +30,79 @@ public class ActividadesController : Controller
     }
 
     // GET: ActividadesController/Details/5
-    public ActionResult Details(int id)
+    public async Task<ActionResult> Details()
     {
-        return View();
+        var vmActivities = new List<VmActivity>();
+
+        var activities = await _activityService.GetActivities();
+
+        var vmActivity = new VmActivity();
+
+        if (activities != null)
+        {
+            foreach (var item in activities.ToList())
+                vmActivities.Add(new VmActivity
+                {
+                    Id = item.Id,
+                    Name = item.Name,
+                    StartDate = item.StartDate.ToString("yyyy-MM-dd"),
+                    EndDate = item.EndDate.ToString("yyyy-MM-dd"),
+                    Manager = new VmPerson
+                    {
+                        Id = item.PositionPersonActivities.FirstOrDefault().Person.Id,
+                        FullSurname = item.PositionPersonActivities.FirstOrDefault().Person.FirstName + " " +
+                                      item.PositionPersonActivities.FirstOrDefault().Person.FathersSurname + " " +
+                                      item.PositionPersonActivities.FirstOrDefault().Person.MothersSurname
+                    },
+                    Location = item.Location
+                });
+            vmActivity.Activities = vmActivities;
+        }
+        else
+        {
+            vmActivity.Activities = null;
+        }
+
+        return View(vmActivity);
     }
 
     // GET: ActividadesController/Create
-    public ActionResult Create()
+    public async Task<ActionResult> Create()
     {
+        var managers = await _personService.GetManagers();
+        ViewBag.Managers = managers.Select(m => new
+        {
+            Value = m.Id,
+            Text =  m.FirstName + " " + m.FathersSurname + " " + m.MothersSurname
+        }).ToList();
         return View();
     }
 
     // POST: ActividadesController/Create
     [HttpPost]
-    [ValidateAntiForgeryToken]
-    public ActionResult Create(IFormCollection collection)
+    public async Task<ActionResult> Create(string name, DateTime startDate, DateTime endDate, string location, string description, string requirements, string manager)
     {
         try
         {
-            return RedirectToAction(nameof(Index));
+            Activity activity = new Activity()
+            {
+                Name = name,
+                StartDate = startDate,
+                EndDate = endDate,
+                Location = location,
+                Description = description,
+                Requirements = requirements,
+                Manager = new Person()
+                {
+                    Id = Convert.ToInt32(manager)
+                }
+            };
+            await _activityService.Insert(activity);
+            return RedirectToAction("Details", "Actividades");
         }
         catch
         {
-            return View();
+            return RedirectToAction("Details", "Actividades");
         }
     }
 

@@ -41,7 +41,8 @@ builder.Services.AddScoped<IPositionService, PositionService>();
 builder.Services.AddScoped<IRoleRepository, RoleRepository>();
 builder.Services.AddScoped<IRoleService, RoleService>();
 //Activity
-
+builder.Services.AddScoped<IActivityRepository, ActivityRepository>();
+builder.Services.AddScoped<IActivityService, ActivityService>();
 //Club
 
 
@@ -65,7 +66,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     "default",
-    "{controller=Home}/{action=Index}/{id?}");
+    "{controller=Login}/{action=Login}/{id?}");
 
 app.Run();
 

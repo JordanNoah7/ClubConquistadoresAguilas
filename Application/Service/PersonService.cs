@@ -73,6 +73,18 @@ public class PersonService : IPersonService
         }
     }
 
+    public async Task<IEnumerable<Person>> GetManagers()
+    {
+        try
+        {
+            return await _personRepo.GetManagers();
+        }
+        catch (Exception e)
+        {
+            return null;
+        }
+    }
+
     public async Task<IEnumerable<Person>> GetInstructors()
     {
         try

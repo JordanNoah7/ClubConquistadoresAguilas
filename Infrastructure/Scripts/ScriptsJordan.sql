@@ -775,3 +775,86 @@ BEGIN
 END
 GO
 ---------------------------------------------------------------------------------------------Listo
+---Procedimiento para obtener todas las actividades
+CREATE PROCEDURE usp_GetActivities
+AS
+BEGIN
+    BEGIN TRAN;
+    BEGIN TRY
+        SELECT A.ID,
+               A.name,
+               A.startDate,
+               A.endDate,
+               PPA.PersonID,
+               P.firstName,
+               P.fathersSurname,
+               P.mothersSurname,
+               A.location
+        FROM Activities A
+                 JOIN PositionPersonActivity PPA on A.ID = PPA.ActivityID
+                 JOIN People P on P.ID = PPA.PersonID
+        WHERE PPA.PositionID = 6
+        COMMIT TRAN;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRAN;
+        RAISERROR ('Error al obtener las actividades de la base de datos', 16, 1);
+    END CATCH
+END
+GO
+---------------------------------------------------------------------------------------------Listo
+---Procidimiento para insertar la cabecera de una actividad
+CREATE PROCEDURE usp_InsertActivity @name nvarchar(20),
+                                    @startDate date,
+                                    @endDate date,
+                                    @location nvarchar(50),
+                                    @description nvarchar(MAX),
+                                    @requirements NVARCHAR(MAX),
+                                    @manager int
+AS
+BEGIN
+    BEGIN TRAN;
+    BEGIN TRY
+        DECLARE @IdActivity INT;
+
+        INSERT INTO Activities (name, startDate, endDate, location, description, requirements, ClubID)
+        VALUES (@name, @startDate, @endDate, @location, @description, @requirements, 1);
+
+        SET @IdActivity = SCOPE_IDENTITY();
+
+        INSERT INTO PositionPersonActivity (ActivityID, PersonID, PositionID)
+        VALUES (@IdActivity, @manager, 6);
+
+        COMMIT TRAN;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRAN;
+        RAISERROR ('Error al agregar la actividad.', 16, 1);
+    END CATCH
+END
+GO
+-------------------------------------------------------------------------------------------Listo
+---Procedimiento para obtener las personas que pueden ser encargados
+CREATE PROCEDURE usp_GetManagers
+AS
+BEGIN
+    BEGIN TRAN;
+    BEGIN TRY
+        SELECT P.ID,
+               P.firstName,
+               P.fathersSurname,
+               P.mothersSurname
+        FROM People P
+                 JOIN Users U on P.ID = U.ID
+                 JOIN UserRol UR on U.ID = UR.UserID
+        WHERE UR.RolID != 6
+          AND DATEDIFF(YEAR, P.birthDate, GETDATE()) >= 18;
+        COMMIT TRAN;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRAN;
+    END CATCH
+END
+GO
+-------------------------------------------------------------------------------------------Listo
+select * from Activities
