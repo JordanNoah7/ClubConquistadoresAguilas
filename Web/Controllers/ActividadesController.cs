@@ -1,5 +1,4 @@
 ﻿using Application.IService;
-using Application.Service;
 using Microsoft.AspNetCore.Mvc;
 using Models;
 using Web.Models;
@@ -10,6 +9,8 @@ public class ActividadesController : Controller
 {
     private readonly IActivityService _activityService;
     private readonly IPersonService _personService;
+
+    private byte[] concurrency = new byte[8];
 
     public ActividadesController(IActivityService activityService, IPersonService personService)
     {
@@ -22,58 +23,55 @@ public class ActividadesController : Controller
     {
         return View();
     }
-    
+
     [HttpGet]
     public async Task<ActionResult> Participantes(int nro)
     {
         var vmActivities = new VmActivity();
-        
+
         var participants = await _activityService.GetParticipants(nro);
         var participantList = new List<VmPerson>();
-        
+
         var noParticipants = await _activityService.GetNoParticipants(nro);
         var noParticipantList = new List<VmPerson>();
-        
-        foreach (Person item in participants.ToList())
-        {
-            participantList.Add(new VmPerson()
+
+        foreach (var item in participants.ToList())
+            participantList.Add(new VmPerson
             {
                 Id = item.Id,
                 FirstName = item.FirstName,
                 FathersSurname = item.FathersSurname,
                 MothersSurname = item.MothersSurname
             });
-        }
-        
-        foreach (Person item in noParticipants.ToList())
-        {
-            noParticipantList.Add(new VmPerson()
+
+        foreach (var item in noParticipants.ToList())
+            noParticipantList.Add(new VmPerson
             {
                 Id = item.Id,
                 FirstName = item.FirstName,
                 FathersSurname = item.FathersSurname,
                 MothersSurname = item.MothersSurname
             });
-        }
 
         vmActivities.Id = nro;
         vmActivities.Participants = participantList;
         vmActivities.NoParticipants = noParticipantList;
-        
+
         return View(vmActivities);
     }
+
     [HttpPost]
     public async Task<ActionResult> AddParticipants(int nro, int id)
     {
-        Console.Write(nro + " " + id);
-        return RedirectToAction("Participantes", "Actividades", nro);
+        await _activityService.InsertParticipant(nro, id);
+        return RedirectToAction("Participantes", "Actividades", new { nro });
     }
 
-    [HttpDelete]
+    [HttpPost]
     public async Task<ActionResult> DeleteParticipants(int nro, int id)
     {
-        Console.Write(nro + " " + id);
-        return RedirectToAction("Participantes", "Actividades", nro);
+        await _activityService.DeleteParticipant(nro, id);
+        return RedirectToAction("Participantes", "Actividades", new { nro });
     }
 
     // GET: ActividadesController/Details/5
@@ -120,18 +118,19 @@ public class ActividadesController : Controller
         ViewBag.Managers = managers.Select(m => new
         {
             Value = m.Id,
-            Text =  m.FirstName + " " + m.FathersSurname + " " + m.MothersSurname
+            Text = m.FirstName + " " + m.FathersSurname + " " + m.MothersSurname
         }).ToList();
         return View();
     }
 
     // POST: ActividadesController/Create
     [HttpPost]
-    public async Task<ActionResult> Create(string name, DateTime startDate, DateTime endDate, string location, string description, string requirements, string manager)
+    public async Task<ActionResult> Create(string name, DateTime startDate, DateTime endDate, string location,
+        string description, string requirements, string manager)
     {
         try
         {
-            Activity activity = new Activity()
+            var activity = new Activity
             {
                 Name = name,
                 StartDate = startDate,
@@ -139,7 +138,7 @@ public class ActividadesController : Controller
                 Location = location,
                 Description = description,
                 Requirements = requirements,
-                Manager = new Person()
+                Manager = new Person
                 {
                     Id = Convert.ToInt32(manager)
                 }
@@ -154,19 +153,70 @@ public class ActividadesController : Controller
     }
 
     // GET: ActividadesController/Edit/5
-    public ActionResult Edit(int id)
+    public async Task<ActionResult> Edit(int nro)
     {
-        return View();
+        var managers = await _personService.GetManagers();
+        ViewBag.Managers = managers.Select(m => new
+        {
+            Value = m.Id,
+            Text = m.FirstName + " " + m.FathersSurname + " " + m.MothersSurname
+        }).ToList();
+
+        var activity = await _activityService.GetActivitie(nro);
+
+        var vmActivity = new VmActivity
+        {
+            Name = activity.Name,
+            StartDate = activity.StartDate.ToString("yyyy-MM-dd"),
+            EndDate = activity.EndDate.ToString("yyyy-MM-dd"),
+            Location = activity.Location,
+            Description = activity.Description,
+            Requirements = activity.Requirements,
+            Manager = new VmPerson
+            {
+                Id = activity.Manager.Id
+            }
+        };
+        vmActivity.Id = nro;
+        
+        Array.Copy(activity.ConcurrencyActivity, concurrency, 8);
+        HttpContext.Session.Set("Concurrency", activity.ConcurrencyActivity);
+
+        return View(vmActivity);
     }
 
     // POST: ActividadesController/Edit/5
     [HttpPost]
-    [ValidateAntiForgeryToken]
-    public ActionResult Edit(int id, IFormCollection collection)
+    public async Task<ActionResult> Edit(int id, string name, DateTime startDate, DateTime endDate, string location,
+        string description, string requirements, string manager)
     {
         try
         {
-            return RedirectToAction(nameof(Index));
+            Activity activity = new Activity()
+            {
+                Id = id,
+                Name = name,
+                StartDate = startDate,
+                EndDate = endDate,
+                Location = location,
+                Description = description,
+                Requirements = requirements,
+                Manager = new Person()
+                {
+                    Id = Convert.ToInt32(manager)
+                }
+            };
+            Array.Copy(HttpContext.Session.Get("concurrency"), activity.ConcurrencyActivity, 8);
+            
+            if (await _activityService.UpdateActivity(activity))
+            {
+                return RedirectToAction("Details", "Actividades");
+            }
+            else
+            {
+                return RedirectToAction("Edit", "Actividades", new { id });
+            }
+
         }
         catch
         {
