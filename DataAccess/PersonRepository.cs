@@ -365,6 +365,44 @@ public class PersonRepository : ConnectionRepository, IPersonRepository
         }
     }
 
+    public async Task<IEnumerable<Person>> GetManagers()
+    {
+        var managerList = new List<Person>();
+        using (var cnDb = Connection.GetConnection(Configuration))
+        {
+            try
+            {
+                using (var cmd = new SqlCommand("usp_GetManagers", cnDb))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Clear();
+                    Connection.OpenConnection();
+                    using (SqlDataReader dr = await cmd.ExecuteReaderAsync())
+                    {
+                        while (await dr.ReadAsync())
+                        {
+                            managerList.Add(new Person
+                            {
+                                Id = Convert.ToInt32(dr["ID"]),
+                                FirstName = dr["firstName"].ToString(),
+                                FathersSurname = dr["fathersSurname"].ToString(),
+                                MothersSurname = dr["mothersSurname"].ToString()
+                            });
+                        }
+                    }
+                    Connection.CloseConnection();
+                }
+
+                return managerList;
+            }
+            catch (SqlException ex)
+            {
+                Connection.CloseConnection();
+                return null;
+            }
+        }
+    }
+
     public async Task<IEnumerable<Person>> GetFathers()
     {
         var fatherList = new List<Person>();

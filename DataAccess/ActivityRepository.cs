@@ -1,88 +1,94 @@
-﻿using Domain;
+﻿using System.Data;
+using Domain;
+using Infrastructure.Context;
+using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using Models;
 
 namespace DataAccess;
 
-public class ActivityRepository : ConnectionRepository, IGenericRepository<Activity>
+public class ActivityRepository : ConnectionRepository, IActivityRepository
 {
     public ActivityRepository(IConfiguration configuration) : base(configuration)
     {
     }
 
+
+    public async Task<IEnumerable<Activity>> GetActivities()
+    {
+        var activityList = new List<Activity>();
+        using (var cnDb=Connection.GetConnection(Configuration))
+        {
+            try
+            {
+                using (var cmd = new SqlCommand("usp_GetActivities", cnDb))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Clear();
+                    Connection.OpenConnection();
+                    using (var dr = await cmd.ExecuteReaderAsync())
+                    {
+                        while (await dr.ReadAsync())
+                        {
+                            activityList.Add(new Activity()
+                            {
+                                Id = Convert.ToByte(dr["ID"].ToString()),
+                                Name = dr["name"].ToString(),
+                                StartDate = Convert.ToDateTime(dr["startDate"]),
+                                EndDate = Convert.ToDateTime(dr["endDate"]),
+                                Manager = new Person()
+                                {
+                                    Id = Convert.ToInt32(dr["PersonID"]),
+                                    FirstName = dr["firstName"].ToString(),
+                                    FathersSurname = dr["fathersSurname"].ToString(),
+                                    MothersSurname = dr["mothersSurname"].ToString()
+                                },
+                                Location = dr["location"].ToString()
+                            });
+                        }
+                    }
+                    Connection.CloseConnection();
+                }
+
+                return activityList;
+            }
+            catch (SqlException ex)
+            {
+                Connection.CloseConnection();
+                return new List<Activity>();
+            }
+        }
+    }
+
     public async Task<bool> Insert(Activity model)
     {
-        throw new Exception();
-        /*try
+        using (var connectionDb = Connection.GetConnection(Configuration))
         {
-            _dbContext.Activities.Add(model);
-            await _dbContext.SaveChangesAsync();
+            try
+            {
+                using (var cmd = new SqlCommand("usp_InsertActivity", connectionDb))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.AddWithValue("@name", model.Name);
+                    cmd.Parameters.AddWithValue("@startDate", model.StartDate);
+                    cmd.Parameters.AddWithValue("@endDate", model.EndDate);
+                    cmd.Parameters.AddWithValue("@location", model.Location);
+                    cmd.Parameters.AddWithValue("@description", model.Description);
+                    cmd.Parameters.AddWithValue("@requirements", model.Requirements);
+                    cmd.Parameters.AddWithValue("@manager", model.Manager.Id);
+                    Connection.OpenConnection();
+                    await cmd.ExecuteNonQueryAsync();
+                    Connection.CloseConnection();
+                }
 
-            return true;
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                Connection.CloseConnection();
+                return false;
+            }
         }
-        catch (Exception ex)
-        {
-            return false;
-        }*/
-    }
-
-    public async Task<bool> Update(Activity model)
-    {
-        throw new Exception();
-        /*try
-        {
-            _dbContext.Activities.Update(model);
-            await _dbContext.SaveChangesAsync();
-
-            return true;
-        }
-        catch (Exception ex)
-        {
-            return false;
-        }*/
-    }
-
-    public async Task<bool> Delete(int id1, int id2 = 0)
-    {
-        throw new Exception();
-        /*try
-        {
-            var model = _dbContext.Activities.First(a => a.Id == id1);
-            _dbContext.Activities.Remove(model);
-            await _dbContext.SaveChangesAsync();
-
-            return true;
-        }
-        catch (Exception ex)
-        {
-            return false;
-        }*/
-    }
-
-    public async Task<Activity> Get(int id1, int id2 = 0)
-    {
-        throw new Exception();
-        /*try
-        {
-            return await _dbContext.Activities.FindAsync(id1);
-        }
-        catch (Exception ex)
-        {
-            return null;
-        }*/
-    }
-
-    public async Task<IEnumerable<Activity>> GetAll()
-    {
-        throw new Exception();
-        /*try
-        {
-            IEnumerable<Activity> queryActivitiesSQL = _dbContext.Activities;
-            return queryActivitiesSQL;
-        }
-        catch (Exception ex)
-        {
-            return null;
-        }*/
     }
 }

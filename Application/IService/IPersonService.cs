@@ -15,6 +15,7 @@ public interface IPersonService
     Task<Person> GetParentById(int id);
     
     Task<IEnumerable<Person>> GetCounselors();
+    Task<IEnumerable<Person>> GetManagers();
     Task<IEnumerable<Person>> GetInstructors();
     Task<IEnumerable<Person>> GetFathers();
     Task<IEnumerable<Person>> GetPathfinders();

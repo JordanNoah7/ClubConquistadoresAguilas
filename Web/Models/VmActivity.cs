@@ -17,4 +17,8 @@ public class VmActivity
     public string Requirements { get; set; } = null!;
 
     public int ClubId { get; set; }
+
+    public VmPerson Manager { get; set; }
+    
+    public IEnumerable<VmActivity> Activities { get; set; } = new List<VmActivity>();
 }
