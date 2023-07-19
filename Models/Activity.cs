@@ -18,7 +18,7 @@ public class Activity
 
     public int ClubId { get; set; }
 
-    public object ConcurrencyActivity { get; set; } = null!;
+    public byte[] ConcurrencyActivity { get; set; } = new byte[8];
 
     public virtual Club Club { get; set; } = null!;
 
@@ -26,4 +26,7 @@ public class Activity
 
     public virtual ICollection<PositionPersonActivity> PositionPersonActivities { get; set; } =
         new List<PositionPersonActivity>();
+
+    public IEnumerable<Person> Participants { get; set; } = new List<Person>();
+    public IEnumerable<Person> NoParticipants { get; set; } = new List<Person>();
 }

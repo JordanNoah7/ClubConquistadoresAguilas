@@ -22,11 +22,58 @@ public class ActividadesController : Controller
     {
         return View();
     }
-
-    //actividades - participantes
-    public ActionResult Participantes()
+    
+    [HttpGet]
+    public async Task<ActionResult> Participantes(int nro)
     {
-        return View();
+        var vmActivities = new VmActivity();
+        
+        var participants = await _activityService.GetParticipants(nro);
+        var participantList = new List<VmPerson>();
+        
+        var noParticipants = await _activityService.GetNoParticipants(nro);
+        var noParticipantList = new List<VmPerson>();
+        
+        foreach (Person item in participants.ToList())
+        {
+            participantList.Add(new VmPerson()
+            {
+                Id = item.Id,
+                FirstName = item.FirstName,
+                FathersSurname = item.FathersSurname,
+                MothersSurname = item.MothersSurname
+            });
+        }
+        
+        foreach (Person item in noParticipants.ToList())
+        {
+            noParticipantList.Add(new VmPerson()
+            {
+                Id = item.Id,
+                FirstName = item.FirstName,
+                FathersSurname = item.FathersSurname,
+                MothersSurname = item.MothersSurname
+            });
+        }
+
+        vmActivities.Id = nro;
+        vmActivities.Participants = participantList;
+        vmActivities.NoParticipants = noParticipantList;
+        
+        return View(vmActivities);
+    }
+    [HttpPost]
+    public async Task<ActionResult> AddParticipants(int nro, int id)
+    {
+        Console.Write(nro + " " + id);
+        return RedirectToAction("Participantes", "Actividades", nro);
+    }
+
+    [HttpDelete]
+    public async Task<ActionResult> DeleteParticipants(int nro, int id)
+    {
+        Console.Write(nro + " " + id);
+        return RedirectToAction("Participantes", "Actividades", nro);
     }
 
     // GET: ActividadesController/Details/5
@@ -49,10 +96,10 @@ public class ActividadesController : Controller
                     EndDate = item.EndDate.ToString("yyyy-MM-dd"),
                     Manager = new VmPerson
                     {
-                        Id = item.PositionPersonActivities.FirstOrDefault().Person.Id,
-                        FullSurname = item.PositionPersonActivities.FirstOrDefault().Person.FirstName + " " +
-                                      item.PositionPersonActivities.FirstOrDefault().Person.FathersSurname + " " +
-                                      item.PositionPersonActivities.FirstOrDefault().Person.MothersSurname
+                        Id = item.Manager.Id,
+                        FullSurname = item.Manager.FirstName + " " +
+                                      item.Manager.FathersSurname + " " +
+                                      item.Manager.MothersSurname
                     },
                     Location = item.Location
                 });

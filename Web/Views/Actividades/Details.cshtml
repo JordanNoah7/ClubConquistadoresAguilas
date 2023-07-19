@@ -35,6 +35,7 @@
             <th class="lugar" name="colLugar">Lugar</th>
             <th class="editar" name="colCargo">Editar</th>
             <th class="eliminar" name="colCargo">Eliminar</th>
+            <th class="participantes" name="colCargo">Participantes</th>
         </tr>
         </thead>
 
@@ -66,13 +67,13 @@
                         </form>
                     </td>
                     <td>
-                                            <form action="@Url.Action("Participantes", "Actividades")" method="get">
-                                                <input type="hidden" name="nro" value="@item.Id"/>
-                                                <button type="submit" id="delete" class="btn btn-default">
-                                                    <span class="material-symbols-outlined"> child_care</span>
-                                                </button>
-                                            </form>
-                                        </td>
+                        <form action="@Url.Action("Participantes", "Actividades")" method="get">
+                            <input type="hidden" name="nro" value="@item.Id"/>
+                            <button type="submit" id="delete" class="btn btn-default">
+                                <span class="material-symbols-outlined"> child_care</span>
+                            </button>
+                        </form>
+                    </td>
                 </tr>
             }
             </tbody>

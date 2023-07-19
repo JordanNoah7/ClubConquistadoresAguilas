@@ -12,7 +12,19 @@ public class ActivityService : IActivityService
     {
         _activityRepository = activityRepository;
     }
-    
+
+    public async Task<Activity> GetActivitie(int id)
+    {
+        try
+        {
+            return await _activityRepository.GetActivitie(id);
+        }
+        catch (Exception e)
+        {
+            return null;
+        }
+    }
+
     public async Task<IEnumerable<Activity>> GetActivities()
     {
         try
@@ -30,6 +42,78 @@ public class ActivityService : IActivityService
         try
         {
             return await _activityRepository.Insert(model);
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
+    }
+    
+    public async Task<IEnumerable<Person>> GetParticipants(int id)
+    {
+        try
+        {
+            return await _activityRepository.GetParticipants(id);
+        }
+        catch (Exception e)
+        {
+            return null;
+        }
+    }
+
+    public async Task<IEnumerable<Person>> GetNoParticipants(int id)
+    {
+        try
+        {
+            return await _activityRepository.GetNoParticipants(id);
+        }
+        catch (Exception e)
+        {
+            return null;
+        }
+    }
+
+    public async Task<bool> InsertParticipant(int activityId, int personId)
+    {
+        try
+        {
+            return await _activityRepository.InsertParticipant(activityId, personId);
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
+    }
+
+    public async Task<bool> UpdateActivity(Activity model)
+    {
+        try
+        {
+            return await _activityRepository.UpdateActivity(model);
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
+    }
+
+    public async Task<bool> DeleteActivity(Activity model)
+    {
+        try
+        {
+            return await _activityRepository.DeleteActivity(model);
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
+    }
+
+    public async Task<bool> DeleteParticipant(int activityId, int personId)
+    {
+        try
+        {
+            return await _activityRepository.DeleteParticipant(activityId, personId);
         }
         catch (Exception e)
         {

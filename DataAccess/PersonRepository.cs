@@ -350,7 +350,42 @@ public class PersonRepository : ConnectionRepository, IPersonRepository
                                     }
                                 }
                             };
-                            person.ConcurrencyPerson = (byte[])dr["concurrencyPerson"];
+                            Array.Copy((byte[])dr["concurrencyPerson"], person.ConcurrencyPerson, 8);
+                        }
+                    }
+                    Connection.CloseConnection();
+                }
+                return person;
+            }
+            catch (SqlException e)
+            {
+                Connection.CloseConnection();
+                return null;
+            }
+        }
+    }
+
+    public async Task<Person> GetPersonById(int id)
+    {
+        Person person = new Person();
+        using (var cnDb = Connection.GetConnection(Configuration))
+        {
+            try
+            {
+                using (var cmd = new SqlCommand("usp_GetPersonByID", cnDb))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.AddWithValue("@PersonID", id);
+                    Connection.OpenConnection();
+                    using (var dr = await cmd.ExecuteReaderAsync())
+                    {
+                        if (await dr.ReadAsync())
+                        {
+                            person.Id = Convert.ToInt32(dr["ID"]);
+                            person.FirstName = dr["firstname"].ToString();
+                            person.FathersSurname = dr["fathersSurname"].ToString();
+                            person.MothersSurname = dr["mothersSurname"].ToString();
                         }
                     }
                     Connection.CloseConnection();

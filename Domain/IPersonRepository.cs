@@ -13,7 +13,8 @@ public interface IPersonRepository
     Task<Person> GetPersonClassById(int id);
     Task<Person> GetPathfinderById(int id);
     Task<Person> GetParentById(int id);
-    
+    Task<Person> GetPersonById(int id);
+
     Task<IEnumerable<Person>> GetPathfinders();
     Task<IEnumerable<Person>> GetManagers();
     Task<IEnumerable<Person>> GetFathers();

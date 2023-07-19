@@ -227,6 +227,27 @@ BEGIN
 END
 GO
 ---------------------------------------------------------------------------------------------Listo
+---Procedimiento para obtener una persona
+CREATE PROCEDURE usp_GetPersonByID @PersonID INT
+AS
+BEGIN
+    BEGIN TRAN;
+    BEGIN TRY
+        SELECT P.ID,
+               P.firstName,
+               P.fathersSurname,
+               P.mothersSurname
+        FROM People AS P
+        WHERE P.ID = @PersonID
+        COMMIT TRAN;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRAN;
+        RAISERROR ('Persona no encontrada', 16, 1);
+    END CATCH
+END
+GO
+---------------------------------------------------------------------------------------------Listo
 ---------------------------------------------------------------------------------------------
 ---Procedimiento para obtener una lista de conquistadores
 ALTER PROCEDURE usp_GetPathfinders
@@ -804,13 +825,13 @@ END
 GO
 ---------------------------------------------------------------------------------------------Listo
 ---Procidimiento para insertar la cabecera de una actividad
-CREATE PROCEDURE usp_InsertActivity @name nvarchar(20),
-                                    @startDate date,
-                                    @endDate date,
-                                    @location nvarchar(50),
-                                    @description nvarchar(MAX),
-                                    @requirements NVARCHAR(MAX),
-                                    @manager int
+ALTER PROCEDURE usp_InsertActivity @name nvarchar(20),
+                                   @startDate date,
+                                   @endDate date,
+                                   @location nvarchar(50),
+                                   @description nvarchar(MAX),
+                                   @requirements NVARCHAR(MAX),
+                                   @manager int
 AS
 BEGIN
     BEGIN TRAN;
@@ -857,4 +878,230 @@ BEGIN
 END
 GO
 -------------------------------------------------------------------------------------------Listo
-select * from Activities
+---Procedimiento para obtener todos los participantes de la actividad
+CREATE PROCEDURE usp_GetParticipants @ActivityId INT
+AS
+BEGIN
+    BEGIN TRAN;
+    BEGIN TRY
+        SELECT P.ID,
+               P.firstName,
+               P.fathersSurname,
+               P.mothersSurname
+        FROM PositionPersonActivity PPA
+                 JOIN People P on P.ID = PPA.PersonID
+        WHERE PPA.PositionID != 6
+          AND PPA.ActivityID = @ActivityId
+        COMMIT TRAN;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRAN
+        RAISERROR ('Error al obtener los participantes de la actividad.', 16, 1);
+    END CATCH
+END
+GO
+-------------------------------------------------------------------------------------------Listo
+---Procedimiento para obtener todos los conquistadores que no participan en la actividad
+ALTER PROCEDURE usp_GetNoParticipants @ActivityId INT
+AS
+BEGIN
+    BEGIN TRAN;
+    BEGIN TRY
+        SELECT P.ID, P.firstName, P.fathersSurname, P.mothersSurname
+        FROM People P
+                 JOIN Users U on P.ID = U.ID
+                 JOIN UserRol UR on U.ID = UR.UserID
+        WHERE P.ID NOT IN (SELECT PPA.PersonID
+                           FROM Activities A
+                                    JOIN PositionPersonActivity PPA on A.ID = PPA.ActivityID
+                           WHERE A.ID = @ActivityId)
+          AND UR.RolID IN (1, 2, 3, 4, 5);
+        COMMIT TRAN;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRAN;
+        RAISERROR ('Error al obtener los que no participan de la actividad.', 16, 1);
+    END CATCH
+END
+GO
+-------------------------------------------------------------------------------------------Listo
+---Procidimiento para insertar participantes
+CREATE PROCEDURE usp_InsertParticipant @ActivityId INT,
+                                       @PersonId INT
+AS
+BEGIN
+    BEGIN TRAN;
+    BEGIN TRY
+        INSERT INTO PositionPersonActivity (ActivityID, PersonID, PositionID)
+        VALUES (@ActivityId, @PersonId, 7);
+        COMMIT TRAN;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRAN;
+        RAISERROR ('Error al insertar al participante en la actividad.', 16, 1);
+    END CATCH
+END
+GO
+-------------------------------------------------------------------------------------------Listo
+---Procidimiento para eliminar participantes
+CREATE PROCEDURE usp_DeleteParticipant @ActivityId INT,
+                                       @PersonId INT
+AS
+BEGIN
+    BEGIN TRAN;
+    BEGIN TRY
+        DELETE
+        FROM PositionPersonActivity
+        WHERE ActivityID = @ActivityId
+          AND PersonID = @PersonId;
+        COMMIT TRAN;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRAN;
+        RAISERROR ('Error al eliminar al participante de la actividad.', 16, 1);
+    END CATCH
+END
+GO
+-------------------------------------------------------------------------------------------Listo
+
+
+---Procidimiento para actualizar cabecera de actividad
+CREATE PROCEDURE usp_UpdateActivity @ActivityId INT,
+                                    @name nvarchar(20),
+                                    @startDate date,
+                                    @endDate date,
+                                    @location nvarchar(50),
+                                    @description nvarchar(MAX),
+                                    @requirements NVARCHAR(MAX),
+                                    @manager int,
+                                    @concurrency TIMESTAMP
+AS
+BEGIN
+    BEGIN TRAN;
+    IF @concurrency = (SELECT concurrencyActivity
+                       FROM Activities
+                       WHERE ID = @ActivityId)
+        BEGIN
+            BEGIN TRY
+                UPDATE Activities
+                SET name         = @name,
+                    startDate    = @startDate,
+                    endDate      = @endDate,
+                    location     = @location,
+                    description  = @description,
+                    requirements = @requirements
+                WHERE ID = @ActivityId;
+
+                IF @manager IN (SELECT PPA.PersonID
+                                FROM PositionPersonActivity PPA
+                                WHERE PPA.ActivityID = @ActivityId)
+                    BEGIN
+                        IF @manager != (SELECT PPA.PersonID
+                                        FROM PositionPersonActivity PPA
+                                        WHERE PPA.PositionID = 6
+                                          AND PPA.ActivityID = @ActivityId)
+                            BEGIN
+                                UPDATE PositionPersonActivity
+                                SET PositionID = 7
+                                WHERE PositionID = 6
+                                  AND ActivityID = @ActivityId;
+
+                                UPDATE PositionPersonActivity
+                                SET PositionID = 6
+                                WHERE ActivityID = @ActivityId
+                                  AND PersonID = @manager;
+                            END
+                    END
+                ELSE
+                    BEGIN
+                        UPDATE PositionPersonActivity
+                        SET PositionID = 7
+                        WHERE PositionID = 6
+                          AND ActivityID = @ActivityId;
+
+                        INSERT INTO PositionPersonActivity (ActivityID, PersonID, PositionID)
+                        VALUES (@ActivityId, @manager, 6);
+                    END
+
+                COMMIT TRAN;
+            END TRY
+            BEGIN CATCH
+                ROLLBACK TRAN;
+                RAISERROR ('Error al actualizar la actividad.', 16, 1);
+            END CATCH
+        END
+    ELSE
+        BEGIN
+            ROLLBACK TRAN;
+            RAISERROR ('Otro usuario actualizo la actividad.', 16, 1);
+        END
+END
+GO
+-------------------------------------------------------------------------------------------Listo
+---Procedimiento para obtener la actividad y poder editarla
+ALTER PROCEDURE usp_GetActivity @ActivityId INT
+AS
+BEGIN
+    BEGIN TRAN;
+    BEGIN TRY
+        SELECT A.name,
+               A.startDate,
+               A.endDate,
+               A.location,
+               A.description,
+               A.requirements,
+               A.concurrencyActivity,
+               P.ID,
+               P.firstName,
+               P.fathersSurname,
+               P.mothersSurname
+        FROM Activities A
+                 JOIN PositionPersonActivity PPA on A.ID = PPA.ActivityID
+                 JOIN People P on P.ID = PPA.PersonID
+        WHERE PPA.PositionID = 6
+          AND A.ID = @ActivityId
+        COMMIT TRAN;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRAN;
+        RAISERROR ('Error al obtener la actividad.', 16, 1);
+    END CATCH
+END
+GO
+-------------------------------------------------------------------------------------------Listo
+---Procedimiento para eliminar actividad
+CREATE PROCEDURE usp_DeleteActivity @ActivityId INT, @concurrency TIMESTAMP
+AS
+BEGIN
+    BEGIN TRAN;
+    IF @concurrency = (SELECT concurrencyActivity
+                       FROM Activities
+                       WHERE ID = @ActivityId)
+        BEGIN
+            BEGIN TRY
+                DELETE
+                FROM PositionPersonActivity
+                WHERE ActivityID = @ActivityId;
+
+                DELETE
+                FROM Activities
+                WHERE ID = @ActivityId;
+
+                COMMIT TRAN;
+            END TRY
+            BEGIN CATCH
+                ROLLBACK TRAN;
+                RAISERROR ('Error al eliminar la actividad.', 16, 1);
+            END CATCH
+        END
+    ELSE
+        BEGIN
+            ROLLBACK TRAN;
+            RAISERROR ('Otro usuario elimino o actualizo la actividad.', 16, 1);
+        END
+END
+GO
+-------------------------------------------------------------------------------------------Listo
+
+select * from People join Users U on People.ID = U.ID
+select * from Roles
