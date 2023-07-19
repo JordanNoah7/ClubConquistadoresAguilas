@@ -3,6 +3,16 @@
     //Layout = "_LayoutCrud";
     ViewData["Vista"] = "Details";
 }
+<!--jQuery library file -->
+<script type="text/javascript"
+        src="~/js/cruds.js">
+</script>
+
+<!--Datatable plugin JS library file -->
+<script type="text/javascript"
+        src="~/js/cruds2.js">
+</script>
+
 
 <link rel="stylesheet" href="~/css/CrudOrganizacion.css" asp-append-version="true"/>
 
@@ -15,7 +25,7 @@
 
     </h2>
 
-    <table class="table table-hover">
+    <table class="table display table-hover">
         <thead>
         <tr name="columna">
             <th class="dni" name="colDni">DNI</th>
@@ -34,6 +44,7 @@
                 <td class="apellido" name="rowApellidoPat">@item.FathersSurname</td>
                 <td class="apellido" name="rowApellidoMat">@item.MothersSurname</td>
                 <td class="telefono" name="rowTelefono">@item.Phone</td>
+                    
                 <td>
                                         <form action="@Url.Action("Edit", "Padre")" method="get">
                                             <input type="hidden" name="nro" value="@item.Id" />
@@ -57,3 +68,11 @@
 
 
 </div>
+
+<script>
+
+    /* Initialization of datatables */
+    $(document).ready(function () {
+        $('table.display').DataTable();
+    });
+</script>

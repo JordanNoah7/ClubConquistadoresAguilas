@@ -1,0 +1,64 @@
+﻿@{
+    ViewData["Vista"] = "Ahorro";
+}
+<!--jQuery library file -->
+<script type="text/javascript"
+        src="~/js/cruds.js">
+</script>
+
+<!--Datatable plugin JS library file -->
+<script type="text/javascript"
+        src="~/js/cruds2.js">
+</script>
+
+
+<link rel="stylesheet" href="~/css/inscripcionTesoreria.css" asp-append-version="true" />
+
+<div class="recent-order">
+    <h2>
+        Registrar Ahorro ***
+    </h2>
+    <div class="form-group">
+        <label>Fecha:</label>
+        <input type="date" />
+    </div>
+
+    <div class="form-group participantes">
+        <label class="control-label">Conquistador : *</label>
+
+        <input type="search" aria-label="participantes" class="form-control" required>
+        <span onclick="location.href='@Url.Action("Index", "Tesoreria")'" class="material-symbols-outlined">add_circle</span>
+
+    </div>
+
+    <table class="table display table-hover">
+        <thead>
+            <tr name="columna">
+                <th class="nombre" name="colNombre">CANT</th>
+                <th class="apellido" name="colApellido">CODIGO</th>
+                <th class="clase" name="colClase">DESCRIPCION</th>
+                <th class="unidad" name="colUnidad">P.UNITARIO</th>
+                <th class="unidad" name="colUnidad">IMPORTE</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr name="fila">
+                <td class="cantidad" name="rowCantidad"><input type="number" aria-label="cant" class="form-control" required></td>
+                <td class="codigo">I</td>
+                <td class="descripcion">INSCRIPCION</td>
+                <td class="precio" name="rowPrecio"><input type="number" aria-label="precio" class="form-control" required></td>
+                <td class="importe" name="rowImporte"><input type="number" aria-label="importe" class="form-control" required></td>
+            </tr>
+
+        </tbody>
+    </table>
+    <br />
+    <br />
+    <button type="submit" class="btnGuardar" value="guardar" onclick="alert('¡Hola, soy un mensaje de alerta!')">Guardar</button>
+
+    <button type="submit" class="btnCancelar" value="cancelar" onclick="location.href='@Url.Action("Inicio", "Crud")'">Cancelar</button>
+
+
+</div>

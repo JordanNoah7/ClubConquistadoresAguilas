@@ -151,4 +151,16 @@ main .buscar input {
         .listaPadres li:hover {
             background-color: #EF9645;
         }
+/*particpantes*/
 
+.participantes {
+    display: flex;
+}
+
+.participantes span {
+   display: flex;
+   justify-content: center;
+   
+  
+   
+}

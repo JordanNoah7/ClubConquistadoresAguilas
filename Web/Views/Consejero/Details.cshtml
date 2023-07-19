@@ -3,6 +3,15 @@
     //Layout = "_LayoutCrud";
     ViewData["Vista"] = "Details";
 }
+<!--jQuery library file -->
+<script type="text/javascript"
+        src="~/lib/jquery/crudConsejero.js">
+</script>
+
+<!--Datatable plugin JS library file -->
+<script type="text/javascript"
+        src="~/lib/jquery/crudConse2.js">
+</script>
 
 <link rel="stylesheet" href="~/css/CrudOrganizacion.css" asp-append-version="true" />
 
@@ -14,8 +23,8 @@
         <button type="submit" class="btnCreate" onclick="location.href='@Url.Action("Create", "Consejero")'">Nuevo</button>
 
     </h2>
-
-    <table class="table table-hover">
+    
+    <table class="table display table-hover">
         <thead>
         <tr name="columna">
             <th class="nombre" name="colNombre">Nombre</th>
@@ -34,6 +43,7 @@
                 <td class="apellido" name="rowApellido">@item.FullSurname</td>
                 <td class="clase" name="rowClase">@item.Class</td>
                 <td class="unidad" name="rowUnidad">@item.Unit</td>
+                  
                 <td>
                     <form action="@Url.Action("Edit", "Consejero")" method="get">
                         <input type="hidden" name="nro" value="@item.Id"/>
@@ -57,3 +67,10 @@
 
 
 </div>
+<script>
+
+    /* Initialization of datatables */
+    $(document).ready(function () {
+        $('table.display').DataTable();
+    });
+</script>
