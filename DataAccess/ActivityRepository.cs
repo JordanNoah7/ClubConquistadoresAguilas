@@ -25,24 +25,23 @@ public class ActivityRepository : ConnectionRepository, IActivityRepository
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Clear();
+                    cmd.Parameters.AddWithValue("@ActivityId", id);
                     Connection.OpenConnection();
                     using (var dr = await cmd.ExecuteReaderAsync())
                     {
                         if (await dr.ReadAsync())
                         {
-                            activity.Id = Convert.ToByte(dr["ID"].ToString());
                             activity.Name = dr["name"].ToString();
                             activity.StartDate = Convert.ToDateTime(dr["startDate"]);
                             activity.EndDate = Convert.ToDateTime(dr["endDate"]);
+                            activity.Location = dr["location"].ToString();
+                            activity.Description = dr["description"].ToString();
+                            activity.Requirements = dr["requirements"].ToString();
                             activity.Manager = new Person()
                             {
-                                Id = Convert.ToInt32(dr["PersonID"]),
-                                FirstName = dr["firstName"].ToString(),
-                                FathersSurname = dr["fathersSurname"].ToString(),
-                                MothersSurname = dr["mothersSurname"].ToString()
+                                Id = Convert.ToInt32(dr["ID"]),
                             };
-                            activity.Location = dr["location"].ToString();
-                            Array.Copy((byte[])dr["concurrencyPerson"], activity.ConcurrencyActivity, 8);
+                            Array.Copy((byte[])dr["concurrencyActivity"], activity.ConcurrencyActivity, 8);
 
                         }
                     }

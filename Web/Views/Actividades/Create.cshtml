@@ -1,24 +1,15 @@
-﻿@*@model ClubConquistadoresAguilas.Models.VmPerson*@
-@*edicion de prueba para hacer merge con Jhon*@
-@{
-    //Layout = "_LayoutCrud";
+﻿@{
     ViewData["Vista"] = "Create";
 }
 
 <link rel="stylesheet" href="~/css/Create.css" asp-append-version="true"/>
 
-@*action="@Url.Action("Login", "Login")" method="post" autocomplete="off"*@
-
 <div class="formCrud">
-    <h2>
-        NUEVA ACTIVIDAD***
-
-    </h2>
+    <h2>NUEVA ACTIVIDAD***</h2>
 
     <div class="row">
         <div class="col">
             <form action="@Url.Action("Create", "Actividades")" method="post" autocomplete="off">
-                @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
                 <div class="form-group">
                     <label class="control-label">Nombre: *</label>
                     <input type="text" aria-label="Nombre" class="form-control" required name="name">
@@ -41,13 +32,13 @@
                     <input type="text" aria-label="lugar" class="form-control" required name="location">
                     <span class="text-danger"></span>
                 </div>
-                
+
                 <div class="form-group">
                     <label class="control-label">Descripción: *</label>
                     <input type="text" aria-label="lugar" class="form-control" required name="description">
                     <span class="text-danger"></span>
                 </div>
-                
+
                 <div class="form-group">
                     <label class="control-label">Requerimientos: *</label>
                     <input type="text" aria-label="lugar" class="form-control" required name="requirements">
@@ -66,17 +57,8 @@
                     </select>
                 </div>
 
-                <div class="form-group participantes">
-                    <label class="control-label">Participantes : *</label>
-
-                    <input type="text" aria-label="participantes" class="form-control" required>
-                    <span onclick="location.href='@Url.Action("Participantes", "Actividades")'" class="material-symbols-outlined">add_circle</span>
-
-                </div>
-
                 <br/>
                 <br/>
-                @*<input type="submit" value="Guardar" class="btn btn-primary" />*@
                 <button type="submit" class="btnGuardar" value="guardar">Guardar</button>
                 <button type="submit" class="btnCancelar" value="cancelar" onclick="location.href='@Url.Action("Details", "Actividades")'">Cancelar</button>
 
@@ -86,6 +68,3 @@
 
     </div>
 </div>
-
-
-    
