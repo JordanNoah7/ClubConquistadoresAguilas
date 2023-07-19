@@ -1,0 +1,140 @@
+﻿:root {
+    --color-background: #f6f6f9;
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 0.8rem;
+    --border-radius-3: 1.2rem;
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+    --color-white: white;
+    --color-dark: #737373;
+    --color-dark-variant: #979497;
+    --color-light: white;
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+.variablesTemaOscuro {
+    --color-background: #181a1e;
+    --color-white: #202528;
+    --color-dark: #edeffd;
+    --color-dark-variant: #a3bdcc;
+    --color-light: rgba(0,0,0,0.4);
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+main .insights {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1.6rem;
+}
+
+    main .insights > div {
+        background: var(--color-background);
+        padding: 1.8rem;
+        border-radius: 2rem;
+        margin-top: 1rem;
+        box-shadow: var(--box-shadow);
+        transition: all 300ms ease;
+    }
+
+        main .insights > div:hover {
+            box-shadow: none;
+        }
+
+        main .insights > div span {
+            background: #394741; /*naranja oscuro*/
+            padding: 0.5rem;
+            border-radius: 50%;
+            color: white;
+            font-size: 2rem;
+        }
+
+        main .insights > div.unidad span {
+            background: #1A6786 /*amarillo oscuro*/
+        }
+
+        main .insights > div.info span {
+            background: #3B3D42; /*azul oscuro*/
+        }
+
+        main .insights > div .middle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+    main .insights h3 {
+        margin: 1rem 0 0.6rem;
+        font-size: 1rem;
+    }
+
+    main .insights .color {
+        position: relative;
+        width: 92px;
+        height: 92px;
+        border-radius: 50%;
+    }
+
+    main .insights svg {
+        width: 7rem;
+        height: 7rem;
+    }
+
+    main .insights .clase svg circle {
+        fill: cornflowerblue; /*color del circulo*/
+    }
+
+    main .insights .unidad svg circle {
+        fill: blueviolet; /*color del circulo*/
+    }
+
+/*auxilio*/
+
+main .auxilio {
+    margin-top: 2rem;
+    /*#B5EBD1; verde palo*/
+    width: 100%;
+    border-radius: 1.5rem;
+    padding: 1.8rem;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 1.6rem;
+}
+
+    main .auxilio .left {
+        position: relative;
+        left: 2%;
+        text-justify: inter-word;
+        justify-content: space-between;
+        text-align: justify;
+    }
+
+    main .auxilio .rigth {
+        display: inline-block;
+        align-items: center;
+        width: 30%;
+        height: 92px;
+    }
+
+
+        main .auxilio .rigth img {
+            position: relative;
+            height: auto;
+            width: 100%;
+            object-fit: contain;
+        }
+
+    main .auxilio button {
+        background-color: var(--color-light);
+        color: #31E981; /*verde*/
+        border: 2px solid #31E981; /* verde */
+        border-radius: 5px;
+        width: 50%;
+        height: 3rem;
+        margin: 15px 10px 10px 10px;
+    }
+
+        main .auxilio button:hover {
+            background-color: #31E981;
+            color: white;
+        }
