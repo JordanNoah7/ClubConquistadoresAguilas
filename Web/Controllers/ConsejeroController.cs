@@ -297,23 +297,31 @@ public class ConsejeroController : Controller
     }
 
     // GET: ConsejeroController/Delete/5
-    public ActionResult Delete(int id)
+    public async Task<ActionResult> Delete(int nro)
     {
-        return View();
+        Person person = await _personService.GetPersonById(nro);
+        VmPerson vmPerson = new VmPerson()
+        {
+            Id = nro,
+            FirstName = person.FirstName,
+            FathersSurname = person.FathersSurname,
+            MothersSurname = person.MothersSurname
+        };
+        return View(vmPerson);
     }
 
     // POST: ConsejeroController/Delete/5
     [HttpPost]
-    [ValidateAntiForgeryToken]
-    public ActionResult Delete(int id, IFormCollection collection)
+    public async Task<ActionResult> Delete(int id, int nro)
     {
         try
         {
-            return RedirectToAction(nameof(Index));
+            await _personService.DeletePerson(nro);
+            return RedirectToAction("Details", "Consejero");
         }
         catch
         {
-            return View();
+            return RedirectToAction("Details", "Consejero");
         }
     }
 }
