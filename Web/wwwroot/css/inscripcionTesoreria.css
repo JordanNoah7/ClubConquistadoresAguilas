@@ -1,0 +1,328 @@
+﻿
+main h1 span {
+    color: #EF9645; /*naranja*/
+}
+
+main .recent-order {
+    margin-top: 2rem;
+}
+
+
+    main .recent-order button {
+        background-color: white;
+        color: #00BF63; /*naranja*/
+        border: 2px solid #00BF63; /* plomo */
+        border-radius: 5px;
+        width: 10%;
+        height: 2rem;
+        margin: 15px 10px 10px 10px;
+    }
+
+
+        main .recent-order button a {
+            color: #00BF63; /*naranja*/
+        }
+
+        main .recent-order button:hover {
+            background-color: #00BF63;
+            color: white;
+        }
+
+        main .recent-order button a:hover {
+            color: white;
+        }
+
+    main .recent-order .btnGuardar {
+        border: 2px solid #00BF63;
+        color:#00BF63 ;
+    }
+    main .recent-order .btnCancelar {
+        border: 2px solid #00BF63;
+        color: #00BF63;
+    }
+
+    main .recent-order td #delete {
+        background: white;
+        color: #EA2027; /*rojo*/
+        padding-right: 25px;
+        border-radius: 10px;
+        border: none;
+    }
+
+        main .recent-order td #delete:hover {
+            background: #EA2027; /*rojo*/
+            color: white;
+        }
+
+    main .recent-order td #edit {
+        background: white;
+        color: #00BF63; /*verde*/
+
+        padding-right: 25px;
+        border: none;
+    }
+
+        main .recent-order td #edit:hover {
+            background: #00BF63; /*verde*/
+            color: white;
+        }
+
+
+    main .recent-order h2 {
+        margin-bottom: 0.8rem;
+    }
+
+    main .recent-order table {
+        background: #f6f6f9; /*#B5EBD1; verde palo*/
+        width: 100%;
+        border-radius: 2rem;
+        padding: 1.8rem;
+        text-align: center;
+        box-shadow: 0 2rem 3rem;
+        transition: all 300ms ease;
+    }
+
+        main .recent-order table:hover {
+            box-shadow: none;
+        }
+
+main table tbody td {
+    height: 2.8rem;
+    border-bottom: 1px solid #979497; /*plomo*/
+    color: black;
+    
+}
+
+main table tbody tr:last-child td {
+    /*border: none;*/
+}
+main .recent-order input {
+    border: 2px solid #979497;
+    border-radius: 5px;
+    width: 30%;
+    height: 50%;
+}
+main .recent-order .cantidad input {
+    border: 2px solid #979497;
+    border-radius: 5px;
+    width: 100px;
+    height: 30px;
+    text-align: center;
+}
+main .recent-order .precio input {
+    border: 2px solid #979497;
+    border-radius: 5px;
+    width:100px;
+    height:30px;
+    text-align:center;
+}
+main .recent-order .importe input {
+    border: 2px solid #979497;
+    border-radius: 5px;
+    width: 100px;
+    height: 30px;
+    text-align: center;
+}
+
+
+main .recent-order a {
+    text-align: center;
+    display: block;
+    margin: 1rem auto;
+    color: black;
+}
+
+
+/*tabla*/
+.dataTables_wrapper {
+    position: relative;
+    clear: both;
+    *zoom: 1;
+    zoom: 1
+}
+
+    .dataTables_wrapper .dataTables_length {
+        float: left
+    }
+
+        .dataTables_wrapper .dataTables_length select {
+            border: 1px solid #aaa;
+            border-radius: 3px;
+            padding: 5px;
+            background-color: transparent;
+            padding: 3px
+        }
+
+    .dataTables_wrapper .dataTables_filter {
+        float: right;
+        text-align: right
+    }
+
+        .dataTables_wrapper .dataTables_filter input {
+            border: 1px solid #aaa;
+            border-radius: 5px;
+            padding: 5px;
+            background-color: transparent;
+            margin-left: 3px;
+        }
+
+    .dataTables_wrapper .dataTables_info {
+        clear: both;
+        float: left;
+        padding-top: 0.755em;
+    }
+
+    .dataTables_wrapper .dataTables_paginate {
+        float: right;
+        text-align: right;
+        padding-top: 0.25em;
+    }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button {
+            box-sizing: border-box;
+            display: inline-block;
+            min-width: 1.5em;
+            padding: 0.5em 1em;
+            margin-left: 2px;
+            text-align: center;
+            text-decoration: none !important;
+            cursor: pointer;
+            /**cursor: hand;*/
+            color: #333 !important;
+            border: 1px solid transparent;
+            border-radius: 2px
+        }
+
+            .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+                border: 1px solid #979497;
+                border-radius: 5px
+            }
+
+
+table.dataTable tbody th, table.dataTable tbody td {
+    padding: 8px 10px;
+    border: 1px solid #979497;
+}
+
+/*paginacion tabla*/
+
+
+
+/*responsive tabla*/
+@media screen and (max-width: 1200px ) {
+    main .recent-order {
+        width: 94%;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 2rem 0 0 8.8rem;
+    }
+
+        main .recent-order table {
+            width: 83vw;
+        }
+
+    main table thead tr th .telefono,
+    main table thead tr th .clase {
+        display: none;
+    }
+
+    main table tbody tr td .telefono,
+    main table tbody tr td .clase {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px ) {
+    main {
+        margin-top: 8rem;
+        padding: 0 1rem;
+    }
+
+        main .recent-order {
+            position: relative;
+            margin: 3rem 0 0 0;
+            width: 100%;
+        }
+
+            main .recent-order table {
+                width: 100%;
+                margin: 0;
+            }
+}
+
+
+
+
+/*fin responsive tabla*/
+
+
+
+
+/*notificaciones botones*/
+main form .notification-group button {
+    background-color: white;
+    color: #31E981; /*verde whatsap*/
+    border: 2px solid #31E981; /*verde whatsap*/
+    border-radius: 5px;
+    width: 30%;
+    height: 3rem;
+    margin: 15px 10px 10px 10px;
+}
+
+    main form .notification-group button:hover {
+        background-color: #31E981;
+        color: white;
+    }
+/*Consejero - tomar asistencia- botones encabezado y labels*/
+main .recent-order .right {
+    left: 50%;
+    /*right:50%;*/
+}
+
+main .recent-order p {
+    float: right;
+}
+
+main .bolded {
+    font-weight: bold;
+}
+
+main .recent-order button {
+    background-color: white;
+    color: #EF9645; /*naranja*/
+    border: 2px solid #EF9645; /* plomo */
+    border-radius: 5px;
+    width: 20%;
+    height: 2rem;
+    margin: 15px 10px 10px 20px;
+}
+
+main .recent-order table td select {
+    font-family: poppins, sans-serif;
+    font-size: 0.88rem;
+    height: 2.8rem;
+    border-bottom: 1px solid #979497; /*plomo*/
+    color: black;
+    background: #f6f6f9; /*#B5EBD1; verde palo*/
+    width: 100%;
+    padding: 0.8rem;
+    text-align: center;
+    border-radius: 3px;
+}
+
+    main .recent-order table td select:hover {
+        background: #B5EBD1;
+    }
+
+/* check box vista participantes*/
+
+main .recent-order input[type="checkbox" i] {
+    background-color: initial;
+    cursor: default;
+    appearance: auto;
+    box-sizing: border-box;
+    margin: 3px 3px 3px 4px;
+    padding: initial;
+    border: initial;
+}

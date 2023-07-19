@@ -5,6 +5,17 @@
     ViewData["Vista"] = "Details";
 }
 
+<!--jQuery library file -->
+<script type="text/javascript"
+        src="~/js/cruds.js">
+</script>
+
+<!--Datatable plugin JS library file -->
+<script type="text/javascript"
+        src="~/js/cruds2.js">
+</script>
+
+
 <link rel="stylesheet" href="~/css/CrudOrganizacion.css" asp-append-version="true"/>
 
 @*action="@Url.Action("Login", "Login")" method="post" autocomplete="off"*@
@@ -16,7 +27,7 @@
 
     </h2>
 
-    <table class="table table-hover">
+    <table class="table display table-hover">
         <thead>
         <tr name="columna">
             <th class="nombre" name="colNombre">Nombre</th>
@@ -57,6 +68,14 @@
         }
         </tbody>
     </table>
-
+    
 
 </div>
+
+<script>
+
+    /* Initialization of datatables */
+    $(document).ready(function () {
+        $('table.display').DataTable();
+    });
+</script>
