@@ -37,19 +37,16 @@ public class LoginController : Controller
 
         if (user.Password.Equals(password))
         {
-            Person person = await _personService.GetPersonClassById(user.Id);
+            Person person = await _personService.GetPersonById(user.Id);
 
             var claims = new List<Claim>
             {
+                new(ClaimTypes.NameIdentifier, user.Id.ToString()),
                 new(ClaimTypes.Name, person.FirstName),
                 new(ClaimTypes.Surname, person.FathersSurname + " " + person.MothersSurname),
-                new(ClaimTypes.Role, user.UserRols.FirstOrDefault().Rol.Name),
-                new(ClaimTypes.Actor, person.ClassPeople.FirstOrDefault().Class.Name),
-                new(ClaimTypes.Authentication, person.PositionPersonUnits.FirstOrDefault().Unit.Name),
-                new(ClaimTypes.DateOfBirth, person.BirthDate.ToString("dd/MM/yyyy")),
-                new(ClaimTypes.MobilePhone, person.Phone),
-                new(ClaimTypes.Email, person.Email)
+                new(ClaimTypes.Role, user.UserRols.FirstOrDefault().Rol.Name)
             };
+            
 
             var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
             var authProperties = new AuthenticationProperties

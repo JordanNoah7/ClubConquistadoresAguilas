@@ -13,6 +13,7 @@ public interface IPersonService
     Task<Person> GetPathfinderById(int id);
     Task<Person> GetPersonClassById(int id);
     Task<Person> GetParentById(int id);
+    Task<Person> GetPersonById(int id);
     
     Task<IEnumerable<Person>> GetCounselors();
     Task<IEnumerable<Person>> GetManagers();

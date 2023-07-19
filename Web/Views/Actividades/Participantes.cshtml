@@ -1,4 +1,3 @@
-﻿
 @{
     //Layout = "_LayoutCrud";
     ViewData["Vista"] = "Participantes";
@@ -14,61 +13,78 @@
 </script>
 <link rel="stylesheet" href="~/css/CrudOrganizacion.css" asp-append-version="true"/>
 
-@*action="@Url.Action("Login", "Login")" method="post" autocomplete="off"*@
-
 <div class="recent-order">
-    <h2>
-        Lista Participantes ***
 
-    </h2>
-    <button type="submit" class="btnRegresar" value="regresar" onclick="location.href='@Url.Action("Create", "Actividades")'">Regresar</button>
-    <button type="submit" class="btnGuardar" value="guardar">Guardar</button>
-
-    <button type="submit" class="btnCancelar" value="cancelar" onclick="location.href='@Url.Action("Participantes", "Actividades")'">Cancelar</button>
-
-    <form asp-action="Participantes">
-        <table class="table display table-hover">
-            <thead>
-            <tr name="columna">
-                <th scope="col" name="nro">Numero</th>
-                <th class="nombre" name="colNombre">Nombre</th>
-                <th class="apellido" name="colApellido">Apellidos</th>
-                <th class="cargo" name="colCargo">Cargo</th>
-                <th class="clase" name="colClase">Clase</th>
-                <th class="unidad" name="colUnidad">Unidad</th>
-                <th>Confirmar</th>
-            </tr>
-            </thead>
-            <tbody>
-       
-            <tr name="fila">
-                    
-                <td scope="row" name="nro">1</td>
-                    
-                    <td class="nombre" name="rowNombre">FirstName</td>
-                    <td class="apellido" name="rowApellido">FullSurname</td>
-                        <td class="clase" name="rowClase">Class</td>
-                        <td class="unidad" name="rowUnidad">Unit</td>
-                        <td class="cargo" name="rowCargo">Position</td>
-                    <td class="chkconfirmar">
-                        <input type="checkbox" id="1">
+    <h2>Particpiantes ↓</h2>
+    <table class="table table-hover">
+        <thead>
+        <tr name="columna">
+            <th class="firstname" name="colNombre">Nombre</th>
+            <th class="firstsurname" name="colFecIni">Apellido Paterno</th>
+            <th class="lastsurname" name="colFecFin">Apellido Materno</th>
+            <th class="delete" name="colCargo">Eliminar</th>
+        </tr>
+        </thead>
+        <tbody>
+        @if (Model.Participants != null)
+        {
+            @foreach (var item in Model.Participants)
+            {
+                <tr name="fila">
+                    <td class="nombre" name="colNombre">@item.FirstName</td>
+                    <td class="firstsurname" name="colFecIni">@item.FathersSurname</td>
+                    <td class="lastsurname" name="colFecFin">@item.MothersSurname</td>
+                    <td>
+                        <form action="@Url.Action("DeleteParticipants", "Actividades")" method="get">
+                            <input type="hidden" name="nro" value="@item.Id"/>
+                            <input type="hidden" name="id" value="@item.Id"/>
+                            <button type="submit" id="delete" class="btn btn-default">
+                                <span class="material-symbols-outlined"> delete</span>
+                            </button>
+                        </form>
                     </td>
-                   
-            </tr>
-            
-            </tbody>
-        </table>
+                </tr>
+            }
+        }
+        </tbody>
+    </table>
+    <br/>
+    <br/>
+    <h2>No Particpiantes ↑</h2>
+    <table class="table table-hover">
 
-    </form>
-
+        <thead>
+        <tr name="columna">
+            <th class="firstname" name="colNombre">Nombre</th>
+            <th class="firstsurname" name="colFecIni">Apellido Paterno</th>
+            <th class="lastsurname" name="colFecFin">Apellido Materno</th>
+            <th class="delete" name="colCargo">Eliminar</th>
+        </tr>
+        </thead>
+        <tbody>
+        @if (Model.NoParticipants != null)
+        {
+            @foreach (var item in Model.NoParticipants)
+            {
+                <tr name="fila">
+                    <td class="nombre" name="colNombre">@item.FirstName</td>
+                    <td class="firstsurname" name="colFecIni">@item.FathersSurname</td>
+                    <td class="lastsurname" name="colFecFin">@item.MothersSurname</td>
+                    <td>
+                        <form action="@Url.Action("AddParticipants", "Actividades")" method="get">
+                            <input type="hidden" name="nro" value="@item.Id"/>
+                            <input type="hidden" name="id" value="@item.Id"/>
+                            <button type="submit" id="delete" class="btn btn-default">
+                                <span class="material-symbols-outlined"> add</span>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        }
+        </tbody>
+    </table>
+    
+    <button type="submit" class="btnGuardar" value="guardar" onclick="location.href='@Url.Action("Details", "Actividades")'">Aceptar</button>
+    <button type="submit" class="btnCancelar" value="cancelar" onclick="location.href='@Url.Action("Details", "Actividades")'">Cancelar</button>
 </div>
-<script>
-
-    /* Initialization of datatables */
-    $(document).ready(function () {
-        $('table.display').DataTable();
-    });
-
-    var allChecked = [...document.querySelectorAll('input[type=checkbox]:checked')].map(e => e.id);
-    console.log(allChecked);
-</script>
