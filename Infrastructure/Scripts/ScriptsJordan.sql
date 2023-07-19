@@ -1051,10 +1051,7 @@ BEGIN
                A.description,
                A.requirements,
                A.concurrencyActivity,
-               P.ID,
-               P.firstName,
-               P.fathersSurname,
-               P.mothersSurname
+               P.ID
         FROM Activities A
                  JOIN PositionPersonActivity PPA on A.ID = PPA.ActivityID
                  JOIN People P on P.ID = PPA.PersonID

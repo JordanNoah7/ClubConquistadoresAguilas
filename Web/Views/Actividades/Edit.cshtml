@@ -1,68 +1,74 @@
-﻿@{
+﻿@model VmActivity
+@{
     ViewData["Vista"] = "Edit";
 }
 <link rel="stylesheet" href="~/css/Create.css" asp-append-version="true"/>
 
-@*action="@Url.Action("Login", "Login")" method="post" autocomplete="off"*@
-
 <div class="formCrud">
-    <h2>
-        EDITAR ACTIVIDAD ***
-
-    </h2>
+    <h2>EDITAR ACTIVIDAD ***</h2>
 
     <div class="row">
         <div class="col">
-            <form asp-action="Edit">
-                @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
-                <div class="form-group">
-                    <label @*asp-for="Name" *@class="control-label">Nombre(s) : *</label>
-                    <input type="text" aria-label="Nombre" @*asp-for="Name"*@ class="form-control">
-                    <span @*asp-validation-for="Name"*@ class="text-danger"></span>
+            <form action="@Url.Action("Edit", "Actividades")" method="post" autocomplete="off">
+                <div class="form-group" style="display: none !important;">
+                    <input type="number" name="id" class="form-control" required value="@Model.Id">
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label">Fecha Inicial : *</label>
-                    <input type="date" aria-label="fecIni" id="fecIni" class="form-control" required>
-                    <span class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label class="control-label">Fecha Final : *</label>
-                    <input type="date" aria-label="Fechafin" id="fecfin" class="form-control" required>
-                    <span class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label class="control-label">Sexo: *</label>
-                    <select name="Sexo" id="Sexo">
-                        <option value=""></option>
-                        <option value="M">Masculino</option>
-                        <option value="F">Femenino</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="control-label">Nombre(s) : *</label>
-                    <input type="text" aria-label="Nombre" class="form-control" required>
+                    <label class="control-label">Nombre: *</label>
+                    <input type="text" aria-label="Nombre" class="form-control" required name="name" value="@Model.Name">
                     <span class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label for="clase">Clase</label>
-                    <select name="clase" id="clase">
-                        <option value=""></option>
-                        <option value="r">Rojo</option>
-                        <option value="a">Azul</option>
-                        <option value="v">Verde</option>
-                    </select>
+                    <label class="control-label">Fecha de Inicio: *</label>
+                    <input type="date" aria-label="fecIni" id="fecIni" class="form-control" required name="startDate" value="@Model.StartDate">
+                    <span class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label class="control-label">Encargado(s) : *</label>
-                    <input type="text" aria-label="encargado" class="form-control" required>
+                    <label class="control-label">Fecha de Fin: *</label>
+                    <input type="date" aria-label="Fechafin" id="fecfin" class="form-control" required name="endDate" value="@Model.EndDate">
                     <span class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Lugar: *</label>
+                    <input type="text" aria-label="lugar" class="form-control" required name="location" value="@Model.Location">
+                    <span class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Descripción: *</label>
+                    <input type="text" aria-label="lugar" class="form-control" required name="description" value="@Model.Description">
+                    <span class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Requerimientos: *</label>
+                    <input type="text" aria-label="lugar" class="form-control" required name="requirements" value="@Model.Requirements">
+                    <span class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Encargado:</label>
+                    <input type="search" aria-label="padre" id="padre" class="form-control">
+                    <select class="apoderado" name="manager" id="listaPadres" required>
+                        @foreach (var manager in ViewBag.Managers)
+                        {
+                            if (manager.Value == Model.Manager.Id)
+                            {
+                                <option value="@manager.Value" class="father" selected>@manager.Text</option>
+                            }
+                            else
+                            {
+                                <option value="@manager.Value" class="father">@manager.Text</option>
+                            }
+                        }
+                    </select>
                 </div>
 
                 <br/>
                 <br/>
-                @*<input type="submit" value="Guardar" class="btn btn-primary" />*@
                 <button type="submit" class="btnGuardar" value="guardar">Guardar</button>
                 <button type="submit" class="btnCancelar" value="cancelar" onclick="location.href='@Url.Action("Details", "Actividades")'">Cancelar</button>
 
@@ -74,5 +80,16 @@
 
 </div>
 
-
+<script>
+document.addEventListener("keyup", e =>{
+    e.target.matches("#padre")
+    console.log(e.target.value)
     
+    if (e.target.matches("#padre")){
+        if (e.key==="Escape")e.target.value = ""
+        document.querySelectorAll(".father").forEach(father=>{
+            father.textContent.toLowerCase().includes(e.target.value.toLowerCase()) ? father.classList.remove("filtro") : father.classList.add("filtro")
+        })
+    }
+})
+</script>

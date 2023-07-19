@@ -1,3 +1,4 @@
+@model VmActivity
 @{
     //Layout = "_LayoutCrud";
     ViewData["Vista"] = "Participantes";
@@ -35,8 +36,8 @@
                     <td class="firstsurname" name="colFecIni">@item.FathersSurname</td>
                     <td class="lastsurname" name="colFecFin">@item.MothersSurname</td>
                     <td>
-                        <form action="@Url.Action("DeleteParticipants", "Actividades")" method="get">
-                            <input type="hidden" name="nro" value="@item.Id"/>
+                        <form action="@Url.Action("DeleteParticipants", "Actividades")" method="post">
+                            <input type="hidden" name="nro" value="@Model.Id"/>
                             <input type="hidden" name="id" value="@item.Id"/>
                             <button type="submit" id="delete" class="btn btn-default">
                                 <span class="material-symbols-outlined"> delete</span>
@@ -71,8 +72,8 @@
                     <td class="firstsurname" name="colFecIni">@item.FathersSurname</td>
                     <td class="lastsurname" name="colFecFin">@item.MothersSurname</td>
                     <td>
-                        <form action="@Url.Action("AddParticipants", "Actividades")" method="get">
-                            <input type="hidden" name="nro" value="@item.Id"/>
+                        <form action="@Url.Action("AddParticipants", "Actividades")" method="post">
+                            <input type="hidden" name="nro" value="@Model.Id"/>
                             <input type="hidden" name="id" value="@item.Id"/>
                             <button type="submit" id="delete" class="btn btn-default">
                                 <span class="material-symbols-outlined"> add</span>
@@ -86,5 +87,4 @@
     </table>
     
     <button type="submit" class="btnGuardar" value="guardar" onclick="location.href='@Url.Action("Details", "Actividades")'">Aceptar</button>
-    <button type="submit" class="btnCancelar" value="cancelar" onclick="location.href='@Url.Action("Details", "Actividades")'">Cancelar</button>
 </div>
