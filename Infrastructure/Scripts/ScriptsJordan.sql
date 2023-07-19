@@ -966,8 +966,8 @@ GO
 
 
 ---Procidimiento para actualizar cabecera de actividad
-CREATE PROCEDURE usp_UpdateActivity @ActivityId INT,
-                                    @name nvarchar(20),
+Alter PROCEDURE usp_UpdateActivity @ActivityId INT,
+                                    @name nvarchar(50),
                                     @startDate date,
                                     @endDate date,
                                     @location nvarchar(50),
