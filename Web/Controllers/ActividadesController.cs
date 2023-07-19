@@ -206,7 +206,7 @@ public class ActividadesController : Controller
                     Id = Convert.ToInt32(manager)
                 }
             };
-            Array.Copy(HttpContext.Session.Get("concurrency"), activity.ConcurrencyActivity, 8);
+            Array.Copy(HttpContext.Session.Get("Concurrency"), activity.ConcurrencyActivity, 8);
             
             if (await _activityService.UpdateActivity(activity))
             {
