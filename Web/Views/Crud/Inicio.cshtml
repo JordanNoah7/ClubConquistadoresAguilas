@@ -1,17 +1,18 @@
 ﻿@using System.Security.Claims
 @using Microsoft.AspNetCore.Mvc.TagHelpers
 @using System.Globalization
+@model VmPerson
 @{
     Layout = "_LayoutCrud";
 }
-@{
+@*@{
     var vmPerson = new VmPerson();
     vmPerson.BirthDate = User.FindFirstValue(ClaimTypes.DateOfBirth);
     vmPerson.Phone = User.FindFirstValue(ClaimTypes.MobilePhone);
     vmPerson.Email = User.FindFirstValue(ClaimTypes.Email);
     vmPerson.Class = User.FindFirstValue(ClaimTypes.Actor);
     vmPerson.Unit = User.FindFirstValue(ClaimTypes.Authentication);
-}
+}*@
 <link rel="stylesheet" href="~/css/perfilconquistador.css" asp-append-version="true"/>
 @*action="@Url.Action("Login", "Login")" method="post" autocomplete="off"*@
 <div class="insights">
@@ -21,11 +22,11 @@
         <div class="middle">
             <div class="left">
                 <h3>Clase</h3>
-                <h1>@vmPerson.Class</h1>
+                <h1>@Model.Class</h1>
 
             </div>
             <div class="color">
-                @switch (@vmPerson.Class)
+                @switch (@Model.Class)
                 {
                     case "Amigo":
                         <img src="/img/amigo.png" alt="Amigo" width="100">
@@ -87,7 +88,7 @@
         <div class="middle">
             <div class="left">
                 <h3>Unidad</h3>
-                <h1>@vmPerson.Unit</h1>
+                <h1>@Model.Unit</h1>
             </div>
             <div class="color">
                 <svg>
@@ -104,9 +105,9 @@
         <div class="middle">
             <div class="left">
                 <h3><b>Información General</b></h3>
-                <h5><b>Fecha de nacimiento:</b> @vmPerson.BirthDate</h5>
-                <h5><b>Telefono:</b> @vmPerson.Phone</h5>
-                <h5><b>Email:</b> @vmPerson.Email</h5>
+                <h5><b>Fecha de nacimiento:</b> @Model.BirthDate</h5>
+                <h5><b>Telefono:</b> @Model.Phone</h5>
+                <h5><b>Email:</b> @Model.Email</h5>
             </div>
 
         </div>
