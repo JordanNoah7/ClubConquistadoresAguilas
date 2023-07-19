@@ -4,6 +4,7 @@
 
 <link rel="stylesheet" href="~/css/Create.css" asp-append-version="true"/>
 
+
 @*action="@Url.Action("Login", "Login")" method="post" autocomplete="off"*@
 
 <div class="formCrud">
@@ -21,20 +22,7 @@
                     <input type="text" id="dni" title="Ingrese su número de DNI." name="Dni" aria-label="Dni: " class="form-control" required>
                     <span id="mensajeAdvertenciaDNI" style="display:none; color:red;">El DNI debe tener exactamente 8 dígitos numéricos.</span>
 
-                    <script>
-                        var campoDNI = document.getElementById("dni");
-                        var mensajeAdvertenciaDNI = document.getElementById("mensajeAdvertenciaDNI");
-
-                        campoDNI.addEventListener("input", function () {
-                            var valor = this.value;
-
-                            if (!/^\d{8}$/.test(valor)) {
-                                mensajeAdvertenciaDNI.style.display = "inline";
-                            } else {
-                                mensajeAdvertenciaDNI.style.display = "none";
-                            }
-                        });
-                    </script>
+                  
                 </div>
 
                 <div class="form-group">
@@ -43,71 +31,20 @@
                     <span id="mensajeAdvertenciaNombre" style="display:none; color:red;">Ingrese un máximo de 30 letras.</span>
 
 
-                    <script>
-                        var campoNombre = document.getElementById("nombre");
-                        var mensajeAdvertenciaNombre = document.getElementById("mensajeAdvertenciaNombre");
-
-                        campoNombre.addEventListener("input", function () {
-                            var valor = this.value;
-
-                            if (valor.length < 3) {
-                                mensajeAdvertenciaNombre.innerText = "Como mínimo 3 caracteres";
-                                mensajeAdvertenciaNombre.style.display = "inline";
-                            } else if (valor.length > 30 || !/^([a-zA-Z]+\s?)+$/.test(valor)) {
-                                mensajeAdvertenciaNombre.innerText = "Ingrese un máximo de 30 letras.";
-                                mensajeAdvertenciaNombre.style.display = "inline";
-                            } else {
-                                mensajeAdvertenciaNombre.style.display = "none";
-                            }
-                        });
-                    </script>
+                   
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Apellido Paterno : *</label>
                     <input type="text" id="apellidoPaterno" maxlength="15" title="Ingrese su apellido paterno." aria-label="Apellidos" class="form-control" name="FatherSurname" required>
                     <span id="mensajeAdvertenciaApellido" style="display:none; color:red;">Como mínimo 3 caracteres</span>
-                    <script>
-                        var campoApellidoPaterno = document.getElementById("apellidoPaterno");
-                        var mensajeAdvertenciaApellido = document.getElementById("mensajeAdvertenciaApellido");
-
-                        campoApellidoPaterno.addEventListener("input", function () {
-                            var valor = this.value;
-
-                            if (valor.length < 3) {
-                                mensajeAdvertenciaApellido.innerText = "Como mínimo 3 caracteres";
-                                mensajeAdvertenciaApellido.style.display = "inline";
-                            } else if (/\d/.test(valor)) {
-                                mensajeAdvertenciaApellido.innerText = "No se permiten números";
-                                mensajeAdvertenciaApellido.style.display = "inline";
-                            } else {
-                                mensajeAdvertenciaApellido.style.display = "none";
-                            }
-                        });
-                    </script>
+                   
                 </div>
                 <div class="form-group">
                     <label class="control-label">Apellido Materno : *</label>
                     <input type="text" id="apellidoMaterno" maxlength="15" title="Ingrese su apellido materno." aria-label="Apellidos" class="form-control" name="MotherSurname" required>
                     <span id="mensajeAdvertenciaMaterno" style="display:none; color:red;">Como mínimo 3 caracteres</span>
-                    <script>
-                        var campoApellidoMaterno = document.getElementById("apellidoMaterno");
-                        var mensajeAdvertenciaMaterno = document.getElementById("mensajeAdvertenciaMaterno");
-
-                        campoApellidoMaterno.addEventListener("input", function () {
-                            var valor = this.value;
-
-                            if (valor.length < 3) {
-                                mensajeAdvertenciaMaterno.innerText = "Como mínimo 3 caracteres";
-                                mensajeAdvertenciaMaterno.style.display = "inline";
-                            } else if (/\d/.test(valor)) {
-                                mensajeAdvertenciaMaterno.innerText = "No se permiten números";
-                                mensajeAdvertenciaMaterno.style.display = "inline";
-                            } else {
-                                mensajeAdvertenciaMaterno.style.display = "none";
-                            }
-                        });
-                    </script>
+                    
                 </div>
                 <div class="form-group">
                     <label class="control-label">Fecha Nacimiento : *</label>
@@ -118,20 +55,7 @@
                     <input type="date" id="fechaNacimiento" min="@fechaMinimaString" aria-label="FechaNac" title="Ingrese una fecha de nacimiento válida." class="form-control" name="Birthday" required>
                     <span id="mensajeAdvertencia" style="display:none; color:red;">Debe tener al menos 10 años de edad.</span>
 
-                    <script>
-                        var fechaMinima = new Date("@fechaMinimaString");
-
-                        document.getElementById("fechaNacimiento").addEventListener("change", function () {
-                            var fechaNacimiento = new Date(this.value);
-                            var edad = new Date().getFullYear() - fechaNacimiento.getFullYear();
-
-                            if (edad < 10) {
-                                document.getElementById("mensajeAdvertencia").style.display = "inline";
-                            } else {
-                                document.getElementById("mensajeAdvertencia").style.display = "none";
-                            }
-                        });
-                    </script>
+                   
                 </div>
                 <div class="form-group">
                     <label class="control-label">Sexo: *</label>
@@ -146,20 +70,7 @@
                     <input type="number" id="telefono" title="Ingrese un número de 9 dígitos." aria-label="telefono" class="form-control" name="Phone"  required>
                     <span id="mensajeAdvertenciaTelefono" style="display:none; color:red;">Debe tener exactamente 9 dígitos.</span>
 
-                    <script>
-                        var campoTelefono = document.getElementById("telefono");
-                        var mensajeAdvertenciaTelefono = document.getElementById("mensajeAdvertenciaTelefono");
-
-                        campoTelefono.addEventListener("input", function () {
-                            var valor = this.value;
-
-                            if (valor.length !== 9) {
-                                mensajeAdvertenciaTelefono.style.display = "inline";
-                            } else {
-                                mensajeAdvertenciaTelefono.style.display = "none";
-                            }
-                        });
-                    </script>
+                 
                 </div>
                 <div class="form-group">
                     <label class="control-label">Correo:*</label>
@@ -171,20 +82,7 @@
                     <input type="text" id="direccion" maxlength="50" title="Ingrese su dirección." aria-label="direccion" class="form-control" name="Address" required>
                     <span id="mensajeAdvertenciaDireccion" style="display:none; color:red;">Excedió el número de caracteres.</span>
 
-                    <script>
-                        var campoDireccion = document.getElementById("direccion");
-                        var mensajeAdvertenciaDireccion = document.getElementById("mensajeAdvertenciaDireccion");
-
-                        campoDireccion.addEventListener("input", function () {
-                            var valor = this.value;
-
-                            if (valor.length > 50) {
-                                mensajeAdvertenciaDireccion.style.display = "inline";
-                            } else {
-                                mensajeAdvertenciaDireccion.style.display = "none";
-                            }
-                        });
-                    </script>
+                   
                 </div>
                 <div class="form-group">
                     <label class="control-label">Padre/Apoderado:</label>
@@ -241,50 +139,14 @@
                     <label class="control-label">Usuario:</label>
                     <input type="text" id="usuario" title="Ingrese su nombre de usuario." maxlength="15" aria-label="usuario" class="form-control" name="Username" required>
                     <span id="mensajeAdvertenciaUsuario" style="display:none; color:red;">El usuario debe tener al menos 6 caracteres y no puede contener espacios ni caracteres especiales.</span>
-                    <script>
-                        var campoUsuario = document.getElementById("usuario");
-                        var mensajeAdvertenciaUsuario = document.getElementById("mensajeAdvertenciaUsuario");
-
-                        campoUsuario.addEventListener("input", function () {
-                            var valor = this.value;
-
-                            if (valor.length < 6 || /\s/.test(valor) || /[^a-zA-Z0-9]/.test(valor)) {
-                                mensajeAdvertenciaUsuario.style.display = "inline";
-                            } else {
-                                mensajeAdvertenciaUsuario.style.display = "none";
-                            }
-                        });
-                    </script>
+                   
                 </div>
                 <div class="form-group">
                     <label class="control-label">Contraseña:</label>
                     <input type="text" id="contrasena" title="Ingrese su contraseña." aria-label="pasword" class="form-control" name="Password" required>
                     <span id="mensajeAdvertenciaContrasena" style="display:none; color:red;">Formato de contraseña inválido. Debe contener al menos 8 caracteres, una mayúscula, un carácter especial y un número.</span>
 
-                    <script>
-                        var campoContrasena = document.getElementById("contrasena");
-                        var mensajeAdvertenciaContrasena = document.getElementById("mensajeAdvertenciaContrasena");
-
-                        campoContrasena.addEventListener("input", function () {
-                            var valor = this.value;
-
-                            var regexMayuscula = /[A-Z]/;
-                            var regexCaracterEspecial = /[^a-zA-Z0-9]/;
-                            var regexNumero = /[0-9]/;
-
-                            if (
-                                valor.length < 8 ||
-                                !regexMayuscula.test(valor) ||
-                                !regexCaracterEspecial.test(valor) ||
-                                !regexNumero.test(valor)
-                            ) {
-                                mensajeAdvertenciaContrasena.innerHTML = "Formato de contraseña inválido. Debe contener al menos 8 caracteres, una mayúscula, un carácter especial y un número.";
-                                mensajeAdvertenciaContrasena.style.display = "inline";
-                            } else {
-                                mensajeAdvertenciaContrasena.style.display = "none";
-                            }
-                        });
-                    </script>
+                   
                 </div>
                 <br/>
                 <br/>
@@ -312,4 +174,8 @@ document.addEventListener("keyup", e =>{
         })
     }
 })
+</script>
+
+<script type="text/javascript"
+        src="~/js/validacionesCreateConquistador.js">
 </script>
