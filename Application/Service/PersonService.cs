@@ -49,6 +49,18 @@ public class PersonService : IPersonService
         }
     }
 
+    public async Task<bool> DeletePerson(int id)
+    {
+        try
+        {
+            return await _personRepo.DeletePerson(id);
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
+    }
+
     public async Task<Person> GetParentById(int id)
     {
         try

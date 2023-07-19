@@ -179,6 +179,32 @@ public class PersonRepository : ConnectionRepository, IPersonRepository
         }
     }
 
+    public async Task<bool> DeletePerson(int id)
+    {
+        using (var connectionDb = Connection.GetConnection(Configuration))
+        {
+            try
+            {
+                using (var cmd = new SqlCommand("usp_DeletePerson", connectionDb))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.AddWithValue("@PersonID", id);
+                    Connection.OpenConnection();
+                    await cmd.ExecuteNonQueryAsync();
+                    Connection.CloseConnection();
+                }
+                return true;
+                
+            }
+            catch (SqlException ex)
+            {
+                Connection.CloseConnection();
+                return false;
+            }
+        }
+    }
+
     public async Task<Person> GetPersonClassById(int id)
     {
         var person = new Person();

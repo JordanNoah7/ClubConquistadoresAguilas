@@ -9,7 +9,9 @@ public interface IPersonRepository
     
     Task<bool> Update(Person model);
     Task<bool> UpdateParent(Person model);
-    
+
+    Task<bool> DeletePerson(int id);
+
     Task<Person> GetPersonClassById(int id);
     Task<Person> GetPathfinderById(int id);
     Task<Person> GetParentById(int id);

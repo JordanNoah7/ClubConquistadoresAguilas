@@ -302,23 +302,31 @@ public class ConquistadorController : Controller
     }
 
     // GET: ConquistadorController/Delete/5
-    public ActionResult Delete(int id)
+    public async Task<ActionResult> Delete(int nro)
     {
-        return View();
+        Person person = await _personService.GetPersonById(nro);
+        VmPerson vmPerson = new VmPerson()
+        {
+            Id = nro,
+            FirstName = person.FirstName,
+            FathersSurname = person.FathersSurname,
+            MothersSurname = person.MothersSurname
+        };
+        return View(vmPerson);
     }
 
     // POST: ConquistadorController/Delete/5
     [HttpPost]
-    [ValidateAntiForgeryToken]
-    public ActionResult Delete(int id, IFormCollection collection)
+    public async Task<ActionResult> Delete(int nro, int id)
     {
         try
         {
-            return RedirectToAction(nameof(Details));
+            await _personService.DeletePerson(nro);
+            return RedirectToAction("Details", "Conquistador");
         }
         catch
         {
-            return View();
+            return RedirectToAction("Details", "Conquistador");
         }
     }
 }

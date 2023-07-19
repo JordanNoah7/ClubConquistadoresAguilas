@@ -549,6 +549,10 @@ AS
 BEGIN
     BEGIN TRAN;
     BEGIN TRY
+        DELETE SP
+        FROM SpecialtyPerson AS SP
+        WHERE SP.PersonID = @PersonID;
+        
         DELETE UR
         FROM UserRol AS UR
         WHERE UR.UserID = @PersonID;
@@ -557,6 +561,10 @@ BEGIN
         FROM ClassPerson AS CP
         WHERE CP.PersonID = @PersonID;
 
+        DELETE PPA
+        FROM PositionPersonActivity AS PPA
+        WHERE PPA.PersonID = @PersonID;
+        
         DELETE PPU
         FROM PositionPersonUnit AS PPU
         WHERE PPU.PersonID = @PersonID;
