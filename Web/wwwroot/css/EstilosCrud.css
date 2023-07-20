@@ -515,6 +515,13 @@ main h1 span {
     .right .top button span{
         font-size:2rem;
     }
+    aside .categorias ul li ul li {
+        position: absolute;
+        display: block;
+        background: var(--color-background);
+        transform: translateY(-170%);
+        justify-content: center;
+    }
 }
 
 /*fin media queries responsive*/
