@@ -1361,5 +1361,26 @@ BEGIN
 END
 GO
 
-select *
-from Roles
+insert into Categories (name, description)
+values ('ADRA', 'Especialidades de ADRA'),
+       ('Artes y habilidades manuales', 'Especialidades de Artes y habilidades manuales'),
+       ('Actividades agricolas', 'Especialidades de Actividades agricolas'),
+       ('Actividades misioneras', 'Especialidades de Actividades misioneras'),
+       ('Actividades profesionales', 'Especialidades de Actividades profesionales'),
+       ('Actividades recreativas', 'Especialidades de Actividades recreativas'),
+       ('Ciencia y salud', 'Especialidades de Ciencia y salud'),
+       ('Estudio de la naturaleza', 'Especialidades de Estudio de la naturaleza'),
+       ('Habilidades domesticas', 'Especialidades de Habilidades domesticas')
+
+/*insert into Specialties (name, CategoryID)
+VALUES ();*/
+
+/*Alivio del hambre
+Evaluacion de la comunidad
+Servicio comunitario
+Respuesta a emergencias y desastres
+Respuesta a emergencias y desastres  Avanzado
+Alfabetización
+Resolución de conflictos
+Reasentamiento de refugiados
+Desarrollo comunitario*/
