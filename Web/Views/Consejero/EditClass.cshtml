@@ -1,10 +1,10 @@
 ﻿@model VmPerson
 @{
-    ViewData["Vista"] = "Edit";
+    ViewBag.Title = "Actualizar Clase";
 }
 <link rel="stylesheet" href="~/css/Create.css" asp-append-version="true"/>
 <div class="formCrud">
-   <h2>MODIFICAR CLASE***</h2>
+    <h2>Actualizar Clase***</h2>
     <div class="row">
         <div class="col">
             <form action="@Url.Action("EditClass", "Consejero")" method="post" autocomplete="off">
@@ -13,31 +13,31 @@
                 </div>
                 <div class="form-group">
                     <label class="control-label">DNI: *</label>
-                    <input type="text" id="dni" title="Ingrese su número de DNI." aria-label="Dni: " class="form-control" required value="@Model.Dni" disabled>
+                    <input type="hidden" id="dni" title="Ingrese su número de DNI." aria-label="Dni: " class="form-control" required value="@Model.Dni" name="Dni">
+                    <label id="dniLabel" title="DNI" aria-label="Dni" class="form-control">@Model.Dni</label>
                     <span id="mensajeAdvertenciaDNI" style="display:none; color:red;">El DNI debe tener exactamente 8 dígitos numéricos.</span>
                 </div>
-                <div class="form-group" >
+                <div class="form-group">
                     <label class="control-label">Nombre(s) : *</label>
-                    <input type="text" id="nombre" maxlength="30" title="Ingrese su nombre." aria-label="Nombre" class="form-control" name="FirstName" required value="@Model.FirstName" disabled>
+                    <input type="hidden" id="nombre" maxlength="30" title="Ingrese su nombre." aria-label="Nombre" class="form-control" name="FirstName" required value="@Model.FirstName">
+                    <label id="nameLabel" title="DNI" aria-label="Dni" class="form-control">@Model.FirstName</label>
                     <span id="mensajeAdvertenciaNombre" style="display:none; color:red;">Ingrese un máximo de 30 letras.</span>
                 </div>
                 <div class="form-group">
                     <label class="control-label">Apellido Paterno : *</label>
-                    <input type="text" id="apellidoPaterno" maxlength="15" title="Ingrese su apellido paterno." aria-label="Apellidos" class="form-control" name="FatherSurname" required value="@Model.FathersSurname" disabled>
+                    <input type="hidden" id="apellidoPaterno" maxlength="15" title="Ingrese su apellido paterno." aria-label="Apellidos" class="form-control" name="FatherSurname" required value="@Model.FathersSurname">
+                    <label id="fsLabel" title="DNI" aria-label="Dni" class="form-control">@Model.FathersSurname</label>
                     <span id="mensajeAdvertenciaApellido" style="display:none; color:red;">Como mínimo 3 caracteres</span>
                 </div>
-                <div class="form-group" >
+                <div class="form-group">
                     <label class="control-label">Apellido Materno : *</label>
-                    <input type="text" id="apellidoMaterno" maxlength="15" title="Ingrese su apellido materno." aria-label="Apellidos" class="form-control" name="MotherSurname" required value="@Model.MothersSurname" disabled>
+                    <input type="hidden" id="apellidoMaterno" maxlength="15" title="Ingrese su apellido materno." aria-label="Apellidos" class="form-control" name="MotherSurname" required value="@Model.MothersSurname">
+                    <label id="msLabel" title="DNI" aria-label="Dni" class="form-control">@Model.MothersSurname</label>
                     <span id="mensajeAdvertenciaMaterno" style="display:none; color:red;">Como mínimo 3 caracteres</span>
                 </div>
                 <div class="form-group" style="display: none !important;">
                     <label class="control-label">Fecha Nacimiento : *</label>
-                    @{
-                        DateTime fechaMinima = DateTime.Today.AddYears(-10).Date;
-                        string fechaMinimaString = fechaMinima.ToString("yyyy-MM-dd");
-                    }
-                    <input type="date" id="fechaNacimiento" min="@fechaMinimaString" aria-label="FechaNac" class="form-control" name="Birthday" required value="@Model.BirthDate">
+                    <input type="date" id="fechaNacimiento"  aria-label="FechaNac" class="form-control" name="Birthday" required value="@Model.BirthDate">
                     <span id="mensajeAdvertencia" style="display:none; color:red;">Debe tener al menos 10 años de edad.</span>
                 </div>
                 <div class="form-group" style="display: none !important;">
@@ -162,24 +162,17 @@
                     <label class="control-label">Contraseña:</label>
                     <input type="text" id="contrasena" title="Ingrese su contraseña." aria-label="pasword" class="form-control" name="Password" required value="@Model.User.Password">
                     <span id="mensajeAdvertenciaContrasena" style="display:none; color:red;">Formato de contraseña inválido. Debe contener al menos 8 caracteres, una mayúscula, un carácter especial y un número.</span>
-
                 </div>
-                <button type="submit" class="btnGuardar" value="guardar">Guardar</button>
-
-                <button type="submit" class="btnCancelar" value="cancelar" onclick="location.href='@Url.Action("AsignarClase", "Consejero")'">Cancelar</button>
-
+                <button type="submit" id="btnGuardar" class="btnGuardar" value="guardar">Guardar</button>
+                <button type="submit" class="btnCancelar" value="cancelar" onclick="location.href='@Url.Action("Details", "Conquistador")'">Cancelar</button>
             </form>
-
         </div>
-
     </div>
 </div>
-
 <script>
 document.addEventListener("keyup", e =>{
     e.target.matches("#padre")
     console.log(e.target.value)
-    
     if (e.target.matches("#padre")){
         if (e.key==="Escape")e.target.value = ""
         document.querySelectorAll(".father").forEach(father=>{
@@ -187,4 +180,7 @@ document.addEventListener("keyup", e =>{
         })
     }
 })
+</script>
+<script type="text/javascript"
+        src="~/js/validacionesActualizarConquistador.js">
 </script>

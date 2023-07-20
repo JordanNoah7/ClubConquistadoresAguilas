@@ -109,8 +109,6 @@ public class ConquistadorController : Controller
     {
         try
         {
-            
-            
             var person = new Person
             {
                 Dni = Dni,
@@ -238,7 +236,7 @@ public class ConquistadorController : Controller
     // POST: ConquistadorController/Edit/5
     [HttpPost]
     public async Task<ActionResult> Edit(int id, string Dni, string FirstName, string FatherSurname, string MotherSurname,
-        DateTime Birthday, string Sex, int Phone, string Email, string Address, int Class, int Unit,
+        DateTime Birthday, string Sex, string Phone, string Email, string Address, int Class, int Unit,
         int Position, int Role, string Username, string Password, string Attorney = null)
     {
         try

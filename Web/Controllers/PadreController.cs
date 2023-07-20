@@ -136,6 +136,7 @@ public class PadreController : Controller
         vmPerson.Address = person.Address;
         concurrency = new byte[8];
         Array.Copy(person.ConcurrencyPerson, concurrency, 8);
+        HttpContext.Session.Set("concurrency", concurrency);
         vmPerson.User = new VmUser
         {
             UserName = person.User.UserName,
@@ -183,7 +184,7 @@ public class PadreController : Controller
                     }
                 },
             };
-            Array.Copy(concurrency, person.ConcurrencyPerson, 8);
+            Array.Copy(HttpContext.Session.Get("concurrency"), person.ConcurrencyPerson, 8);
             if (await _personService.UpdateParent(person))
                 return RedirectToAction("Details", "Padre");
             return RedirectToAction("Details", "Padre");
@@ -195,23 +196,31 @@ public class PadreController : Controller
     }
 
     // GET: PadreController/Delete/5
-    public ActionResult Delete(int id)
+    public async Task<ActionResult> Delete(int nro)
     {
-        return View();
+        Person person = await _personService.GetPersonById(nro);
+        VmPerson vmPerson = new VmPerson()
+        {
+            Id = nro,
+            FirstName = person.FirstName,
+            FathersSurname = person.FathersSurname,
+            MothersSurname = person.MothersSurname
+        };
+        return View(vmPerson);
     }
 
-    // POST: PadreController/Delete/5
+    // POST: InstructorController/Delete/5
     [HttpPost]
-    [ValidateAntiForgeryToken]
-    public ActionResult Delete(int id, IFormCollection collection)
+    public async Task<ActionResult> Delete(int nro, int id)
     {
         try
         {
-            return RedirectToAction(nameof(Index));
+            await _personService.DeletePerson(nro);
+            return RedirectToAction("Details", "Padre");
         }
         catch
         {
-            return View();
+            return RedirectToAction("Details", "Padre");
         }
     }
 }

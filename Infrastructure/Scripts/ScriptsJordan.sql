@@ -1217,4 +1217,148 @@ BEGIN
 END
 GO
 -------------------------------------------------------------------------------------------Listo
+---Procedimiento para insertar un instructor
+ALTER PROCEDURE usp_InsertInstructor @DNI VARCHAR(8),
+                                 @firstName NVARCHAR(30),
+                                 @fathersSurname NVARCHAR(15),
+                                 @mothersSurname NVARCHAR(15),
+                                 @birthDate DATE,
+                                 @gender CHAR(1),
+                                 @address NVARCHAR(30),
+                                 @phone nvarchar(15),
+                                 @email NVARCHAR(30),
+                                 @ClubID INT,
+                                 @userName NVARCHAR(15),
+                                 @password NVARCHAR(15),
+                                 @ClassID INT
+AS
+BEGIN
+    BEGIN TRAN;
+    BEGIN TRY
+        DECLARE @PersonID int;
+
+        INSERT INTO People (firstName, fathersSurname, mothersSurname, birthDate, gender, address, phone, email,
+                            ClubID, PersonID, DNI)
+        VALUES (@firstName, @fathersSurname, @mothersSurname, @birthDate, @gender, @address, @phone, @email,
+                @ClubID, null, @DNI);
+
+        SET @PersonID = SCOPE_IDENTITY();
+
+        INSERT INTO Users (ID, userName, password)
+        VALUES (@PersonID, @userName, @password);
+
+        INSERT INTO UserRol (UserID, RolID)
+        VALUES (@PersonID, 3);
+
+        INSERT INTO ClassPerson (PersonID, ClassID)
+        VALUES (@PersonID, @ClassID);
+        COMMIT TRAN;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRAN;
+        RAISERROR ('Error al insertar instructor', 16, 1);
+    END CATCH
+END
+GO
+-------------------------------------------------------------------------------------------Listo
+---Procedimiento para actualizar instructor
+CREATE PROCEDURE usp_UpdateInstructor @PersonID INT,
+                                 @DNI VARCHAR(8),
+                                 @firstName NVARCHAR(30),
+                                 @fathersSurname NVARCHAR(15),
+                                 @mothersSurname NVARCHAR(15),
+                                 @birthDate DATE,
+                                 @gender CHAR(1),
+                                 @address NVARCHAR(30),
+                                 @phone nvarchar(15),
+                                 @email NVARCHAR(30),
+                                 @ClubID INT,
+                                 @userName NVARCHAR(15),
+                                 @password NVARCHAR(15),
+                                 @ClassID INT,
+                                 @concurrency TIMESTAMP
+AS
+BEGIN
+    IF @concurrency = (SELECT concurrencyPerson
+                       FROM People
+                       WHERE ID = @PersonID)
+        BEGIN
+            BEGIN TRAN;
+            BEGIN TRY
+
+                UPDATE People
+                SET DNI            = @DNI,
+                    firstName      = @firstName,
+                    fathersSurname = @fathersSurname,
+                    mothersSurname = @mothersSurname,
+                    birthDate      = @birthDate,
+                    gender         = @gender,
+                    address        = @address,
+                    phone          = @phone,
+                    email          = @email,
+                    PersonID       = null,
+                    ClubID         = @ClubID
+                WHERE ID = @PersonID;
+
+                UPDATE Users
+                SET userName = @userName,
+                    password = @password
+                WHERE ID = @PersonID;
+
+                UPDATE UserRol
+                SET RolID = 3
+                WHERE UserID = @PersonID;
+
+                UPDATE ClassPerson
+                SET ClassID = @ClassID
+                WHERE PersonID = @PersonID;
+
+                COMMIT TRAN;
+            END TRY
+            BEGIN CATCH
+                ROLLBACK TRAN;
+                RAISERROR ('Error al actualizar los datos del instructor.', 16, 1);
+            END CATCH
+        END
+    ELSE
+        BEGIN
+            RAISERROR ('Error al actualizar los datos del instructor, debido a que ya fue modificado antes.', 16, 1);
+        END
+END
+GO
+-------------------------------------------------------------------------------------------Listo
+---Procedimiento para obtener una persona
+CREATE PROCEDURE usp_GetInstuctorById @Id INT
+AS
+BEGIN
+    BEGIN TRAN;
+    BEGIN TRY
+        SELECT P.ID,
+               P.DNI,
+               P.firstName,
+               P.fathersSurname,
+               P.mothersSurname,
+               P.birthDate,
+               P.gender,
+               P.phone,
+               P.email,
+               P.address,
+               P.concurrencyPerson,
+               U.userName,
+               U.password,
+               CP.ClassID
+        FROM People P
+                 JOIN Users U on P.ID = U.ID
+                 JOIN UserRol UR on U.ID = UR.UserID
+        JOIN ClassPerson CP on P.ID = CP.PersonID
+        WHERE P.ID = @Id
+        COMMIT TRAN;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRAN;
+        RAISERROR ('Instructor no encontrado', 16, 1);
+    END CATCH
+END
+GO
+
 select * from Roles

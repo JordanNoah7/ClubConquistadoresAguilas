@@ -25,6 +25,18 @@ public class PersonService : IPersonService
         }
     }
 
+    public async Task<bool> InsertInstructor(Person model)
+    {
+        try
+        {
+            return await _personRepo.InsertInstructor(model);
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
+    }
+
     public async Task<bool> Update(Person model)
     {
         try
@@ -42,6 +54,18 @@ public class PersonService : IPersonService
         try
         {
             return await _personRepo.UpdateParent(model);
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
+    }
+
+    public async Task<bool> UpdateInstructor(Person model)
+    {
+        try
+        {
+            return await _personRepo.UpdateInstructor(model);
         }
         catch (Exception e)
         {
@@ -78,6 +102,18 @@ public class PersonService : IPersonService
         try
         {
             return await _personRepo.GetPersonById(id);
+        }
+        catch (Exception e)
+        {
+            return null;
+        }
+    }
+
+    public async Task<Person> GetInstructorById(int id)
+    {
+        try
+        {
+            return await _personRepo.GetInstructorById(id);
         }
         catch (Exception e)
         {
