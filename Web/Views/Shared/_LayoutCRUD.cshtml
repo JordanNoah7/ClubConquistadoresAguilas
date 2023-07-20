@@ -1,6 +1,5 @@
 ﻿@using System.Security.Claims
 <!DOCTYPE html>
-
 @{
     var vmPerson = new VmPerson();
     vmPerson.FirstName = User.FindFirstValue(ClaimTypes.Name);
@@ -9,13 +8,11 @@
     var vmRole = new VmRole();
     vmRole.Name = User.FindFirstValue(ClaimTypes.Role);
 }
-
 <html lang="es">
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width"/>
     <title>@ViewBag.Title</title>
-    @*<title>@ViewData["Vista"] - Web</title>*@
     <link rel="icon" type="image/x-icon" href="~/img/smalllogo.png">
     <link rel="stylesheet" href="~/css/EstilosCrud.css" asp-append-version="true"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
@@ -23,7 +20,6 @@
 <body>
 <div class="container">
 <aside>
-
     <div class="top">
         <div class="logo">
             <img src="/img/logo.png"/>
@@ -33,9 +29,7 @@
             <span class="material-symbols-outlined">close</span>
         </div>
     </div>
-
     <div class="sidebar">
-        
         @switch (vmRole.Name)
         {
             case "Conquistador":
@@ -43,22 +37,18 @@
                     <span class="material-symbols-outlined">dashboard</span>
                     <h3>Inicio</h3>
                 </a>
-
-
-            break;
+                break;
             case "Director":
-                        <a class="active" asp-area="" asp-controller="Crud" asp-action="Inicio">
-                            <span class="material-symbols-outlined">dashboard</span>
-                            <h3>Inicio</h3>
-                        </a>
+                <a class="active" asp-area="" asp-controller="Crud" asp-action="Inicio">
+                    <span class="material-symbols-outlined">dashboard</span>
+                    <h3>Inicio</h3>
+                </a>
                 <div class="categorias">
                     <ul>
-
                         <li>
                             <a>
                                 <span class="material-symbols-outlined">tenancy</span>
                                 <h3>Organización</h3>
-                                       
                             </a>
                             <ul>
                                 <li>
@@ -80,12 +70,8 @@
                                     </a>
                                     <a> </a>
                                 </li>
-
                             </ul>
-
-
                         </li>
-
                     </ul>
                     <a asp-area="" asp-controller="Actividades" asp-action="Details">
                         <span class="material-symbols-outlined">nature_people</span>
@@ -96,20 +82,15 @@
                         <h3>Notificar</h3>
                         <span class="message-count">✆</span>
                     </a>
-
-                    <a href="#" name="campo vacio necesario">
-
+                    <a class="campo_vacio_necesario">
                     </a>
-
                 </div>
                 break;
-
             case "Consejero":
-                        <a class="active" asp-area="" asp-controller="Crud" asp-action="Inicio">
-                            <span class="material-symbols-outlined">dashboard</span>
-                            <h3>Inicio</h3>
-                        </a>
-
+                <a class="active" asp-area="" asp-controller="Crud" asp-action="Inicio">
+                    <span class="material-symbols-outlined">dashboard</span>
+                    <h3>Inicio</h3>
+                </a>
                 <a asp-area="" asp-controller="Consejero" asp-action="TomarLista">
                     <span class="material-symbols-outlined">contract_edit</span>
                     <h3>Tomar Lista</h3>
@@ -118,56 +99,62 @@
                     <span class="material-symbols-outlined">school</span>
                     <h3>Asignar Clase</h3>
                 </a>
-                <a name="campo vacio necesario">
-
+                <a asp-area="" asp-controller="Notificacion" asp-action="Index">
+                    <span class="material-symbols-outlined">forum</span>
+                    <h3>Notificar</h3>
+                    <span class="message-count">✆</span>
                 </a>
-
+                <a class="campo_vacio_necesario">
+                </a>
                 break;
-
             case "Instructor":
-                        <a class="active" asp-area="" asp-controller="Crud" asp-action="Inicio">
-                            <span class="material-symbols-outlined">dashboard</span>
-                            <h3>Inicio</h3>
-                        </a>
-
+                <a class="active" asp-area="" asp-controller="Crud" asp-action="Inicio">
+                    <span class="material-symbols-outlined">dashboard</span>
+                    <h3>Inicio</h3>
+                </a>
                 <a asp-area="" asp-controller="Instructor" asp-action="Registrar_Notas">
                     <span class="material-symbols-outlined">spellcheck</span>
                     <h3>Registrar Notas</h3>
                 </a>
-
-                <a href="#" name="campo vacio necesario">
-
+                <a asp-area="" asp-controller="Notificacion" asp-action="Index">
+                    <span class="material-symbols-outlined">forum</span>
+                    <h3>Notificar</h3>
+                    <span class="message-count">✆</span>
                 </a>
-
-
+                <a class="campo_vacio_necesario">
+                </a>
                 break;
             case "Tesorero":
-                        <a class="active" asp-area="" asp-controller="Crud" asp-action="Inicio">
-                            <span class="material-symbols-outlined">dashboard</span>
-                            <h3>Inicio</h3>
-                        </a>
-
+                <a class="active" asp-area="" asp-controller="Crud" asp-action="Inicio">
+                    <span class="material-symbols-outlined">dashboard</span>
+                    <h3>Inicio</h3>
+                </a>
                 <a asp-area="" asp-controller="Tesoreria" asp-action="Inscripcion">
                     <span class="material-symbols-outlined">monetization_on</span>
                     <h3>Inscripciones</h3>
                 </a>
-                        <a asp-area="" asp-controller="Tesoreria" asp-action="Ahorro">
+                <a asp-area="" asp-controller="Tesoreria" asp-action="Ahorro">
                     <span class="material-symbols-outlined">savings</span>
                     <h3>Ahorro</h3>
                 </a>
-                <a href="#">
-
+                <a asp-area="" asp-controller="Notificacion" asp-action="Index">
+                    <span class="material-symbols-outlined">forum</span>
+                    <h3>Notificar</h3>
+                    <span class="message-count">✆</span>
                 </a>
-
-            break;
-
+                <a ></a>
+                break;
             case "Apoderado":
-                        <a class="active" asp-area="" asp-controller="Padre" asp-action="Index">
-                            <span class="material-symbols-outlined">dashboard</span>
-                            <h3>Inicio</h3>
-                        </a>
-
-            break;
+                <a class="active" asp-area="" asp-controller="Padre" asp-action="Index">
+                    <span class="material-symbols-outlined">dashboard</span>
+                    <h3>Inicio</h3>
+                </a>
+                <a asp-area="" asp-controller="Notificacion" asp-action="Index">
+                    <span class="material-symbols-outlined">forum</span>
+                    <h3>Notificar</h3>
+                    <span class="message-count">✆</span>
+                </a>
+                break;
         }
         <a asp-area="" asp-controller="Login" asp-action="LogOut">
             <span class="material-symbols-outlined">logout</span>
@@ -175,18 +162,14 @@
         </a>
     </div>
 </aside>
-
-
 <!--fin de aside-->
 <main>
     <h1>
-
         Hola, <b name="nombrePersona"> @vmPerson.FirstName </b> !
         <span class="material-symbols-outlined">waving_hand</span>
     </h1>
     @RenderBody()
 </main>
-
 <div class="right">
     <div class="top">
         <button id="menu-btn">
@@ -209,8 +192,6 @@
         </div>
     </div>
     @*fin top*@
-
-
     <div class="seccion-updates">
         <h2>Ideales :</h2>
         <div class="updates">
@@ -226,7 +207,6 @@
                     <small class="text-muted">
                         Seré siervo de Dios y amigo de todos.
                     </small>
-
                 </div>
             </div>
             <div class="update">
@@ -241,7 +221,6 @@
                     <small class="text-muted">
                         Lema: El amor de Cristo me motiva.
                     </small>
-
                 </div>
             </div>
             <div class="update">
@@ -258,14 +237,10 @@
                         Jesús va a llevarnos pronto
                         A su real mansión.
                     </p>
-
-
                 </div>
             </div>
-
         </div>
     </div>
-   
     @*fin de seccion-updates*@
     @*inicio detalles-perfil*@
 
@@ -298,8 +273,6 @@
             </div>
         </div>
     </div>*@
-
-  
 </div>
 </div>
 <script src="~/js/layoutCrud.js"></script>

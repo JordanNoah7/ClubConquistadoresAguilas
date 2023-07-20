@@ -114,14 +114,7 @@
                 <div class="form-group">
                     <label for="cargo">Rol</label>
                     <select name="Role" id="rol">
-                        @foreach (var roles in ViewBag.Roles)
-                        {
-                            if (roles.Value==2)
-                            {
-                                <option value="@roles.Value" selected>@roles.Text</option>
-                            }
-                            <option value="@roles.Value">@roles.Text</option>
-                        }
+                        <option value="2" selected>Consejero</option>
                     </select>
                 </div>
                 <br/>
