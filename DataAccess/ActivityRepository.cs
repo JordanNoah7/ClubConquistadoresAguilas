@@ -274,7 +274,7 @@ public class ActivityRepository : ConnectionRepository, IActivityRepository
         }
     }
 
-    public async Task<bool> DeleteActivity(Activity model)
+    public async Task<bool> DeleteActivity(int id)
     {
         using (var connectionDb = Connection.GetConnection(Configuration))
         {
@@ -284,8 +284,8 @@ public class ActivityRepository : ConnectionRepository, IActivityRepository
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Clear();
-                    cmd.Parameters.AddWithValue("@ActivityId", model.Id);
-                    cmd.Parameters.AddWithValue("@concurrency", model.ConcurrencyActivity);
+                    cmd.Parameters.AddWithValue("@ActivityId", id);
+                    //cmd.Parameters.AddWithValue("@concurrency", model.ConcurrencyActivity);
                     Connection.OpenConnection();
                     await cmd.ExecuteNonQueryAsync();
                     Connection.CloseConnection();

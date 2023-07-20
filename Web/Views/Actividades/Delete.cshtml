@@ -1,29 +1,20 @@
-﻿@{
-    ViewData["Vista"] = "Delete";
+﻿@model VmActivity
+@{
     ViewBag.Title = "Eliminar Actividad";
 }
 <link rel="stylesheet" href="~/css/Delete.css" asp-append-version="true"/>
-
-@*action="@Url.Action("Login", "Login")" method="post" autocomplete="off"*@
-
 <div class="formCrud">
-    <h2>
-        ELIMINAR ACTIVIDAD***
-
-    </h2>
-
+    <h2>ELIMINAR ACTIVIDAD***</h2>
     <div class="eliminar">
-        <form asp-action="Delete" class="delete">
+        <form action="@Url.Action("Delete", "Actividades")" method="post" class="delete">
             <div class="form-group" style="display: none !important;">
-                <input type="number" name="id" class="form-control" required value="Id">
-                <input type="number" name="nro" class="form-control" required value="Id">
+                <input type="number" name="id" class="form-control" required value="@Model.Id">
+                <input type="number" name="nro" class="form-control" required value="@Model.Id">
             </div>
             <h1><span class="material-symbols-outlined">warning</span> ADVERTENCIA </h1>
-
-            <h2>¿Estás seguro que deseas eliminar la actividad: <b>Campamento distrital </b>?</h2>
+            <h2>¿Estás seguro que deseas eliminar la actividad: <b>@Model.Name </b>?</h2>
             <button type="submit" class="btnEliminar" value="eliminar">Eliminar</button>
             <button type="submit" class="btnCancelar" value="cancelar" onclick="location.href='@Url.Action("Details", "Actividades")'">Cancelar</button>
-
         </form>
     </div>
 </div>

@@ -9,7 +9,7 @@ public interface IActivityService
     
     Task<bool> UpdateActivity(Activity model);
     
-    Task<bool> DeleteActivity(Activity model);
+    Task<bool> DeleteActivity(int id);
     Task<bool> DeleteParticipant(int activityId, int personId);
     
     Task<Activity> GetActivitie(int id);

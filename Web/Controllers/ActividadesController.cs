@@ -225,23 +225,29 @@ public class ActividadesController : Controller
     }
 
     // GET: ActividadesController/Delete/5
-    public ActionResult Delete(int id)
+    public async Task<ActionResult> Delete(int nro)
     {
-        return View();
+        Activity activity = await _activityService.GetActivitie(nro);
+        VmActivity vmActivity = new VmActivity()
+        {
+            Id = nro,
+            Name = activity.Name
+        };
+        return View(vmActivity);
     }
 
-    // POST: ActividadesController/Delete/5
+    // POST: InstructorController/Delete/5
     [HttpPost]
-    [ValidateAntiForgeryToken]
-    public ActionResult Delete(int id, IFormCollection collection)
+    public async Task<ActionResult> Delete(int nro, int id)
     {
         try
         {
-            return RedirectToAction(nameof(Index));
+            await _activityService.DeleteActivity(nro);
+            return RedirectToAction("Details", "Actividades");
         }
         catch
         {
-            return View();
+            return RedirectToAction("Details", "Actividades");
         }
     }
 }
