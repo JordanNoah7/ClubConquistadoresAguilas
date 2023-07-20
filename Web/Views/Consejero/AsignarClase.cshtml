@@ -26,8 +26,8 @@
             @foreach (var item in Model.PersonList)
             {
                 <tr name="fila">
-                    <td class="nombre" name="rowNombre">@item.FirstName</td>
-                    <td class="apellido" name="rowApellido">@item.FullSurname</td>
+                    <td class="nombre text-muted" name="rowNombre">@item.FirstName</td>
+                    <td class="apellido text-muted" name="rowApellido">@item.FullSurname</td>
                     <td class="clase" name="rowClase">@item.Class</td>
                     <td>
                         <form action="@Url.Action("EditClass", "Consejero")" method="get">

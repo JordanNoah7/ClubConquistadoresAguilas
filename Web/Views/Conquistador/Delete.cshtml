@@ -6,6 +6,10 @@
 <link rel="stylesheet" href="~/css/Delete.css" asp-append-version="true"/>
 <div class="formCrud">
     <h2>ELIMINAR CONQUISTADOR***</h2>
+    @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+    {
+        <p id="message">@ViewBag.ErrorMessage</p>
+    }
     <div class="eliminar">
             <form action="@Url.Action("Delete", "Conquistador")" method="post" autocomplete="off">
                 <div class="form-group" style="display: none !important;">
@@ -18,5 +22,6 @@
                 <button type="submit" class="btnEliminar" value="eliminar">Eliminar</button>
                 <button type="submit" class="btnCancelar" value="cancelar" onclick="location.href='@Url.Action("Details", "Conquistador")'">Cancelar</button>
             </form>
+       
     </div>
 </div>

@@ -2,12 +2,13 @@
 @{
     ViewData["Vista"] = "Edit";
     ViewBag.Title = "Actualizar Conquistador";
+    
 }
 
 <link rel="stylesheet" href="~/css/Create.css" asp-append-version="true"/>
 
 @*action="@Url.Action("Login", "Login")" method="post" autocomplete="off"*@
-
+ 
 <div class="formCrud">
     <h2>
         MODIFICAR CONQUISTADOR***
@@ -184,16 +185,23 @@
                 <br/>
                 <br/>
                 <button type="submit" id="btnGuardar" class="btnGuardar" value="guardar">Guardar</button>
-
-                <button type="submit" class="btnCancelar" value="cancelar" onclick="location.href='@Url.Action("Details", "Conquistador")'">Cancelar</button>
-
+              
+                
             </form>
+                 <button type="submit" class="btnCancelar" value="cancelar" onclick="location.href='@Url.Action("Details", "Conquistador")'">Cancelar</button>
 
+           
         </div>
 
     </div>
 </div>
 
+@if (ViewBag.showSuccessAlert)
+{
+    <script>
+        alert('Los datos se grabaron corectamente');
+    </script>
+}
 <script>
 document.addEventListener("keyup", e =>{
     e.target.matches("#padre")
