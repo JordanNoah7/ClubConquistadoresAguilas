@@ -23,6 +23,7 @@
 }
 
 main .insights {
+    margin-block-start: 20px;
     display: grid;
     gap: 1.6rem;
 }
@@ -44,12 +45,9 @@ main .insights {
 
 
 
-        main .insights > div span {
-            background: #394741; /*naranja oscuro*/
-            padding: 0.5rem;
-            border-radius: 50%;
-            color: white;
-            font-size: 2rem;
+        main .insights > div p {
+            color: green;
+            font-size: 20px;
         }
 
 
@@ -59,8 +57,57 @@ main .insights {
             justify-content: space-between;
         }
 
-    main .insights h3 {
-        margin: 1rem 0 0.6rem;
-        font-size: 1rem;
+            main .insights h3 {
+                margin: 1rem 0 0.6rem;
+                font-size: 1rem;
+            }
+
+main .insights .middle .linea{
+    border-left: 3px solid red;
+    height: 100px;
+    max-width: 2px;
+    padding: 0;
+    margin: 2px auto 2px auto;
+}
+
+
+main .insights > div .middle .block {
+  
+    width: 200px;
+    height: 60px;
+    line-height: 60px;
+    
+}
+    main .insights > div .middle .block h3{
+       
+        display: inline-block;
+        width: 25px;
+        height: 15px;
+        line-height: 15px;
+        vertical-align: baseline; /* Y */
+        text-align: center;
     }
+
+main .insights .middle .left{
+    justify-content:left;
+    justify-items:left;
+    justify-items:left;
+}
+
+main .insights .middle .left span {
+    text-align: left;
+    display: flex;
+    color: #879138;
+    align-items: center;
+}
+
+main .insights > div .middle .left a h3{
+    display: block;
+    color: #979497;
+    align-items: flex-end;
+    position: relative;
+    height: 3.7rem;
+   
+}
+
 
