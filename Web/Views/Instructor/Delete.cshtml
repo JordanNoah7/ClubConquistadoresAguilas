@@ -1,4 +1,5 @@
-﻿@{
+﻿@model VmPerson
+@{
     ViewData["Vista"] = "Delete";
 }
 <link rel="stylesheet" href="~/css/Delete.css" asp-append-version="true"/>
@@ -8,104 +9,20 @@
 <div class="formCrud">
     <h2>
         ELIMINAR INSTRUCTOR ***
-
     </h2>
+    <div class="eliminar">
+        <form asp-action="Delete" class="delete">
+            <div class="form-group" style="display: none !important;">
+                <input type="number" name="id" class="form-control" required value="@Model.Id">
+                <input type="number" name="nro" class="form-control" required value="@Model.Id">
+            </div>
+            <h1><span class="material-symbols-outlined">warning</span> ADVERTENCIA </h1>
 
-    <div class="row">
-        <div class="col">
-            <form asp-action="Delete" class="delete">
-                @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
-                <div class="form-group">
-                    <label @*asp-for="Name" *@class="control-label">Nombre(s) : *</label>
-                    <input type="text" aria-label="Nombre" @*asp-for="Name"*@ class="form-control">
-                    <span @*asp-validation-for="Name"*@ class="text-danger"></span>
-                </div>
+            <h2>¿Estás seguro que deseas eliminar a <b>@Model.FirstName @Model.FathersSurname @Model.MothersSurname </b>?</h2>
+            <button type="submit" class="btnEliminar" value="eliminar">Eliminar</button>
+            <button type="submit" class="btnCancelar" value="cancelar" onclick="location.href='@Url.Action("Details", "Instructor")'">Cancelar</button>
 
-                <div class="form-group">
-                    <label class="control-label">Apellidos : *</label>
-                    <input type="text" aria-label="Apellidos" class="form-control" required>
-                    <span class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label class="control-label">Fecha Nacimiento : *</label>
-                    <input type="date" aria-label="FechaNac" class="form-control" required>
-                    <span class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label class="control-label">Sexo: *</label>
-                    <select name="Sexo" id="Sexo">
-                        <option value=""></option>
-                        <option value="M">Masculino</option>
-                        <option value="F">Femenino</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="control-label">Nombre(s) : *</label>
-                    <input type="text" aria-label="Nombre" class="form-control" required>
-                    <span class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label class="control-label">Telefono:*</label>
-                    <input type="text" aria-label="telefono" class="form-control" required>
-                    <span class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label class="control-label">Correo:*</label>
-                    <input type="email" placeholder="email@gmail.com" aria-label="email" class="form-control" required>
-                    <span class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label class="control-label">Direccion:*</label>
-                    <input type="text" aria-label="direccion" class="form-control" required>
-                    <span class="text-danger"></span>
-                </div>
-
-                <div class="form-group">
-                    <label class="control-label">Usuario:</label>
-                    <input type="text" aria-label="usuario" class="form-control" required>
-                    <span class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label class="control-label">Contraseña:</label>
-                    <input type="password" aria-label="pasword" class="form-control" required>
-                    <span class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label for="clase">Clase</label>
-                    <select name="clase" id="clase">
-                        <option value=""></option>
-                        <option value="r">Rojo</option>
-                        <option value="a">Azul</option>
-                        <option value="v">Verde</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="unidad">Unidad</label>
-                    <select name="unidad" id="clase">
-                        <option value=""></option>
-                        <option value="r">Rojo</option>
-                        <option value="a">Azul</option>
-                        <option value="v">Verde</option>
-                    </select>
-                </div>
-                <br/>
-                <br/>
-                @*<input type="submit" value="Guardar" class="btn btn-primary" />*@
-                <button type="submit" class="btnEliminar" value="eliminar">Eliminar</button>
-
-                <button type="submit" class="btnCancelar" value="cancelar" onclick="location.href='@Url.Action("Details", "Instructor")'">Cancelar</button>
-
-            </form>
-
-        </div>
-
+        </form>
     </div>
-
-    @* @section Scripts {
-    @{
-    await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
-    }
-    *@
-
 </div>
+

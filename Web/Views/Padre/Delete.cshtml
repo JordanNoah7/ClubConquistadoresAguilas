@@ -1,14 +1,27 @@
-﻿@{
-    Layout = null;
+﻿@model VmPerson
+@{
+    ViewData["Vista"] = "Delete";
 }
+<link rel="stylesheet" href="~/css/Delete.css" asp-append-version="true" />
 
-<!DOCTYPE html>
+@*action="@Url.Action("Login", "Login")" method="post" autocomplete="off"*@
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width"/>
-    <title>Delete</title>
-</head>
-<body>
-</body>
-</html>
+<div class="formCrud">
+    <h2>
+        ELIMINAR PADRE / APODERADO ***
+    </h2>
+    <div class="eliminar">
+        <form asp-action="Delete" class="delete">
+            <div class="form-group" style="display: none !important;">
+                <input type="number" name="id" class="form-control" required value="@Model.Id">
+                <input type="number" name="nro" class="form-control" required value="@Model.Id">
+            </div>
+            <h1><span class="material-symbols-outlined">warning</span> ADVERTENCIA </h1>
+
+            <h2>¿Estás seguro que deseas eliminar a <b>@Model.FirstName @Model.FathersSurname @Model.MothersSurname </b>?</h2>
+            <button type="submit" class="btnEliminar" value="eliminar">Eliminar</button>
+            <button type="submit" class="btnCancelar" value="cancelar" onclick="location.href='@Url.Action("Details", "Instructor")'">Cancelar</button>
+
+        </form>
+    </div>
+</div>

@@ -5,21 +5,18 @@
 <link rel="stylesheet" href="~/css/Delete.css" asp-append-version="true"/>
 <div class="formCrud">
     <h2>ELIMINAR CONSEJERO***</h2>
-    <div class="row">
-        <div class="col">
+    <div class="eliminar">
             <form asp-action="Delete" class="delete">
-                <div class="form-group" style="display: none !important;">
-                    <input type="number" name="id" class="form-control" required value="@Model.Id">
-                    <input type="number" name="nro" class="form-control" required value="@Model.Id">
-                </div>
-                <h1>Estas seguro que deseas eliminar a @Model.FirstName @Model.FathersSurname @Model.MothersSurname</h1>
+            <div class="form-group" style="display: none !important;">
+                <input type="number" name="id" class="form-control" required value="@Model.Id">
+                <input type="number" name="nro" class="form-control" required value="@Model.Id">
+            </div>
+            <h1><span class="material-symbols-outlined">warning</span> ADVERTENCIA </h1>
+
+            <h2>¿Estás seguro que deseas eliminar a <b>@Model.FirstName @Model.FathersSurname @Model.MothersSurname </b>?</h2>
                 <button type="submit" class="btnEliminar" value="eliminar">Eliminar</button>
-            </form>
-        </div>
+                <button type="submit" class="btnCancelar" value="cancelar" onclick="location.href='@Url.Action("Details", "Consejero")'">Cancelar</button>
+
+        </form>
     </div>
-</div>
-<br/>
-<br/>
-<div class="botones">
-    <button type="submit" class="btnCancelar" value="cancelar" onclick="location.href='@Url.Action("Details", "Consejero")'">Cancelar</button>
 </div>
