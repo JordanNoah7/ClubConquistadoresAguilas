@@ -16,19 +16,19 @@
 
                 <div class="form-group">
                     <label class="control-label">Nombre: *</label>
-                    <input type="text" aria-label="Nombre" class="form-control" required name="name" value="@Model.Name">
-                    <span class="text-danger"></span>
+                    <input type="text" id="nombre" aria-label="Nombre" class="form-control" required name="name" value="@Model.Name">
+                    <span id="mensajeNombre" style="display:none; color:red;">El nombre debe tener como máximo 30 letras y puede contener espacios.</span>
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Fecha de Inicio: *</label>
-                    <input type="date" aria-label="fecIni" id="fecIni" class="form-control" required name="startDate" value="@Model.StartDate">
-                    <span class="text-danger"></span>
+                    <input type="date" id="fechaInicio" aria-label="fecIni"  class="form-control" required name="startDate" value="@Model.StartDate">
+                    <span id="mensajeFechaInicio" style="display:none; color:red;">La fecha de inicio debe ser igual o posterior a la fecha actual más un día.</span>
                 </div>
                 <div class="form-group">
                     <label class="control-label">Fecha de Fin: *</label>
-                    <input type="date" aria-label="Fechafin" id="fecfin" class="form-control" required name="endDate" value="@Model.EndDate">
-                    <span class="text-danger"></span>
+                    <input type="date" id="fechaFin" aria-label="Fechafin"  class="form-control" required name="endDate" value="@Model.EndDate">
+                    <span id="mensajeFechaFin" style="display:none; color:red;">La fecha de fin debe ser mayor que la fecha de inicio.</span>
                 </div>
 
                 <div class="form-group">
@@ -69,7 +69,7 @@
 
                 <br/>
                 <br/>
-                <button type="submit" class="btnGuardar" value="guardar">Guardar</button>
+                <button type="submit" id="btnGuardar" class="btnGuardar" value="guardar">Guardar</button>
                 <button type="submit" class="btnCancelar" value="cancelar" onclick="location.href='@Url.Action("Details", "Actividades")'">Cancelar</button>
 
             </form>
@@ -92,4 +92,8 @@ document.addEventListener("keyup", e =>{
         })
     }
 })
+</script>
+
+<script type="text/javascript"
+        src="~/js/validacionesActualizarActividad.js">
 </script>
