@@ -1,4 +1,6 @@
-﻿using Application.IService;
+﻿using System.Globalization;
+using System.Security.Claims;
+using Application.IService;
 using Microsoft.AspNetCore.Mvc;
 using Models;
 using Web.Models;
@@ -33,9 +35,15 @@ public class ConsejeroController : Controller
     }
 
     // GET: ConsejeroController/TomarLista
-    public ActionResult TomarLista()
+    public async Task<ActionResult> TomarLista()
     {
-        return View();
+        Person person = await _personService.GetPersonClassById(Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier)));
+        VmPerson vmPerson = new VmPerson()
+        {
+            Unit = person.PositionPersonUnits.FirstOrDefault().Unit.Name,
+        };
+        Console.WriteLine(DateTime.Today.ToString("dddd", new CultureInfo("es-PE")));
+        return View(vmPerson);
     }
     // GET: ConsejeroController/Lista de conquistadores por unidad
     public ActionResult UnidadConsejero()

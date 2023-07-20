@@ -1,24 +1,23 @@
-﻿@{
-    //Layout = "_LayoutCrud";
+﻿@model VmPerson
+@{
     ViewData["Vista"] = "Details";
 }
-
 <link rel="stylesheet" href="~/css/CrudOrganizacion.css" asp-append-version="true"/>
-
 <div class="recent-order">
-    <h2>
-        Notificar a Grupo ***
-
-    </h2>
+    <h2>Notificar a Grupo ***</h2>
     <form asp-action="Index">
-
         <div class="notification-group">
-            <label @*asp-for="Name" *@class="control-label"> Para:</label>
-            <br/>
-            <button onclick="location.href='https://wa.me/966871384'" type="button">Junta Directiva</button>
-            <button onclick="location.href='https://chat.whatsapp.com/LMVECoqr0r94j0ZyhD5S73'" type="button">Conquistadores en General</button>
+            <button onclick="location.href='https://chat.whatsapp.com/LEqAcHTbiOGCTETnTLMLwX'" type="button">Conquistadores en General</button>
+            <img src="/img/GeneralConquis.jpeg" style="width: 250px !important;height: 250px !important;"/>
+            @switch (Model.Class)
+            {
+                case "Amigo":
+                    break;
+                case "Pionero":
+                    <button onclick="location.href='https://chat.whatsapp.com/GIDUieUboMa2uaeFJmWnse'" type="button">Clase Pionero</button>
+                    <img src="/img/PioneoQR.jpeg" style="width: 250px !important;height: 250px !important;"/>
+                    break;
+            }
         </div>
-
     </form>
-
 </div>

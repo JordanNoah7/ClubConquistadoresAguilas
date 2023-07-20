@@ -548,41 +548,48 @@ ALTER PROCEDURE usp_DeletePerson @PersonID INT
 AS
 BEGIN
     BEGIN TRAN;
-    BEGIN TRY
-        DELETE SP
-        FROM SpecialtyPerson AS SP
-        WHERE SP.PersonID = @PersonID;
-        
-        DELETE UR
-        FROM UserRol AS UR
-        WHERE UR.UserID = @PersonID;
+    IF @PersonID NOT IN (SELECT PPA.PersonID FROM PositionPersonActivity PPA WHERE PPA.PersonID = @PersonID AND PPA.PositionID = 6)
+        BEGIN
+            BEGIN TRY
+                DELETE SP
+                FROM SpecialtyPerson AS SP
+                WHERE SP.PersonID = @PersonID;
 
-        DELETE CP
-        FROM ClassPerson AS CP
-        WHERE CP.PersonID = @PersonID;
+                DELETE UR
+                FROM UserRol AS UR
+                WHERE UR.UserID = @PersonID;
 
-        DELETE PPA
-        FROM PositionPersonActivity AS PPA
-        WHERE PPA.PersonID = @PersonID;
-        
-        DELETE PPU
-        FROM PositionPersonUnit AS PPU
-        WHERE PPU.PersonID = @PersonID;
+                DELETE CP
+                FROM ClassPerson AS CP
+                WHERE CP.PersonID = @PersonID;
 
-        DELETE U
-        FROM Users AS U
-        WHERE U.ID = @PersonID;
+                DELETE PPA
+                FROM PositionPersonActivity AS PPA
+                WHERE PPA.PersonID = @PersonID;
 
-        DELETE P
-        FROM People AS P
-        WHERE P.ID = @PersonID;
+                DELETE PPU
+                FROM PositionPersonUnit AS PPU
+                WHERE PPU.PersonID = @PersonID;
 
-        COMMIT TRAN;
-    END TRY
-    BEGIN CATCH
-        ROLLBACK TRAN;
-        RAISERROR ('Error al eliminar persona', 16, 1);
-    END CATCH
+                DELETE U
+                FROM Users AS U
+                WHERE U.ID = @PersonID;
+
+                DELETE P
+                FROM People AS P
+                WHERE P.ID = @PersonID;
+
+                COMMIT TRAN;
+            END TRY
+            BEGIN CATCH
+                ROLLBACK TRAN;
+                RAISERROR ('Error al eliminar persona', 16, 1);
+            END CATCH
+        END
+        ELSE
+        BEGIN
+            RAISERROR ('La persona es encargada de una actividad', 16, 1);
+        END
 END
 GO
 ---------------------------------------------------------------------------------------------Listo
@@ -1108,5 +1115,5 @@ END
 GO
 -------------------------------------------------------------------------------------------Listo
 
-select * from People join Users U on People.ID = U.ID
+select * from People join Users U on People.ID = U.ID join UserRol UR on U.ID = UR.UserID where ur.RolID = 2
 select * from Roles

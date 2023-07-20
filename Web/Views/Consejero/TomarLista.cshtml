@@ -1,27 +1,21 @@
-﻿@{
-    //Layout = "_LayoutCrud";
+﻿@model VmPerson
+@using System.Globalization
+@{
     ViewData["Vista"] = "TomarLista";
 }
-
 <link rel="stylesheet" href="~/css/CrudOrganizacion.css" asp-append-version="true"/>
-
-@*action="@Url.Action("Login", "Login")" method="post" autocomplete="off"*@
-
 <div class="recent-order">
-    <h2>
-        Tomar Lista ***
-    </h2>
-    <p class="bolded">Unidad : <b>Mujeres 12 -13 </b></p>
+    <h2>Tomar Lista ***</h2>
+    <p class="bolded">Unidad : <b>@Model.Unit</b></p>
     <br/>
-    <p class="bolded">Fecha : <b> 03/07/23</b></p>
-
-    <div class="right">
-        <button type="submit" class="btnGuardar">Guardar</button>
-        <button type="submit" class="btnCancelar" onclick="location.href='@Url.Action("TomarLista", "Consejero")'">Cancelar</button>
-    </div>
-
-
-    <table class="table table-hover">
+    <p class="bolded">Fecha : <b> @DateTime.Today.ToString("D", new CultureInfo("es-PE"))</b></p>
+    @if (DateTime.Today.ToString("dddd", new CultureInfo("es-PE")) == "domingo")
+    {
+        <div class="right">
+            <button type="submit" class="btnGuardar">Guardar</button>
+            <button type="submit" class="btnCancelar" onclick="location.href='@Url.Action("TomarLista", "Consejero")'">Cancelar</button>
+        </div>
+        <table class="table table-hover">
 
         <thead>
         <tr name="columna">
@@ -88,6 +82,9 @@
 
         </tbody>
     </table>
-
-
+    }
+    else
+    {
+        <h1>Hoy no se toma asistencia, espera al domingo.</h1>
+    }
 </div>
