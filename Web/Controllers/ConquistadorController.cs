@@ -33,6 +33,7 @@ public class ConquistadorController : Controller
         return View();
     }
 
+ 
     // GET: ConquistadorController/Details/5
     public async Task<ActionResult> Details()
     {
@@ -58,6 +59,7 @@ public class ConquistadorController : Controller
 
         return View(vmPerson);
     }
+    
 
     // GET: ConquistadorController/Create
     public async Task<ActionResult> Create()
@@ -230,6 +232,7 @@ public class ConquistadorController : Controller
             }
         };
 
+        ViewBag.showSuccessAlert = false;
         return View(vmPerson);
     }
 
@@ -283,18 +286,23 @@ public class ConquistadorController : Controller
                     }
                 },
             };
+            
             Array.Copy(HttpContext.Session.Get("Concurrency"), person.ConcurrencyPerson, 8);
             if(await _personService.Update(person))
             {
+                ViewBag.showSuccessAlert = true;
                 return RedirectToAction("Details", "Conquistador");
             }
             else
             {
+                ViewBag.showSuccessAlert = true;
                 return RedirectToAction("Details", "Conquistador");
             }
+           
         }
         catch
         {
+            ViewBag.showSuccessAlert = true;
             return RedirectToAction("Details", "Conquistador");
         }
     }
@@ -310,7 +318,9 @@ public class ConquistadorController : Controller
             FathersSurname = person.FathersSurname,
             MothersSurname = person.MothersSurname
         };
+       
         return View(vmPerson);
+        
     }
 
     // POST: ConquistadorController/Delete/5
