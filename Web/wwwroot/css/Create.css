@@ -6,7 +6,7 @@ main .formCrud {
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     width: 94%;
-    
+    margin-top: 25px;
 }
 
     main .formCrud .form-group {

@@ -58,7 +58,18 @@ main .recent-order td #edit:hover {
     background: #00BF63; /*verde*/
     color: white;
 }
+    main .recent-order td #adicional {
+        background: white;
+        color: #38B6FF; /*amarillo*/
 
+        padding-right: 25px;
+        border: none;
+    }
+
+        main .recent-order td #adicional:hover {
+            background: #38B6FF; /*amarillo*/
+            color: white;
+        }
 
 main .recent-order h2 {
     margin-bottom: 0.8rem;
@@ -95,7 +106,7 @@ main .recent-order a {
     color: black;
 }
 
-/*tabla*/
+/*tabla paginacion y busqueda*/
 
 .dataTables_wrapper {
     position: relative;
@@ -107,7 +118,7 @@ main .recent-order a {
         float: left
     }
 
-        .dataTables_wrapper .dataTables_length select {
+    .dataTables_wrapper .dataTables_length select {
             border: 1px solid #aaa;
             border-radius: 3px;
             padding: 5px;
@@ -120,7 +131,7 @@ main .recent-order a {
         text-align: right
     }
 
-        .dataTables_wrapper .dataTables_filter input {
+    .dataTables_wrapper .dataTables_filter input {
             border: 1px solid #aaa;
             border-radius: 5px;
             padding: 5px;
@@ -141,7 +152,7 @@ main .recent-order a {
         text-align: right;
         padding-top: 0.25em;
     }
-        .dataTables_wrapper .dataTables_paginate .paginate_button {
+    .dataTables_wrapper .dataTables_paginate .paginate_button {
             box-sizing: border-box;
             display: inline-block;
             min-width: 1.5em;
@@ -156,7 +167,7 @@ main .recent-order a {
             border-radius: 2px
         }
 
-            .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
                 border: 1px solid #979497;
                 border-radius: 5px
             }
@@ -166,7 +177,7 @@ table.dataTable tbody th, table.dataTable tbody td {
     padding: 8px 10px
 }
 
-/*paginacion tabla*/
+/*fin paginacion tabla*/
 
 
 
@@ -206,6 +217,7 @@ table.dataTable tbody th, table.dataTable tbody td {
             position: relative;
             margin: 3rem 0 0 0;
             width: 100%;
+            
         }
 
             main .recent-order table {
