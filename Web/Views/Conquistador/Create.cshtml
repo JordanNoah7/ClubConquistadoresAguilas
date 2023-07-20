@@ -30,11 +30,8 @@
                 </div>
                 <div class="form-group">
                     <label class="control-label">Fecha Nacimiento : *</label>
-                    @{
-                        DateTime fechaMinima = DateTime.Today.AddYears(-10).Date;
-                        string fechaMinimaString = fechaMinima.ToString("yyyy-MM-dd");
-                    }
-                    <input type="date" id="fechaNacimiento" min="@fechaMinimaString" aria-label="FechaNac" title="Ingrese una fecha de nacimiento válida." class="form-control" name="Birthday" required>
+         
+                    <input type="date" id="fechaNacimiento"  aria-label="FechaNac" title="Ingrese una fecha de nacimiento válida." class="form-control" name="Birthday" required>
                     <span id="mensajeAdvertencia" style="display:none; color:red;">Debe tener al menos 10 años de edad.</span>
                 </div>
                 <div class="form-group">
