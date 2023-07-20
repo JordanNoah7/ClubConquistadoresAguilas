@@ -49,7 +49,6 @@
                     <label class="control-label">Encargado:</label>
                     <input type="search" aria-label="padre" id="padre" class="form-control">
                     <select class="apoderado" name="manager" id="listaPadres" required>
-                        <option value="" class="father">Encargado 1</option>
                         @foreach (var manager in ViewBag.Managers)
                         {
                             <option value="@manager.Value" class="father">@manager.Text</option>
@@ -72,4 +71,17 @@
 
 <script type="text/javascript"
         src="~/js/validacionesCrearActividad.js">
+</script>
+<script>
+document.addEventListener("keyup", e =>{
+    e.target.matches("#padre")
+    console.log(e.target.value)
+    
+    if (e.target.matches("#padre")){
+        if (e.key==="Escape")e.target.value = ""
+        document.querySelectorAll(".father").forEach(father=>{
+            father.textContent.toLowerCase().includes(e.target.value.toLowerCase()) ? father.classList.remove("filtro") : father.classList.add("filtro")
+        })
+    }
+})
 </script>

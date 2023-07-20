@@ -1083,35 +1083,35 @@ END
 GO
 -------------------------------------------------------------------------------------------Listo
 ---Procedimiento para eliminar actividad
-CREATE PROCEDURE usp_DeleteActivity @ActivityId INT, @concurrency TIMESTAMP
+ALTER PROCEDURE usp_DeleteActivity @ActivityId INT--, @concurrency TIMESTAMP
 AS
 BEGIN
     BEGIN TRAN;
-    IF @concurrency = (SELECT concurrencyActivity
-                       FROM Activities
-                       WHERE ID = @ActivityId)
-        BEGIN
-            BEGIN TRY
-                DELETE
-                FROM PositionPersonActivity
-                WHERE ActivityID = @ActivityId;
+    --IF @concurrency = (SELECT concurrencyActivity
+    --                 FROM Activities
+    --               WHERE ID = @ActivityId)
+    --BEGIN
+    BEGIN TRY
+        DELETE
+        FROM PositionPersonActivity
+        WHERE ActivityID = @ActivityId;
 
-                DELETE
-                FROM Activities
-                WHERE ID = @ActivityId;
+        DELETE
+        FROM Activities
+        WHERE ID = @ActivityId;
 
-                COMMIT TRAN;
-            END TRY
-            BEGIN CATCH
-                ROLLBACK TRAN;
-                RAISERROR ('Error al eliminar la actividad.', 16, 1);
-            END CATCH
-        END
-    ELSE
-        BEGIN
-            ROLLBACK TRAN;
-            RAISERROR ('Otro usuario elimino o actualizo la actividad.', 16, 1);
-        END
+        COMMIT TRAN;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRAN;
+        RAISERROR ('Error al eliminar la actividad.', 16, 1);
+    END CATCH
+    --END
+    --ELSE
+    --  BEGIN
+    --    ROLLBACK TRAN;
+    --  RAISERROR ('Otro usuario elimino o actualizo la actividad.', 16, 1);
+    --END
 END
 GO
 -------------------------------------------------------------------------------------------Listo
@@ -1205,8 +1205,8 @@ BEGIN
                C.name
         FROM People P
                  JOIN PositionPersonUnit PPU ON P.ID = PPU.PersonID
-        JOIN ClassPerson CP on P.ID = CP.PersonID
-        JOIN Classes C on C.ID = CP.ClassID
+                 JOIN ClassPerson CP on P.ID = CP.PersonID
+                 JOIN Classes C on C.ID = CP.ClassID
         WHERE PPU.UnitID = @UnitID;
         COMMIT TRAN;
     END TRY
@@ -1219,18 +1219,18 @@ GO
 -------------------------------------------------------------------------------------------Listo
 ---Procedimiento para insertar un instructor
 ALTER PROCEDURE usp_InsertInstructor @DNI VARCHAR(8),
-                                 @firstName NVARCHAR(30),
-                                 @fathersSurname NVARCHAR(15),
-                                 @mothersSurname NVARCHAR(15),
-                                 @birthDate DATE,
-                                 @gender CHAR(1),
-                                 @address NVARCHAR(30),
-                                 @phone nvarchar(15),
-                                 @email NVARCHAR(30),
-                                 @ClubID INT,
-                                 @userName NVARCHAR(15),
-                                 @password NVARCHAR(15),
-                                 @ClassID INT
+                                     @firstName NVARCHAR(30),
+                                     @fathersSurname NVARCHAR(15),
+                                     @mothersSurname NVARCHAR(15),
+                                     @birthDate DATE,
+                                     @gender CHAR(1),
+                                     @address NVARCHAR(30),
+                                     @phone nvarchar(15),
+                                     @email NVARCHAR(30),
+                                     @ClubID INT,
+                                     @userName NVARCHAR(15),
+                                     @password NVARCHAR(15),
+                                     @ClassID INT
 AS
 BEGIN
     BEGIN TRAN;
@@ -1263,20 +1263,20 @@ GO
 -------------------------------------------------------------------------------------------Listo
 ---Procedimiento para actualizar instructor
 CREATE PROCEDURE usp_UpdateInstructor @PersonID INT,
-                                 @DNI VARCHAR(8),
-                                 @firstName NVARCHAR(30),
-                                 @fathersSurname NVARCHAR(15),
-                                 @mothersSurname NVARCHAR(15),
-                                 @birthDate DATE,
-                                 @gender CHAR(1),
-                                 @address NVARCHAR(30),
-                                 @phone nvarchar(15),
-                                 @email NVARCHAR(30),
-                                 @ClubID INT,
-                                 @userName NVARCHAR(15),
-                                 @password NVARCHAR(15),
-                                 @ClassID INT,
-                                 @concurrency TIMESTAMP
+                                      @DNI VARCHAR(8),
+                                      @firstName NVARCHAR(30),
+                                      @fathersSurname NVARCHAR(15),
+                                      @mothersSurname NVARCHAR(15),
+                                      @birthDate DATE,
+                                      @gender CHAR(1),
+                                      @address NVARCHAR(30),
+                                      @phone nvarchar(15),
+                                      @email NVARCHAR(30),
+                                      @ClubID INT,
+                                      @userName NVARCHAR(15),
+                                      @password NVARCHAR(15),
+                                      @ClassID INT,
+                                      @concurrency TIMESTAMP
 AS
 BEGIN
     IF @concurrency = (SELECT concurrencyPerson
@@ -1350,7 +1350,7 @@ BEGIN
         FROM People P
                  JOIN Users U on P.ID = U.ID
                  JOIN UserRol UR on U.ID = UR.UserID
-        JOIN ClassPerson CP on P.ID = CP.PersonID
+                 JOIN ClassPerson CP on P.ID = CP.PersonID
         WHERE P.ID = @Id
         COMMIT TRAN;
     END TRY
@@ -1361,4 +1361,26 @@ BEGIN
 END
 GO
 
-select * from Roles
+insert into Categories (name, description)
+values ('ADRA', 'Especialidades de ADRA'),
+       ('Artes y habilidades manuales', 'Especialidades de Artes y habilidades manuales'),
+       ('Actividades agricolas', 'Especialidades de Actividades agricolas'),
+       ('Actividades misioneras', 'Especialidades de Actividades misioneras'),
+       ('Actividades profesionales', 'Especialidades de Actividades profesionales'),
+       ('Actividades recreativas', 'Especialidades de Actividades recreativas'),
+       ('Ciencia y salud', 'Especialidades de Ciencia y salud'),
+       ('Estudio de la naturaleza', 'Especialidades de Estudio de la naturaleza'),
+       ('Habilidades domesticas', 'Especialidades de Habilidades domesticas')
+
+/*insert into Specialties (name, CategoryID)
+VALUES ();*/
+
+/*Alivio del hambre
+Evaluacion de la comunidad
+Servicio comunitario
+Respuesta a emergencias y desastres
+Respuesta a emergencias y desastres  Avanzado
+Alfabetización
+Resolución de conflictos
+Reasentamiento de refugiados
+Desarrollo comunitario*/

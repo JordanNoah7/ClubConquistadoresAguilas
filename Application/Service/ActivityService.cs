@@ -97,11 +97,11 @@ public class ActivityService : IActivityService
         }
     }
 
-    public async Task<bool> DeleteActivity(Activity model)
+    public async Task<bool> DeleteActivity(int id)
     {
         try
         {
-            return await _activityRepository.DeleteActivity(model);
+            return await _activityRepository.DeleteActivity(id);
         }
         catch (Exception e)
         {
