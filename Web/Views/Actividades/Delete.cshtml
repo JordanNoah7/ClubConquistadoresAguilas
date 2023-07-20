@@ -1,5 +1,6 @@
 ﻿@{
     ViewData["Vista"] = "Delete";
+    ViewBag.Title = "Eliminar Actividad";
 }
 <link rel="stylesheet" href="~/css/Delete.css" asp-append-version="true"/>
 
@@ -11,74 +12,20 @@
 
     </h2>
 
-    <div class="row">
-        <div class="col">
-            <form asp-action="Delete" class="delete">
-                @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
-                <div class="form-group">
-                    <label @*asp-for="Name" *@class="control-label">Nombre(s) : *</label>
-                    <input type="text" aria-label="Nombre" @*asp-for="Name"*@ class="form-control">
-                    <span @*asp-validation-for="Name"*@ class="text-danger"></span>
-                </div>
+    <div class="eliminar">
+        <form asp-action="Delete" class="delete">
+            <div class="form-group" style="display: none !important;">
+                <input type="number" name="id" class="form-control" required value="Id">
+                <input type="number" name="nro" class="form-control" required value="Id">
+            </div>
+            <h1><span class="material-symbols-outlined">warning</span> ADVERTENCIA </h1>
 
-                <div class="form-group">
-                    <label class="control-label">Fecha Inicial : *</label>
-                    <input type="date" aria-label="fecIni" id="fecIni" class="form-control" required>
-                    <span class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label class="control-label">Fecha Final : *</label>
-                    <input type="date" aria-label="Fechafin" id="fecfin" class="form-control" required>
-                    <span class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label class="control-label">Sexo: *</label>
-                    <select name="Sexo" id="Sexo">
-                        <option value=""></option>
-                        <option value="M">Masculino</option>
-                        <option value="F">Femenino</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="control-label">Nombre(s) : *</label>
-                    <input type="text" aria-label="Nombre" class="form-control" required>
-                    <span class="text-danger"></span>
-                </div>
+            <h2>¿Estás seguro que deseas eliminar la actividad: <b>Campamento distrital </b>?</h2>
+            <button type="submit" class="btnEliminar" value="eliminar">Eliminar</button>
+            <button type="submit" class="btnCancelar" value="cancelar" onclick="location.href='@Url.Action("Details", "Actividades")'">Cancelar</button>
 
-                <div class="form-group">
-                    <label for="clase">Clase</label>
-                    <select name="clase" id="clase">
-                        <option value=""></option>
-                        <option value="r">Rojo</option>
-                        <option value="a">Azul</option>
-                        <option value="v">Verde</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="control-label">Encargado(s) : *</label>
-                    <input type="text" aria-label="encargado" class="form-control" required>
-                    <span class="text-danger"></span>
-                </div>
-
-                <br/>
-                <br/>
-               
-                <button type="submit" class="btnEliminar" value="eliminar">Eliminar</button>
-                <button type="submit" class="btnCancelar" value="cancelar" onclick="location.href='@Url.Action("Details", "Actividades")'">Cancelar</button>
-
-            </form>
-
-        </div>
-
+        </form>
     </div>
-
-    @* @section Scripts {
-    @{
-    await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
-    }
-    *@
-
 </div>
 
     

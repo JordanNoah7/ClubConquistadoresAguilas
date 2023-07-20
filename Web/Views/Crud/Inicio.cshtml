@@ -4,17 +4,11 @@
 @model VmPerson
 @{
     Layout = "_LayoutCrud";
+    ViewBag.Title = "Perfil";
 }
-@*@{
-    var vmPerson = new VmPerson();
-    vmPerson.BirthDate = User.FindFirstValue(ClaimTypes.DateOfBirth);
-    vmPerson.Phone = User.FindFirstValue(ClaimTypes.MobilePhone);
-    vmPerson.Email = User.FindFirstValue(ClaimTypes.Email);
-    vmPerson.Class = User.FindFirstValue(ClaimTypes.Actor);
-    vmPerson.Unit = User.FindFirstValue(ClaimTypes.Authentication);
-}*@
+
 <link rel="stylesheet" href="~/css/perfilconquistador.css" asp-append-version="true"/>
-@*action="@Url.Action("Login", "Login")" method="post" autocomplete="off"*@
+
 <div class="insights">
     @*clase conquistador*@
     <div class="clase">

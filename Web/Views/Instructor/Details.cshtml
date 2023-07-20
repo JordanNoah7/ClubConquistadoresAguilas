@@ -1,6 +1,7 @@
 ﻿@model VmPerson
 @{
     ViewData["Vista"] = "Details";
+    ViewBag.Title = "Instructores";
 }
 <!--jQuery library file -->
 <script type="text/javascript"
@@ -17,7 +18,7 @@
 <div class="recent-order">
     <h2>
         Instructor ***
-        <button type="submit" class="btnCreate" onclick="location.href='@Url.Action("Create", "Consejero")'">Ingresar</button>
+        <button type="submit" class="btnCreate" onclick="location.href='@Url.Action("Create", "Instructor")'">Agregar</button>
 
     </h2>
 
