@@ -73,6 +73,11 @@ public class LoginController : Controller
                     return RedirectToAction("Index", "Padre");
             }
         }
+        else
+        {
+          ViewBag.ErrorMessage = "Nombre de usuario o contraseña incorrectos";
+        return View();
+        }
 
         ViewBag.ErrorMessage = "Nombre de usuario o contraseña incorrectos";
         return View();
