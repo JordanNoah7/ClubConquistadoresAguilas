@@ -1,0 +1,71 @@
+﻿@model VmPerson
+@{
+    Layout = "_LayoutCrud";
+}
+<link rel="stylesheet" href="~/css/Create.css" asp-append-version="true"/>
+<div class="formCrud">
+    <h2>Asistencia de @Model.FirstName @Model.FathersSurname @Model.MothersSurname ***</h2>
+    <div class="row">
+        <div class="col">
+            <form action="@Url.Action("Asistencia", "Consejero")" method="post" autocomplete="off">
+                <div class="form-group" style="display: none !important;">
+                    <input type="number" name="id" class="form-control" required value="@Model.Id">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">FRECUENCIA</label>
+                    <select name="frecuency" id="frecuency">
+                        <option value="40">Presente</option>
+                        <option value="20">Tardanza</option>
+                        <option value="0">Falta</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">DEVOCIóN</label>
+                    <select name="devotion" id="devotion">
+                        <option value="40">Completa</option>
+                        <option value="20">Incompleta</option>
+                        <option value="0">No realizada</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">CUOTA MENSUAL</label>
+                    <select name="monthly" id="monthly">
+                        <option value="40">Pago al día</option>
+                        <option value="20">Pago atrasado</option>
+                        <option value="0">No realizado</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">DISCIPLINA</label>
+                    <select name="discipline" id="discipline">
+                        <option value="40">Excelente</option>
+                        <option value="20">Regular</option>
+                        <option value="0">Deficiente</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">AÑO BíBLICO</label>
+                    <select name="year" id="year">
+                        <option value="40">Al día</option>
+                        <option value="20">Atrasado</option>
+                        <option value="0">No realizado</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">REQUERIMIENTO DE CLASES</label>
+                    <select name="requeriments" id="requeriments">
+                        <option value="40">Completado</option>
+                        <option value="20">Más o menos</option>
+                        <option value="0">No completo</option>
+                    </select>
+                </div>
+                <br/>
+                <br/>
+                <button type="submit" class="btnGuardar" value="guardar">Guardar</button>
+                <button type="submit" class="btnCancelar" value="cancelar" onclick="location.href='@Url.Action("TomarLista", "Consejero")'">Cancelar</button>
+            </form>
+
+        </div>
+
+    </div>
+</div>

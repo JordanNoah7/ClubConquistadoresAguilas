@@ -5,118 +5,41 @@
 }
 
 <link rel="stylesheet" href="~/css/Create.css" asp-append-version="true" />
-<div class="formCrud">
+<link rel="stylesheet" href="~/css/CrudOrganizacion.css" asp-append-version="true"/>
+<div class="recent-order">
     <h2>
         Asignar Clase a Conquistador***
 
     </h2>
 
-    <div class="row">
-        <div class="col">
-            <form action="@Url.Action("AsignarClase", "Consejero")" method="post" autocomplete="off">
-                <div class="form-group" style="display: none !important;">
-                    <input type="number" name="id" class="form-control" required value="@Model.Id">
-                </div>
-
-                <div class="form-group">
-                    <label class="control-label">DNI: *</label>
-                    <input type="number" name="Dni" aria-label="Dni: " class="text-muted" required value="@Model.Dni">
-                    <span class="text-danger"></span>
-                </div>
-
-                <div class="form-group">
-                    <label class="control-label">Nombre(s) : *</label>
-                    <input type="text" aria-label="Nombre" class="text-muted" name="FirstName" required value="@Model.FirstName">
-                    <span class="text-danger"></span>
-                </div>
-
-                <div class="form-group">
-                    <label class="control-label">Apellido Paterno : *</label>
-                    <input type="text" aria-label="Apellidos" class="text-muted" name="FatherSurname" required value="@Model.FathersSurname">
-                    <span class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label class="control-label">Apellido Materno : *</label>
-                    <input type="text" aria-label="Apellidos" class="text-muted" name="MotherSurname" required value="@Model.MothersSurname">
-                    <span class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label class="control-label">Fecha Nacimiento : *</label>
-                    <input type="date" aria-label="FechaNac" class="text-muted" name="Birthday" required value="@Model.BirthDate">
-                    <span class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label class="control-label">Sexo: *</label>
-                    <select name="Sex" id="Sexo">
-                        @switch (@Model.Gender)
-                        {
-                            case "M":
-                                <option value="M" selected>Masculino</option>
-                                <option value="F">Femenino</option>
-                                break;
-                            case "F":
-                                <option value="M">Masculino</option>
-                                <option value="F" selected>Femenino</option>
-                                break;
-                        }
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label class="control-label">Telefono:*</label>
-                    <input type="number" aria-label="telefono" class="form-control" name="Phone" required value="@Model.Phone">
-                    <span class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label class="control-label">Correo:*</label>
-                    <input type="email" placeholder="email@gmail.com" aria-label="email" class="form-control" name="Email" required value="@Model.Email">
-                    <span class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label class="control-label">Direccion:*</label>
-                    <input type="text" aria-label="direccion" class="text-muted" name="Address" required value="@Model.Address">
-                    <span class="text-danger"></span>
-                </div>
-
-                <div class="form-group">
-                    <label for="clase">Clase</label>
-                    <select name="Class" id="clase">
-                        @foreach (var classes in ViewBag.Classes)
-                        {
-                            if (classes.Value == Model.ClassId)
-                            {
-                                <option value="@classes.Value" selected>@classes.Text</option>
-                            }
-                            else
-                            {
-                                <option value="@classes.Value">@classes.Text</option>
-                            }
-                        }
-                    </select>
-                </div>
-                <br />
-                <br />
-                <div class="form-group">
-                    <label class="control-label">Usuario:</label>
-                    <input type="text" aria-label="usuario" class="text-muted" name="Username" required value="@Model.User.UserName">
-                    <span class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label class="control-label">Contraseña:</label>
-                    <input type="password" aria-label="pasword" class="form-control" name="Password" required value="@Model.User.Password">
-                    <span class="text-danger"></span>
-                </div>
-                <br />
-                <br />
-                <button type="submit" class="btnGuardar" value="guardar">Guardar</button>
-
-                <button type="submit" class="btnCancelar" value="cancelar" onclick="location.href='@Url.Action("UnidadConsejero", "Consejero")'">Cancelar</button>
-
-            </form>
-
-        </div>
-
-    </div>
+    <table class="table table-hover">
+            <thead>
+            <tr name="columna">
+                <th class="nombre" name="colNombre">Nombre</th>
+                <th class="apellido" name="colApellido">Apellidos</th>
+                <th class="clase" name="colClase">Clase</th>
+                <th class="cargo" name="colCargo">Eliminar</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model.PersonList)
+            {
+                <tr name="fila">
+                    <td class="nombre" name="rowNombre">@item.FirstName</td>
+                    <td class="apellido" name="rowApellido">@item.FullSurname</td>
+                    <td class="clase" name="rowClase">@item.Class</td>
+                    <td>
+                        <form action="@Url.Action("EditClass", "Consejero")" method="get">
+                            <input type="hidden" name="nro" value="@item.Id"/>
+                            <button type="submit" id="delete" class="btn btn-default">
+                                <span class="material-symbols-outlined">delete</span>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
 </div>
 
 @if (!string.IsNullOrEmpty(ViewBag.Message))

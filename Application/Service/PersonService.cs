@@ -97,6 +97,30 @@ public class PersonService : IPersonService
         }
     }
 
+    public async Task<IEnumerable<Person>> GetPathfindersByUnit(int id)
+    {
+        try
+        {
+            return await _personRepo.GetPathfindersByUnit(id);
+        }
+        catch (Exception e)
+        {
+            return null;
+        }
+    }
+
+    public async Task<IEnumerable<Person>> GetMembersByUnit(int id)
+    {
+        try
+        {
+            return await _personRepo.GetMembersByUnit(id);
+        }
+        catch (Exception e)
+        {
+            return null;
+        }
+    }
+
     public async Task<IEnumerable<Person>> GetManagers()
     {
         try

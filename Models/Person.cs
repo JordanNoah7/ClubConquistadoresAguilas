@@ -25,8 +25,12 @@ public class Person
     public int ClubId { get; set; }
 
     public int? PersonId { get; set; }
+    
+    public byte Total { get; set; }
 
     public byte[] ConcurrencyPerson { get; set; } = new byte[8];
+
+    public Attendance Attendance { get; set; } = null;
 
     public virtual ICollection<ClassPerson> ClassPeople { get; set; } = new List<ClassPerson>();
 

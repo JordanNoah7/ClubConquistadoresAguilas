@@ -548,7 +548,8 @@ ALTER PROCEDURE usp_DeletePerson @PersonID INT
 AS
 BEGIN
     BEGIN TRAN;
-    IF @PersonID NOT IN (SELECT PPA.PersonID FROM PositionPersonActivity PPA WHERE PPA.PersonID = @PersonID AND PPA.PositionID = 6)
+    IF @PersonID NOT IN
+       (SELECT PPA.PersonID FROM PositionPersonActivity PPA WHERE PPA.PersonID = @PersonID AND PPA.PositionID = 6)
         BEGIN
             BEGIN TRY
                 DELETE SP
@@ -586,7 +587,7 @@ BEGIN
                 RAISERROR ('Error al eliminar persona', 16, 1);
             END CATCH
         END
-        ELSE
+    ELSE
         BEGIN
             RAISERROR ('La persona es encargada de una actividad', 16, 1);
         END
@@ -982,14 +983,14 @@ GO
 
 ---Procidimiento para actualizar cabecera de actividad
 Alter PROCEDURE usp_UpdateActivity @ActivityId INT,
-                                    @name nvarchar(50),
-                                    @startDate date,
-                                    @endDate date,
-                                    @location nvarchar(50),
-                                    @description nvarchar(MAX),
-                                    @requirements NVARCHAR(MAX),
-                                    @manager int,
-                                    @concurrency TIMESTAMP
+                                   @name nvarchar(50),
+                                   @startDate date,
+                                   @endDate date,
+                                   @location nvarchar(50),
+                                   @description nvarchar(MAX),
+                                   @requirements NVARCHAR(MAX),
+                                   @manager int,
+                                   @concurrency TIMESTAMP
 AS
 BEGIN
     BEGIN TRAN;
@@ -1114,6 +1115,106 @@ BEGIN
 END
 GO
 -------------------------------------------------------------------------------------------Listo
-
-select * from People join Users U on People.ID = U.ID join UserRol UR on U.ID = UR.UserID where ur.RolID = 2
+---Funcion para obtener la suma de puntos para insertar el total
+CREATE FUNCTION uf_CalculateTotal(@frecuency TINYINT,
+                                  @devotion TINYINT,
+                                  @monthly TINYINT,
+                                  @discipline TINYINT,
+                                  @year TINYINT,
+                                  @requeriments TINYINT)
+    RETURNS TINYINT
+AS
+BEGIN
+    DECLARE @total SMALLINT;
+    SET @total = @frecuency + @devotion + @monthly + @discipline + @year + @requeriments;
+    RETURN @total;
+END
+-------------------------------------------------------------------------------------------Listo
+---Vista para obtener la suma de puntos de las personas en el año actual
+CREATE VIEW AttendancePointByYear
+AS
+SELECT P.ID,
+       SUM(A.frecuency) + SUM(A.devotion) + SUM(A.monthly) + SUM(A.discipline) + SUM(A.year) +
+       SUM(A.requeriments) AS Total
+FROM People P
+         JOIN Attendance A on P.ID = A.PersonID
+WHERE YEAR(A.date) = YEAR(GETDATE())
+GROUP BY P.ID, YEAR(A.date)
+-------------------------------------------------------------------------------------------Listo
+---Procedimiento para insertar los puntos
+alter PROC usp_InsertAttendance @PersonID INT,
+                                @frecuency TINYINT,
+                                @devotion TINYINT,
+                                @monthly TINYINT,
+                                @discipline TINYINT,
+                                @year TINYINT,
+                                @requeriments TINYINT
+AS
+BEGIN
+    BEGIN TRAN;
+    BEGIN TRY
+        INSERT INTO Attendance (PersonID, frecuency, devotion, monthly, discipline, year, requeriments)
+        VALUES (@PersonID, @frecuency, @devotion, @monthly, @discipline, @year, @requeriments)
+        COMMIT TRAN;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRAN;
+        RAISERROR ('Error al insertar la asistencia.', 16, 1);
+    END CATCH
+END
+GO
+-------------------------------------------------------------------------------------------Listo
+---Procedimiento para obtener la lista de conquistadores por unidad
+alter PROCEDURE usp_GetPathfindersByUnit @UnitID INT
+AS
+BEGIN
+    BEGIN TRAN;
+    BEGIN TRY
+        SELECT P.ID,
+               P.firstName,
+               P.fathersSurname,
+               P.mothersSurname,
+               COALESCE(APBY.Total, 0) Total
+        FROM People P
+                 JOIN PositionPersonUnit PPU ON P.ID = PPU.PersonID
+                 LEFT JOIN AttendancePointByYear APBY ON P.ID = APBY.ID
+        WHERE DATEDIFF(YEAR, P.birthDate, GETDATE()) <= 15
+          AND PPU.UnitID = @UnitID
+          AND P.ID NOT IN (SELECT A.PersonID
+                           FROM Attendance A
+                           WHERE A.date = CAST(GETDATE() AS DATE));
+        COMMIT TRAN;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRAN;
+        RAISERROR ('Error al obtener a los conquistadores de la unidad.', 16, 1);
+    END CATCH
+END
+GO
+-------------------------------------------------------------------------------------------Listo
+---Procedimiento para obtener la lista de todos los miembros de la unidad
+ALTER PROCEDURE usp_GetMembersByUnit @UnitID INT
+AS
+BEGIN
+    BEGIN TRAN;
+    BEGIN TRY
+        SELECT P.ID,
+               P.firstName,
+               P.fathersSurname,
+               P.mothersSurname,
+               C.name
+        FROM People P
+                 JOIN PositionPersonUnit PPU ON P.ID = PPU.PersonID
+        JOIN ClassPerson CP on P.ID = CP.PersonID
+        JOIN Classes C on C.ID = CP.ClassID
+        WHERE PPU.UnitID = @UnitID;
+        COMMIT TRAN;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRAN;
+        RAISERROR ('Error al obtener a los miembros de la unidad.', 16, 1);
+    END CATCH
+END
+GO
+-------------------------------------------------------------------------------------------Listo
 select * from Roles

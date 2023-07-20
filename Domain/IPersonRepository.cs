@@ -23,4 +23,6 @@ public interface IPersonRepository
     Task<IEnumerable<Person>> GetCounselors();
     Task<IEnumerable<Person>> GetInstructors();
     Task<IEnumerable<Person>> GetParents();
+    Task<IEnumerable<Person>> GetPathfindersByUnit(int id);
+    Task<IEnumerable<Person>> GetMembersByUnit(int id);
 }

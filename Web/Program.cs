@@ -3,6 +3,8 @@ using Application.Service;
 using DataAccess;
 using Domain;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using AttendanceRepository = DataAccess.AttendanceRepository;
+
 //using Infrastructure.Context;
 
 //using Microsoft.EntityFrameworkCore;
@@ -43,8 +45,9 @@ builder.Services.AddScoped<IRoleService, RoleService>();
 //Activity
 builder.Services.AddScoped<IActivityRepository, ActivityRepository>();
 builder.Services.AddScoped<IActivityService, ActivityService>();
-//Club
-
+//Attendance
+builder.Services.AddScoped<IAttendanceRepository, AttendanceRepository>();
+builder.Services.AddScoped<IAttendanceService, AttendanceService>();
 
 var app = builder.Build();
 

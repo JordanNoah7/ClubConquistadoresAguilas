@@ -220,3 +220,18 @@ CREATE TABLE RolPermission
     CONSTRAINT FK_RolPermission_Permission FOREIGN KEY (PermissionID) REFERENCES Permissions (ID),
     CONSTRAINT FK_RolPermission_Rol FOREIGN KEY (RolID) REFERENCES Roles (ID),
 );
+
+--Creacion de tabla para asistencia
+CREATE TABLE Attendance
+(
+    PersonID     INT                    NOT NULL,
+    date         DATE DEFAULT GETDATE() NOT NULL,
+    frecuency    TINYINT                NOT NULL,
+    devotion     TINYINT                NOT NULL,
+    monthly      TINYINT                NOT NULL,
+    discipline   TINYINT                NOT NULL,
+    year         TINYINT                NOT NULL,
+    requeriments TINYINT                NOT NULL,
+    CONSTRAINT PK_Attendance PRIMARY KEY (PersonID, date),
+    CONSTRAINT FK_People_Attendance FOREIGN KEY (PersonID) REFERENCES People (ID)
+);

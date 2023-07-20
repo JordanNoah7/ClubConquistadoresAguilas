@@ -42,6 +42,8 @@ public class VmPerson
 
     public int? PersonId { get; set; }
     
+    public byte Total { get; set; }
+    
     public object ConcurrencyPerson { get; set; } = null!;
     
     public VmUser User { get; set; }
