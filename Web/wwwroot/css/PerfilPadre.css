@@ -1,0 +1,113 @@
+﻿:root {
+    --color-background: #f6f6f9;
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 0.8rem;
+    --border-radius-3: 1.2rem;
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+    --color-white: white;
+    --color-dark: #737373;
+    --color-dark-variant: #979497;
+    --color-light: white;
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+.variablesTemaOscuro {
+    --color-background: #181a1e;
+    --color-white: #202528;
+    --color-dark: #edeffd;
+    --color-dark-variant: #a3bdcc;
+    --color-light: rgba(0,0,0,0.4);
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+main .insights {
+    margin-block-start: 20px;
+    display: grid;
+    gap: 1.6rem;
+}
+
+.insights div.hijo {
+    border: 1px solid transparent;
+    border-left: 20px solid red;
+    background-color: #c92c2c2e;
+    color: #000;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 1rem;
+    display: block;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+}
+
+
+
+        main .insights > div p {
+            color: green;
+            font-size: 20px;
+        }
+
+
+        main .insights > div .middle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+            main .insights h3 {
+                margin: 1rem 0 0.6rem;
+                font-size: 1rem;
+            }
+
+main .insights .middle .linea{
+    border-left: 3px solid red;
+    height: 100px;
+    max-width: 2px;
+    padding: 0;
+    margin: 2px auto 2px auto;
+}
+
+
+main .insights > div .middle .block {
+  
+    width: 200px;
+    height: 60px;
+    line-height: 60px;
+    
+}
+    main .insights > div .middle .block h3{
+       
+        display: inline-block;
+        width: 25px;
+        height: 15px;
+        line-height: 15px;
+        vertical-align: baseline; /* Y */
+        text-align: center;
+    }
+
+main .insights .middle .left{
+    justify-content:left;
+    justify-items:left;
+    justify-items:left;
+}
+
+main .insights .middle .left span {
+    text-align: left;
+    display: flex;
+    color: #879138;
+    align-items: center;
+}
+
+main .insights > div .middle .left a h3{
+    display: block;
+    color: #979497;
+    align-items: flex-end;
+    position: relative;
+    height: 3.7rem;
+   
+}
+
+

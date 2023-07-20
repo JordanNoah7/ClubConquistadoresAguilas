@@ -16,7 +16,7 @@
 
 <div class="recent-order">
 
-    <h2>Particpiantes ↓</h2>
+    <h2>Participantes ↓</h2>
     <table class="table table-hover">
         <thead>
         <tr name="columna">
@@ -51,7 +51,7 @@
     </table>
     <br/>
     <br/>
-    <h2>No Particpiantes ↑</h2>
+    <h2>No Participantes ↑</h2>
     <table class="table table-hover">
 
         <thead>
@@ -59,7 +59,7 @@
             <th class="firstname" name="colNombre">Nombre</th>
             <th class="firstsurname" name="colFecIni">Apellido Paterno</th>
             <th class="lastsurname" name="colFecFin">Apellido Materno</th>
-            <th class="delete" name="colCargo">Eliminar</th>
+            <th class="delete" name="colCargo">Agregar</th>
         </tr>
         </thead>
         <tbody>
@@ -75,7 +75,7 @@
                         <form action="@Url.Action("AddParticipants", "Actividades")" method="post">
                             <input type="hidden" name="nro" value="@Model.Id"/>
                             <input type="hidden" name="id" value="@item.Id"/>
-                            <button type="submit" id="delete" class="btn btn-default">
+                            <button type="submit" id="edit" class="btn btn-default">
                                 <span class="material-symbols-outlined"> add</span>
                             </button>
                         </form>

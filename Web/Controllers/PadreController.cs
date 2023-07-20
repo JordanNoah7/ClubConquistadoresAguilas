@@ -23,7 +23,11 @@ public class PadreController : Controller
     {
         return View();
     }
-
+    // GET: PadreController/PerfilConquis--para mostrar perfil del hijo conquistador
+    public ActionResult PerfilHijoConquis()
+    {
+        return View();
+    }
     // GET: PadreController/Details/5
     public async Task<ActionResult> Details()
     {

@@ -1,16 +1,44 @@
-﻿@{
-    Layout = null;
+﻿
+@{
+    Layout = "_LayoutCrud";
 }
 
-<!DOCTYPE html>
+<link rel="stylesheet" href="~/css/PerfilPadre.css" asp-append-version="true" />
 
-<html>
-<head>
-    <title>title</title>
-</head>
-<body>
-<div>
 
+<div class="insights">
+
+            <div class="hijo">
+                <div class="middle">
+                    <div class="rigth">
+                        <h3>Nombre: <b>Juan Velazco</b></h3>
+                        
+                        @*<div class="block">
+                            <span class="material-symbols-outlined">savings</span>
+                    <h3>S/.<b>10.00</b> </h3>
+                        </div>*@
+                        
+                    </div>
+                    <div class="linea"></div>
+                    <div class="center">
+                       <h3>Dni: <b>12345678</b></h3>
+                      @*  <h3>Puntaje:</h3>
+                        <div class="block">
+                            <span class="material-symbols-outlined">grade</span>
+                            <b>10.00</b>
+                        </div>*@
+
+                    </div>
+                    <div class="linea"></div>
+                    <div class="left">
+                        <a class="active" asp-area="" asp-controller="Padre" asp-action="PerfilHijoConquis">
+                            <span class="material-symbols-outlined">open_in_new</span>
+                        </a>
+                        <h3>Clase: <b>Amigo</b></h3>
+                        <h3>Unidad: <b>Fenix</b></h3>
+                    </div>
+
+                </div>
+            </div>
 </div>
-</body>
-</html>
+

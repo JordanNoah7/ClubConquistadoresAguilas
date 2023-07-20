@@ -34,13 +34,22 @@
     </div>
 
     <div class="sidebar">
-        <a class="active" asp-area="" asp-controller="Crud" asp-action="Inicio">
-            <span class="material-symbols-outlined">dashboard</span>
-            <h3>Inicio</h3>
-        </a>
+        
         @switch (vmRole.Name)
         {
+            case "Conquistador":
+                <a class="active" asp-area="" asp-controller="Crud" asp-action="Inicio">
+                    <span class="material-symbols-outlined">dashboard</span>
+                    <h3>Inicio</h3>
+                </a>
+
+
+            break;
             case "Director":
+                        <a class="active" asp-area="" asp-controller="Crud" asp-action="Inicio">
+                            <span class="material-symbols-outlined">dashboard</span>
+                            <h3>Inicio</h3>
+                        </a>
                 <div class="categorias">
                     <ul>
 
@@ -95,6 +104,10 @@
                 break;
 
             case "Consejero":
+                        <a class="active" asp-area="" asp-controller="Crud" asp-action="Inicio">
+                            <span class="material-symbols-outlined">dashboard</span>
+                            <h3>Inicio</h3>
+                        </a>
 
                 <a asp-area="" asp-controller="Consejero" asp-action="TomarLista">
                     <span class="material-symbols-outlined">contract_edit</span>
@@ -111,6 +124,10 @@
                 break;
 
             case "Instructor":
+                        <a class="active" asp-area="" asp-controller="Crud" asp-action="Inicio">
+                            <span class="material-symbols-outlined">dashboard</span>
+                            <h3>Inicio</h3>
+                        </a>
 
                 <a asp-area="" asp-controller="Instructor" asp-action="Registrar_Notas">
                     <span class="material-symbols-outlined">spellcheck</span>
@@ -124,6 +141,10 @@
 
                 break;
             case "Tesorero":
+                        <a class="active" asp-area="" asp-controller="Crud" asp-action="Inicio">
+                            <span class="material-symbols-outlined">dashboard</span>
+                            <h3>Inicio</h3>
+                        </a>
 
                 <a asp-area="" asp-controller="Tesoreria" asp-action="Inscripcion">
                     <span class="material-symbols-outlined">monetization_on</span>
@@ -137,7 +158,15 @@
 
                 </a>
 
-                break;
+            break;
+
+            case "Apoderado":
+                        <a class="active" asp-area="" asp-controller="Padre" asp-action="Index">
+                            <span class="material-symbols-outlined">dashboard</span>
+                            <h3>Inicio</h3>
+                        </a>
+
+            break;
         }
         <a asp-area="" asp-controller="Login" asp-action="LogOut">
             <span class="material-symbols-outlined">logout</span>
@@ -179,6 +208,8 @@
         </div>
     </div>
     @*fin top*@
+
+
     <div class="seccion-updates">
         <h2>Ideales :</h2>
         <div class="updates">
@@ -233,11 +264,11 @@
 
         </div>
     </div>
-
+   
     @*fin de seccion-updates*@
     @*inicio detalles-perfil*@
 
-    <div class="detalles-perfil">
+    @*<div class="detalles-perfil">
         <h2>Detalles: </h2>
         <div class="item notas">
             <div class="icon">
@@ -265,9 +296,9 @@
                 <h5 class="danger">00</h5>
             </div>
         </div>
-    </div>
+    </div>*@
 
-
+  
 </div>
 </div>
 <script src="~/js/layoutCrud.js"></script>
