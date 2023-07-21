@@ -1,4 +1,5 @@
-﻿using Application.IService;
+﻿using System.Security.Claims;
+using Application.IService;
 using Microsoft.AspNetCore.Mvc;
 using Models;
 using Web.Models;
@@ -7,10 +8,12 @@ namespace Web.Controllers;
 
 public class InstructorController : Controller
 {
+    private readonly ICategoryService _categoryService;
     private readonly IClassService _classService;
     private readonly IPersonService _personService;
     private readonly IPositionService _positionService;
     private readonly IRoleService _roleService;
+    private readonly ISpecialtyService _specialtyService;
     private readonly IUnitService _unitService;
 
     private byte[] concurrency = new byte[8];
@@ -18,13 +21,16 @@ public class InstructorController : Controller
     public InstructorController(IPersonService personService, IClassService classService,
         IPositionService positionService,
         IRoleService roleService,
-        IUnitService unitService)
+        IUnitService unitService, ISpecialtyService specialtyService,
+        ICategoryService categoryService)
     {
         _personService = personService;
         _classService = classService;
         _positionService = positionService;
         _roleService = roleService;
         _unitService = unitService;
+        _specialtyService = specialtyService;
+        _categoryService = categoryService;
     }
 
     // GET: InstructorController
@@ -70,13 +76,40 @@ public class InstructorController : Controller
     }
 
     // GET: InstructorController/Registrar_Notas
-    public ActionResult Registrar_Notas()
+    public async Task<ActionResult> Registrar_Notas()
     {
-        return View();
+        var list = new List<VmPerson>();
+        var person =
+            await _personService.GetPersonClassById(Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier)));
+        var pathfinders = await _personService.GetPathfindersByClass(person.ClassPeople.FirstOrDefault().Class.Id);
+
+        foreach (var pathfinder in pathfinders.ToList())
+            list.Add(new VmPerson
+            {
+                Id = pathfinder.Id,
+                FirstName = pathfinder.FirstName,
+                FullSurname = pathfinder.FathersSurname + " " + pathfinder.MothersSurname
+            });
+
+        var categories = await _categoryService.GetCategories();
+        ViewBag.Categories = categories.Select(c => new
+        {
+            Value = c.Id,
+            Text = c.Name
+        }).ToList();
+
+        var vmPerson = new VmPerson
+        {
+            Class = person.ClassPeople.FirstOrDefault().Class.Name,
+            PersonList = list
+        };
+
+        return View(vmPerson);
     }
 
-    public ActionResult Registrar_Nota()
+    public ActionResult Registrar_nota(int nro, int category)
     {
+        Console.WriteLine(nro + " " + category);
         return View();
     }
 

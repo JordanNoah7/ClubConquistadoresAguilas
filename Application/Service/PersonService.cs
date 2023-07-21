@@ -157,6 +157,18 @@ public class PersonService : IPersonService
         }
     }
 
+    public async Task<IEnumerable<Person>> GetPathfindersByClass(int id)
+    {
+        try
+        {
+            return await _personRepo.GetPathfindersByClass(id);
+        }
+        catch (Exception e)
+        {
+            return null;
+        }
+    }
+
     public async Task<IEnumerable<Person>> GetManagers()
     {
         try

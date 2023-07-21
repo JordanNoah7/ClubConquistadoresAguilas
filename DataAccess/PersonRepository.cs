@@ -657,6 +657,44 @@ public class PersonRepository : ConnectionRepository, IPersonRepository
         }
     }
 
+    public async Task<IEnumerable<Person>> GetPathfindersByClass(int id)
+    {
+        var membersList = new List<Person>();
+        using (var cnDb = Connection.GetConnection(Configuration))
+        {
+            try
+            {
+                using (var cmd = new SqlCommand("usp_GetPathfindersByClass", cnDb))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.AddWithValue("@ClassId", id);
+                    Connection.OpenConnection();
+                    using (var dr = await cmd.ExecuteReaderAsync())
+                    {
+                        while (await dr.ReadAsync())
+                            membersList.Add(new Person
+                            {
+                                Id = Convert.ToInt32(dr["ID"]),
+                                FirstName = dr["firstName"].ToString(),
+                                FathersSurname = dr["fathersSurname"].ToString(),
+                                MothersSurname = dr["mothersSurname"].ToString()
+                            });
+                    }
+
+                    Connection.CloseConnection();
+                }
+
+                return membersList;
+            }
+            catch (SqlException ex)
+            {
+                Connection.CloseConnection();
+                return null;
+            }
+        }
+    }
+
     public async Task<IEnumerable<Person>> GetManagers()
     {
         var managerList = new List<Person>();

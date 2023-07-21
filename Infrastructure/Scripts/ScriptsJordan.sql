@@ -1362,40 +1362,60 @@ BEGIN
     END CATCH
 END
 GO
-
-/*select * from Categories
-
-insert into Categories ()
-values ('ADRA', 'Especialidades de ADRA'),
-       ('Artes y habilidades manuales', 'Especialidades de Artes y habilidades manuales'),
-       ('Actividades agricolas', 'Especialidades de Actividades agricolas'),
-       ('Actividades misioneras', 'Especialidades de Actividades misioneras'),
-       ('Actividades profesionales', 'Especialidades de Actividades profesionales'),
-       ('Actividades recreativas', 'Especialidades de Actividades recreativas'),
-       ('Ciencia y salud', 'Especialidades de Ciencia y salud'),
-       ('Estudio de la naturaleza', 'Especialidades de Estudio de la naturaleza'),
-       ('Habilidades domesticas', 'Especialidades de Habilidades domesticas')*/
-
-/*insert into Specialties (name, CategoryID)
-VALUES ();*/
-
-/*Alivio del hambre
-Evaluacion de la comunidad
-Servicio comunitario
-Respuesta a emergencias y desastres
-Respuesta a emergencias y desastres  Avanzado
-Alfabetización
-Resolución de conflictos
-Reasentamiento de refugiados
-Desarrollo comunitario*/
-select *
-from People
-         join Users U on People.ID = U.ID
-         join UserRol UR on People.ID = UR.UserID
-
-select *
-from Roles
-
-delete
-from Attendance
-where PersonID = 2
+-------------------------------------------------------------------------------------------Listo
+---Procedimiento para obtener la lista de categoria de especialidades
+CREATE PROCEDURE usp_GetSpecialtyCategories
+AS
+BEGIN
+    BEGIN TRAN;
+    BEGIN TRY
+        SELECT C.ID,
+               C.name
+        FROM Categories C
+        COMMIT TRAN;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRAN;
+    END CATCH
+END
+GO
+-------------------------------------------------------------------------------------------Listo
+---Procedimiento para obtener la lista de especialidades por categoria
+CREATE PROCEDURE usp_GetSpecialtyByCategory @CategoryId TINYINT
+AS
+BEGIN
+    BEGIN TRAN;
+    BEGIN TRY
+        SELECT S.ID,
+               S.name
+        FROM Specialties S
+        WHERE S.CategoryID = @CategoryId
+        COMMIT TRAN;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRAN;
+    END CATCH
+END
+GO
+-------------------------------------------------------------------------------------------Listo
+---Procedimiento para obtener los conquistadores de la clase
+CREATE PROCEDURE usp_GetPathfindersByClass @ClassId TINYINT
+AS
+BEGIN
+    BEGIN TRAN;
+    BEGIN TRY
+        SELECT P.ID,
+               P.firstName,
+               P.fathersSurname,
+               P.mothersSurname
+        FROM People P
+                 JOIN ClassPerson CP on P.ID = CP.PersonID
+        WHERE CP.ClassID = @ClassId
+        COMMIT TRAN;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRAN;
+    END CATCH
+END
+GO
+-------------------------------------------------------------------------------------------Listo
