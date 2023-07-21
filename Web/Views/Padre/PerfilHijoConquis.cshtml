@@ -1,60 +1,110 @@
-﻿
+﻿@model VmPerson
 @{
-    ViewData["Vista"] = "PerfilHijoConquistador";
+    Layout = "_LayoutCrud";
     ViewBag.Title = "Perfil Hijo Conquistador";
 }
-
-<link rel="stylesheet" href="~/css/perfilconquistador.css" asp-append-version="true" />
-<h1>Hijo Conquistador</h1>
+<link rel="stylesheet" href="~/css/perfilconquistador.css" asp-append-version="true"/>
+<h1>@Model.FirstName @Model.FullSurname</h1>
 <div class="insights">
     <div class="clase">
         <span class="material-symbols-outlined">category</span>
         <div class="middle">
-            <div class="left">
-                <h3>Clase</h3>
-                <h1>Amigo</h1>
-
-            </div>
-            <div class="color">
-               
-
-            </div>
-        </div>
+                    <div class="left">
+                        <h3>Clase</h3>
+                        <h1>@Model.Class</h1>
+                    </div>
+                    <div class="color">
+                        @switch (Model.Class)
+                        {
+                            case "Amigo":
+                                <img src="/img/amigo.png" alt="Amigo" width="100">
+                                break;
+                            case "Amigo de la naturaleza":
+                                <img src="/img/amigo.png" alt="Amigo de la naturaleza" width="100">
+                                break;
+                            case "Compañero":
+                                <img src="/img/companero.png" alt="Compañero" width="100">
+                                break;
+                            case "Compañero de excursionismo":
+                                <img src="/img/companero.png" alt="Compañero de excursionismo" width="100">
+                                break;
+                            case "Explorador":
+                                <img src="/img/explorador.png" alt="Explorador" width="100">
+                                break;
+                            case "Explorador de campo y de bosques":
+                                <img src="/img/explorador.png" alt="Explorador de campo y de bosques" width="100">
+                                break;
+                            case "Pionero":
+                                <img src="/img/pionero.png" alt="Pionero" width="100">
+                                break;
+                            case "Pionero de nuevas fronteras":
+                                <img src="/img/pionero.png" alt="Pionero de nuevas fronteras" width="100">
+                                break;
+                            case "Excursionista":
+                                <img src="/img/excursionista.png" alt="Excursionista" width="100">
+                                break;
+                            case "Excursionista en el bosque":
+                                <img src="/img/excursionista.png" alt="Excursionista en el bosque" width="100">
+                                break;
+                            case "Guía":
+                                <img src="/img/guia.png" alt="Guía" width="100">
+                                break;
+                            case "Guía de exploración":
+                                <img src="/img/guia.png" alt="Guía de exploración" width="100">
+                                break;
+                            case "Guía Mayor":
+                                <img src="/img/gm.png" alt="Guía Mayor" width="100">
+                                break;
+                            case "Guía Mayor Master":
+                                <img src="/img/gmm.png" alt="Guía Mayor Master" width="100">
+                                break;
+                            case "Guía Mayor Master Avanzado":
+                                <img src="/img/gmma.png" alt="Guía Mayor Master Avanzado" width="100">
+                                break;
+                        }
+                    </div>
+                </div>
     </div>
-
-    @*unidad conquistador*@
     <div class="unidad">
-        <span class="material-symbols-outlined">interests</span>
-        <div class="middle">
-            <div class="left">
-                <h3>Unidad</h3>
-                <h1>Fenix</h1>
+                <span class="material-symbols-outlined">interests</span>
+                <div class="middle">
+                    <div class="left">
+                        <h3>Unidad</h3>
+                        <h1>@Model.Unit</h1>
+                    </div>
+                    <div class="color">
+                        @switch (Model.Unit)
+                        {
+                            case "Halcones":
+                                <img src="/img/halcones.png" alt="Amigo" width="100">
+                                break;
+                            case "Fenix":
+                                <img src="/img/fenix.png" alt="Amigo de la naturaleza" width="100">
+                                break;
+                        }
+                    </div>
+                </div>
             </div>
-            <div class="color">
-                <svg>
-                    <circle cx="38" cy="38" r="36"></circle>
-                </svg>
-            </div>
-
-
-        </div>
-    </div>
-    @*datos personales conquistador*@
     <div class="info">
         <span class="material-symbols-outlined">lock_person</span>
         <div class="middle">
             <div class="left">
-                <h3><b>Información General</b></h3>
-                <h5><b>Fecha de nacimiento:</b>BirthDate</h5>
-                <h5><b>Telefono:</b>Phone</h5>
-                <h5><b>Email:</b>Email</h5>
+                <h3>
+                    <b>Información General</b>
+                </h3>
+                <h5>
+                    <b>Fecha de nacimiento:</b> @Model.BirthDate
+                </h5>
+                <h5>
+                    <b>Telefono:</b> @Model.Phone
+                </h5>
+                <h5>
+                    <b>Email:</b> @Model.Email
+                </h5>
             </div>
-
         </div>
     </div>
 </div>
-
-@*Pedir Auxilio*@
 <div class="auxilio">
     @*inicio detalles-perfil*@
     <div class="right">
@@ -80,9 +130,9 @@
                     <div class="info">
                         <h3>PUNTAJE</h3>
                         <small class="text-muted">Hasta la fecha</small>
-
+    
                     </div>
-                    <h5 class="success">00</h5>
+                    <h5 class="success">@Model.TotalPoints.ToString()</h5>
                 </div>
             </div>
             <div class="item ahorro">
@@ -93,9 +143,9 @@
                     <div class="info">
                         <h3>AHORRO</h3>
                         <small class="text-muted">Hasta la fecha</small>
-
+    
                     </div>
-                    <h5 class="danger">00</h5>
+                    <h5 class="danger">@Model.TotalSavings.ToString()</h5>
                 </div>
             </div>
         </div>
@@ -117,13 +167,8 @@
             <button onclick="location.href='https://wa.me/966871384'" type="button">Grupo de Conquistadores</button>
             <img src="/img/conquistador1.png" />
         </div>
-       
-        
+        <script>
+            (g => { var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__", m = document, b = window; b = b[c] || (b[c] = {}); var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams, u = () => h || (h = new Promise(async (f, n) => { await (a = m.createElement("script")); e.set("libraries", [...r] + ""); for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]); e.set("callback", c + ".maps." + q); a.src = `https://maps.${c}apis.com/maps/api/js?` + e; d[q] = f; a.onerror = () => h = n(Error(p + " could not load.")); a.nonce = m.querySelector("script[nonce]")?.nonce || ""; m.head.append(a) })); d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)) })
+                ({ key: "AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg", v: "beta" });</script>
     </div>
-  
-
-    @*fin de seccion-updates*@
-
-    
 </div>
-

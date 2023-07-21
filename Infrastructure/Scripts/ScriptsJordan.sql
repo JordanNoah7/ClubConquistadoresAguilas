@@ -208,14 +208,18 @@ BEGIN
                P.phone,
                P.email,
                CP.ClassID,
-               C.name class,
+               C.name     class,
                PPU.UnitID,
-               U.name unit
+               U.name     unit,
+               coalesce(APBY.Total,0) points,
+               coalesce(SBY.Total,0)  savings
         FROM People AS P
-                 JOIN ClassPerson CP on P.ID = CP.PersonID
-                 JOIN Classes C on C.ID = CP.ClassID
-                 JOIN PositionPersonUnit PPU on P.ID = PPU.PersonID
-                 JOIN Units U on U.ID = PPU.UnitID
+                 LEFT OUTER JOIN ClassPerson CP on P.ID = CP.PersonID
+                 LEFT OUTER JOIN PositionPersonUnit PPU on P.ID = PPU.PersonID
+                 LEFT OUTER JOIN Classes C on C.ID = CP.ClassID
+                 LEFT OUTER JOIN Units U on U.ID = PPU.UnitID
+                 LEFT JOIN AttendancePointByYear APBY on APBY.ID = p.ID
+                 left join SavingsByYear SBY on p.id = SBY.id
         WHERE P.ID = @PersonID
           AND YEAR(CP.year) = YEAR(getdate())
         COMMIT TRAN;
@@ -226,6 +230,8 @@ BEGIN
     END CATCH
 END
 GO
+
+exec usp_GetPersonClassByID 30
 ---------------------------------------------------------------------------------------------Listo
 ---Procedimiento para obtener una persona
 CREATE PROCEDURE usp_GetPersonByID @PersonID INT
@@ -1360,27 +1366,154 @@ BEGIN
     END CATCH
 END
 GO
+-------------------------------------------------------------------------------------------Listo
+---Procedimiento para obtener la lista de categoria de especialidades
+CREATE PROCEDURE usp_GetSpecialtyCategories
+AS
+BEGIN
+    BEGIN TRAN;
+    BEGIN TRY
+        SELECT C.ID,
+               C.name
+        FROM Categories C
+        COMMIT TRAN;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRAN;
+    END CATCH
+END
+GO
+-------------------------------------------------------------------------------------------Listo
+---Procedimiento para obtener la lista de especialidades por categoria
+CREATE PROCEDURE usp_GetSpecialtyByCategory @CategoryId TINYINT
+AS
+BEGIN
+    BEGIN TRAN;
+    BEGIN TRY
+        SELECT S.ID,
+               S.name
+        FROM Specialties S
+        WHERE S.CategoryID = @CategoryId
+        COMMIT TRAN;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRAN;
+    END CATCH
+END
+GO
+-------------------------------------------------------------------------------------------Listo
+---Procedimiento para obtener los conquistadores de la clase
+CREATE PROCEDURE usp_GetPathfindersByClass @ClassId TINYINT
+AS
+BEGIN
+    BEGIN TRAN;
+    BEGIN TRY
+        SELECT P.ID,
+               P.firstName,
+               P.fathersSurname,
+               P.mothersSurname
+        FROM People P
+                 JOIN ClassPerson CP on P.ID = CP.PersonID
+        WHERE CP.ClassID = @ClassId
+        COMMIT TRAN;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRAN;
+    END CATCH
+END
+GO
+-------------------------------------------------------------------------------------------Listo
+---Procedimiento para insertar nota de conquistador
+CREATE PROCEDURE usp_InsertNote @PersonID INT,
+                                @SpecialtyID INT,
+                                @Note TINYINT
+AS
+BEGIN
+    BEGIN TRAN;
+    BEGIN TRY
+        IF @PersonID IN (SELECT SP.PersonID FROM SpecialtyPerson SP WHERE SP.SpecialtyID = @SpecialtyID)
+            BEGIN
+                UPDATE SpecialtyPerson
+                SET Note = @Note
+                WHERE PersonID = @PersonID
+                  AND SpecialtyID = @SpecialtyID
+            END
+        ELSE
+            BEGIN
+                INSERT INTO SpecialtyPerson (PersonID, SpecialtyID, Note)
+                VALUES (@PersonID, @SpecialtyID, @Note)
+            END
+        COMMIT TRAN;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRAN;
+        RAISERROR ('Error al insertar la nota.',16,1);
+    END CATCH
+END
+GO
+-------------------------------------------------------------------------------------------Listo
+--Procedimiento para obtener los hijos de un padre debe tener nombres y apellidos, Dni, clase y unidad
+alter PROCEDURE usp_GetChildren @FatherId INT
+AS
+BEGIN
+    BEGIN TRAN;
+    BEGIN TRY
+        SELECT P.Id, P.DNI, P.FirstName, P.FathersSurname, P.MothersSurname, c.name class, u.name unit
+        FROM People P
+                 JOIN ClassPerson CP ON P.Id = CP.PersonId
+                 JOIN Classes C ON cp.ClassId = c.ID
+                 JOIN PositionPersonUnit PPU ON ppu.PersonId = P.Id
+                 JOIN UNITS U ON U.ID = PPU.UNITID
+        WHERE p.PersonId = @FatherId
+        COMMIT TRAN;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRAN;
+    END CATCH
+END
+GO
 
-insert into Categories (name, description)
-values ('ADRA', 'Especialidades de ADRA'),
-       ('Artes y habilidades manuales', 'Especialidades de Artes y habilidades manuales'),
-       ('Actividades agricolas', 'Especialidades de Actividades agricolas'),
-       ('Actividades misioneras', 'Especialidades de Actividades misioneras'),
-       ('Actividades profesionales', 'Especialidades de Actividades profesionales'),
-       ('Actividades recreativas', 'Especialidades de Actividades recreativas'),
-       ('Ciencia y salud', 'Especialidades de Ciencia y salud'),
-       ('Estudio de la naturaleza', 'Especialidades de Estudio de la naturaleza'),
-       ('Habilidades domesticas', 'Especialidades de Habilidades domesticas')
 
-/*insert into Specialties (name, CategoryID)
-VALUES ();*/
+--Arreglar el sp personclassbyid para que muestre puntos y ahorro más
 
-/*Alivio del hambre
-Evaluacion de la comunidad
-Servicio comunitario
-Respuesta a emergencias y desastres
-Respuesta a emergencias y desastres  Avanzado
-Alfabetización
-Resolución de conflictos
-Reasentamiento de refugiados
-Desarrollo comunitario*/
+--Procedimiento para insertar ahorro de conquistador
+CREATE PROC usp_InsertFee @PersonId INT, @Fee DECIMAL(10, 2)
+AS
+begin
+    begin tran;
+    begin try
+        insert into Savings (PersonId, Fee) VALUES (@PersonId, @Fee);
+        commit tran;
+    end try
+    begin catch
+        rollback tran;
+    end catch
+end
+go
+
+
+
+--Crear tabla de ahorro de conquistador
+CReATE TABLE Savings
+(
+    PersonId INT                    NOT NULL,
+    Date     DATE DEFAULT GETDATE() NOT NULL,
+    Fee      DECIMAL(10, 2),
+    CONSTRAINT PK_Savings PRIMARY KEY (PersonId, Date),
+    CONSTRAINT FK_PERSON_SAVINGS FOREIGN KEY (PersonId) REFERENCES People (Id),
+    CONSTRAINT CK_Fee CHECK (Fee > 0)
+);
+
+
+
+CREATE VIEW SavingsByYear
+AS
+SELECT P.ID,
+       SUM(S.Fee) AS Total
+FROM People P
+         JOIN Savings S on P.ID = S.PersonID
+WHERE YEAR(s.date) = YEAR(GETDATE())
+GROUP BY P.ID, YEAR(s.date)
+
+update People set PersonID = 22 where ID = 9
+exec usp_GetPersonClassByID 2

@@ -1,39 +1,25 @@
 @model VmPerson
 @{
-    //Layout = "_LayoutCrud";
-    ViewData["Vista"] = "Details";
     ViewBag.Title = "Consejeros";
 }
-<!--jQuery library file -->
 <script type="text/javascript"
         src="~/lib/jquery/crudConsejero.js">
 </script>
-
-<!--Datatable plugin JS library file -->
 <script type="text/javascript"
         src="~/lib/jquery/crudConse2.js">
 </script>
-
-<link rel="stylesheet" href="~/css/CrudOrganizacion.css" asp-append-version="true" />
-
-@*action="@Url.Action("Login", "Login")" method="post" autocomplete="off"*@
-
+<link rel="stylesheet" href="~/css/CrudOrganizacion.css" asp-append-version="true"/>
 <div class="recent-order">
-    <h2>
-        Consejeros ***
-        <button type="submit" class="btnCreate" onclick="location.href='@Url.Action("Create", "Consejero")'">Nuevo</button>
-
-    </h2>
-    
+    <h2>Consejeros ***<button type="submit" class="btnCreate" onclick="location.href='@Url.Action("Create", "Consejero")'">Nuevo</button></h2>
     <table class="table display table-hover">
         <thead>
         <tr name="columna">
             <th class="nombre" name="colNombre">Nombre</th>
-                        <th class="apellido" name="colApellido">Apellidos</th>
-                        <th class="clase" name="colClase">Clase</th>
-                        <th class="unidad" name="colUnidad">Unidad</th>
-                        <th class="cargo" name="colCargo">Editar</th>
-                        <th class="cargo" name="colCargo">Eliminar</th>
+            <th class="apellido" name="colApellido">Apellidos</th>
+            <th class="clase" name="colClase">Clase</th>
+            <th class="unidad" name="colUnidad">Unidad</th>
+            <th class="cargo" name="colCargo">Editar</th>
+            <th class="cargo" name="colCargo">Eliminar</th>
         </tr>
         </thead>
         <tbody>
@@ -44,7 +30,6 @@
                 <td class="apellido" name="rowApellido">@item.FullSurname</td>
                 <td class="clase" name="rowClase">@item.Class</td>
                 <td class="unidad" name="rowUnidad">@item.Unit</td>
-                  
                 <td>
                     <form action="@Url.Action("Edit", "Consejero")" method="get">
                         <input type="hidden" name="nro" value="@item.Id"/>
@@ -65,12 +50,8 @@
         }
         </tbody>
     </table>
-
-
 </div>
 <script>
-
-    /* Initialization of datatables */
     $(document).ready(function () {
         $('table.display').DataTable();
     });

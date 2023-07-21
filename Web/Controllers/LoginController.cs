@@ -1,10 +1,8 @@
-﻿using System.Globalization;
-using System.Security.Claims;
+﻿using System.Security.Claims;
 using Application.IService;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
-using Models;
 
 namespace Web.Controllers;
 
@@ -37,7 +35,7 @@ public class LoginController : Controller
 
         if (user.Password.Equals(password))
         {
-            Person person = await _personService.GetPersonById(user.Id);
+            var person = await _personService.GetPersonById(user.Id);
 
             var claims = new List<Claim>
             {
@@ -46,7 +44,7 @@ public class LoginController : Controller
                 new(ClaimTypes.Surname, person.FathersSurname + " " + person.MothersSurname),
                 new(ClaimTypes.Role, user.UserRols.FirstOrDefault().Rol.Name)
             };
-            
+
 
             var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
             var authProperties = new AuthenticationProperties
@@ -72,6 +70,11 @@ public class LoginController : Controller
                 case 6:
                     return RedirectToAction("Index", "Padre");
             }
+        }
+        else
+        {
+            ViewBag.ErrorMessage = "Nombre de usuario o contraseña incorrectos";
+            return View();
         }
 
         ViewBag.ErrorMessage = "Nombre de usuario o contraseña incorrectos";

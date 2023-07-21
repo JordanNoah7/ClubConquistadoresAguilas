@@ -5,6 +5,8 @@ public class SpecialtyPerson
     public int PersonId { get; set; }
 
     public short SpecialtyId { get; set; }
+    
+    public byte Note { get; set; }
 
     public object ConcurrencySp { get; set; } = null!;
 

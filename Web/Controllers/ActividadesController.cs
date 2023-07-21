@@ -10,7 +10,7 @@ public class ActividadesController : Controller
     private readonly IActivityService _activityService;
     private readonly IPersonService _personService;
 
-    private byte[] concurrency = new byte[8];
+    private readonly byte[] concurrency = new byte[8];
 
     public ActividadesController(IActivityService activityService, IPersonService personService)
     {
@@ -178,7 +178,7 @@ public class ActividadesController : Controller
             }
         };
         vmActivity.Id = nro;
-        
+
         Array.Copy(activity.ConcurrencyActivity, concurrency, 8);
         HttpContext.Session.Set("Concurrency", activity.ConcurrencyActivity);
 
@@ -192,7 +192,7 @@ public class ActividadesController : Controller
     {
         try
         {
-            Activity activity = new Activity()
+            var activity = new Activity
             {
                 Id = id,
                 Name = name,
@@ -201,22 +201,16 @@ public class ActividadesController : Controller
                 Location = location,
                 Description = description,
                 Requirements = requirements,
-                Manager = new Person()
+                Manager = new Person
                 {
                     Id = Convert.ToInt32(manager)
                 }
             };
             Array.Copy(HttpContext.Session.Get("Concurrency"), activity.ConcurrencyActivity, 8);
-            
-            if (await _activityService.UpdateActivity(activity))
-            {
-                return RedirectToAction("Details", "Actividades");
-            }
-            else
-            {
-                return RedirectToAction("Edit", "Actividades", new { id });
-            }
 
+            if (await _activityService.UpdateActivity(activity))
+                return RedirectToAction("Details", "Actividades");
+            return RedirectToAction("Edit", "Actividades", new { id });
         }
         catch
         {
@@ -227,8 +221,8 @@ public class ActividadesController : Controller
     // GET: ActividadesController/Delete/5
     public async Task<ActionResult> Delete(int nro)
     {
-        Activity activity = await _activityService.GetActivitie(nro);
-        VmActivity vmActivity = new VmActivity()
+        var activity = await _activityService.GetActivitie(nro);
+        var vmActivity = new VmActivity
         {
             Id = nro,
             Name = activity.Name

@@ -37,8 +37,6 @@ var validaciones = {
 };
 
 
-
-
 campoDNI.addEventListener("input", function () {
     var valor = this.value;
 
@@ -54,16 +52,15 @@ campoDNI.addEventListener("input", function () {
 });
 
 
-
 campoNombre.addEventListener("input", function () {
     var valor = this.value;
 
     if (valor.length < 3) {
-        mensajeAdvertenciaNombre.innerText = "Como mínimo 3 caracteres";
+        mensajeAdvertenciaNombre.innerText = "Como mï¿½nimo 3 caracteres";
         mensajeAdvertenciaNombre.style.display = "inline";
         validaciones.nombre = false;
     } else if (valor.length > 30 || !/^([a-zA-Z]+\s?)+$/.test(valor)) {
-        mensajeAdvertenciaNombre.innerText = "Ingrese un máximo de 30 letras.";
+        mensajeAdvertenciaNombre.innerText = "Ingrese un mï¿½ximo de 30 letras.";
         mensajeAdvertenciaNombre.style.display = "inline";
         validaciones.nombre = false;
     } else {
@@ -75,17 +72,15 @@ campoNombre.addEventListener("input", function () {
 });
 
 
-
-
 campoApellidoPaterno.addEventListener("input", function () {
     var valor = this.value;
 
     if (valor.length < 3) {
-        mensajeAdvertenciaApellido.innerText = "Como mínimo 3 caracteres";
+        mensajeAdvertenciaApellido.innerText = "Como mï¿½nimo 3 caracteres";
         mensajeAdvertenciaApellido.style.display = "inline";
         validaciones.apellidoPaterno = false;
     } else if (/\d/.test(valor)) {
-        mensajeAdvertenciaApellido.innerText = "No se permiten números";
+        mensajeAdvertenciaApellido.innerText = "No se permiten nï¿½meros";
         mensajeAdvertenciaApellido.style.display = "inline";
         validaciones.apellidoPaterno = false;
     } else {
@@ -101,17 +96,17 @@ campoApellidoMaterno.addEventListener("input", function () {
     var valor = this.value;
 
     if (valor.length < 3) {
-        mensajeAdvertenciaMaterno.innerText = "Como mínimo 3 caracteres";
+        mensajeAdvertenciaMaterno.innerText = "Como mï¿½nimo 3 caracteres";
         mensajeAdvertenciaMaterno.style.display = "inline";
         validaciones.apellidoMaterno = false;
     } else if (/\d/.test(valor)) {
-        mensajeAdvertenciaMaterno.innerText = "No se permiten números";
+        mensajeAdvertenciaMaterno.innerText = "No se permiten nï¿½meros";
         mensajeAdvertenciaMaterno.style.display = "inline";
         validaciones.apellidoMaterno = false;
     } else {
         mensajeAdvertenciaMaterno.style.display = "none";
         validaciones.apellidoMaterno = true;
-       
+
     }
 
     validarFormulario();
@@ -129,12 +124,11 @@ document.getElementById("fechaNacimiento").addEventListener("change", function (
     } else {
         document.getElementById("mensajeAdvertencia").style.display = "none";
         validaciones.fechaNacimiento = true;
-       
+
     }
 
     validarFormulario();
 });
-
 
 
 campoTelefono.addEventListener("input", function () {
@@ -145,12 +139,11 @@ campoTelefono.addEventListener("input", function () {
         validaciones.telefono = false;
     } else {
         mensajeAdvertenciaTelefono.style.display = "none";
-        validaciones.telefono = true; 
+        validaciones.telefono = true;
     }
 
     validarFormulario();
 });
-
 
 
 campoDireccion.addEventListener("input", function () {
@@ -166,7 +159,6 @@ campoDireccion.addEventListener("input", function () {
 
     validarFormulario();
 });
-
 
 
 campoUsuario.addEventListener("input", function () {
@@ -196,7 +188,7 @@ campoContrasena.addEventListener("input", function () {
         !regexCaracterEspecial.test(valor) ||
         !regexNumero.test(valor)
     ) {
-        mensajeAdvertenciaContrasena.innerHTML = "Formato de contraseña inválido. Debe contener al menos 8 caracteres, una mayúscula, un carácter especial y un número.";
+        mensajeAdvertenciaContrasena.innerHTML = "Formato de contraseï¿½a invï¿½lido. Debe contener al menos 8 caracteres, una mayï¿½scula, un carï¿½cter especial y un nï¿½mero.";
         mensajeAdvertenciaContrasena.style.display = "inline";
         validaciones.contrasena = false;
     } else {
@@ -217,14 +209,14 @@ function validarFormulario() {
         }
     }
 
-  
+
     if (formValido) {
         btnGuardar.disabled = false;
         btnGuardar.style.cursor = "pointer";
-        btnGuardar.style.backgroundColor ="red";
-        btnGuardar.style.color ="white";
-        btnGuardar.style.borderColor ="red";
-        
+        btnGuardar.style.backgroundColor = "red";
+        btnGuardar.style.color = "white";
+        btnGuardar.style.borderColor = "red";
+
     } else {
         btnGuardar.disabled = true;
         btnGuardar.style.cursor = "not-allowed";

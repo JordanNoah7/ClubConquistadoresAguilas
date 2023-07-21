@@ -37,7 +37,7 @@
                 </div>
                 <div class="form-group" style="display: none !important;">
                     <label class="control-label">Fecha Nacimiento : *</label>
-                    <input type="date" id="fechaNacimiento"  aria-label="FechaNac" class="form-control" name="Birthday" required value="@Model.BirthDate">
+                    <input type="date" id="fechaNacimiento" aria-label="FechaNac" class="form-control" name="Birthday" required value="@Model.BirthDate">
                     <span id="mensajeAdvertencia" style="display:none; color:red;">Debe tener al menos 10 años de edad.</span>
                 </div>
                 <div class="form-group" style="display: none !important;">
@@ -164,8 +164,8 @@
                     <span id="mensajeAdvertenciaContrasena" style="display:none; color:red;">Formato de contraseña inválido. Debe contener al menos 8 caracteres, una mayúscula, un carácter especial y un número.</span>
                 </div>
                 <button type="submit" id="btnGuardar" class="btnGuardar" value="guardar">Guardar</button>
-                <button type="submit" class="btnCancelar" value="cancelar" onclick="location.href='@Url.Action("Details", "Conquistador")'">Cancelar</button>
             </form>
+            <button type="submit" class="btnCancelar" value="cancelar" onclick="location.href='@Url.Action("Details", "Conquistador")'">Cancelar</button>
         </div>
     </div>
 </div>

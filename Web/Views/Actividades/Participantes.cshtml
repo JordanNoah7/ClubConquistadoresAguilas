@@ -1,23 +1,15 @@
 @model VmActivity
 @{
-    //Layout = "_LayoutCrud";
-    ViewData["Vista"] = "Participantes";
     ViewBag.Title = "Lista de Participantes";
 }
-<!--jQuery library file -->
 <script type="text/javascript"
         src="~/js/cruds.js">
 </script>
-
-<!--Datatable plugin JS library file -->
 <script type="text/javascript"
         src="~/js/cruds2.js">
 </script>
-
 <link rel="stylesheet" href="~/css/CrudOrganizacion.css" asp-append-version="true"/>
-
 <div class="recent-order">
-
     <button type="submit" class="btnGuardar" value="guardar" onclick="location.href='@Url.Action("Details", "Actividades")'">Guardar</button>
     <h2>Participantes ↓</h2>
     <table class="table display table-hover">
@@ -54,10 +46,9 @@
     </table>
     <br/>
     <br/>
-    <br />
+    <br/>
     <h2>No Participantes ↑</h2>
     <table class="table display table-hover">
-
         <thead>
         <tr name="columna">
             <th class="firstname" name="colNombre">Nombre</th>
@@ -89,11 +80,8 @@
         }
         </tbody>
     </table>
-    
-   </div>
+</div>
 <script>
-
-    /* Initialization of datatables */
     $(document).ready(function () {
         $('table.display').DataTable();
     });

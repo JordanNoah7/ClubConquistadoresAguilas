@@ -1,55 +1,46 @@
 ﻿@model VmActivity
 @{
-    ViewData["Vista"] = "Edit";
     ViewBag.Title = "Editar Actividad";
 }
 <link rel="stylesheet" href="~/css/Create.css" asp-append-version="true"/>
-
 <div class="formCrud">
     <h2>EDITAR ACTIVIDAD ***</h2>
-
     <div class="row">
         <div class="col">
             <form action="@Url.Action("Edit", "Actividades")" method="post" autocomplete="off">
                 <div class="form-group" style="display: none !important;">
                     <input type="number" name="id" class="form-control" required value="@Model.Id">
                 </div>
-
                 <div class="form-group">
                     <label class="control-label">Nombre: *</label>
                     <input type="text" id="nombre" aria-label="Nombre" class="form-control" required name="name" value="@Model.Name">
                     <span id="mensajeNombre" style="display:none; color:red;">El nombre debe tener como máximo 30 letras y puede contener espacios.</span>
                 </div>
-
                 <div class="form-group">
                     <label class="control-label">Fecha de Inicio: *</label>
-                    <input type="date" id="fechaInicio" aria-label="fecIni"  class="form-control" required name="startDate" value="@Model.StartDate">
+                    <input type="date" id="fechaInicio" aria-label="fecIni" class="form-control" required name="startDate" value="@Model.StartDate">
                     <span id="mensajeFechaInicio" style="display:none; color:red;">La fecha de inicio debe ser igual o posterior a la fecha actual más un día.</span>
                 </div>
                 <div class="form-group">
                     <label class="control-label">Fecha de Fin: *</label>
-                    <input type="date" id="fechaFin" aria-label="Fechafin"  class="form-control" required name="endDate" value="@Model.EndDate">
+                    <input type="date" id="fechaFin" aria-label="Fechafin" class="form-control" required name="endDate" value="@Model.EndDate">
                     <span id="mensajeFechaFin" style="display:none; color:red;">La fecha de fin debe ser mayor que la fecha de inicio.</span>
                 </div>
-
                 <div class="form-group">
                     <label class="control-label">Lugar: *</label>
                     <input type="text" aria-label="lugar" class="form-control" required name="location" value="@Model.Location">
                     <span class="text-danger"></span>
                 </div>
-
                 <div class="form-group">
                     <label class="control-label">Descripción: *</label>
                     <input type="text" aria-label="lugar" class="form-control" required name="description" value="@Model.Description">
                     <span class="text-danger"></span>
                 </div>
-
                 <div class="form-group">
                     <label class="control-label">Requerimientos: *</label>
                     <input type="text" aria-label="lugar" class="form-control" required name="requirements" value="@Model.Requirements">
                     <span class="text-danger"></span>
                 </div>
-
                 <div class="form-group">
                     <label class="control-label">Encargado:</label>
                     <input type="search" aria-label="padre" id="padre" class="form-control">
@@ -67,25 +58,16 @@
                         }
                     </select>
                 </div>
-
-                <br/>
-                <br/>
                 <button type="submit" id="btnGuardar" class="btnGuardar" value="guardar">Guardar</button>
-               
             </form>
-            <button type="submit" id="btnCancelar"  class="btnCancelar" value="cancelar" onclick="location.href='@Url.Action("Details", "Actividades")'">Cancelar</button>
-
+            <button type="submit" id="btnCancelar" class="btnCancelar" value="cancelar" onclick="location.href='@Url.Action("Details", "Actividades")'">Cancelar</button>
         </div>
-
     </div>
-
 </div>
-
 <script>
 document.addEventListener("keyup", e =>{
     e.target.matches("#padre")
     console.log(e.target.value)
-    
     if (e.target.matches("#padre")){
         if (e.key==="Escape")e.target.value = ""
         document.querySelectorAll(".father").forEach(father=>{
@@ -94,7 +76,6 @@ document.addEventListener("keyup", e =>{
     }
 })
 </script>
-
 <script type="text/javascript"
         src="~/js/validacionesActualizarActividad.js">
 </script>

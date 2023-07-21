@@ -16,10 +16,6 @@
     <link rel="icon" type="image/x-icon" href="~/img/smalllogo.png">
     <link rel="stylesheet" href="~/css/EstilosCrud.css" asp-append-version="true"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
-    
- 
-
-
 </head>
 <body>
 <div class="container">
@@ -153,11 +149,11 @@
                     <span class="material-symbols-outlined">dashboard</span>
                     <h3>Inicio</h3>
                 </a>
-               @* <a asp-area="" asp-controller="Notificacion" asp-action="Index">
+                <a asp-area="" asp-controller="Notificacion" asp-action="Index">
                     <span class="material-symbols-outlined">forum</span>
                     <h3>Notificar</h3>
                     <span class="message-count">✆</span>
-                </a>*@
+                </a>
                 break;
         }
         <a asp-area="" asp-controller="Login" asp-action="LogOut">
@@ -248,35 +244,7 @@
     @*fin de seccion-updates*@
     @*inicio detalles-perfil*@
 
-   @* <div class="detalles-perfil">
-        <h2>Detalles: </h2>
-        <div class="item notas">
-            <div class="icon">
-                <span class="material-symbols-outlined">spellcheck</span>
-            </div>
-            <div class="rigth">
-                <div class="info">
-                    <h3>PUNTAJE</h3>
-                    <small class="text-muted">Hasta la fecha</small>
-
-                </div>
-                <h5 class="success">00</h5>
-            </div>
-        </div>
-        <div class="item ahorro">
-            <div class="icon">
-                <span class="material-symbols-outlined">savings</span>
-            </div>
-            <div class="rigth">
-                <div class="info">
-                    <h3>AHORRO</h3>
-                    <small class="text-muted">Hasta la fecha</small>
-
-                </div>
-                <h5 class="danger">00</h5>
-            </div>
-        </div>
-    </div>*@
+    
 </div>
 </div>
 <script src="~/js/layoutCrud.js"></script>

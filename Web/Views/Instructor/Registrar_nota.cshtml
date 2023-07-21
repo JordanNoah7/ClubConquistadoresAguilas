@@ -1,0 +1,61 @@
+﻿@model VmPerson
+@{
+    ViewBag.Title = "Nuevo Instructor";
+}
+<link rel="stylesheet" href="~/css/Create.css" asp-append-version="true"/>
+<div class="formCrud">
+    <h2>REGISTRAR NOTA***</h2>
+    <div class="row">
+        <div class="col">
+            <form action="@Url.Action("Registrar_Nota", "Instructor")" method="post" autocomplete="off">
+                <div class="form-group" style="display: none !important;">
+                    <input type="number" name="id" class="form-control" required value="@Model.Id">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Nombre(s) : *</label>
+                    <input type="text" aria-label="Nombre" class="form-control" name="FirstName" required value="@Model.FirstName" disabled>
+                    <span class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Apellido Paterno : *</label>
+                    <input type="text" aria-label="Apellidos" class="form-control" name="FatherSurname" required value="@Model.FathersSurname" disabled>
+                    <span class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Apellido Materno : *</label>
+                    <input type="text" aria-label="Apellidos" class="form-control" name="MotherSurname" required value="@Model.MothersSurname" disabled>
+                    <span class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Especialidad: *</label>
+                    <input type="search" aria-label="padre" id="padre" class="form-control">
+                    <select class="apoderado" name="specialty" id="listaPadres">
+                        @foreach (var item in ViewBag.Specialties)
+                        {
+                            <option value="@item.Value" class="father">@item.Text</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Nota: *</label>
+                    <input type="number" name="note" aria-label="Nota: " class="form-control" required>
+                    <span class="text-danger"></span>
+                </div>
+                <button type="submit" class="btnGuardar" value="guardar">Guardar</button>
+            </form>
+            <button type="submit" class="btnCancelar" value="cancelar" onclick="location.href='@Url.Action("Registrar_Notas", "Instructor")'">Cancelar</button>
+        </div>
+    </div>
+</div>
+<script>
+document.addEventListener("keyup", e =>{
+    e.target.matches("#padre")
+    console.log(e.target.value)
+    if (e.target.matches("#padre")){
+        if (e.key==="Escape")e.target.value = ""
+        document.querySelectorAll(".father").forEach(father=>{
+            father.textContent.toLowerCase().includes(e.target.value.toLowerCase()) ? father.classList.remove("filtro") : father.classList.add("filtro")
+        })
+    }
+})
+</script>

@@ -10,7 +10,7 @@
     <p class="bolded">Unidad : <b>@Model.Unit</b></p>
     <br/>
     <p class="bolded">Fecha : <b> @DateTime.Today.ToString("D", new CultureInfo("es-PE"))</b></p>
-    @if (DateTime.Today.ToString("dddd", new CultureInfo("es-PE")) == "miércoles")
+    @if (DateTime.Today.ToString("dddd", new CultureInfo("es-PE")) == "viernes")
     {
         <table class="table display table-hover">
             <thead>
@@ -27,7 +27,7 @@
                 <tr name="fila">
                     <td class="nombre" name="rowNombre">@item.FirstName</td>
                     <td class="apellido" name="rowApellido">@item.FullSurname</td>
-                    <td class="puntos" name="rowPuntos">@item.Total</td>
+                    <td class="puntos" name="rowPuntos">@item.TotalPoints</td>
                     <td>
                         <form action="@Url.Action("Asistencia", "Consejero")" method="get">
                             <input type="hidden" name="nro" value="@item.Id"/>

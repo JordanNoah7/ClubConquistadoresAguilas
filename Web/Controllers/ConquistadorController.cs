@@ -13,7 +13,7 @@ public class ConquistadorController : Controller
     private readonly IRoleService _roleService;
     private readonly IUnitService _unitService;
 
-    byte[] concurrency = new byte[8];
+    private byte[] concurrency = new byte[8];
 
     public ConquistadorController(IPersonService personService, IClassService classService,
         IPositionService positionService,
@@ -33,7 +33,7 @@ public class ConquistadorController : Controller
         return View();
     }
 
- 
+
     // GET: ConquistadorController/Details/5
     public async Task<ActionResult> Details()
     {
@@ -59,7 +59,7 @@ public class ConquistadorController : Controller
 
         return View(vmPerson);
     }
-    
+
 
     // GET: ConquistadorController/Create
     public async Task<ActionResult> Create()
@@ -238,13 +238,14 @@ public class ConquistadorController : Controller
 
     // POST: ConquistadorController/Edit/5
     [HttpPost]
-    public async Task<ActionResult> Edit(int id, string Dni, string FirstName, string FatherSurname, string MotherSurname,
+    public async Task<ActionResult> Edit(int id, string Dni, string FirstName, string FatherSurname,
+        string MotherSurname,
         DateTime Birthday, string Sex, string Phone, string Email, string Address, int Class, int Unit,
         int Position, int Role, string Username, string Password, string Attorney = null)
     {
         try
         {
-            Person person = new Person()
+            var person = new Person
             {
                 Id = id,
                 Dni = Dni,
@@ -253,57 +254,53 @@ public class ConquistadorController : Controller
                 MothersSurname = MotherSurname,
                 BirthDate = Birthday,
                 Gender = Sex,
-                Phone = Phone.ToString(),
+                Phone = Phone,
                 Email = Email,
                 Address = Address,
                 ClubId = 1,
                 PersonId = Convert.ToInt32(Attorney),
-                    ClassPeople = new List<ClassPerson>()
+                ClassPeople = new List<ClassPerson>
                 {
-                    new ClassPerson()
+                    new()
                     {
                         ClassId = Convert.ToByte(Class)
                     }
                 },
-                PositionPersonUnits = new List<PositionPersonUnit>()
+                PositionPersonUnits = new List<PositionPersonUnit>
                 {
-                    new PositionPersonUnit()
+                    new()
                     {
                         PositionId = Convert.ToByte(Position),
                         UnitId = Convert.ToByte(Unit)
                     }
                 },
-                User = new User()
+                User = new User
                 {
                     UserName = Username,
                     Password = Password,
-                    UserRols = new List<UserRol>()
+                    UserRols = new List<UserRol>
                     {
-                        new UserRol()
+                        new()
                         {
                             RolId = Convert.ToByte(Role)
                         }
                     }
-                },
-               
+                }
             };
-           
+
             Array.Copy(HttpContext.Session.Get("Concurrency"), person.ConcurrencyPerson, 8);
-            if(await _personService.Update(person))
+            if (await _personService.Update(person))
             {
                 ViewBag.showSuccessAlert = true;
                 return RedirectToAction("Details", "Conquistador");
             }
-            else
-            {
-               
-                return RedirectToAction("Details", "Conquistador");
-            }
-           
+
+            ViewBag.showSuccessAlert = true;
+            return RedirectToAction("Details", "Conquistador");
         }
         catch
         {
-            
+            ViewBag.showSuccessAlert = true;
             return RedirectToAction("Details", "Conquistador");
         }
     }
@@ -311,17 +308,16 @@ public class ConquistadorController : Controller
     // GET: ConquistadorController/Delete/5
     public async Task<ActionResult> Delete(int nro)
     {
-        Person person = await _personService.GetPersonById(nro);
-        VmPerson vmPerson = new VmPerson()
+        var person = await _personService.GetPersonById(nro);
+        var vmPerson = new VmPerson
         {
             Id = nro,
             FirstName = person.FirstName,
             FathersSurname = person.FathersSurname,
             MothersSurname = person.MothersSurname
         };
-       
+
         return View(vmPerson);
-        
     }
 
     // POST: ConquistadorController/Delete/5

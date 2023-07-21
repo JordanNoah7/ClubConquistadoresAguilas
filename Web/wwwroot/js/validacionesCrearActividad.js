@@ -25,7 +25,7 @@ campoNombre.addEventListener("input", function () {
     var valor = this.value;
 
     if (valor.length > 30) {
-        mensajeNombre.textContent = "El nombre debe tener como máximo 30 letras.";
+        mensajeNombre.textContent = "El nombre debe tener como mï¿½ximo 30 letras.";
         mensajeNombre.style.display = "inline";
         validaciones.nombre = false;
     } else if (!/^[a-zA-Z\s]*$/.test(valor)) {
@@ -42,7 +42,7 @@ campoNombre.addEventListener("input", function () {
 
 campoFechaInicio.addEventListener("input", function () {
     var fechaInicio = new Date(this.value);
-    
+
 
     if (fechaInicio <= fechaActualPeru) {
         mensajeFechaInicio.textContent = "La fecha de inicio debe ser mayor a la fecha actual.";
@@ -75,10 +75,6 @@ function validarFechaFin() {
     }
     validarFormulario();
 }
-
-
-
-
 
 
 function validarFormulario() {

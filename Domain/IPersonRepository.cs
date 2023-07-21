@@ -7,7 +7,7 @@ public interface IPersonRepository
     Task<bool> Insert(Person model);
     Task<bool> InsertParent(Person model);
     Task<bool> InsertInstructor(Person model);
-    
+
     Task<bool> Update(Person model);
     Task<bool> UpdateParent(Person model);
     Task<bool> UpdateInstructor(Person model);
@@ -28,4 +28,6 @@ public interface IPersonRepository
     Task<IEnumerable<Person>> GetParents();
     Task<IEnumerable<Person>> GetPathfindersByUnit(int id);
     Task<IEnumerable<Person>> GetMembersByUnit(int id);
+    Task<IEnumerable<Person>> GetPathfindersByClass(int id);
+    Task<IEnumerable<Person>> GetChildrenByFather(int id);
 }
