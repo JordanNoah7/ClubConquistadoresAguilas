@@ -28,7 +28,7 @@ public class CrudController : Controller
             Class = person.ClassPeople.FirstOrDefault().Class.Name,
             Unit = person.PositionPersonUnits.FirstOrDefault().Unit.Name
         };
-            return View(vmPerson);
+        return View(vmPerson);
         
     }
 

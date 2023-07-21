@@ -324,11 +324,12 @@ public class PersonRepository : ConnectionRepository, IPersonRepository
                                 {
                                     Unit = new Unit()
                                     {
-                                        Id = Convert.ToByte(dr["UnitID"].ToString()),
-                                        Name = Convert.ToString(dr["unit"])
+                                        Id = Convert.ToByte(string.IsNullOrEmpty(dr["UnitID"].ToString())?0:dr["UnitID"]),
+                                        //Name = string.IsNullOrEmpty(dr["unit"].ToString())?"":dr["unit"].ToString()
                                     }
                                 }
                             };
+                            person.PositionPersonUnits.FirstOrDefault().Unit.Name = string.IsNullOrEmpty(dr["unit"].ToString()) ? "" : dr["unit"].ToString();
                         }
                     }
 

@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Nuevo Instructor";
+}
+<link rel="stylesheet" href="~/css/Create.css" asp-append-version="true"/>
+<div class="formCrud">
+    <h2>REGISTRAR NOTA***</h2>
+    <div class="row">
+        <div class="col">
+            <form action="@Url.Action("Registrar_Notas", "Instructor")" method="post" autocomplete="off">
+                <div class="form-group">
+                    <label class="control-label">Nombre(s) : *</label>
+                    <input type="text" aria-label="Nombre" class="form-control" name="FirstName" required>
+                    <span class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Apellido Paterno : *</label>
+                    <input type="text" aria-label="Apellidos" class="form-control" name="FatherSurname" required>
+                    <span class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Apellido Materno : *</label>
+                    <input type="text" aria-label="Apellidos" class="form-control" name="MotherSurname" required>
+                    <span class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Especialidad: *</label>
+                    <select name="Sex" id="Sexo">
+                        <option value="M">Soldadura</option>
+                        <option value="M">Computacion I - Basica</option>
+                        <option value="F">Carpinteria</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Nota: *</label>
+                    <input type="number" name="Dni" aria-label="Dni: " class="form-control" required>
+                    <span class="text-danger"></span>
+                </div>
+                <button type="submit" class="btnGuardar" value="guardar">Guardar</button>
+                <button type="submit" class="btnCancelar" value="cancelar" onclick="location.href='@Url.Action("Registrar_Notas", "Instructor")'">Cancelar</button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -76,6 +76,11 @@ public class InstructorController : Controller
     {
         return View();
     }
+    
+    public ActionResult Registrar_Nota()
+    {
+        return View();
+    }
 
     // POST: InstructorController/Create
     [HttpPost]

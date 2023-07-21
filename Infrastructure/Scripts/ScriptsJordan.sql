@@ -212,10 +212,10 @@ BEGIN
                PPU.UnitID,
                U.name unit
         FROM People AS P
-                 JOIN ClassPerson CP on P.ID = CP.PersonID
-                 JOIN Classes C on C.ID = CP.ClassID
-                 JOIN PositionPersonUnit PPU on P.ID = PPU.PersonID
-                 JOIN Units U on U.ID = PPU.UnitID
+                 LEFT OUTER JOIN ClassPerson CP on P.ID = CP.PersonID
+                 LEFT OUTER JOIN PositionPersonUnit PPU on P.ID = PPU.PersonID
+                 LEFT OUTER JOIN Classes C on C.ID = CP.ClassID
+                 LEFT OUTER JOIN Units U on U.ID = PPU.UnitID
         WHERE P.ID = @PersonID
           AND YEAR(CP.year) = YEAR(getdate())
         COMMIT TRAN;
@@ -226,6 +226,8 @@ BEGIN
     END CATCH
 END
 GO
+
+exec usp_GetPersonClassByID 30
 ---------------------------------------------------------------------------------------------Listo
 ---Procedimiento para obtener una persona
 CREATE PROCEDURE usp_GetPersonByID @PersonID INT
@@ -1361,7 +1363,9 @@ BEGIN
 END
 GO
 
-insert into Categories (name, description)
+/*select * from Categories
+
+insert into Categories ()
 values ('ADRA', 'Especialidades de ADRA'),
        ('Artes y habilidades manuales', 'Especialidades de Artes y habilidades manuales'),
        ('Actividades agricolas', 'Especialidades de Actividades agricolas'),
@@ -1370,7 +1374,7 @@ values ('ADRA', 'Especialidades de ADRA'),
        ('Actividades recreativas', 'Especialidades de Actividades recreativas'),
        ('Ciencia y salud', 'Especialidades de Ciencia y salud'),
        ('Estudio de la naturaleza', 'Especialidades de Estudio de la naturaleza'),
-       ('Habilidades domesticas', 'Especialidades de Habilidades domesticas')
+       ('Habilidades domesticas', 'Especialidades de Habilidades domesticas')*/
 
 /*insert into Specialties (name, CategoryID)
 VALUES ();*/
@@ -1384,3 +1388,8 @@ Alfabetización
 Resolución de conflictos
 Reasentamiento de refugiados
 Desarrollo comunitario*/
+select * from People join Users U on People.ID = U.ID join UserRol UR on People.ID = UR.UserID
+
+select * from Roles
+
+delete from Attendance where PersonID = 2

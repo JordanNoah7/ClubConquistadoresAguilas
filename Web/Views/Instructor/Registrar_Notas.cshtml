@@ -18,11 +18,11 @@
     <div class="form-group">
         <label for="clase">Clase : <b> Amigo</b> </label>
         
-    </div>
+    </div>@*
     <div class="right">
         <button type="submit" class="btnGuardar">Guardar</button>
         <button type="submit" class="btnCancelar" onclick="location.href='@Url.Action("Registrar_Notas", "Instructor")'">Cancelar</button>
-    </div>
+    </div>*@
 
 
     <table class="table table-hover">
@@ -31,11 +31,9 @@
             <tr name="columna">
                 <th scope="col" name="nro">Item</th>
                 <th class="nombre" name="colNombre">Nombre(s)</th>
-                <th class="apellido" name="colApellido">Apellido Completo</th>
-                <th class="fechaHoy" name="colfecha">Fecha Actual</th>
-                <th class="notaexamen" name="colnotaexamen">Nota Examen</th>
-                <th class="estado" name="colestado">Estado</th>
-               
+                <th class="apellido" name="colApellido">Apellidos</th>
+                <th class="fechaHoy" name="colfecha">Categoria</th>
+                <th class="notaexamen" name="colnotaexamen">Nota</th>
             </tr>
         </thead>
         <tbody>
@@ -43,20 +41,20 @@
                 <th scope="row" name="nro">1</th>
                 <td class="nombre" name="rowNombre">Mark</td>
                 <td class="apellido" name="rowApellido">Otto Suarez</td>
+                <form action="@Url.Action("Registrar_nota", "Instructor")" method="get">
                 <td class="fechaActual" name="rowaFechaActual">
-                    <input type="date" id="dateDefault"/>  
-                </td>
-
-                <td class="notaexamen" name="rownotaexamen">
-                    <input type="number" id="nota"/>
-                </td>
-                <td class="estado" name="rowestado">
                     <select name="estado" id="estado">
-                        <option value="aprobado">Aprobado</option>
-                        <option value="desaprobado">Desaprobado</option>
+                        <option value="aprobado">ADRA</option>
+                        <option value="desaprobado">Actividades profesionales</option>
                     </select>
                 </td>
-                
+                <td class="notaexamen" name="rownotaexamen">
+                    <input type="hidden" name="nro" value="1"/>
+                    <button type="submit" id="delete" class="btn btn-default">
+                        <span class="material-symbols-outlined">add</span>
+                    </button>
+                </td>
+                </form>
             </tr>
 
         </tbody>
