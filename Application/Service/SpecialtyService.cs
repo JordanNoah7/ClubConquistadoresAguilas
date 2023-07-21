@@ -24,4 +24,16 @@ public class SpecialtyService : ISpecialtyService
             return null;
         }
     }
+
+    public async Task<bool> InsertNote(Specialty model)
+    {
+        try
+        {
+            return await _specialtyRepository.InsertNote(model);
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
+    }
 }

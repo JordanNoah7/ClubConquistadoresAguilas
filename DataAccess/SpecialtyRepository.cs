@@ -49,4 +49,32 @@ public class SpecialtyRepository : ConnectionRepository, ISpecialtyRepository
             }
         }
     }
+
+    public async Task<bool> InsertNote(Specialty model)
+    {
+        using (var cnDb = Connection.GetConnection(Configuration))
+        {
+            try
+            {
+                using (var cmd = new SqlCommand("usp_InsertNote", cnDb))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.AddWithValue("@PersonID", model.SpecialtyPeople.FirstOrDefault().PersonId);
+                    cmd.Parameters.AddWithValue("@SpecialtyID", model.SpecialtyPeople.FirstOrDefault().SpecialtyId);
+                    cmd.Parameters.AddWithValue("@Note", model.SpecialtyPeople.FirstOrDefault().Note);
+                    Connection.OpenConnection();
+                    await cmd.ExecuteNonQueryAsync();
+                        Connection.CloseConnection();
+                }
+
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                Connection.CloseConnection();
+                return false;
+            }
+        }
+    }
 }

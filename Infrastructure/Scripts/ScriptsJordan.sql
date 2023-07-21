@@ -1419,3 +1419,31 @@ BEGIN
 END
 GO
 -------------------------------------------------------------------------------------------Listo
+---Procedimiento para insertar nota de conquistador
+CREATE PROCEDURE usp_InsertNote @PersonID INT,
+                                @SpecialtyID INT,
+                                @Note TINYINT
+AS
+BEGIN
+    BEGIN TRAN;
+    BEGIN TRY
+        IF @PersonID IN (SELECT SP.PersonID FROM SpecialtyPerson SP WHERE SP.SpecialtyID = @SpecialtyID)
+            BEGIN
+                UPDATE SpecialtyPerson
+                SET Note = @Note
+                WHERE PersonID = @PersonID
+                  AND SpecialtyID = @SpecialtyID
+            END
+        ELSE
+            BEGIN
+                INSERT INTO SpecialtyPerson (PersonID, SpecialtyID, Note)
+                VALUES (@PersonID, @SpecialtyID, @Note)
+            END
+        COMMIT TRAN;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRAN;
+        RAISERROR ('Error al insertar la nota.',16,1);
+    END CATCH
+END
+GO

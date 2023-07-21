@@ -129,9 +129,21 @@ public class InstructorController : Controller
     }
 
     [HttpPost]
-    public async Task<ActionResult> Registrar_nota(int id, int specialty, int note)
+    public async Task<ActionResult> Registrar_nota(int id, short specialty, byte note)
     {
-        Console.WriteLine(id + " " + specialty + " " + note);
+        Specialty specialtyM = new Specialty()
+        {
+            SpecialtyPeople = new List<SpecialtyPerson>()
+            {
+                new SpecialtyPerson()
+                {
+                    PersonId = id,
+                    SpecialtyId = specialty,
+                    Note = note
+                }
+            }
+        };
+        await _specialtyService.InsertNote(specialtyM);
         return RedirectToAction("Registrar_Notas", "Instructor");
     }
 
