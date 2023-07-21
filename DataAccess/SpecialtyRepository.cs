@@ -25,6 +25,7 @@ public class SpecialtyRepository : ConnectionRepository, ISpecialtyRepository
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Clear();
+                    cmd.Parameters.AddWithValue("@CategoryId", id);
                     Connection.OpenConnection();
                     using (var dr = await cmd.ExecuteReaderAsync())
                     {

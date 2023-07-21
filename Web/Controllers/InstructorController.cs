@@ -107,10 +107,32 @@ public class InstructorController : Controller
         return View(vmPerson);
     }
 
-    public ActionResult Registrar_nota(int nro, int category)
+    public async Task<ActionResult> Registrar_nota(int nro, int category)
     {
-        Console.WriteLine(nro + " " + category);
-        return View();
+        var specialties = await _specialtyService.GetSpecialties(category);
+        ViewBag.Specialties = specialties.Select(s => new
+        {
+            Value = s.Id,
+            Text = s.Name
+        }).ToList();
+        
+        var person = await _personService.GetPersonClassById(nro);
+        VmPerson vmPerson = new VmPerson()
+        {
+            Id = nro,
+            Dni = person.Dni,
+            FirstName = person.FirstName,
+            FathersSurname = person.FathersSurname, 
+            MothersSurname = person.MothersSurname
+        };
+        return View(vmPerson);
+    }
+
+    [HttpPost]
+    public async Task<ActionResult> Registrar_nota(int id, int specialty, int note)
+    {
+        Console.WriteLine(id + " " + specialty + " " + note);
+        return RedirectToAction("Registrar_Notas", "Instructor");
     }
 
     // POST: InstructorController/Create
