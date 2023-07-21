@@ -1,4 +1,7 @@
-﻿
+﻿.filtro {
+    display: none !important;
+}
+
 main h1 span {
     color: #EF9645; /*naranja*/
 }

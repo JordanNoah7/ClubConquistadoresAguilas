@@ -208,11 +208,11 @@ BEGIN
                P.phone,
                P.email,
                CP.ClassID,
-               C.name     class,
+               C.name                  class,
                PPU.UnitID,
-               U.name     unit,
-               coalesce(APBY.Total,0) points,
-               coalesce(SBY.Total,0)  savings
+               U.name                  unit,
+               coalesce(APBY.Total, 0) points,
+               coalesce(SBY.Total, 0)  savings
         FROM People AS P
                  LEFT OUTER JOIN ClassPerson CP on P.ID = CP.PersonID
                  LEFT OUTER JOIN PositionPersonUnit PPU on P.ID = PPU.PersonID
@@ -1477,17 +1477,17 @@ GO
 --Arreglar el sp personclassbyid para que muestre puntos y ahorro más
 
 --Procedimiento para insertar ahorro de conquistador
-CREATE PROC usp_InsertFee @PersonId INT, @Fee DECIMAL(10, 2)
+alter PROC usp_InsertFee @PersonId INT, @Fee DECIMAL(10, 2)
 AS
 begin
-    begin tran;
-    begin try
+    /*begin tran;
+    begin try*/
         insert into Savings (PersonId, Fee) VALUES (@PersonId, @Fee);
-        commit tran;
-    end try
+        --commit tran;
+    /*end try
     begin catch
         rollback tran;
-    end catch
+    end catch*/
 end
 go
 
@@ -1515,5 +1515,23 @@ FROM People P
 WHERE YEAR(s.date) = YEAR(GETDATE())
 GROUP BY P.ID, YEAR(s.date)
 
-update People set PersonID = 22 where ID = 9
-exec usp_GetPersonClassByID 2
+--------------------------------------------------
+ALTER PROCEDURE usp_GetPathfinderWithoutImport
+AS
+BEGIN
+    BEGIN TRAN;
+    BEGIN TRY
+        SELECT P.ID,
+               P.firstName,
+               P.fathersSurname,
+               P.mothersSurname
+        FROM People P
+                 JOIN ClassPerson CP on P.ID = CP.PersonID
+                 JOIN PositionPersonUnit PPU on P.ID = PPU.PersonID
+        WHERE P.ID NOT IN (SELECT S.PersonId FROM Savings S WHERE S.Date = CAST(GETDATE() AS DATE))
+        COMMIT TRAN;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRAN;
+    END CATCH
+END

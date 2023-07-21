@@ -27,7 +27,7 @@ public class LoginController : Controller
     public async Task<IActionResult> Login(string username, string password)
     {
         var user = await _userService.GetUserRolByUsername(username);
-        if (user == null)
+        if (string.IsNullOrEmpty(user.Password))
         {
             ViewBag.ErrorMessage = "Nombre de usuario o contraseña incorrectos";
             return View();

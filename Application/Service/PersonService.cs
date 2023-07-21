@@ -133,6 +133,18 @@ public class PersonService : IPersonService
         }
     }
 
+    public async Task<IEnumerable<Person>> GetPathfindersWithoutFee()
+    {
+        try
+        {
+            return await _personRepo.GetPathfindersWithoutFee();
+        }
+        catch (Exception e)
+        {
+            return null;
+        }
+    }
+
     public async Task<IEnumerable<Person>> GetPathfindersByUnit(int id)
     {
         try

@@ -2,70 +2,64 @@
     ViewData["Vista"] = "Ahorro";
     ViewBag.Title = "Registrar Ahorro";
 }
-<!--jQuery library file -->
 <script type="text/javascript"
         src="~/js/cruds.js">
 </script>
-
-<!--Datatable plugin JS library file -->
 <script type="text/javascript"
         src="~/js/cruds2.js">
 </script>
-
-
 <link rel="stylesheet" href="~/css/inscripcionTesoreria.css" asp-append-version="true"/>
-
 <div class="recent-order">
-    <h2>
-        Registrar Ahorro ***
-    </h2>
+    <h2>Registrar Ahorro ***</h2>
     <div class="form-group">
         <label>Fecha:</label>
         <input type="date" id="dateDefault"/>
-
     </div>
-
-    <div class="form-group participantes">
-        <label class="control-label">Conquistador : *</label>
-
-        <input type="search" aria-label="participantes" class="form-control" required>
-        <span onclick="location.href='@Url.Action("Index", "Tesoreria")'" class="material-symbols-outlined">add_circle</span>
-
-    </div>
-
-    <table class="table display table-hover">
-        <thead>
-        <tr name="columna">
-            <th class="nombre" name="colNombre">CANT</th>
-            <th class="apellido" name="colApellido">CODIGO</th>
-            <th class="clase" name="colClase">DESCRIPCION</th>
-            <th class="unidad" name="colUnidad">IMPORTE</th>
-
-        </tr>
-        </thead>
-        <tbody>
-
-        <tr name="fila">
-            <td class="cantidad" name="rowCantidad">
-                <input type="number" aria-label="cant" class="form-control" required>
-            </td>
-            <td class="codigo">H</td>
-            <td class="descripcion">AHORRO</td>
-            <td class="importe" name="rowImporte">
-                <input type="number" aria-label="importe" class="form-control" required>
-            </td>
-        </tr>
-
-        </tbody>
-    </table>
-    <br/>
-    <br/>
-    <button type="submit" class="btnGuardar" value="guardar" onclick="alert('¡Hola, soy un mensaje de alerta!')">Guardar</button>
-
+    <form action="@Url.Action("Ahorro", "Tesoreria")" method="post" autocomplete="off">
+        <div class="form-group participantes">
+            <label class="control-label">Conquistador: </label>
+            <input type="search" aria-label="padre" id="padre" class="form-control">
+            <select class="apoderado" name="pathfinder" id="listaPadres">
+                @foreach (var pathfinder in ViewBag.Pathfinders)
+                {
+                    <option value="@pathfinder.Value" class="father">@pathfinder.Text</option>
+                }
+            </select>
+        </div>
+        <table class="table display table-hover">
+            <thead>
+            <tr name="columna">
+                <th class="clase" name="colClase">DESCRIPCION</th>
+                <th class="unidad" name="colUnidad">IMPORTE</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr name="fila">
+                <td class="descripcion">AHORRO</td>
+                <td class="importe">
+                    <input name="import" type="number" aria-label="importe" class="form-control" required min="1">
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <br/>
+        <br/>
+        <button type="submit" class="btnGuardar" value="guardar">Guardar</button>
+    </form>
     <button type="submit" class="btnCancelar" value="cancelar" onclick="location.href='@Url.Action("Inicio", "Crud")'">Cancelar</button>
-
-
 </div>
+<script>
+document.addEventListener("keyup", e =>{
+    e.target.matches("#padre")
+    console.log(e.target.value)
+    if (e.target.matches("#padre")){
+        if (e.key==="Escape")e.target.value = ""
+        document.querySelectorAll(".father").forEach(father=>{
+            father.textContent.toLowerCase().includes(e.target.value.toLowerCase()) ? father.classList.remove("filtro") : father.classList.add("filtro")
+        })
+    }
+})
+</script>
 <script>
     function setInputDate(_id) {
         var _dat = document.querySelector(_id);
@@ -74,18 +68,15 @@
             m = hoy.getMonth() + 1,
             y = hoy.getFullYear(),
             data;
-
         if (d < 10) {
             d = "0" + d;
         }
         if (m < 10) {
             m = "0" + m;
         }
-
         data = y + "-" + m + "-" + d;
         console.log(data);
         _dat.value = data;
     }
-
     setInputDate("#dateDefault");
 </script>

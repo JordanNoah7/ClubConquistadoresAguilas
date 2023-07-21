@@ -44,4 +44,31 @@ public class AttendanceRepository : ConnectionRepository, IAttendanceRepository
             }
         }
     }
+
+    public async Task<bool> InsertFee(Person model)
+    {
+        using (var connectionDb = Connection.GetConnection(Configuration))
+        {
+            try
+            {
+                using (var cmd = new SqlCommand("usp_InsertFee", connectionDb))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.AddWithValue("@PersonId", model.Id);
+                    cmd.Parameters.AddWithValue("@Fee", model.TotalSavings);
+                    Connection.OpenConnection();
+                    await cmd.ExecuteNonQueryAsync();
+                    Connection.CloseConnection();
+                }
+
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                Connection.CloseConnection();
+                return false;
+            }
+        }
+    }
 }
