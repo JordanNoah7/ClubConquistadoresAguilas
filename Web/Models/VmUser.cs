@@ -9,6 +9,6 @@ public class VmUser
     public string Password { get; set; }
 
     public string CreationDate { get; set; }
-    
+
     public VmRole Role { get; set; }
 }

@@ -1,4 +1,4 @@
-﻿.filtro{
+﻿.filtro {
     display: none !important;
 }
 
@@ -9,11 +9,11 @@ main .formCrud {
     margin-top: 25px;
 }
 
-    main .formCrud .form-group {
-        padding: 2px 3px 3px 2px;
-        overflow: hidden;
-        
-    }
+main .formCrud .form-group {
+    padding: 2px 3px 3px 2px;
+    overflow: hidden;
+
+}
 
 main .formCrud .row {
     column-count: 2;
@@ -25,46 +25,46 @@ main .formCrud label {
     color: #2B463C; /*verde oscuro*/
     float: left;
     width: 200px;
-   
+
 }
 
 main .formCrud .form-control[type="date"]:checked {
     color: #2B463C; /*verde oscuro*/
 }
 
-    main .formCrud .row input, select {
-        border: 2px solid #2B463C; /*verde oscuro*/
-        border-radius: 10px;
-        height: 2.5rem;
-        column-span: all;
-        column-width: 140px;
-        float: left;
-        width: calc(100% - 10px);
-        text-align: justify-all;
-        justify-content: flex-end;
-        text-indent: 4px;
-    }
+main .formCrud .row input, select {
+    border: 2px solid #2B463C; /*verde oscuro*/
+    border-radius: 10px;
+    height: 2.5rem;
+    column-span: all;
+    column-width: 140px;
+    float: left;
+    width: calc(100% - 10px);
+    text-align: justify-all;
+    justify-content: flex-end;
+    text-indent: 4px;
+}
 
-    main .formCrud .row .form-group select {
-        font-size: 12px;
-        color: #7F7D7F;
-        left: 2%;
-        text-indent: 4px;
-    }
+main .formCrud .row .form-group select {
+    font-size: 12px;
+    color: #7F7D7F;
+    left: 2%;
+    text-indent: 4px;
+}
 
 
-    main .formCrud .row .form-group select,option{
-        padding-left: 7px;
-        
-    }
+main .formCrud .row .form-group select, option {
+    padding-left: 7px;
 
-        main .formCrud > button {
-            height: 2rem;
-            align-content: center;
-            justify-content: center;
-            text-align: center;
-            margin: 5px 2px 2px 5px;
-        }
+}
+
+main .formCrud > button {
+    height: 2rem;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    margin: 5px 2px 2px 5px;
+}
 
 
 main .row .col button:hover {
@@ -96,9 +96,9 @@ main .row .col .btnCancelar {
 }
 
 main .row .col .btnCancelar button:hover {
-        background: #979497;
-        color: white;
-    }
+    background: #979497;
+    color: white;
+}
 
 main h1 span {
     color: #EF9645; /*naranja*/
@@ -109,7 +109,6 @@ main .formCrud h2 {
 }
 
 
-
 /*buscar padre*/
 
 main .buscar input {
@@ -118,16 +117,16 @@ main .buscar input {
     outline: none;
     border: 5px solid red;
     font-weight: 300;
-   
-    
+
+
 }
 
 .listaPadres {
-    max-height:280px;
-    opacity:0;
-    pointer-events:none;
-    padding:0;
-    overflow-y:auto;
+    max-height: 280px;
+    opacity: 0;
+    pointer-events: none;
+    padding: 0;
+    overflow-y: auto;
 
 }
 
@@ -137,20 +136,22 @@ main .buscar input {
     padding: 10px 8px;
 }
 
-    .buscar.active .listaPadres li{
-        display:block;
-    }
+.buscar.active .listaPadres li {
+    display: block;
+}
 
-    .listaPadres li {
-        /*list-style: none;*/
-        width: 100%;
-        padding: 8px 12px;
-        border-radius: 5px;
-        display: none;
-    }
-        .listaPadres li:hover {
-            background-color: #EF9645;
-        }
+.listaPadres li {
+    /*list-style: none;*/
+    width: 100%;
+    padding: 8px 12px;
+    border-radius: 5px;
+    display: none;
+}
+
+.listaPadres li:hover {
+    background-color: #EF9645;
+}
+
 /*particpantes*/
 
 .participantes {
@@ -158,9 +159,8 @@ main .buscar input {
 }
 
 .participantes span {
-   display: flex;
-   justify-content: center;
-   
-  
-   
+    display: flex;
+    justify-content: center;
+
+
 }

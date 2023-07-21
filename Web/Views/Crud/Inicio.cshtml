@@ -4,18 +4,14 @@
     Layout = "_LayoutCrud";
     ViewBag.Title = "Perfil";
 }
-
 <link rel="stylesheet" href="~/css/perfilconquistador.css" asp-append-version="true"/>
-
 <div class="insights">
-    @*clase conquistador*@
     <div class="clase">
         <span class="material-symbols-outlined">category</span>
         <div class="middle">
             <div class="left">
                 <h3>Clase</h3>
                 <h1>@Model.Class</h1>
-
             </div>
             <div class="color">
                 @switch (Model.Class)
@@ -66,15 +62,9 @@
                         <img src="/img/gmma.png" alt="Guía Mayor Master Avanzado" width="100">
                         break;
                 }
-                @*<svg>
-                    <circle cx="38" cy="38" r="36"></circle>
-                </svg>*@
-
             </div>
         </div>
     </div>
-
-    @*unidad conquistador*@
     @if (!Model.Unit.Equals(""))
     {
         <div class="unidad">
@@ -98,8 +88,6 @@
             </div>
         </div>
     }
-
-    @*datos personales conquistador*@
     <div class="info">
         <span class="material-symbols-outlined">lock_person</span>
         <div class="middle">
@@ -117,12 +105,9 @@
                     <b>Email:</b> @Model.Email
                 </h5>
             </div>
-
         </div>
     </div>
 </div>
-
-@*Pedir Auxilio*@
 <div class="auxilio">
     <div class="left">
         <h3>
@@ -139,7 +124,6 @@
         <button onclick="location.href='https://wa.me/966871384'" type="button">Grupo de Conquistadores</button>
     </div>
     <div class="rigth">
-
         <img src="/img/conquistador1.png"/>
     </div>
 </div>

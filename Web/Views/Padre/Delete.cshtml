@@ -3,14 +3,9 @@
     ViewData["Vista"] = "Delete";
     ViewBag.Title = "Eliminar Apoderado";
 }
-<link rel="stylesheet" href="~/css/Delete.css" asp-append-version="true" />
-
-@*action="@Url.Action("Login", "Login")" method="post" autocomplete="off"*@
-
+<link rel="stylesheet" href="~/css/Delete.css" asp-append-version="true"/>
 <div class="formCrud">
-    <h2>
-        ELIMINAR PADRE / APODERADO ***
-    </h2>
+    <h2>ELIMINAR PADRE / APODERADO ***</h2>
     <div class="eliminar">
         <form asp-action="Delete" class="delete">
             <div class="form-group" style="display: none !important;">
@@ -18,7 +13,6 @@
                 <input type="number" name="nro" class="form-control" required value="@Model.Id">
             </div>
             <h1><span class="material-symbols-outlined">warning</span> ADVERTENCIA </h1>
-
             <h2>¿Estás seguro que deseas eliminar a <b>@Model.FirstName @Model.FathersSurname @Model.MothersSurname </b>?</h2>
             <button type="submit" class="btnEliminar" value="eliminar">Eliminar</button>
         </form>

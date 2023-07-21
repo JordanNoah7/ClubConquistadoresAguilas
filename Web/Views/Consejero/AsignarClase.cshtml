@@ -1,48 +1,40 @@
 ﻿@model VmPerson
 @{
-    //Layout = "_LayoutCrud";
-    ViewData["Vista"] = "AsignarClase";
     ViewBag.Title = "Asignar Clase a Conquistador";
 }
-
-<link rel="stylesheet" href="~/css/Create.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/Create.css" asp-append-version="true"/>
 <link rel="stylesheet" href="~/css/CrudOrganizacion.css" asp-append-version="true"/>
 <div class="recent-order">
-    <h2>
-        Asignar Clase a Conquistador***
-
-    </h2>
-
+    <h2>Asignar Clase a Conquistador***</h2>
     <table class="table table-hover">
-            <thead>
-            <tr name="columna">
-                <th class="nombre" name="colNombre">Nombre</th>
-                <th class="apellido" name="colApellido">Apellidos</th>
-                <th class="clase" name="colClase">Clase</th>
-                <th class="cargo" name="colCargo">Eliminar</th>
+        <thead>
+        <tr name="columna">
+            <th class="nombre" name="colNombre">Nombre</th>
+            <th class="apellido" name="colApellido">Apellidos</th>
+            <th class="clase" name="colClase">Clase</th>
+            <th class="cargo" name="colCargo">Eliminar</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model.PersonList)
+        {
+            <tr name="fila">
+                <td class="nombre text-muted" name="rowNombre">@item.FirstName</td>
+                <td class="apellido text-muted" name="rowApellido">@item.FullSurname</td>
+                <td class="clase" name="rowClase">@item.Class</td>
+                <td>
+                    <form action="@Url.Action("EditClass", "Consejero")" method="get">
+                        <input type="hidden" name="nro" value="@item.Id"/>
+                        <button type="submit" id="delete" class="btn btn-default">
+                            <span class="material-symbols-outlined">delete</span>
+                        </button>
+                    </form>
+                </td>
             </tr>
-            </thead>
-            <tbody>
-            @foreach (var item in Model.PersonList)
-            {
-                <tr name="fila">
-                    <td class="nombre text-muted" name="rowNombre">@item.FirstName</td>
-                    <td class="apellido text-muted" name="rowApellido">@item.FullSurname</td>
-                    <td class="clase" name="rowClase">@item.Class</td>
-                    <td>
-                        <form action="@Url.Action("EditClass", "Consejero")" method="get">
-                            <input type="hidden" name="nro" value="@item.Id"/>
-                            <button type="submit" id="delete" class="btn btn-default">
-                                <span class="material-symbols-outlined">delete</span>
-                            </button>
-                        </form>
-                    </td>
-                </tr>
-            }
-            </tbody>
-        </table>
+        }
+        </tbody>
+    </table>
 </div>
-
 @if (!string.IsNullOrEmpty(ViewBag.Message))
 {
     <script>

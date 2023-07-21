@@ -1,12 +1,11 @@
 ﻿using System.Security.Claims;
 using Application.IService;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Web.Models;
 
 namespace Web.Controllers;
 
-  /*  [Authorize]*/
+/*  [Authorize]*/
 public class CrudController : Controller
 {
     private readonly IPersonService _personService;
@@ -15,12 +14,13 @@ public class CrudController : Controller
     {
         _personService = personService;
     }
-    
+
     // GET: CrudController
     public async Task<ActionResult> Inicio()
     {
-        var person = await _personService.GetPersonClassById(Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier))); 
-        VmPerson vmPerson = new VmPerson()
+        var person =
+            await _personService.GetPersonClassById(Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier)));
+        var vmPerson = new VmPerson
         {
             BirthDate = person.BirthDate.ToString("yyyy-MM-dd"),
             Phone = person.Phone,
@@ -29,7 +29,6 @@ public class CrudController : Controller
             Unit = person.PositionPersonUnits.FirstOrDefault().Unit.Name
         };
         return View(vmPerson);
-        
     }
 
     /*public ActionResult CrudConquistador()

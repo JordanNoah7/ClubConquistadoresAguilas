@@ -18,7 +18,7 @@
     --color-white: #202528;
     --color-dark: #edeffd;
     --color-dark-variant: #a3bdcc;
-    --color-light: rgba(0,0,0,0.4);
+    --color-light: rgba(0, 0, 0, 0.4);
     --box-shadow: 0 2rem 3rem var(--color-light);
 }
 
@@ -44,25 +44,24 @@ main .insights {
 }
 
 
+main .insights > div p {
+    color: green;
+    font-size: 20px;
+}
 
-        main .insights > div p {
-            color: green;
-            font-size: 20px;
-        }
 
+main .insights > div .middle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
-        main .insights > div .middle {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+main .insights h3 {
+    margin: 1rem 0 0.6rem;
+    font-size: 1rem;
+}
 
-            main .insights h3 {
-                margin: 1rem 0 0.6rem;
-                font-size: 1rem;
-            }
-
-main .insights .middle .linea{
+main .insights .middle .linea {
     border-left: 3px solid red;
     height: 100px;
     max-width: 2px;
@@ -72,26 +71,27 @@ main .insights .middle .linea{
 
 
 main .insights > div .middle .block {
-  
+
     width: 200px;
     height: 60px;
     line-height: 60px;
-    
-}
-    main .insights > div .middle .block h3{
-       
-        display: inline-block;
-        width: 25px;
-        height: 15px;
-        line-height: 15px;
-        vertical-align: baseline; /* Y */
-        text-align: center;
-    }
 
-main .insights .middle .left{
-    justify-content:left;
-    justify-items:left;
-    justify-items:left;
+}
+
+main .insights > div .middle .block h3 {
+
+    display: inline-block;
+    width: 25px;
+    height: 15px;
+    line-height: 15px;
+    vertical-align: baseline; /* Y */
+    text-align: center;
+}
+
+main .insights .middle .left {
+    justify-content: left;
+    justify-items: left;
+    justify-items: left;
 }
 
 main .insights .middle .left span {
@@ -101,13 +101,13 @@ main .insights .middle .left span {
     align-items: center;
 }
 
-main .insights > div .middle .left a h3{
+main .insights > div .middle .left a h3 {
     display: block;
     color: #979497;
     align-items: flex-end;
     position: relative;
     height: 3.7rem;
-   
+
 }
 
 

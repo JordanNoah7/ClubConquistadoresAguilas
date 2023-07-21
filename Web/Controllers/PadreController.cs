@@ -23,11 +23,13 @@ public class PadreController : Controller
     {
         return View();
     }
+
     // GET: PadreController/PerfilConquis--para mostrar perfil del hijo conquistador
     public ActionResult PerfilHijoConquis()
     {
         return View();
     }
+
     // GET: PadreController/Details/5
     public async Task<ActionResult> Details()
     {
@@ -121,7 +123,7 @@ public class PadreController : Controller
         }).ToList();
 
         concurrency = null;
-        
+
         var person = await _personService.GetParentById(nro);
         var vmPerson = new VmPerson();
         vmPerson.Id = nro;
@@ -182,7 +184,7 @@ public class PadreController : Controller
                             RolId = Convert.ToByte(Role)
                         }
                     }
-                },
+                }
             };
             Array.Copy(HttpContext.Session.Get("concurrency"), person.ConcurrencyPerson, 8);
             if (await _personService.UpdateParent(person))
@@ -198,8 +200,8 @@ public class PadreController : Controller
     // GET: PadreController/Delete/5
     public async Task<ActionResult> Delete(int nro)
     {
-        Person person = await _personService.GetPersonById(nro);
-        VmPerson vmPerson = new VmPerson()
+        var person = await _personService.GetPersonById(nro);
+        var vmPerson = new VmPerson
         {
             Id = nro,
             FirstName = person.FirstName,

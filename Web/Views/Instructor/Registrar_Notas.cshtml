@@ -1,47 +1,29 @@
 ﻿@{
-    //Layout = "_LayoutCrud";
     ViewData["Vista"] = "Registrar_Notas";
     ViewBag.Title = "Registrar Calificaciones";
-
 }
-
-
-<link rel="stylesheet" href="~/css/EstiloRegNotas.css" asp-append-version="true" />
-
-@*action="@Url.Action("Login", "Login")" method="post" autocomplete="off"*@
-
+<link rel="stylesheet" href="~/css/EstiloRegNotas.css" asp-append-version="true"/>
 <div class="recent-order">
-    <h2>
-        Registrar Notas de Examen ***
-    </h2>
-
+    <h2>Registrar Notas de Examen ***</h2>
     <div class="form-group">
         <label for="clase">Clase : <b> Amigo</b> </label>
-        
-    </div>@*
-    <div class="right">
-        <button type="submit" class="btnGuardar">Guardar</button>
-        <button type="submit" class="btnCancelar" onclick="location.href='@Url.Action("Registrar_Notas", "Instructor")'">Cancelar</button>
-    </div>*@
-
-
+    </div>
     <table class="table table-hover">
-
         <thead>
-            <tr name="columna">
-                <th scope="col" name="nro">Item</th>
-                <th class="nombre" name="colNombre">Nombre(s)</th>
-                <th class="apellido" name="colApellido">Apellidos</th>
-                <th class="fechaHoy" name="colfecha">Categoria</th>
-                <th class="notaexamen" name="colnotaexamen">Nota</th>
-            </tr>
+        <tr name="columna">
+            <th scope="col" name="nro">Item</th>
+            <th class="nombre" name="colNombre">Nombre(s)</th>
+            <th class="apellido" name="colApellido">Apellidos</th>
+            <th class="fechaHoy" name="colfecha">Categoria</th>
+            <th class="notaexamen" name="colnotaexamen">Nota</th>
+        </tr>
         </thead>
         <tbody>
-            <tr name="fila">
-                <th scope="row" name="nro">1</th>
-                <td class="nombre" name="rowNombre">Mark</td>
-                <td class="apellido" name="rowApellido">Otto Suarez</td>
-                <form action="@Url.Action("Registrar_nota", "Instructor")" method="get">
+        <tr name="fila">
+            <th scope="row" name="nro">1</th>
+            <td class="nombre" name="rowNombre">Mark</td>
+            <td class="apellido" name="rowApellido">Otto Suarez</td>
+            <form action="@Url.Action("Registrar_nota", "Instructor")" method="get">
                 <td class="fechaActual" name="rowaFechaActual">
                     <select name="estado" id="estado">
                         <option value="aprobado">ADRA</option>
@@ -54,15 +36,11 @@
                         <span class="material-symbols-outlined">add</span>
                     </button>
                 </td>
-                </form>
-            </tr>
-
+            </form>
+        </tr>
         </tbody>
     </table>
-
-
 </div>
-
 <script>
     function setInputDate(_id) {
         var _dat = document.querySelector(_id);
@@ -71,18 +49,15 @@
             m = hoy.getMonth() + 1,
             y = hoy.getFullYear(),
             data;
-
         if (d < 10) {
             d = "0" + d;
         };
         if (m < 10) {
             m = "0" + m;
         };
-
         data = y + "-" + m + "-" + d;
         console.log(data);
         _dat.value = data;
     };
-
     setInputDate("#dateDefault");
 </script>

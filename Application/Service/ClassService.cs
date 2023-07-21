@@ -4,7 +4,7 @@ using Models;
 
 namespace Application.Service;
 
-public class ClassService: IClassService
+public class ClassService : IClassService
 {
     private readonly IClassRepository _classRepository;
 
@@ -12,7 +12,7 @@ public class ClassService: IClassService
     {
         _classRepository = classRepository;
     }
-    
+
     public async Task<IEnumerable<Class>> GetClasses()
     {
         return await _classRepository.GetClasses();

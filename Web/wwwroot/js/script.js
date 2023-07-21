@@ -1,5 +1,4 @@
-﻿
-const searchcontainer = document.querySelector('.buscar')
+﻿const searchcontainer = document.querySelector('.buscar')
 const inputsearch = searchcontainer.querySelector('input')
 const boxsugerencias = document.querySelector('.listaPadres')
 
@@ -13,7 +12,7 @@ inputsearch.onkeyup = e => {
                 .startsWith(userdata.toLocaleLowerCase());
 
         });
-        emptyArray = emptyArray.map( data => {
+        emptyArray = emptyArray.map(data => {
             return (data = `<li>${data}</li>`);
         });
         searchcontainer.classList.add('active')
@@ -25,8 +24,7 @@ inputsearch.onkeyup = e => {
         allList.forEach(li => {
             li.setAttribute('onclick', 'select(this)');
         });
-    }
-    else {
+    } else {
         searchcontainer.classList.remove('active');
     }
 };
@@ -36,7 +34,6 @@ function select(element) {
     inputsearch.value = selectUserData;
     searchcontainer.classList.remove('active');
 }
-
 
 
 const mostrarpadres = list => {

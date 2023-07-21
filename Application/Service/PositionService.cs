@@ -12,7 +12,7 @@ public class PositionService : IPositionService
     {
         _positionRepository = positionRepository;
     }
-    
+
     public async Task<IEnumerable<Position>> GetPositions()
     {
         return await _positionRepository.GetPositions();

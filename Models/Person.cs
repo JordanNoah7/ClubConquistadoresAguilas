@@ -25,7 +25,7 @@ public class Person
     public int ClubId { get; set; }
 
     public int? PersonId { get; set; }
-    
+
     public byte Total { get; set; }
 
     public byte[] ConcurrencyPerson { get; set; } = new byte[8];

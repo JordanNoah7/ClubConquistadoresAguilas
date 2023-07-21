@@ -1388,8 +1388,14 @@ Alfabetización
 Resolución de conflictos
 Reasentamiento de refugiados
 Desarrollo comunitario*/
-select * from People join Users U on People.ID = U.ID join UserRol UR on People.ID = UR.UserID
+select *
+from People
+         join Users U on People.ID = U.ID
+         join UserRol UR on People.ID = UR.UserID
 
-select * from Roles
+select *
+from Roles
 
-delete from Attendance where PersonID = 2
+delete
+from Attendance
+where PersonID = 2

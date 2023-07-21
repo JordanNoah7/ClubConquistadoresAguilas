@@ -39,18 +39,18 @@ public class ConsejeroController : Controller
     public async Task<ActionResult> TomarLista()
     {
         var vmPathfinders = new List<VmPerson>();
-        var person = await _personService.GetPersonClassById(Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier)));
-        var pathfinders = await _personService.GetPathfindersByUnit(person.PositionPersonUnits.FirstOrDefault().Unit.Id);
-        foreach (Person pathfinder in pathfinders.ToList())
-        {
-            vmPathfinders.Add(new VmPerson()
+        var person =
+            await _personService.GetPersonClassById(Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier)));
+        var pathfinders =
+            await _personService.GetPathfindersByUnit(person.PositionPersonUnits.FirstOrDefault().Unit.Id);
+        foreach (var pathfinder in pathfinders.ToList())
+            vmPathfinders.Add(new VmPerson
             {
                 Id = pathfinder.Id,
                 FirstName = pathfinder.FirstName,
                 FullSurname = pathfinder.FathersSurname + " " + pathfinder.MothersSurname,
                 Total = pathfinder.Total
             });
-        }
 
         var vmPerson = new VmPerson
         {
@@ -361,7 +361,7 @@ public class ConsejeroController : Controller
         await _attendanceService.Insert(attendance);
         return RedirectToAction("TomarLista", "Consejero");
     }
-    
+
     // GET: ConsejeroController/Lista de conquistadores por unidad
     public async Task<ActionResult> EditClass(int nro)
     {
@@ -436,13 +436,14 @@ public class ConsejeroController : Controller
     }
 
     [HttpPost]
-    public async Task<ActionResult> EditClass(int id, string Dni, string FirstName, string FatherSurname, string MotherSurname,
+    public async Task<ActionResult> EditClass(int id, string Dni, string FirstName, string FatherSurname,
+        string MotherSurname,
         DateTime Birthday, string Sex, int Phone, string Email, string Address, int Class, int Unit,
         int Position, int Role, string Username, string Password, string Attorney = null)
     {
         try
         {
-            Person person = new Person()
+            var person = new Person
             {
                 Id = id,
                 Dni = Dni,
@@ -456,43 +457,38 @@ public class ConsejeroController : Controller
                 Address = Address,
                 ClubId = 1,
                 PersonId = Convert.ToInt32(Attorney),
-                ClassPeople = new List<ClassPerson>()
+                ClassPeople = new List<ClassPerson>
                 {
-                    new ClassPerson()
+                    new()
                     {
                         ClassId = Convert.ToByte(Class)
                     }
                 },
-                PositionPersonUnits = new List<PositionPersonUnit>()
+                PositionPersonUnits = new List<PositionPersonUnit>
                 {
-                    new PositionPersonUnit()
+                    new()
                     {
                         PositionId = Convert.ToByte(Position),
                         UnitId = Convert.ToByte(Unit)
                     }
                 },
-                User = new User()
+                User = new User
                 {
                     UserName = Username,
                     Password = Password,
-                    UserRols = new List<UserRol>()
+                    UserRols = new List<UserRol>
                     {
-                        new UserRol()
+                        new()
                         {
                             RolId = Convert.ToByte(Role)
                         }
                     }
-                },
+                }
             };
             Array.Copy(HttpContext.Session.Get("Concurrency"), person.ConcurrencyPerson, 8);
-            if(await _personService.Update(person))
-            {
+            if (await _personService.Update(person))
                 return RedirectToAction("AsignarClase", "Consejero");
-            }
-            else
-            {
-                return RedirectToAction("AsignarClase", "Consejero");
-            }
+            return RedirectToAction("AsignarClase", "Consejero");
         }
         catch
         {
@@ -504,18 +500,17 @@ public class ConsejeroController : Controller
     public async Task<ActionResult> AsignarClase()
     {
         var vmPathfinders = new List<VmPerson>();
-        var person = await _personService.GetPersonClassById(Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier)));
+        var person =
+            await _personService.GetPersonClassById(Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier)));
         var pathfinders = await _personService.GetMembersByUnit(person.PositionPersonUnits.FirstOrDefault().Unit.Id);
-        foreach (Person pathfinder in pathfinders.ToList())
-        {
-            vmPathfinders.Add(new VmPerson()
+        foreach (var pathfinder in pathfinders.ToList())
+            vmPathfinders.Add(new VmPerson
             {
                 Id = pathfinder.Id,
                 FirstName = pathfinder.FirstName,
                 FullSurname = pathfinder.FathersSurname + " " + pathfinder.MothersSurname,
                 Class = pathfinder.ClassPeople.FirstOrDefault().Class.Name
             });
-        }
 
         var vmPerson = new VmPerson
         {

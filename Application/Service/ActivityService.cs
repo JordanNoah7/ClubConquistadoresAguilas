@@ -48,7 +48,7 @@ public class ActivityService : IActivityService
             return false;
         }
     }
-    
+
     public async Task<IEnumerable<Person>> GetParticipants(int id)
     {
         try

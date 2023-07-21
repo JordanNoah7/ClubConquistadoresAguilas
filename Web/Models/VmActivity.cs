@@ -19,7 +19,7 @@ public class VmActivity
     public int ClubId { get; set; }
 
     public VmPerson Manager { get; set; }
-    
+
     public IEnumerable<VmActivity> Activities { get; set; } = new List<VmActivity>();
     public IEnumerable<VmPerson> Participants { get; set; } = new List<VmPerson>();
     public IEnumerable<VmPerson> NoParticipants { get; set; } = new List<VmPerson>();

@@ -12,7 +12,7 @@ public class RoleRepository : ConnectionRepository, IRoleRepository
     public RoleRepository(IConfiguration configuration) : base(configuration)
     {
     }
-    
+
     public async Task<IEnumerable<Role>> GetRoles()
     {
         var roleList = new List<Role>();
@@ -28,16 +28,16 @@ public class RoleRepository : ConnectionRepository, IRoleRepository
                     using (var dr = await cmd.ExecuteReaderAsync())
                     {
                         while (await dr.ReadAsync())
-                        {
-                            roleList.Add(new Role()
+                            roleList.Add(new Role
                             {
                                 Id = Convert.ToByte(dr["ID"].ToString()),
                                 Name = dr["name"].ToString()
                             });
-                        }
                     }
+
                     Connection.CloseConnection();
                 }
+
                 return roleList;
             }
             catch (SqlException ex)

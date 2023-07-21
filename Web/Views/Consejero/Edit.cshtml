@@ -1,40 +1,27 @@
 ﻿@model VmPerson
 @{
-    //Layout = "_LayoutCrud";
     ViewData["Vista"] = "Edit";
     ViewBag.Title = "Editar Consejero";
 }
-
-<link rel="stylesheet" href="~/css/Create.css" asp-append-version="true" />
-
-@*action="@Url.Action("Login", "Login")" method="post" autocomplete="off"*@
-
+<link rel="stylesheet" href="~/css/Create.css" asp-append-version="true"/>
 <div class="formCrud">
-    <h2>
-        MODIFICAR CONSEJERO***
-
-    </h2>
-
+    <h2>MODIFICAR CONSEJERO***</h2>
     <div class="row">
         <div class="col">
             <form action="@Url.Action("Edit", "Consejero")" method="post" autocomplete="off">
                 <div class="form-group" style="display: none !important;">
                     <input type="number" name="id" class="form-control" required value="@Model.Id">
                 </div>
-
                 <div class="form-group">
                     <label class="control-label">DNI: *</label>
                     <input type="number" type="text" id="dni" title="Ingrese su número de DNI." name="Dni" aria-label="Dni: " class="form-control" required value="@Model.Dni">
                     <span id="mensajeAdvertenciaDNI" style="display:none; color:red;">El DNI debe tener exactamente 8 dígitos numéricos.</span>
                 </div>
-
                 <div class="form-group">
                     <label class="control-label">Nombre(s) : *</label>
                     <input type="text" id="nombre" maxlength="30" title="Ingrese su nombre." aria-label="Nombre" class="form-control" name="FirstName" required value="@Model.FirstName">
                     <span id="mensajeAdvertenciaNombre" style="display:none; color:red;">Ingrese un máximo de 30 letras.</span>
-
                 </div>
-
                 <div class="form-group">
                     <label class="control-label">Apellido Paterno : *</label>
                     <input type="text" id="apellidoPaterno" maxlength="15" title="Ingrese su apellido paterno." aria-label="Apellidos" class="form-control" name="FatherSurname" required value="@Model.FathersSurname">
@@ -47,14 +34,14 @@
                 </div>
                 <div class="form-group">
                     <label class="control-label">Fecha Nacimiento : *</label>
-                    
+
                     <input type="date" id="fechaNacimiento" aria-label="FechaNac" class="form-control" name="Birthday" required value="@Model.BirthDate">
                     <span id="mensajeAdvertencia" style="display:none; color:red;">Debe tener al menos 10 años de edad.</span>
                 </div>
                 <div class="form-group">
                     <label class="control-label">Sexo: *</label>
                     <select name="Sex" id="Sexo">
-                        @switch (@Model.Gender)
+                        @switch (Model.Gender)
                         {
                             case "M":
                                 <option value="M" selected>Masculino</option>
@@ -67,7 +54,6 @@
                         }
                     </select>
                 </div>
-
                 <div class="form-group">
                     <label class="control-label">Telefono:*</label>
                     <input type="number" id="telefono" title="Ingrese un número de 9 dígitos." aria-label="telefono" class="form-control" name="Phone" required value="@Model.Phone">
@@ -83,7 +69,6 @@
                     <input type="text" id="direccion" maxlength="50" title="Ingrese su dirección." aria-label="direccion" class="form-control" name="Address" required value="@Model.Address">
                     <span id="mensajeAdvertenciaDireccion" style="display:none; color:red;">Excedió el número de caracteres.</span>
                 </div>
-                
                 <div class="form-group">
                     <label for="clase">Clase</label>
                     <select name="Class" id="clase">
@@ -148,8 +133,6 @@
                         }
                     </select>
                 </div>
-                <br />
-                <br />
                 <div class="form-group">
                     <label class="control-label">Usuario:</label>
                     <input type="text" id="usuario" title="Ingrese su nombre de usuario." aria-label="usuario" class="form-control" name="Username" required value="@Model.User.UserName">
@@ -159,28 +142,19 @@
                     <label class="control-label">Contraseña:</label>
                     <input type="text" id="contrasena" title="Ingrese su contraseña." aria-label="pasword" class="form-control" name="Password" required value="@Model.User.Password">
                     <span id="mensajeAdvertenciaContrasena" style="display:none; color:red;">Formato de contraseña inválido. Debe contener al menos 8 caracteres, una mayúscula, un carácter especial y un número.</span>
-
                 </div>
-                <br />
-                <br />
                 <button type="submit" id="btnGuardar" class="btnGuardar" value="guardar">Guardar</button>
-
             </form>
-
             <button type="submit" class="btnCancelar" value="cancelar" onclick="location.href='@Url.Action("Details", "Consejero")'">Cancelar</button>
-
         </div>
-
     </div>
 </div>
-
 @if (!string.IsNullOrEmpty(ViewBag.Message))
 {
     <script>
         alert(@ViewBag.Message);
     </script>
 }
-
 <script type="text/javascript"
         src="~/js/validacionesActualizarConquistador.js">
 </script>

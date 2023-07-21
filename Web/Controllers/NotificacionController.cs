@@ -1,8 +1,6 @@
-﻿using System.Globalization;
-using System.Security.Claims;
+﻿using System.Security.Claims;
 using Application.IService;
 using Microsoft.AspNetCore.Mvc;
-using Models;
 using Web.Models;
 
 namespace Web.Controllers;
@@ -15,15 +13,16 @@ public class NotificacionController : Controller
     {
         _personService = personService;
     }
-    
+
     // GET: NotificacionController
     public async Task<ActionResult> Index()
     {
-        Person person = await _personService.GetPersonClassById(Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier)));
-        VmPerson vmPerson = new VmPerson()
+        var person =
+            await _personService.GetPersonClassById(Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier)));
+        var vmPerson = new VmPerson
         {
             Class = person.ClassPeople.FirstOrDefault().Class.Name,
-            Unit = person.PositionPersonUnits.FirstOrDefault().Unit.Name,
+            Unit = person.PositionPersonUnits.FirstOrDefault().Unit.Name
         };
         return View(vmPerson);
     }
