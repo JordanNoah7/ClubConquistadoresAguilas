@@ -87,12 +87,20 @@ main .insights h3{
 
     /*auxilio*/
 
+main .auxilio > div span {
+/*naranja oscuro*/
+    border-radius: 50%;
+    color: purple;
+}
+main .auxilio .left .ubicacion {
+    color: purple;
+    font-weight: bold;
+}
 main .auxilio {
     margin-top: 2rem;
     /*#B5EBD1; verde palo*/
     width: 100%;
     border-radius: 1.5rem;
-
     padding: 1.8rem;
     display: grid;
     grid-template-columns: repeat(2,1fr);

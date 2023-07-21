@@ -285,8 +285,9 @@ public class ConquistadorController : Controller
                         }
                     }
                 },
+               
             };
-            
+           
             Array.Copy(HttpContext.Session.Get("Concurrency"), person.ConcurrencyPerson, 8);
             if(await _personService.Update(person))
             {
@@ -295,14 +296,14 @@ public class ConquistadorController : Controller
             }
             else
             {
-                ViewBag.showSuccessAlert = true;
+               
                 return RedirectToAction("Details", "Conquistador");
             }
            
         }
         catch
         {
-            ViewBag.showSuccessAlert = true;
+            
             return RedirectToAction("Details", "Conquistador");
         }
     }

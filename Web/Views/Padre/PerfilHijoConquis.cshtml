@@ -1,6 +1,6 @@
 ﻿
 @{
-    Layout = "_LayoutCrud";
+    ViewData["Vista"] = "PerfilHijoConquistador";
     ViewBag.Title = "Perfil Hijo Conquistador";
 }
 
@@ -74,33 +74,36 @@
 
         <img src="/img/conquistador1.png" />
     </div>
-    <div class="left mapa">
-        <h3>My Google Maps Demo</h3>
+    <div class="left">
+        <a class="ubicacion" href="https://maps.app.goo.gl/KTCw3mM5fj1AcVcv7" target="_blank" rel="noopener noreferrer">
+            Ubicacion Real
+            <span class="material-symbols-outlined">move_location</span>
+        </a>
+       
+        <h3>My Google Maps - Ubicacion Club</h3>
         <!--The div element for the map -->
-        <div id="map">
+       @* <div id="map">
             <div id="wrapper-9cd199b9cc5410cd3b1ad21cab2e54d3">
                 <div id="map-9cd199b9cc5410cd3b1ad21cab2e54d3"></div><script>
-
-                                                                         (function () {
-                                                                             var setting = { "query": "parque temático cerca de COMPLEJO LOS DINOSAURIOS, Majes, Arequipa, Perú", "width": 500, "height": 300, "satellite": false, "zoom": 12, "placeId": "ChIJP9c0QK1tP44RDwhnPVUDFgQ", "cid": "0x41603553d67080f", "coords": [4.572378, -74.42921679999999], "lang": "es", "queryString": "parque temático cerca de COMPLEJO LOS DINOSAURIOS, Majes, Arequipa, Perú", "centerCoord": [4.572378, -74.42921679999999], "id": "map-9cd199b9cc5410cd3b1ad21cab2e54d3", "embed_id": "968052" };
-                                                                             var d = document;
-                                                                             var s = d.createElement('script');
-                                                                             s.src = 'https://1map.com/js/script-for-user.js?embed_id=968052';
-                                                                             s.async = true;
-                                                                             s.onload = function (e) {
-                                                                                 window.OneMap.initMap(setting)
-                                                                             };
-                                                                             var to = d.getElementsByTagName('script')[0];
-                                                                             to.parentNode.insertBefore(s, to);
-                                                                         })();</script><a href="https://1map.com/es/map-embed">1 Map</a>
+                (function () {
+                var setting = { "query": "parque temático cerca de COMPLEJO LOS DINOSAURIOS, Majes, Arequipa, Perú", "width": 500, "height": 300, "satellite": false, "zoom": 12, "placeId": "ChIJP9c0QK1tP44RDwhnPVUDFgQ", "cid": "0x41603553d67080f", "coords": [4.572378, -74.42921679999999], "lang": "es", "queryString": "parque temático cerca de COMPLEJO LOS DINOSAURIOS, Majes, Arequipa, Perú", "centerCoord": [4.572378, -74.42921679999999], "id": "map-9cd199b9cc5410cd3b1ad21cab2e54d3", "embed_id": "968052" };
+                var d = document;
+                var s = d.createElement('script');
+                s.src = 'https://1map.com/js/script-for-user.js?embed_id=968052';
+                s.async = true;
+                s.onload = function (e) {
+                window.OneMap.initMap(setting)
+                };
+                var to = d.getElementsByTagName('script')[0];
+                to.parentNode.insertBefore(s, to);
+                })();</script><a href="https://1map.com/es/map-embed">1 Map</a>
+                                                                         
 
             </div>
         </div>
-
+*@
         <!-- prettier-ignore -->
-        <script>
-            (g => { var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__", m = document, b = window; b = b[c] || (b[c] = {}); var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams, u = () => h || (h = new Promise(async (f, n) => { await (a = m.createElement("script")); e.set("libraries", [...r] + ""); for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]); e.set("callback", c + ".maps." + q); a.src = `https://maps.${c}apis.com/maps/api/js?` + e; d[q] = f; a.onerror = () => h = n(Error(p + " could not load.")); a.nonce = m.querySelector("script[nonce]")?.nonce || ""; m.head.append(a) })); d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)) })
-                ({ key: "AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg", v: "beta" });</script>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15311.96917191026!2d-71.56051435!3d-16.374355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2spe!4v1689919227845!5m2!1ses!2spe" width="500" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 </div>
 

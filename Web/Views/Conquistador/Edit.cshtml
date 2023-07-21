@@ -184,6 +184,12 @@
                 </div>
                 <br/>
                 <br/>
+                @if (ViewBag.showSuccessAlert)
+                {
+                    <script>
+                        alert('Los datos se grabaron corectamente');
+                    </script>
+                }
                 <button type="submit" id="btnGuardar" class="btnGuardar" value="guardar">Guardar</button>
               
                 
@@ -196,12 +202,7 @@
     </div>
 </div>
 
-@if (ViewBag.showSuccessAlert)
-{
-    <script>
-        alert('Los datos se grabaron corectamente');
-    </script>
-}
+
 <script>
 document.addEventListener("keyup", e =>{
     e.target.matches("#padre")
