@@ -307,6 +307,8 @@ public class PersonRepository : ConnectionRepository, IPersonRepository
                             person.BirthDate = Convert.ToDateTime(dr["birthDate"].ToString());
                             person.Phone = dr["phone"].ToString();
                             person.Email = dr["email"].ToString();
+                            person.TotalPoints = Convert.ToByte(dr["points"]);
+                            person.TotalSavings = Convert.ToDecimal(dr["savings"]);
                             person.ClassPeople = new List<ClassPerson>
                             {
                                 new()
@@ -592,7 +594,7 @@ public class PersonRepository : ConnectionRepository, IPersonRepository
                                 FirstName = dr["firstName"].ToString(),
                                 FathersSurname = dr["fathersSurname"].ToString(),
                                 MothersSurname = dr["mothersSurname"].ToString(),
-                                Total = Convert.ToByte(dr["Total"])
+                                TotalPoints = Convert.ToByte(dr["TotalPoints"])
                             });
                     }
 
@@ -679,6 +681,65 @@ public class PersonRepository : ConnectionRepository, IPersonRepository
                                 FirstName = dr["firstName"].ToString(),
                                 FathersSurname = dr["fathersSurname"].ToString(),
                                 MothersSurname = dr["mothersSurname"].ToString()
+                            });
+                    }
+
+                    Connection.CloseConnection();
+                }
+
+                return membersList;
+            }
+            catch (SqlException ex)
+            {
+                Connection.CloseConnection();
+                return null;
+            }
+        }
+    }
+
+    public async Task<IEnumerable<Person>> GetChildrenByFather(int id)
+    {
+        var membersList = new List<Person>();
+        using (var cnDb = Connection.GetConnection(Configuration))
+        {
+            try
+            {
+                using (var cmd = new SqlCommand("usp_GetChildren", cnDb))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.AddWithValue("@FatherId", id);
+                    Connection.OpenConnection();
+                    using (var dr = await cmd.ExecuteReaderAsync())
+                    {
+                        while (await dr.ReadAsync())
+                            membersList.Add(new Person
+                            {
+                                Id = Convert.ToInt32(dr["ID"]),
+                                Dni = dr["DNI"].ToString(),
+                                FirstName = dr["firstName"].ToString(),
+                                FathersSurname = dr["fathersSurname"].ToString(),
+                                MothersSurname = dr["mothersSurname"].ToString(),
+                                ClassPeople = new List<ClassPerson>()
+                                {
+                                    new ClassPerson()
+                                    {
+                                        Class = new Class()
+                                        {
+                                            Name = dr["class"].ToString()
+                                        }
+                                    }
+                                },
+                                PositionPersonUnits = new List<PositionPersonUnit>()
+                                {
+                                    new PositionPersonUnit()
+                                    {
+                                        Unit = new Unit()
+                                        {
+                                            Name = dr["unit"].ToString()
+                                        }
+                                    }
+                                }
                             });
                     }
 

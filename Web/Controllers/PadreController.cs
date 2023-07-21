@@ -1,4 +1,5 @@
-﻿using Application.IService;
+﻿using System.Security.Claims;
+using Application.IService;
 using Microsoft.AspNetCore.Mvc;
 using Models;
 using Web.Models;
@@ -19,15 +20,49 @@ public class PadreController : Controller
     }
 
     // GET: PadreController
-    public ActionResult Index()
+    public async Task<ActionResult> Index()
     {
-        return View();
+        var vmChildren = new List<VmPerson>();
+        var children =
+            await _personService.GetChildrenByFather(Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier)));
+        foreach (var item in children.ToList())
+        {
+            vmChildren.Add(new VmPerson()
+            {
+                Id = item.Id,
+                Dni = item.Dni,
+                FirstName = item.FirstName,
+                FullSurname = item.FathersSurname + " " + item.MothersSurname,
+                Class = item.ClassPeople.FirstOrDefault().Class.Name,
+                Unit = item.PositionPersonUnits.FirstOrDefault().Unit.Name
+            });
+        }
+
+        VmPerson vmPerson = new VmPerson()
+        {
+            PersonList = vmChildren
+        };
+        return View(vmPerson);
     }
 
     // GET: PadreController/PerfilConquis--para mostrar perfil del hijo conquistador
-    public ActionResult PerfilHijoConquis()
+    public async Task<ActionResult> PerfilHijoConquis(int nro)
     {
-        return View();
+        Person person = await _personService.GetPersonClassById(nro);
+        VmPerson vmPerson = new VmPerson()
+        {
+            Id = person.Id,
+            FirstName = person.FirstName,
+            FullSurname = person.FathersSurname + " " + person.MothersSurname,
+            BirthDate = person.BirthDate.ToString("yyyy-MM-dd"),
+            Phone = person.Phone,
+            Email = person.Email,
+            Class = person.ClassPeople.FirstOrDefault().Class.Name,
+            Unit = person.PositionPersonUnits.FirstOrDefault().Unit.Name,
+            TotalPoints = person.TotalPoints,
+            TotalSavings = person.TotalSavings
+        };
+        return View(vmPerson);
     }
 
     // GET: PadreController/Details/5

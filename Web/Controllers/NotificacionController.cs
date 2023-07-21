@@ -19,11 +19,12 @@ public class NotificacionController : Controller
     {
         var person =
             await _personService.GetPersonClassById(Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier)));
-        var vmPerson = new VmPerson
+        var vmPerson = new VmPerson();
+        if (!User.FindFirstValue(ClaimTypes.Role).Equals("Apoderado"))
         {
-            Class = person.ClassPeople.FirstOrDefault().Class.Name,
-            Unit = person.PositionPersonUnits.FirstOrDefault().Unit.Name
-        };
+            vmPerson.Class = person.ClassPeople.FirstOrDefault().Class.Name;
+            vmPerson.Unit = person.PositionPersonUnits.FirstOrDefault().Unit.Name;
+        }
         return View(vmPerson);
     }
 

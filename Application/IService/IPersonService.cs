@@ -29,4 +29,5 @@ public interface IPersonService
     Task<IEnumerable<Person>> GetPathfindersByUnit(int id);
     Task<IEnumerable<Person>> GetMembersByUnit(int id);
     Task<IEnumerable<Person>> GetPathfindersByClass(int id);
+    Task<IEnumerable<Person>> GetChildrenByFather(int id);
 }

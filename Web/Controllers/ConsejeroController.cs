@@ -49,7 +49,7 @@ public class ConsejeroController : Controller
                 Id = pathfinder.Id,
                 FirstName = pathfinder.FirstName,
                 FullSurname = pathfinder.FathersSurname + " " + pathfinder.MothersSurname,
-                Total = pathfinder.Total
+                TotalPoints = pathfinder.TotalPoints
             });
 
         var vmPerson = new VmPerson

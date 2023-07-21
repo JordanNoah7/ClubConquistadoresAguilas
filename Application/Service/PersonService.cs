@@ -169,6 +169,18 @@ public class PersonService : IPersonService
         }
     }
 
+    public async Task<IEnumerable<Person>> GetChildrenByFather(int id)
+    {
+        try
+        {
+            return await _personRepo.GetChildrenByFather(id);
+        }
+        catch (Exception e)
+        {
+            return null;
+        }
+    }
+
     public async Task<IEnumerable<Person>> GetManagers()
     {
         try

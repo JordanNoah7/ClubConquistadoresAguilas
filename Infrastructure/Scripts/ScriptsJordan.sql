@@ -208,14 +208,18 @@ BEGIN
                P.phone,
                P.email,
                CP.ClassID,
-               C.name class,
+               C.name     class,
                PPU.UnitID,
-               U.name unit
+               U.name     unit,
+               coalesce(APBY.Total,0) points,
+               coalesce(SBY.Total,0)  savings
         FROM People AS P
                  LEFT OUTER JOIN ClassPerson CP on P.ID = CP.PersonID
                  LEFT OUTER JOIN PositionPersonUnit PPU on P.ID = PPU.PersonID
                  LEFT OUTER JOIN Classes C on C.ID = CP.ClassID
                  LEFT OUTER JOIN Units U on U.ID = PPU.UnitID
+                 LEFT JOIN AttendancePointByYear APBY on APBY.ID = p.ID
+                 left join SavingsByYear SBY on p.id = SBY.id
         WHERE P.ID = @PersonID
           AND YEAR(CP.year) = YEAR(getdate())
         COMMIT TRAN;
@@ -1447,3 +1451,69 @@ BEGIN
     END CATCH
 END
 GO
+-------------------------------------------------------------------------------------------Listo
+--Procedimiento para obtener los hijos de un padre debe tener nombres y apellidos, Dni, clase y unidad
+alter PROCEDURE usp_GetChildren @FatherId INT
+AS
+BEGIN
+    BEGIN TRAN;
+    BEGIN TRY
+        SELECT P.Id, P.DNI, P.FirstName, P.FathersSurname, P.MothersSurname, c.name class, u.name unit
+        FROM People P
+                 JOIN ClassPerson CP ON P.Id = CP.PersonId
+                 JOIN Classes C ON cp.ClassId = c.ID
+                 JOIN PositionPersonUnit PPU ON ppu.PersonId = P.Id
+                 JOIN UNITS U ON U.ID = PPU.UNITID
+        WHERE p.PersonId = @FatherId
+        COMMIT TRAN;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRAN;
+    END CATCH
+END
+GO
+
+
+--Arreglar el sp personclassbyid para que muestre puntos y ahorro más
+
+--Procedimiento para insertar ahorro de conquistador
+CREATE PROC usp_InsertFee @PersonId INT, @Fee DECIMAL(10, 2)
+AS
+begin
+    begin tran;
+    begin try
+        insert into Savings (PersonId, Fee) VALUES (@PersonId, @Fee);
+        commit tran;
+    end try
+    begin catch
+        rollback tran;
+    end catch
+end
+go
+
+
+
+--Crear tabla de ahorro de conquistador
+CReATE TABLE Savings
+(
+    PersonId INT                    NOT NULL,
+    Date     DATE DEFAULT GETDATE() NOT NULL,
+    Fee      DECIMAL(10, 2),
+    CONSTRAINT PK_Savings PRIMARY KEY (PersonId, Date),
+    CONSTRAINT FK_PERSON_SAVINGS FOREIGN KEY (PersonId) REFERENCES People (Id),
+    CONSTRAINT CK_Fee CHECK (Fee > 0)
+);
+
+
+
+CREATE VIEW SavingsByYear
+AS
+SELECT P.ID,
+       SUM(S.Fee) AS Total
+FROM People P
+         JOIN Savings S on P.ID = S.PersonID
+WHERE YEAR(s.date) = YEAR(GETDATE())
+GROUP BY P.ID, YEAR(s.date)
+
+update People set PersonID = 22 where ID = 9
+exec usp_GetPersonClassByID 2

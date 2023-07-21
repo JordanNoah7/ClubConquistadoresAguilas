@@ -27,7 +27,7 @@
                 <tr name="fila">
                     <td class="nombre" name="rowNombre">@item.FirstName</td>
                     <td class="apellido" name="rowApellido">@item.FullSurname</td>
-                    <td class="puntos" name="rowPuntos">@item.Total</td>
+                    <td class="puntos" name="rowPuntos">@item.TotalPoints</td>
                     <td>
                         <form action="@Url.Action("Asistencia", "Consejero")" method="get">
                             <input type="hidden" name="nro" value="@item.Id"/>

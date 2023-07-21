@@ -127,3 +127,33 @@
         <img src="/img/conquistador1.png"/>
     </div>
 </div>
+
+<div class="detalles-perfil">
+        <h2>Detalles: </h2>
+        <div class="item notas">
+            <div class="icon">
+                <span class="material-symbols-outlined">spellcheck</span>
+            </div>
+            <div class="rigth">
+                <div class="info">
+                    <h3>PUNTAJE</h3>
+                    <small class="text-muted">Hasta la fecha</small>
+
+                </div>
+                <h5 class="success">@Model.TotalPoints.ToString()</h5>
+            </div>
+        </div>
+        <div class="item ahorro">
+            <div class="icon">
+                <span class="material-symbols-outlined">savings</span>
+            </div>
+            <div class="rigth">
+                <div class="info">
+                    <h3>AHORRO</h3>
+                    <small class="text-muted">Hasta la fecha</small>
+
+                </div>
+                <h5 class="danger">@Model.TotalSavings.ToString()</h5>
+            </div>
+        </div>
+    </div>

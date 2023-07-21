@@ -26,7 +26,9 @@ public class CrudController : Controller
             Phone = person.Phone,
             Email = person.Email,
             Class = person.ClassPeople.FirstOrDefault().Class.Name,
-            Unit = person.PositionPersonUnits.FirstOrDefault().Unit.Name
+            Unit = person.PositionPersonUnits.FirstOrDefault().Unit.Name,
+            TotalPoints = person.TotalPoints,
+            TotalSavings = person.TotalSavings
         };
         return View(vmPerson);
     }

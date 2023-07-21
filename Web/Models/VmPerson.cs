@@ -42,7 +42,9 @@ public class VmPerson
 
     public int? PersonId { get; set; }
 
-    public byte Total { get; set; }
+    public byte TotalPoints { get; set; }
+    
+    public decimal TotalSavings { get; set; }
 
     public object ConcurrencyPerson { get; set; } = null!;
 
