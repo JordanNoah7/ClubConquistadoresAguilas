@@ -12,7 +12,7 @@ public class UnitRepository : ConnectionRepository, IUnitRepository
     public UnitRepository(IConfiguration configuration) : base(configuration)
     {
     }
-    
+
     public async Task<IEnumerable<Unit>> GetUnits()
     {
         var unitList = new List<Unit>();
@@ -28,14 +28,13 @@ public class UnitRepository : ConnectionRepository, IUnitRepository
                     using (var dr = await cmd.ExecuteReaderAsync())
                     {
                         while (await dr.ReadAsync())
-                        {
-                            unitList.Add(new Unit()
+                            unitList.Add(new Unit
                             {
                                 Id = Convert.ToByte(dr["ID"].ToString()),
                                 Name = dr["name"].ToString()
                             });
-                        }
                     }
+
                     Connection.CloseConnection();
                 }
 

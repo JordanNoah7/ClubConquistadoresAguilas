@@ -12,11 +12,11 @@ public class ClassRepository : ConnectionRepository, IClassRepository
     public ClassRepository(IConfiguration configuration) : base(configuration)
     {
     }
-    
+
     public async Task<IEnumerable<Class>> GetClasses()
     {
         var classList = new List<Class>();
-        using (var cnDb=Connection.GetConnection(Configuration))
+        using (var cnDb = Connection.GetConnection(Configuration))
         {
             try
             {
@@ -28,14 +28,13 @@ public class ClassRepository : ConnectionRepository, IClassRepository
                     using (var dr = await cmd.ExecuteReaderAsync())
                     {
                         while (await dr.ReadAsync())
-                        {
-                            classList.Add(new Class()
+                            classList.Add(new Class
                             {
                                 Id = Convert.ToByte(dr["ID"].ToString()),
                                 Name = dr["name"].ToString()
                             });
-                        }
                     }
+
                     Connection.CloseConnection();
                 }
 

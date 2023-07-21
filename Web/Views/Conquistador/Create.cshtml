@@ -1,5 +1,4 @@
 ﻿@{
-    ViewData["Vista"] = "Create";
     ViewBag.Title = "Crear Conquistador";
 }
 <link rel="stylesheet" href="~/css/Create.css" asp-append-version="true"/>
@@ -30,8 +29,8 @@
                 </div>
                 <div class="form-group">
                     <label class="control-label">Fecha Nacimiento : *</label>
-         
-                    <input type="date" id="fechaNacimiento"  aria-label="FechaNac" title="Ingrese una fecha de nacimiento válida." class="form-control" name="Birthday" required>
+
+                    <input type="date" id="fechaNacimiento" aria-label="FechaNac" title="Ingrese una fecha de nacimiento válida." class="form-control" name="Birthday" required>
                     <span id="mensajeAdvertencia" style="display:none; color:red;">Debe tener al menos 10 años de edad.</span>
                 </div>
                 <div class="form-group">
@@ -43,7 +42,7 @@
                 </div>
                 <div class="form-group">
                     <label class="control-label">Telefono:*</label>
-                    <input type="number" id="telefono" title="Ingrese un número de 9 dígitos." aria-label="telefono" class="form-control" name="Phone"  required>
+                    <input type="number" id="telefono" title="Ingrese un número de 9 dígitos." aria-label="telefono" class="form-control" name="Phone" required>
                     <span id="mensajeAdvertenciaTelefono" style="display:none; color:red;">Debe tener exactamente 9 dígitos.</span>
                 </div>
                 <div class="form-group">
@@ -111,18 +110,15 @@
                     <label class="control-label">Usuario:</label>
                     <input type="text" id="usuario" title="Ingrese su nombre de usuario." maxlength="15" aria-label="usuario" class="form-control" name="Username" required>
                     <span id="mensajeAdvertenciaUsuario" style="display:none; color:red;">El usuario debe tener al menos 6 caracteres y no puede contener espacios ni caracteres especiales.</span>
-                   
                 </div>
                 <div class="form-group">
                     <label class="control-label">Contraseña:</label>
                     <input type="text" id="contrasena" title="Ingrese su contraseña." aria-label="pasword" class="form-control" name="Password" required>
                     <span id="mensajeAdvertenciaContrasena" style="display:none; color:red;">Formato de contraseña inválido. Debe contener al menos 8 caracteres, una mayúscula, un carácter especial y un número.</span>
                 </div>
-                <br/>
-                <br/>
-                <button type="submit" id="btnGuardar" class="btnGuardar" value="guardar")">Guardar</button>
-                <button type="submit" class="btnCancelar" value="cancelar"  onclick="location.href='@Url.Action("Details", "Conquistador")'">Cancelar</button>
+                <button type="submit" id="btnGuardar" class="btnGuardar" value="guardar">Guardar</button>
             </form>
+            <button type="submit" class="btnCancelar" value="cancelar" onclick="location.href='@Url.Action("Details", "Conquistador")'">Cancelar</button>
         </div>
     </div>
 </div>
@@ -130,7 +126,6 @@
 document.addEventListener("keyup", e =>{
     e.target.matches("#padre")
     console.log(e.target.value)
-    
     if (e.target.matches("#padre")){
         if (e.key==="Escape")e.target.value = ""
         document.querySelectorAll(".father").forEach(father=>{
@@ -139,7 +134,6 @@ document.addEventListener("keyup", e =>{
     }
 })
 </script>
-
 <script type="text/javascript"
         src="~/js/validacionesCrearConquistador.js">
 </script>

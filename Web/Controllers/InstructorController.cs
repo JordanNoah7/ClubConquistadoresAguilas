@@ -1,4 +1,5 @@
-﻿using Application.IService;
+﻿using System.Security.Claims;
+using Application.IService;
 using Microsoft.AspNetCore.Mvc;
 using Models;
 using Web.Models;
@@ -7,26 +8,31 @@ namespace Web.Controllers;
 
 public class InstructorController : Controller
 {
+    private readonly ICategoryService _categoryService;
     private readonly IClassService _classService;
     private readonly IPersonService _personService;
     private readonly IPositionService _positionService;
     private readonly IRoleService _roleService;
+    private readonly ISpecialtyService _specialtyService;
     private readonly IUnitService _unitService;
-    
-    byte[] concurrency = new byte[8];
+
+    private byte[] concurrency = new byte[8];
 
     public InstructorController(IPersonService personService, IClassService classService,
         IPositionService positionService,
         IRoleService roleService,
-        IUnitService unitService)
+        IUnitService unitService, ISpecialtyService specialtyService,
+        ICategoryService categoryService)
     {
         _personService = personService;
         _classService = classService;
         _positionService = positionService;
         _roleService = roleService;
         _unitService = unitService;
+        _specialtyService = specialtyService;
+        _categoryService = categoryService;
     }
-    
+
     // GET: InstructorController
     public ActionResult Index()
     {
@@ -39,21 +45,19 @@ public class InstructorController : Controller
         var vmInstructors = new List<VmPerson>();
         var instructors = await _personService.GetInstructors();
         foreach (var item in instructors.ToList())
-        {
-            vmInstructors.Add(new VmPerson()
+            vmInstructors.Add(new VmPerson
             {
                 Id = item.Id,
                 FirstName = item.FirstName,
                 FullSurname = item.FathersSurname + " " + item.MothersSurname,
                 Class = item.ClassPeople.FirstOrDefault().Class.Name
             });
-        }
 
-        var vmPerson = new VmPerson()
+        var vmPerson = new VmPerson
         {
             PersonList = vmInstructors
         };
-        
+
         return View(vmPerson);
     }
 
@@ -72,15 +76,82 @@ public class InstructorController : Controller
     }
 
     // GET: InstructorController/Registrar_Notas
-    public ActionResult Registrar_Notas()
+    public async Task<ActionResult> Registrar_Notas()
     {
-        return View();
+        var list = new List<VmPerson>();
+        var person =
+            await _personService.GetPersonClassById(Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier)));
+        var pathfinders = await _personService.GetPathfindersByClass(person.ClassPeople.FirstOrDefault().Class.Id);
+
+        foreach (var pathfinder in pathfinders.ToList())
+            list.Add(new VmPerson
+            {
+                Id = pathfinder.Id,
+                FirstName = pathfinder.FirstName,
+                FullSurname = pathfinder.FathersSurname + " " + pathfinder.MothersSurname
+            });
+
+        var categories = await _categoryService.GetCategories();
+        ViewBag.Categories = categories.Select(c => new
+        {
+            Value = c.Id,
+            Text = c.Name
+        }).ToList();
+
+        var vmPerson = new VmPerson
+        {
+            Class = person.ClassPeople.FirstOrDefault().Class.Name,
+            PersonList = list
+        };
+
+        return View(vmPerson);
+    }
+
+    public async Task<ActionResult> Registrar_nota(int nro, int category)
+    {
+        var specialties = await _specialtyService.GetSpecialties(category);
+        ViewBag.Specialties = specialties.Select(s => new
+        {
+            Value = s.Id,
+            Text = s.Name
+        }).ToList();
+        
+        var person = await _personService.GetPersonClassById(nro);
+        VmPerson vmPerson = new VmPerson()
+        {
+            Id = nro,
+            Dni = person.Dni,
+            FirstName = person.FirstName,
+            FathersSurname = person.FathersSurname, 
+            MothersSurname = person.MothersSurname
+        };
+        return View(vmPerson);
+    }
+
+    [HttpPost]
+    public async Task<ActionResult> Registrar_nota(int id, short specialty, byte note)
+    {
+        Specialty specialtyM = new Specialty()
+        {
+            SpecialtyPeople = new List<SpecialtyPerson>()
+            {
+                new SpecialtyPerson()
+                {
+                    PersonId = id,
+                    SpecialtyId = specialty,
+                    Note = note
+                }
+            }
+        };
+        await _specialtyService.InsertNote(specialtyM);
+        return RedirectToAction("Registrar_Notas", "Instructor");
     }
 
     // POST: InstructorController/Create
     [HttpPost]
     public async Task<ActionResult> Create(string Dni, string FirstName, string FatherSurname, string MotherSurname,
-        DateTime Birthday, string Sex, string Phone, string Email, string Address, string Class, string Role, string Username, string Password)
+        DateTime Birthday, string Sex, string Phone, string Email, string Address, string Class, string Role,
+        string Username, string Password)
     {
         try
         {
@@ -105,7 +176,7 @@ public class InstructorController : Controller
                 User = new User
                 {
                     UserName = Username,
-                    Password = Password,
+                    Password = Password
                 },
                 ClubId = 1
             };
@@ -150,7 +221,7 @@ public class InstructorController : Controller
         vmPerson.User = new VmUser
         {
             UserName = person.User.UserName,
-            Password = person.User.Password,
+            Password = person.User.Password
         };
 
         return View(vmPerson);
@@ -158,12 +229,14 @@ public class InstructorController : Controller
 
     // POST: InstructorController/Edit/5
     [HttpPost]
-    public async Task<ActionResult> Edit(int id, string Dni, string FirstName, string FatherSurname, string MotherSurname,
-        DateTime Birthday, string Sex, string Phone, string Email, string Address, string Class, string Role, string Username, string Password)
+    public async Task<ActionResult> Edit(int id, string Dni, string FirstName, string FatherSurname,
+        string MotherSurname,
+        DateTime Birthday, string Sex, string Phone, string Email, string Address, string Class, string Role,
+        string Username, string Password)
     {
         try
         {
-            Person person = new Person()
+            var person = new Person
             {
                 Id = id,
                 Dni = Dni,
@@ -172,40 +245,35 @@ public class InstructorController : Controller
                 MothersSurname = MotherSurname,
                 BirthDate = Birthday,
                 Gender = Sex,
-                Phone = Phone.ToString(),
+                Phone = Phone,
                 Email = Email,
                 Address = Address,
                 ClubId = 1,
-                ClassPeople = new List<ClassPerson>()
+                ClassPeople = new List<ClassPerson>
                 {
-                    new ClassPerson()
+                    new()
                     {
                         ClassId = Convert.ToByte(Class)
                     }
                 },
-                User = new User()
+                User = new User
                 {
                     UserName = Username,
                     Password = Password,
-                    UserRols = new List<UserRol>()
+                    UserRols = new List<UserRol>
                     {
-                        new UserRol()
+                        new()
                         {
                             RolId = Convert.ToByte(Role)
                         }
                     }
-                },
+                }
             };
             Array.Copy(HttpContext.Session.Get("Concurrency"), person.ConcurrencyPerson, 8);
-            
-            if(await _personService.UpdateInstructor(person))
-            {
+
+            if (await _personService.UpdateInstructor(person))
                 return RedirectToAction("Details", "Instructor");
-            }
-            else
-            {
-                return RedirectToAction("Details", "Instructor");
-            }
+            return RedirectToAction("Details", "Instructor");
         }
         catch
         {
@@ -216,8 +284,8 @@ public class InstructorController : Controller
     // GET: InstructorController/Delete/5
     public async Task<ActionResult> Delete(int nro)
     {
-        Person person = await _personService.GetPersonById(nro);
-        VmPerson vmPerson = new VmPerson()
+        var person = await _personService.GetPersonById(nro);
+        var vmPerson = new VmPerson
         {
             Id = nro,
             FirstName = person.FirstName,

@@ -54,7 +54,7 @@ main {
     left: 0;
     background: #2B463C;
     border-radius: 1rem;
-    justify-content:center;
+    justify-content: center;
 }
 
 .forms-wrap {
@@ -98,7 +98,7 @@ form {
     height: calc(100% - 4.1rem);
     width: auto;
     display: block;
-    
+
 }
 
 

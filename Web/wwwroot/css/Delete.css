@@ -85,22 +85,27 @@ main .botones button:hover {
     background: #979497;
     color: white;
 }
-main .eliminar h1{
-    color:white;
+
+main .eliminar h1 {
+    color: white;
 }
-main .eliminar h2{
-    color:white;
+
+main .eliminar h2 {
+    color: white;
 }
+
 main h1 span {
     color: #FBB03B; /*naranja*/
     font-size: 200px;
-    
+
 }
-main .eliminar b{
+
+main .eliminar b {
     color: yellow;
 }
+
 main .formCrud h2 {
-    margin-top:0.8rem;
+    margin-top: 0.8rem;
     margin-bottom: 0.8rem;
 }
 
@@ -117,6 +122,7 @@ main .formCrud .eliminar {
     width: 50%;
     height: 50%;
 }
+
 main .eliminar .btnCancelar {
     background-color: white;
     color: #979497; /* plomo */
@@ -124,15 +130,17 @@ main .eliminar .btnCancelar {
     border-radius: 10px;
     width: 40%;
     height: 2rem;
-   
+
 }
-    main .eliminar .btnCancelar:hover {
-        background: #979497;
-        color: white;
-        border-color: white;
-    } 
+
+main .eliminar .btnCancelar:hover {
+    background: #979497;
+    color: white;
+    border-color: white;
+}
+
 main .eliminar button {
-    justify-content:center;
+    justify-content: center;
     background-color: white;
     color: #EA2027; /*rojo*/
     border: 2px solid #EA2027; /*rojo*/

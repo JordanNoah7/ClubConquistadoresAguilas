@@ -12,7 +12,7 @@ public class RoleService : IRoleService
     {
         _roleRepository = roleRepository;
     }
-    
+
     public async Task<IEnumerable<Role>> GetRoles()
     {
         return await _roleRepository.GetRoles();

@@ -29,14 +29,13 @@ public class PositionRepository : ConnectionRepository, IPositionRepository
                     using (var dr = await cmd.ExecuteReaderAsync())
                     {
                         while (await dr.ReadAsync())
-                        {
-                            positionList.Add(new Position()
+                            positionList.Add(new Position
                             {
                                 Id = Convert.ToByte(dr["ID"].ToString()),
                                 Name = dr["name"].ToString()
                             });
-                        }
                     }
+
                     Connection.CloseConnection();
                 }
 

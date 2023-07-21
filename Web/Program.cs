@@ -3,7 +3,6 @@ using Application.Service;
 using DataAccess;
 using Domain;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using AttendanceRepository = DataAccess.AttendanceRepository;
 
 //using Infrastructure.Context;
 
@@ -48,6 +47,12 @@ builder.Services.AddScoped<IActivityService, ActivityService>();
 //Attendance
 builder.Services.AddScoped<IAttendanceRepository, AttendanceRepository>();
 builder.Services.AddScoped<IAttendanceService, AttendanceService>();
+//Attendance
+builder.Services.AddScoped<ISpecialtyRepository, SpecialtyRepository>();
+builder.Services.AddScoped<ISpecialtyService, SpecialtyService>();
+//Attendance
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
 
 var app = builder.Build();
 
@@ -69,8 +74,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     "default",
-    "{controller=Login}/{action=Login}/{id?}");
+    "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
-
-

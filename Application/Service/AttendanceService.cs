@@ -12,7 +12,7 @@ public class AttendanceService : IAttendanceService
     {
         _attendanceRepository = attendanceRepository;
     }
-    
+
     public async Task<bool> Insert(Attendance model)
     {
         try

@@ -12,7 +12,7 @@ public class UnitService : IUnitService
     {
         _unitRepository = unitRepository;
     }
-    
+
     public async Task<IEnumerable<Unit>> GetUnits()
     {
         return await _unitRepository.GetUnits();

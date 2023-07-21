@@ -16,8 +16,8 @@ public class ActivityRepository : ConnectionRepository, IActivityRepository
 
     public async Task<Activity> GetActivitie(int id)
     {
-        Activity activity = new Activity();
-        using (var cnDb=Connection.GetConnection(Configuration))
+        var activity = new Activity();
+        using (var cnDb = Connection.GetConnection(Configuration))
         {
             try
             {
@@ -37,14 +37,14 @@ public class ActivityRepository : ConnectionRepository, IActivityRepository
                             activity.Location = dr["location"].ToString();
                             activity.Description = dr["description"].ToString();
                             activity.Requirements = dr["requirements"].ToString();
-                            activity.Manager = new Person()
+                            activity.Manager = new Person
                             {
-                                Id = Convert.ToInt32(dr["ID"]),
+                                Id = Convert.ToInt32(dr["ID"])
                             };
                             Array.Copy((byte[])dr["concurrencyActivity"], activity.ConcurrencyActivity, 8);
-
                         }
                     }
+
                     Connection.CloseConnection();
                 }
 
@@ -61,7 +61,7 @@ public class ActivityRepository : ConnectionRepository, IActivityRepository
     public async Task<IEnumerable<Activity>> GetActivities()
     {
         var activityList = new List<Activity>();
-        using (var cnDb=Connection.GetConnection(Configuration))
+        using (var cnDb = Connection.GetConnection(Configuration))
         {
             try
             {
@@ -73,14 +73,13 @@ public class ActivityRepository : ConnectionRepository, IActivityRepository
                     using (var dr = await cmd.ExecuteReaderAsync())
                     {
                         while (await dr.ReadAsync())
-                        {
-                            activityList.Add(new Activity()
+                            activityList.Add(new Activity
                             {
                                 Id = Convert.ToByte(dr["ID"].ToString()),
                                 Name = dr["name"].ToString(),
                                 StartDate = Convert.ToDateTime(dr["startDate"]),
                                 EndDate = Convert.ToDateTime(dr["endDate"]),
-                                Manager = new Person()
+                                Manager = new Person
                                 {
                                     Id = Convert.ToInt32(dr["PersonID"]),
                                     FirstName = dr["firstName"].ToString(),
@@ -89,8 +88,8 @@ public class ActivityRepository : ConnectionRepository, IActivityRepository
                                 },
                                 Location = dr["location"].ToString()
                             });
-                        }
                     }
+
                     Connection.CloseConnection();
                 }
 
@@ -139,7 +138,7 @@ public class ActivityRepository : ConnectionRepository, IActivityRepository
     public async Task<IEnumerable<Person>> GetParticipants(int id)
     {
         var participantList = new List<Person>();
-        using (var cnDb=Connection.GetConnection(Configuration))
+        using (var cnDb = Connection.GetConnection(Configuration))
         {
             try
             {
@@ -152,16 +151,15 @@ public class ActivityRepository : ConnectionRepository, IActivityRepository
                     using (var dr = await cmd.ExecuteReaderAsync())
                     {
                         while (await dr.ReadAsync())
-                        {
-                            participantList.Add(new Person()
+                            participantList.Add(new Person
                             {
                                 Id = Convert.ToByte(dr["ID"].ToString()),
                                 FirstName = dr["firstName"].ToString(),
                                 FathersSurname = dr["fathersSurname"].ToString(),
                                 MothersSurname = dr["mothersSurname"].ToString()
                             });
-                        }
                     }
+
                     Connection.CloseConnection();
                 }
 
@@ -178,7 +176,7 @@ public class ActivityRepository : ConnectionRepository, IActivityRepository
     public async Task<IEnumerable<Person>> GetNoParticipants(int id)
     {
         var noParticipantList = new List<Person>();
-        using (var cnDb=Connection.GetConnection(Configuration))
+        using (var cnDb = Connection.GetConnection(Configuration))
         {
             try
             {
@@ -191,16 +189,15 @@ public class ActivityRepository : ConnectionRepository, IActivityRepository
                     using (var dr = await cmd.ExecuteReaderAsync())
                     {
                         while (await dr.ReadAsync())
-                        {
-                            noParticipantList.Add(new Person()
+                            noParticipantList.Add(new Person
                             {
                                 Id = Convert.ToByte(dr["ID"].ToString()),
                                 FirstName = dr["firstName"].ToString(),
                                 FathersSurname = dr["fathersSurname"].ToString(),
                                 MothersSurname = dr["mothersSurname"].ToString()
                             });
-                        }
                     }
+
                     Connection.CloseConnection();
                 }
 
@@ -264,6 +261,7 @@ public class ActivityRepository : ConnectionRepository, IActivityRepository
                     await cmd.ExecuteNonQueryAsync();
                     Connection.CloseConnection();
                 }
+
                 return true;
             }
             catch (SqlException ex)

@@ -20,7 +20,7 @@
     --color-white: #202528;
     --color-dark: #edeffd;
     --color-dark-variant: #a3bdcc;
-    --color-light: rgba(0,0,0,0.4);
+    --color-light: rgba(0, 0, 0, 0.4);
     --box-shadow: 0 2rem 3rem var(--color-light);
 }
 
@@ -106,9 +106,11 @@ small {
     overflow: hidden;
 
 }
+
 .success {
-    color:forestgreen;
+    color: forestgreen;
 }
+
 /*foto de contacto mensajes*/
 /*texto como fondo--silenciado*/
 .text-muted {
@@ -151,33 +153,33 @@ aside .close {
 }
 
 /*organizacion*/
-    aside .categorias ul li ul li {
-        display: block;
-        justify-content: space-between;
-        transform: translateY(-50%);
-        left: 100%;
-        top: 50%;
-        align-items: center;
-        background: var(--color-background);
-        
-    }
+aside .categorias ul li ul li {
+    display: block;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    left: 100%;
+    top: 50%;
+    align-items: center;
+    background: var(--color-background);
+
+}
 
 
-    aside .categorias li ul {
-        display: none;
-        position: absolute;
-        transform: translateY(-50%);
-        left: 100%;
-        top: 50%;
-        z-index: 999;
-    }
+aside .categorias li ul {
+    display: none;
+    position: absolute;
+    transform: translateY(-50%);
+    left: 100%;
+    top: 50%;
+    z-index: 999;
+}
 
-    aside .categorias li:hover > ul {
-        display: flex;
-        position:absolute;
-        justify-content: space-between;
-        bottom: 0.5rem;
-    }
+aside .categorias li:hover > ul {
+    display: flex;
+    position: absolute;
+    justify-content: space-between;
+    bottom: 0.5rem;
+}
 
 /*organizacion*/
 /*sidebar*/
@@ -217,17 +219,17 @@ aside .sidebar a:last-child {
     width: 100%;
 }
 
-    aside .sidebar a.active {
-        background: #31E981; /*verde*/
-        color: #00BF63;
-        margin-left: 0;
-    }
+aside .sidebar a.active {
+    background: #31E981; /*verde*/
+    color: #00BF63;
+    margin-left: 0;
+}
 
 aside .sidebar a.active:before {
     content: "";
     width: 6px;
     height: 100%;
-    background:#20AB4B;
+    background: #20AB4B;
 }
 
 aside .sidebar a.active span {
@@ -241,17 +243,17 @@ aside .sidebar a:hover {
 
 aside .sidebar a:hover span {
     margin-left: 1rem;
-    
+
 }
 
 /*mensaje*/
-    aside .sidebar .message-count {
-        background: #31E981;/*verde whatsap*/
-        color: white;
-        padding: 2px 10px;
-        font-size: 11px;
-        border-radius: 0.8rem;
-    }
+aside .sidebar .message-count {
+    background: #31E981; /*verde whatsap*/
+    color: white;
+    padding: 2px 10px;
+    font-size: 11px;
+    border-radius: 0.8rem;
+}
 
 /*main*/
 
@@ -288,7 +290,7 @@ main h1 span {
     cursor: pointer;
     border-radius: var(--border-radius-1);
 
-    
+
 }
 
 .right .theme-toggler span {
@@ -299,7 +301,7 @@ main h1 span {
     align-items: center;
     justify-content: center;
 
-   
+
 }
 
 .right .theme-toggler span.active {
@@ -316,205 +318,221 @@ main h1 span {
 
 /*seccion-updates*/
 
-.right .seccion-updates{
+.right .seccion-updates {
     margin-top: 1rem;
 
 }
-.right .seccion-updates h2{
-    margin-top:0.8rem;
+
+.right .seccion-updates h2 {
+    margin-top: 0.8rem;
 }
-.right .seccion-updates .updates{
-    background:var(--color-light);
+
+.right .seccion-updates .updates {
+    background: var(--color-light);
     padding: var(--card-padding);
-    border-radius : var(--card-border-radius);
+    border-radius: var(--card-border-radius);
     box-shadow: var(--box-shadow);
     transition: all 300ms ease;
 }
-.right .seccion-updates .updates:hover{
-    box-shadow:none;
-}
-.right .seccion-updates .updates .update{
-    display:grid;
-    grid-template-columns: 2.6rem auto;
-    gap:1rem;
-    margin-bottom:1rem;
+
+.right .seccion-updates .updates:hover {
+    box-shadow: none;
 }
 
-.right .detalles-perfil{
+.right .seccion-updates .updates .update {
+    display: grid;
+    grid-template-columns: 2.6rem auto;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.right .detalles-perfil {
     margin-top: 2rem;
 }
-.right .detalles-perfil h2{
+
+.right .detalles-perfil h2 {
     margin-bottom: 0.8rem;
 }
 
-.right .detalles-perfil .item{
-    background:var(--color-light);
-    display:flex;
+.right .detalles-perfil .item {
+    background: var(--color-light);
+    display: flex;
     align-items: center;
-    gap:1rem;
+    gap: 1rem;
     margin-bottom: 0.7rem;
     padding: 1.4rem var(--card-padding);
     border-radius: var(--border-radius-3);
     transition: all 300ms ease;
 }
-.right .detalles-perfil .item:hover{
+
+.right .detalles-perfil .item:hover {
     box-shadow: none;
 }
 
-.right .detalles-perfil .item .rigth{
-    display:flex;
+.right .detalles-perfil .item .rigth {
+    display: flex;
     justify-content: space-between;
-    align-items:start;
-    margin:0;
-    width:100%;
+    align-items: start;
+    margin: 0;
+    width: 100%;
 }
 
-    .right .detalles-perfil .item .icon {
-        padding: 0.6rem;
-        color: white;
-        border-radius: 50%;
-        background: #A2CEB7;
-        display: flex;
-    }
+.right .detalles-perfil .item .icon {
+    padding: 0.6rem;
+    color: white;
+    border-radius: 50%;
+    background: #A2CEB7;
+    display: flex;
+}
 
-    .right .detalles-perfil .item.notas .icon {
-        background: #8EBDE4;
-    }
-    .right .detalles-perfil .item.ahorro .icon {
-        background: #F99C8C;
-    }
+.right .detalles-perfil .item.notas .icon {
+    background: #8EBDE4;
+}
 
-    /*media queries responsive*/
-    @media screen and (max-width: 1200px ) {
-        .container {
+.right .detalles-perfil .item.ahorro .icon {
+    background: #F99C8C;
+}
+
+/*media queries responsive*/
+@media screen and (max-width: 1200px ) {
+    .container {
         width: 94%;
         grid-template-columns: 7rem auto 23rem;
-        }
+    }
 
-        main .recent-order p {
-            width: 94%;
-
-        }
-
-        aside .logo h2 {
-            display: none;
-        }
-
-        aside .sidebar h3 {
-            display: none;
-        }
-
-        aside .sidebar a {
-            width: 5.6rem;
-        }
-
-        aside .sidebar a:last-child {
-            position: relative;
-            margin-top: 1.8rem;
-        }
-
-        aside .categorias ul li ul li {
-            position: absolute;
-            display: inline-block;
-            background: var(--color-background);
-            transform: translateY(-100%);
-            justify-content: center;
-        }
+    main .recent-order p {
+        width: 94%;
 
     }
+
+    aside .logo h2 {
+        display: none;
+    }
+
+    aside .sidebar h3 {
+        display: none;
+    }
+
+    aside .sidebar a {
+        width: 5.6rem;
+    }
+
+    aside .sidebar a:last-child {
+        position: relative;
+        margin-top: 1.8rem;
+    }
+
+    aside .categorias ul li ul li {
+        position: absolute;
+        display: inline-block;
+        background: var(--color-background);
+        transform: translateY(-100%);
+        justify-content: center;
+    }
+
+}
 
 
 @media screen and (max-width: 768px ) {
-    .container{
-        width:100%;
+    .container {
+        width: 100%;
         grid-template-columns:1fr;
     }
-    aside{
-      position:fixed;
-      left:-100%;
-      background:white;
-      width: 18rem;
-      z-index:3;
-      box-shadow: 1rem 3rem  4rem var(--color-background);
-      height:100vh;
-      padding-right: var(--card-padding);
-      display:none;
-      animation:showMenu 400ms ease forwards;
+
+    aside {
+        position: fixed;
+        left: -100%;
+        background: white;
+        width: 18rem;
+        z-index: 3;
+        box-shadow: 1rem 3rem 4rem var(--color-background);
+        height: 100vh;
+        padding-right: var(--card-padding);
+        display: none;
+        animation: showMenu 400ms ease forwards;
     }
 
-    @keyframes showMenu{
-        to{
-            left:0;
+    @keyframes showMenu {
+        to {
+            left: 0;
         }
     }
-    aside .logo{
+    aside .logo {
         margin-left: 1rem;
     }
-    aside .logo h2{
-        display:inline;
-    }
-    aside .logo h3{
-        display:inline;
+
+    aside .logo h2 {
+        display: inline;
     }
 
-    aside .sidebar a{
-        width:100%;
+    aside .logo h3 {
+        display: inline;
+    }
+
+    aside .sidebar a {
+        width: 100%;
         height: 3.4rem;
-        
-    }
-    aside .sidebar a h3{
-        display:block;
-        color:#537351;
+
     }
 
-    aside .sidebar a:last-child{
-        position:absolute;
-        bottom:5rem;
-        
+    aside .sidebar a h3 {
+        display: block;
+        color: #537351;
     }
-    aside .close{
+
+    aside .sidebar a:last-child {
+        position: absolute;
+        bottom: 5rem;
+
+    }
+
+    aside .close {
         display: inline-block;
-        cursor:pointer;
+        cursor: pointer;
     }
-   
-    .right{
+
+    .right {
         width: 94%;
         margin: 0 auto 4rem;
     }
-    .right .top{
-        position:fixed;
-        top:0;
-        left:0;
-        align-items:center;
+
+    .right .top {
+        position: fixed;
+        top: 0;
+        left: 0;
+        align-items: center;
         padding: 0 0.8rem;
-        height:4.6rem;
+        height: 4.6rem;
         background: white;
         width: 100%;
-        margin:0;
-        z-index:2;
+        margin: 0;
+        z-index: 2;
         box-shadow: 0 1rem 1rem var(--color-background);
     }
-    .right .top .theme-toggler{
+
+    .right .top .theme-toggler {
         width: 4.4rem;
-        position:absolute;
+        position: absolute;
         left: 66%;
     }
-    .right .profile .info{
-        display:none;
+
+    .right .profile .info {
+        display: none;
     }
 
-    .right .top button{
-        display:inline-block;
+    .right .top button {
+        display: inline-block;
         background: transparent;
-        cursor:pointer;
-        color:black;
-        position:absolute;
-        left:1rem;
+        cursor: pointer;
+        color: black;
+        position: absolute;
+        left: 1rem;
     }
 
-    .right .top button span{
-        font-size:2rem;
+    .right .top button span {
+        font-size: 2rem;
     }
+
     aside .categorias ul li ul li {
         position: absolute;
         display: block;
