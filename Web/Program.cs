@@ -3,7 +3,6 @@ using Application.Service;
 using DataAccess;
 using Domain;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using AttendanceRepository = DataAccess.AttendanceRepository;
 
 //using Infrastructure.Context;
 
@@ -72,5 +71,3 @@ app.MapControllerRoute(
     "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
-
-
