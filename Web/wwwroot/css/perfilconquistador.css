@@ -285,7 +285,7 @@ main .auxilio p {
 .auxilio .right .ubicacion .ubicacion-real {
     display: block;
     justify-content: space-between;
-    margin: 1rem 0 1rem .6rem;
+    margin: .1rem 0 1rem .6rem;
     padding: 1rem 0 1rem 0;
     background: #2B463C;
     width: 20rem;
@@ -305,4 +305,14 @@ main .auxilio p {
         color: greenyellow;
         margin: 1rem 0 1rem 2rem;
     }
+
+.nombrehijo {
+    margin-top:20px;
+    font-size: 1.2rem;
+    color: #2B463C;
+}
+.middle h1 {
+    font-size: 1rem;
+    color: #2B463C;
+}
 
