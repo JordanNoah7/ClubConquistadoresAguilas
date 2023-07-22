@@ -631,7 +631,7 @@ public class PersonRepository : ConnectionRepository, IPersonRepository
                                 FirstName = dr["firstName"].ToString(),
                                 FathersSurname = dr["fathersSurname"].ToString(),
                                 MothersSurname = dr["mothersSurname"].ToString(),
-                                TotalPoints = Convert.ToByte(dr["TotalPoints"])
+                                TotalPoints = Convert.ToByte(dr["Total"])
                             });
                     }
 
