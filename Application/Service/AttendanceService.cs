@@ -24,4 +24,16 @@ public class AttendanceService : IAttendanceService
             return false;
         }
     }
+
+    public async Task<bool> InsertFee(Person model)
+    {
+        try
+        {
+            return await _attendanceRepository.InsertFee(model);
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
+    }
 }

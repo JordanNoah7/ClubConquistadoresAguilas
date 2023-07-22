@@ -572,6 +572,43 @@ public class PersonRepository : ConnectionRepository, IPersonRepository
         }
     }
 
+    public async Task<IEnumerable<Person>> GetPathfindersWithoutFee()
+    {
+        var pathfinderList = new List<Person>();
+        using (var cnDb = Connection.GetConnection(Configuration))
+        {
+            try
+            {
+                using (var cmd = new SqlCommand("usp_GetPathfinderWithoutImport", cnDb))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Clear();
+                    Connection.OpenConnection();
+                    using (var dr = await cmd.ExecuteReaderAsync())
+                    {
+                        while (await dr.ReadAsync())
+                            pathfinderList.Add(new Person
+                            {
+                                Id = Convert.ToInt32(dr["ID"]),
+                                FirstName = dr["firstName"].ToString(),
+                                FathersSurname = dr["fathersSurname"].ToString(),
+                                MothersSurname = dr["mothersSurname"].ToString()
+                            });
+                    }
+
+                    Connection.CloseConnection();
+                }
+
+                return pathfinderList;
+            }
+            catch (SqlException ex)
+            {
+                Connection.CloseConnection();
+                return null;
+            }
+        }
+    }
+
     public async Task<IEnumerable<Person>> GetPathfindersByUnit(int id)
     {
         var pathfinderList = new List<Person>();

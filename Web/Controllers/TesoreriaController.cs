@@ -1,9 +1,20 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Application.IService;
+using Microsoft.AspNetCore.Mvc;
+using Models;
 
 namespace Web.Controllers;
 
 public class TesoreriaController : Controller
 {
+    private readonly IPersonService _personService;
+    private readonly IAttendanceService _attendanceService;
+
+    public TesoreriaController(IPersonService personService, IAttendanceService attendanceService)
+    {
+        _personService = personService;
+        _attendanceService = attendanceService;
+    }
+    
     // GET: TesoreriaController
     public ActionResult Index()
     {
@@ -17,9 +28,27 @@ public class TesoreriaController : Controller
     }
 
     // GET: TesoreriaController/Ahorro
-    public ActionResult Ahorro(int id)
+    public async Task<ActionResult> Ahorro(int id)
     {
+        var pathfinders = await _personService.GetPathfindersWithoutFee();
+        ViewBag.Pathfinders = pathfinders.Select(p => new
+        {
+            Value = p.Id,
+            Text = p.FirstName + " " + p.FathersSurname + " " + p.MothersSurname
+        }).ToList();
         return View();
+    }
+    
+    [HttpPost]
+    public async Task<ActionResult> Ahorro(int pathfinder, string import)
+    {
+        Person person = new Person()
+        {
+            Id = pathfinder,
+            TotalSavings = Convert.ToDecimal(import)
+        };
+        await _attendanceService.InsertFee(person);
+        return RedirectToAction("Inicio", "Crud");
     }
 
     // GET: TesoreriaController/Details/5

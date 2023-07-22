@@ -5,7 +5,6 @@ using Web.Models;
 
 namespace Web.Controllers;
 
-/*  [Authorize]*/
 public class CrudController : Controller
 {
     private readonly IPersonService _personService;
