@@ -1535,3 +1535,6 @@ BEGIN
         ROLLBACK TRAN;
     END CATCH
 END
+
+
+exec usp_getpathfindersbyunit 2
